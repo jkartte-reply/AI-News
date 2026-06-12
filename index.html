@@ -35,11 +35,10 @@
       color: var(--ink);
       display: flex;
       flex-direction: column;
-      /* subtle paper grain */
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
     }
 
-    /* ── Header ── */
+    /* ── Topbar ── */
     .topbar {
       height: var(--header-h);
       background: var(--paper);
@@ -53,13 +52,7 @@
       z-index: 100;
       flex-shrink: 0;
     }
-
-    .topbar-brand {
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-      flex-shrink: 0;
-    }
+    .topbar-brand { display: flex; align-items: baseline; gap: 0.6rem; flex-shrink: 0; }
     .brand-title {
       font-family: 'Instrument Serif', serif;
       font-size: 1.45rem;
@@ -74,13 +67,7 @@
       text-transform: uppercase;
       color: var(--ink-3);
     }
-
-    .topbar-rule {
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
-    }
-
+    .topbar-rule { flex: 1; height: 1px; background: var(--rule); }
     .topbar-meta {
       font-size: 0.72rem;
       letter-spacing: 0.06em;
@@ -88,7 +75,6 @@
       color: var(--ink-3);
       white-space: nowrap;
     }
-
     .topbar-gh {
       color: var(--ink-3);
       display: flex;
@@ -98,7 +84,6 @@
     }
     .topbar-gh:hover { color: var(--green); }
     .topbar-gh svg { width: 16px; height: 16px; fill: currentColor; }
-
     .sidebar-toggle {
       display: none;
       background: none;
@@ -111,11 +96,7 @@
     .sidebar-toggle svg { width: 18px; height: 18px; }
 
     /* ── Layout ── */
-    .layout {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
+    .layout { display: flex; flex: 1; overflow: hidden; }
 
     /* ── Sidebar ── */
     .sidebar {
@@ -127,13 +108,11 @@
       flex-shrink: 0;
       overflow: hidden;
     }
-
     .sidebar-top {
       padding: 1.25rem 1.25rem 0.75rem;
       border-bottom: 1px solid var(--rule);
       flex-shrink: 0;
     }
-
     .sidebar-label {
       font-size: 0.62rem;
       font-weight: 600;
@@ -143,10 +122,8 @@
       margin-bottom: 0.65rem;
     }
 
-    /* Search */
-    .search-wrap {
-      position: relative;
-    }
+    /* Search input */
+    .search-wrap { position: relative; }
     .search-icon {
       position: absolute;
       left: 0.65rem;
@@ -159,7 +136,7 @@
     }
     .search-input {
       width: 100%;
-      padding: 0.5rem 0.65rem 0.5rem 2rem;
+      padding: 0.5rem 1.75rem 0.5rem 2rem;
       background: var(--paper);
       border: 1px solid var(--rule-2);
       border-radius: 4px;
@@ -170,10 +147,7 @@
       transition: border-color 0.15s, box-shadow 0.15s;
     }
     .search-input::placeholder { color: var(--ink-4); }
-    .search-input:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 2px #2d6a4f18;
-    }
+    .search-input:focus { border-color: var(--green); box-shadow: 0 0 0 2px #2d6a4f18; }
     .search-clear {
       position: absolute;
       right: 0.5rem;
@@ -183,7 +157,7 @@
       border: none;
       cursor: pointer;
       color: var(--ink-4);
-      font-size: 1rem;
+      font-size: 1.1rem;
       line-height: 1;
       padding: 0 0.1rem;
       display: none;
@@ -191,6 +165,7 @@
     .search-clear.visible { display: block; }
     .search-clear:hover { color: var(--ink-2); }
 
+    /* Nav list */
     .report-nav {
       flex: 1;
       overflow-y: auto;
@@ -200,14 +175,6 @@
     }
     .report-nav::-webkit-scrollbar { width: 3px; }
     .report-nav::-webkit-scrollbar-thumb { background: var(--rule-2); }
-
-    .nav-empty {
-      padding: 1.5rem 0.5rem;
-      font-size: 0.78rem;
-      color: var(--ink-4);
-      font-style: italic;
-      display: none;
-    }
 
     .nav-item {
       display: flex;
@@ -220,19 +187,12 @@
       transition: background 0.12s, border-color 0.12s;
       margin-bottom: 1px;
     }
-    .nav-item:hover:not(.active) {
-      background: var(--paper-3);
-    }
-    .nav-item.active {
-      background: var(--green-light);
-      border-left-color: var(--green);
-    }
-    .nav-item.hidden { display: none; }
+    .nav-item:hover:not(.active) { background: var(--paper-3); }
+    .nav-item.active { background: var(--green-light); border-left-color: var(--green); }
 
     .nav-num {
       font-size: 0.62rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
       color: var(--ink-4);
       min-width: 18px;
       text-align: right;
@@ -240,22 +200,10 @@
       font-variant-numeric: tabular-nums;
     }
     .nav-item.active .nav-num { color: var(--green); }
-
     .nav-text { flex: 1; min-width: 0; }
-    .nav-date {
-      font-size: 0.67rem;
-      letter-spacing: 0.04em;
-      color: var(--ink-4);
-      font-variant-numeric: tabular-nums;
-    }
+    .nav-date { font-size: 0.67rem; color: var(--ink-4); font-variant-numeric: tabular-nums; }
     .nav-item.active .nav-date { color: var(--green); }
-    .nav-title {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--ink-2);
-      margin-top: 0.05rem;
-      line-height: 1.3;
-    }
+    .nav-title { font-size: 0.82rem; font-weight: 500; color: var(--ink-2); margin-top: 0.05rem; line-height: 1.3; }
     .nav-item.active .nav-title { color: var(--green); font-weight: 600; }
 
     .badge-new {
@@ -271,7 +219,6 @@
       margin-top: 0.2rem;
     }
 
-    /* skeleton */
     .nav-skeleton {
       height: 52px;
       border-radius: 4px;
@@ -281,7 +228,7 @@
     }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
-    /* ── Content ── */
+    /* ── Content area ── */
     .content {
       flex: 1;
       overflow-y: auto;
@@ -317,11 +264,136 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── Rendered Markdown ── */
-    .md {
-      animation: fadeIn 0.2s ease;
+    /* ── Search results panel ── */
+    .results-panel { animation: fadeIn 0.15s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(3px); } to { opacity:1; transform:none; } }
+
+    .results-hd {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--ink);
     }
-    @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:none; } }
+    .results-hd-left { display: flex; align-items: baseline; gap: 0.5rem; }
+    .results-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+    }
+    .results-count {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+    .results-query {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem;
+      color: var(--green);
+      font-style: italic;
+    }
+    .results-close {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--ink-3);
+      background: none;
+      border: 1px solid var(--rule-2);
+      border-radius: 3px;
+      padding: 0.25rem 0.6rem;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+      letter-spacing: 0.02em;
+    }
+    .results-close:hover { border-color: var(--green); color: var(--green); }
+
+    .result-card {
+      padding: 1.1rem 1.25rem 1.1rem 1rem;
+      border-left: 2px solid transparent;
+      border-bottom: 1px solid var(--rule);
+      cursor: pointer;
+      background: var(--paper);
+      transition: border-left-color 0.15s, background 0.12s, padding-left 0.12s;
+    }
+    .result-card:first-of-type { border-top: 1px solid var(--rule); }
+    .result-card:hover {
+      border-left-color: var(--green);
+      background: #f3f9f5;
+      padding-left: 1.2rem;
+    }
+
+    .result-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 0.18rem;
+    }
+    .result-date-label {
+      font-family: 'Instrument Serif', serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .result-arrow {
+      font-size: 0.8rem;
+      color: var(--green);
+      opacity: 0;
+      transform: translateX(-5px);
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .result-card:hover .result-arrow { opacity: 1; transform: translateX(0); }
+
+    .result-section {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .result-snippet {
+      font-family: 'Lora', serif;
+      font-size: 0.86rem;
+      line-height: 1.68;
+      color: var(--ink-3);
+      margin: 0;
+    }
+    .result-snippet mark {
+      background: #b8f0ca;
+      color: #1a5235;
+      border-radius: 2px;
+      padding: 0 2px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .results-none {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--ink-4);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+    .results-none strong { font-style: normal; color: var(--ink-3); }
+
+    .search-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 4rem 1rem;
+      color: var(--ink-4);
+      font-size: 0.82rem;
+    }
+    .search-loading .progress-text { font-variant-numeric: tabular-nums; }
+
+    /* ── Markdown styles ── */
+    .md { animation: fadeIn 0.2s ease; }
 
     .md h1 {
       font-family: 'Instrument Serif', serif;
@@ -332,8 +404,7 @@
       letter-spacing: -0.02em;
       margin-bottom: 0.4rem;
     }
-    .md > p:first-of-type,
-    .md > blockquote:first-of-type {
+    .md > p:first-of-type, .md > blockquote:first-of-type {
       font-size: 0.82rem;
       color: var(--ink-3);
       margin-bottom: 2rem;
@@ -342,19 +413,8 @@
       background: none;
       font-style: normal;
     }
-    .md > blockquote:first-of-type p {
-      font-size: 0.82rem;
-      color: var(--ink-3);
-      font-style: normal;
-    }
-
-    /* Horizontal rule after intro */
-    .md hr {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 1.75rem 0;
-    }
-
+    .md > blockquote:first-of-type p { font-size: 0.82rem; color: var(--ink-3); font-style: normal; }
+    .md hr { border: none; border-top: 1px solid var(--rule); margin: 1.75rem 0; }
     .md h2 {
       font-family: 'DM Sans', sans-serif;
       font-size: 0.65rem;
@@ -366,130 +426,33 @@
       padding-bottom: 0.4rem;
       border-bottom: 1px solid var(--rule);
     }
-    .md h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin: 1.4rem 0 0.35rem;
-    }
-
-    .md p {
-      font-family: 'Lora', serif;
-      font-size: 0.92rem;
-      line-height: 1.8;
-      color: var(--ink-2);
-      margin: 0.5rem 0;
-    }
-    .md ul, .md ol {
-      padding-left: 1.3rem;
-      margin: 0.5rem 0;
-    }
-    .md li {
-      font-family: 'Lora', serif;
-      font-size: 0.92rem;
-      line-height: 1.75;
-      color: var(--ink-2);
-      margin: 0.3rem 0;
-    }
+    .md h3 { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--ink); margin: 1.4rem 0 0.35rem; }
+    .md p { font-family: 'Lora', serif; font-size: 0.92rem; line-height: 1.8; color: var(--ink-2); margin: 0.5rem 0; }
+    .md ul, .md ol { padding-left: 1.3rem; margin: 0.5rem 0; }
+    .md li { font-family: 'Lora', serif; font-size: 0.92rem; line-height: 1.75; color: var(--ink-2); margin: 0.3rem 0; }
     .md li strong { color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 0.88rem; }
     .md strong { color: var(--ink); }
     .md em { font-style: italic; }
-
-    .md a {
-      color: var(--green);
-      text-decoration: underline;
-      text-decoration-color: var(--green-light);
-      text-underline-offset: 2px;
-      transition: text-decoration-color 0.15s;
-    }
+    .md a { color: var(--green); text-decoration: underline; text-decoration-color: var(--green-light); text-underline-offset: 2px; transition: text-decoration-color 0.15s; }
     .md a:hover { text-decoration-color: var(--green); }
-
-    .md blockquote {
-      border-left: 3px solid var(--green-mid);
-      padding: 0.5rem 1rem;
-      margin: 1rem 0;
-      background: #f0f7f3;
-      border-radius: 0 3px 3px 0;
-    }
-    .md blockquote p {
-      color: var(--ink-3);
-      font-style: italic;
-      font-size: 0.87rem;
-      line-height: 1.65;
-    }
-
-    .md code {
-      font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
-      font-size: 0.82em;
-      background: var(--paper-3);
-      border: 1px solid var(--rule);
-      padding: 0.1em 0.4em;
-      border-radius: 3px;
-      color: var(--ink-2);
-    }
-    .md pre {
-      background: var(--paper-2);
-      border: 1px solid var(--rule);
-      border-radius: 5px;
-      padding: 1rem;
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
+    .md blockquote { border-left: 3px solid var(--green-mid); padding: 0.5rem 1rem; margin: 1rem 0; background: #f0f7f3; border-radius: 0 3px 3px 0; }
+    .md blockquote p { color: var(--ink-3); font-style: italic; font-size: 0.87rem; line-height: 1.65; }
+    .md code { font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace; font-size: 0.82em; background: var(--paper-3); border: 1px solid var(--rule); padding: 0.1em 0.4em; border-radius: 3px; color: var(--ink-2); }
+    .md pre { background: var(--paper-2); border: 1px solid var(--rule); border-radius: 5px; padding: 1rem; overflow-x: auto; margin: 1rem 0; }
     .md pre code { background: none; border: none; padding: 0; }
-
-    /* Tables */
-    .md table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.8rem;
-      margin: 1.25rem 0;
-      display: block;
-      overflow-x: auto;
-      font-family: 'DM Sans', sans-serif;
-    }
+    .md table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin: 1.25rem 0; display: block; overflow-x: auto; font-family: 'DM Sans', sans-serif; }
     .md thead tr { border-bottom: 2px solid var(--ink); }
-    .md th {
-      padding: 0.5rem 0.75rem;
-      text-align: left;
-      font-size: 0.67rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink);
-      white-space: nowrap;
-    }
-    .md td {
-      padding: 0.5rem 0.75rem;
-      border-bottom: 1px solid var(--rule);
-      color: var(--ink-2);
-      vertical-align: top;
-      line-height: 1.5;
-    }
+    .md th { padding: 0.5rem 0.75rem; text-align: left; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+    .md td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--rule); color: var(--ink-2); vertical-align: top; line-height: 1.5; }
     .md tr:last-child td { border-bottom: none; }
     .md tbody tr:hover td { background: var(--paper-2); }
-
-    /* search highlight */
-    mark {
-      background: #d4edda;
-      color: inherit;
-      border-radius: 2px;
-      padding: 0 1px;
-    }
 
     /* ── Mobile ── */
     @media (max-width: 700px) {
       .sidebar-toggle { display: block; }
       .topbar-meta { display: none; }
       .layout { flex-direction: column; overflow: visible; }
-      .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid var(--rule);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
+      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--rule); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
       .sidebar.open { max-height: 60vh; overflow-y: auto; }
       .content { overflow: visible; }
       .content-inner { padding: 1.5rem 1.2rem 3rem; }
@@ -498,34 +461,26 @@
 </head>
 <body>
 
-<!-- Top bar -->
 <header class="topbar">
-  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Navigation ein-/ausblenden">
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Navigation">
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
       <line x1="2" y1="4.5"  x2="16" y2="4.5"/>
       <line x1="2" y1="9"    x2="16" y2="9"/>
       <line x1="2" y1="13.5" x2="16" y2="13.5"/>
     </svg>
   </button>
-
   <div class="topbar-brand">
     <span class="brand-title">AI Weekly</span>
     <span class="brand-issue">Microsoft Partner Edition</span>
   </div>
-
   <div class="topbar-rule"></div>
-
   <span class="topbar-meta">KI-Neuigkeiten für AI Engineers</span>
-
   <a class="topbar-gh" href="https://github.com/jkartte-reply/AI-News" target="_blank" rel="noopener" title="GitHub">
     <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
   </a>
 </header>
 
-<!-- Layout -->
 <div class="layout">
-
-  <!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-top">
       <div class="sidebar-label">Reports</div>
@@ -538,34 +493,30 @@
           class="search-input"
           id="searchInput"
           type="search"
-          placeholder="Datum oder Monat suchen…"
+          placeholder="Inhalte durchsuchen…"
           autocomplete="off"
           spellcheck="false"
         >
         <button class="search-clear" id="searchClear" aria-label="Suche leeren">×</button>
       </div>
     </div>
-
     <div class="report-nav" id="reportNav">
       <div class="nav-skeleton"></div>
       <div class="nav-skeleton" style="opacity:.7;margin-top:3px"></div>
       <div class="nav-skeleton" style="opacity:.4;margin-top:3px"></div>
     </div>
-    <p class="nav-empty" id="navEmpty">Keine Ergebnisse gefunden.</p>
   </nav>
 
-  <!-- Content -->
   <main class="content" id="contentArea">
     <div class="content-inner" id="contentInner">
       <div class="content-loader"><div class="spinner"></div> Lade Report…</div>
     </div>
   </main>
-
 </div>
 
 <script>
-const REPO   = 'jkartte-reply/AI-News';
-const BRANCH = 'main';
+const REPO      = 'jkartte-reply/AI-News';
+const BRANCH    = 'main';
 const DE_MONTHS = ['Januar','Februar','März','April','Mai','Juni',
                    'Juli','August','September','Oktober','November','Dezember'];
 
@@ -577,31 +528,303 @@ function rawUrl(name) {
   return `https://raw.githubusercontent.com/${REPO}/${BRANCH}/Reports/${name}`;
 }
 
-const navEl      = document.getElementById('reportNav');
-const inner      = document.getElementById('contentInner');
-const sidebar    = document.getElementById('sidebar');
-const searchEl   = document.getElementById('searchInput');
-const clearBtn   = document.getElementById('searchClear');
-const emptyMsg   = document.getElementById('navEmpty');
+// ── DOM refs ──
+const navEl     = document.getElementById('reportNav');
+const inner     = document.getElementById('contentInner');
+const sidebar   = document.getElementById('sidebar');
+const searchEl  = document.getElementById('searchInput');
+const clearBtn  = document.getElementById('searchClear');
+const contentEl = document.getElementById('contentArea');
 
-let currentFile  = null;
-let allNavItems  = [];
+// ── State ──
+let allFiles        = [];        // [{name, ...}] from GitHub API
+let allNavItems     = [];        // [{el, filename}]
+let currentFile     = null;
+let currentNavItem  = null;
+let searchMode      = false;
 
-// Mobile toggle
+// Cache: filename → { sections: [{heading, text}], label, iso }
+const reportCache   = new Map();
+let   cacheState    = 'idle';    // 'idle' | 'loading' | 'ready'
+let   cachePromise  = null;
+
+let   searchTimer   = null;
+
+// ── Mobile toggle ──
 document.getElementById('sidebarToggle').addEventListener('click', () => {
   sidebar.classList.toggle('open');
 });
 
-async function showReport(name, itemEl) {
-  if (name === currentFile) return;
-  currentFile = name;
+// ── Markdown utilities ──
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
-  allNavItems.forEach(i => i.el.classList.remove('active'));
+function stripMarkdown(text) {
+  return text
+    .split('\n')
+    .map(line => {
+      // Drop table separator rows (only |, -, :, spaces)
+      if (/^\|[\s|:\-]+$/.test(line)) return null;
+      // Clean table data rows → space-separated cell text
+      if (/^\|/.test(line)) {
+        return line.split('|').map(c => c.trim()).filter(Boolean).join(' ');
+      }
+      return line;
+    })
+    .filter(l => l !== null)
+    .join('\n')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/__(.+?)__/g, '$1')
+    .replace(/_(.+?)_/g, '$1')
+    .replace(/\[(.+?)\]\(.+?\)/g, '$1')
+    .replace(/`(.+?)`/g, '$1')
+    .replace(/^>\s?/gm, '')
+    .replace(/^\s*[-*+]\s/gm, '')
+    .replace(/^\s*\d+\.\s/gm, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+// Split markdown into sections by heading (## / ###)
+function parseSections(raw) {
+  const lines    = raw.split('\n');
+  const sections = [];
+  let heading    = null;
+  let buf        = [];
+
+  for (const line of lines) {
+    const m = line.match(/^(#{2,3})\s+(.+)$/);
+    if (m) {
+      if (buf.length) sections.push({ heading, text: stripMarkdown(buf.join('\n')) });
+      heading = m[2].trim();
+      buf     = [];
+    } else {
+      buf.push(line);
+    }
+  }
+  if (buf.length) sections.push({ heading, text: stripMarkdown(buf.join('\n')) });
+  return sections;
+}
+
+// Extract one snippet around matchIdx (clean text, no markdown)
+function extractSnippet(text, idx, qLen, ctx = 130) {
+  const start = Math.max(0, idx - ctx);
+  const end   = Math.min(text.length, idx + qLen + ctx);
+  let   snip  = text.slice(start, end).replace(/\n+/g, ' ').trim();
+  if (start > 0) snip = '…' + snip;
+  if (end < text.length) snip += '…';
+  return snip;
+}
+
+// Wrap query occurrences in <mark> (operates on already-escaped HTML string)
+function highlight(html, query) {
+  const escaped = escapeHtml(query).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return html.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+}
+
+// ── Load all reports into cache ──
+async function ensureLoaded() {
+  if (cacheState === 'ready') return;
+  if (cacheState === 'loading') { await cachePromise; return; }
+
+  cacheState   = 'loading';
+  let loaded   = 0;
+  const total  = allFiles.length;
+
+  cachePromise = (async () => {
+    await Promise.all(allFiles.map(async f => {
+      try {
+        const res = await fetch(rawUrl(f.name));
+        if (res.ok) {
+          const raw      = await res.text();
+          const sections = parseSections(raw);
+          reportCache.set(f.name, {
+            sections,
+            label: fmtDate(f.name.slice(0, 10)),
+            iso:   f.name.slice(0, 10),
+          });
+        }
+      } catch { /* skip */ }
+
+      loaded++;
+      // Update progress if we're still in loading state
+      const prog = document.getElementById('searchProgress');
+      if (prog) prog.textContent = `${loaded} / ${total} Reports geladen…`;
+    }));
+    cacheState = 'ready';
+  })();
+
+  await cachePromise;
+}
+
+// ── Full-text search ──
+function searchReports(query) {
+  const q       = query.toLowerCase();
+  const byReport = [];
+
+  for (const [filename, { sections, label, iso }] of reportCache) {
+    const snippets   = [];
+    let   totalHits  = 0;
+
+    for (const { heading, text } of sections) {
+      const lower = text.toLowerCase();
+      let   pos   = 0;
+      let   hits  = 0;
+
+      while (true) {
+        const idx = lower.indexOf(q, pos);
+        if (idx === -1) break;
+        hits++;
+        totalHits++;
+        if (snippets.length < 3) {
+          snippets.push({ heading, snippet: extractSnippet(text, idx, q.length), filename, label, iso });
+        }
+        pos = idx + q.length;
+      }
+    }
+
+    if (totalHits > 0) byReport.push({ totalHits, snippets, iso });
+  }
+
+  // Sort by date descending (newest first)
+  byReport.sort((a, b) => b.iso.localeCompare(a.iso));
+  return byReport.flatMap(r => r.snippets);
+}
+
+// ── Render results panel ──
+function renderResults(snippets, query) {
+  contentEl.scrollTo(0, 0);
+
+  if (snippets.length === 0) {
+    inner.innerHTML = `
+      <div class="results-panel">
+        <div class="results-hd">
+          <div class="results-hd-left">
+            <span class="results-label">Suche</span>
+            <span class="results-count">Keine Treffer für</span>
+            <span class="results-query">&ldquo;${escapeHtml(query)}&rdquo;</span>
+          </div>
+          <button class="results-close" id="resultsClose">Schließen</button>
+        </div>
+        <div class="results-none">
+          Keine Ergebnisse in den Reports gefunden.<br>
+          <strong>Tipp:</strong> Versuche einen kürzeren oder allgemeineren Begriff.
+        </div>
+      </div>`;
+  } else {
+    const cards = snippets.map(({ heading, snippet, filename, label, iso }) => {
+      const safeSnippet = highlight(escapeHtml(snippet), query);
+      const sectionHtml = heading
+        ? `<span class="result-section">${escapeHtml(heading)}</span>`
+        : '';
+      return `
+        <div class="result-card" data-file="${escapeHtml(filename)}">
+          <div class="result-header">
+            <span class="result-date-label">${escapeHtml(label)}</span>
+            <span class="result-arrow">&#8594;</span>
+          </div>
+          ${sectionHtml}
+          <p class="result-snippet">${safeSnippet}</p>
+        </div>`;
+    }).join('');
+
+    const total = snippets.length;
+    inner.innerHTML = `
+      <div class="results-panel">
+        <div class="results-hd">
+          <div class="results-hd-left">
+            <span class="results-label">Suche</span>
+            <span class="results-count">${total} Treffer für</span>
+            <span class="results-query">&ldquo;${escapeHtml(query)}&rdquo;</span>
+          </div>
+          <button class="results-close" id="resultsClose">Schließen</button>
+        </div>
+        ${cards}
+      </div>`;
+  }
+
+  // Close button
+  document.getElementById('resultsClose').addEventListener('click', exitSearch);
+
+  // Result card clicks → open report
+  inner.querySelectorAll('.result-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const filename  = card.dataset.file;
+      const navEntry  = allNavItems.find(n => n.filename === filename);
+      exitSearch();
+      if (navEntry) showReport(filename, navEntry.el);
+    });
+  });
+}
+
+// ── Show loading panel ──
+function renderLoadingPanel() {
+  contentEl.scrollTo(0, 0);
+  inner.innerHTML = `
+    <div class="search-loading">
+      <div class="spinner"></div>
+      <span class="progress-text" id="searchProgress">Lade Reports…</span>
+    </div>`;
+}
+
+// ── Exit search ──
+function exitSearch() {
+  searchMode       = false;
+  searchEl.value   = '';
+  clearBtn.classList.remove('visible');
+  // Restore last viewed report (or newest)
+  if (currentNavItem) {
+    currentFile = null; // force reload
+    showReport(currentNavItem.dataset.file, currentNavItem);
+  }
+}
+
+// ── Search handler (debounced) ──
+async function handleSearch(rawQuery) {
+  const query = rawQuery.trim();
+  clearBtn.classList.toggle('visible', rawQuery.length > 0);
+
+  if (query.length < 2) {
+    if (searchMode) exitSearch();
+    return;
+  }
+
+  searchMode = true;
+
+  if (cacheState !== 'ready') {
+    renderLoadingPanel();
+    await ensureLoaded();
+    // Check query hasn't changed while loading
+    if (searchEl.value.trim() !== query) return;
+  }
+
+  renderResults(searchReports(query), query);
+}
+
+searchEl.addEventListener('input', e => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => handleSearch(e.target.value), 300);
+});
+
+clearBtn.addEventListener('click', () => {
+  clearTimeout(searchTimer);
+  exitSearch();
+  searchEl.focus();
+});
+
+// ── Show report ──
+async function showReport(name, itemEl) {
+  currentFile    = name;
+  currentNavItem = itemEl;
+  currentNavItem.dataset.file = name;
+
+  allNavItems.forEach(n => n.el.classList.remove('active'));
   itemEl.classList.add('active');
 
   if (window.innerWidth <= 700) sidebar.classList.remove('open');
-
-  document.getElementById('contentArea').scrollTo(0, 0);
+  contentEl.scrollTo(0, 0);
 
   inner.innerHTML = '<div class="content-loader"><div class="spinner"></div> Lade Report…</div>';
 
@@ -609,6 +832,16 @@ async function showReport(name, itemEl) {
     const res = await fetch(rawUrl(name));
     if (!res.ok) throw new Error();
     const md  = await res.text();
+
+    // Pre-cache if not already cached (saves a fetch when user searches later)
+    if (!reportCache.has(name) && allFiles.length) {
+      reportCache.set(name, {
+        sections: parseSections(md),
+        label:    fmtDate(name.slice(0, 10)),
+        iso:      name.slice(0, 10),
+      });
+    }
+
     const div = document.createElement('div');
     div.className = 'md';
     div.innerHTML = marked.parse(md);
@@ -620,44 +853,21 @@ async function showReport(name, itemEl) {
   }
 }
 
-// Search
-function applySearch(query) {
-  const q = query.trim().toLowerCase();
-  let visCount = 0;
-
-  allNavItems.forEach(({ el, searchText }) => {
-    const match = !q || searchText.includes(q);
-    el.classList.toggle('hidden', !match);
-    if (match) visCount++;
-  });
-
-  emptyMsg.style.display = visCount === 0 ? 'block' : 'none';
-  clearBtn.classList.toggle('visible', q.length > 0);
-}
-
-searchEl.addEventListener('input', e => applySearch(e.target.value));
-clearBtn.addEventListener('click', () => {
-  searchEl.value = '';
-  applySearch('');
-  searchEl.focus();
-});
-
-// Load report list
+// ── Bootstrap ──
 (async () => {
   try {
-    const res   = await fetch(`https://api.github.com/repos/${REPO}/contents/Reports`);
-    const files = (await res.json())
+    const res = await fetch(`https://api.github.com/repos/${REPO}/contents/Reports`);
+    allFiles  = (await res.json())
       .filter(f => f.name.endsWith('.md'))
       .sort((a, b) => b.name.localeCompare(a.name));
 
     navEl.innerHTML = '';
 
-    files.forEach((f, i) => {
+    allFiles.forEach((f, i) => {
       const iso   = f.name.slice(0, 10);
       const label = fmtDate(iso);
       const isNew = i === 0;
-      const num   = files.length - i;
-      const searchText = `${iso} ${label.toLowerCase()} ${f.name.toLowerCase()}`;
+      const num   = allFiles.length - i;
 
       const item = document.createElement('div');
       item.className = 'nav-item';
@@ -670,9 +880,16 @@ clearBtn.addEventListener('click', () => {
         ${isNew ? '<span class="badge-new">Neu</span>' : ''}
       `;
 
-      item.addEventListener('click', () => showReport(f.name, item));
+      item.addEventListener('click', () => {
+        clearTimeout(searchTimer);
+        searchEl.value = '';
+        clearBtn.classList.remove('visible');
+        searchMode     = false;
+        showReport(f.name, item);
+      });
+
       navEl.appendChild(item);
-      allNavItems.push({ el: item, searchText });
+      allNavItems.push({ el: item, filename: f.name });
 
       if (i === 0) showReport(f.name, item);
     });
