@@ -1,0 +1,121 @@
+---
+import '../styles/global.css';
+import type { ReportMeta } from '../lib/reports';
+
+interface Props {
+  title: string;
+  reports: ReportMeta[];
+  activeSlug?: string;
+}
+
+const { title, reports, activeSlug } = Astro.props;
+const base = import.meta.env.BASE_URL;            // "/AI-News/"
+const reportHref = (slug: string) => `${base}reports/${slug}/`;
+const pagefindUI = `${base}pagefind/pagefind-ui.js`;
+const pagefindCSS = `${base}pagefind/pagefind-ui.css`;
+const total = reports.length;
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="alternate" type="application/rss+xml" title="AI Weekly News" href={`${base}rss.xml`} />
+  <link rel="stylesheet" href={pagefindCSS} />
+</head>
+<body>
+
+<header class="topbar">
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Navigation">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <line x1="2" y1="4.5" x2="16" y2="4.5" />
+      <line x1="2" y1="9" x2="16" y2="9" />
+      <line x1="2" y1="13.5" x2="16" y2="13.5" />
+    </svg>
+  </button>
+  <a class="topbar-brand" href={base}>
+    <span class="brand-title">AI Weekly</span>
+    <span class="brand-issue">Microsoft Partner Edition</span>
+  </a>
+  <div class="topbar-rule"></div>
+  <span class="topbar-meta">KI-Neuigkeiten für AI Engineers</span>
+  <a class="topbar-gh" href="https://github.com/jkartte-reply/AI-News" target="_blank" rel="noopener" title="GitHub">
+    <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+  </a>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-label">Suche</div>
+      <div id="search"></div>
+    </div>
+    <div class="report-nav">
+      <div class="sidebar-label">Alle Reports</div>
+      {reports.map((r, i) => (
+        <a
+          class:list={['nav-item', { active: r.slug === activeSlug }]}
+          href={reportHref(r.slug)}
+        >
+          <span class="nav-num">{total - i}</span>
+          <span class="nav-text">
+            <span class="nav-date">{r.iso}</span>
+            <span class="nav-title">{r.label}</span>
+          </span>
+          {i === 0 && <span class="badge-new">Neu</span>}
+        </a>
+      ))}
+    </div>
+  </nav>
+
+  <main class="content" id="contentArea">
+    <slot />
+  </main>
+</div>
+
+<script>
+  const toggle = document.getElementById('sidebarToggle');
+  const sidebar = document.getElementById('sidebar');
+  toggle?.addEventListener('click', () => sidebar?.classList.toggle('open'));
+</script>
+
+<script src={pagefindUI} is:inline></script>
+<script is:inline define:vars={{ base }}>
+  function initPagefind() {
+    if (typeof window.PagefindUI === 'undefined') return; // not built yet (dev mode)
+    new window.PagefindUI({
+      element: '#search',
+      bundlePath: base + 'pagefind/',
+      showImages: false,
+      showSubResults: true,
+      pageSize: 6,
+      // Pagefind indexes paths relative to dist root (e.g. /reports/x/);
+      // the site is served under base, so prepend it to every result URL.
+      processResult(result) {
+        const b = base.replace(/\/$/, '');
+        const fix = (u) => (u && u.startsWith('/') && !u.startsWith(b + '/')) ? b + u : u;
+        if (result && result.url) result.url = fix(result.url);
+        if (result && result.sub_results) {
+          result.sub_results.forEach((s) => { if (s.url) s.url = fix(s.url); });
+        }
+        return result;
+      },
+      translations: {
+        placeholder: 'Inhalte durchsuchen…',
+        zero_results: 'Keine Treffer für [SEARCH_TERM]',
+      },
+    });
+  }
+  if (document.readyState !== 'loading') initPagefind();
+  else document.addEventListener('DOMContentLoaded', initPagefind);
+</script>
+
+</body>
+</html>
