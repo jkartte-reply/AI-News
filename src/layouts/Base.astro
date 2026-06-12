@@ -19,6 +19,18 @@ const total = reports.length;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
+  <!-- Set the theme before first paint to avoid a flash of the wrong palette. -->
+  <script is:inline>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -43,6 +55,10 @@ const total = reports.length;
   </a>
   <div class="topbar-rule"></div>
   <span class="topbar-meta">KI-Neuigkeiten für AI Engineers</span>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Hell-/Dunkelmodus umschalten" title="Hell / Dunkel">
+    <svg class="icon-moon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.5 9.7A5.5 5.5 0 0 1 6.3 2.5a.6.6 0 0 0-.8-.77 6.5 6.5 0 1 0 8.74 8.74.6.6 0 0 0-.77-.78z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9 13 13M13 3l-1.1 1.1M4.1 11.9 3 13"/></svg>
+  </button>
   <a class="topbar-gh" href="https://github.com/jkartte-reply/AI-News" target="_blank" rel="noopener" title="GitHub">
     <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
   </a>
@@ -98,6 +114,30 @@ const total = reports.length;
   const toggle = document.getElementById('sidebarToggle');
   const sidebar = document.getElementById('sidebar');
   toggle?.addEventListener('click', () => sidebar?.classList.toggle('open'));
+</script>
+
+<script>
+  // Dark-mode toggle. Initial theme is applied pre-paint by the inline <head>
+  // script; here we just flip + persist. System changes are followed only while
+  // the user hasn't made an explicit choice.
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeToggle');
+  const setPressed = () => themeBtn?.setAttribute('aria-pressed', String(root.dataset.theme === 'dark'));
+  setPressed();
+  themeBtn?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    setPressed();
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    let stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (err) {}
+    if (stored !== 'dark' && stored !== 'light') {
+      root.dataset.theme = e.matches ? 'dark' : 'light';
+      setPressed();
+    }
+  });
 </script>
 
 <script>
