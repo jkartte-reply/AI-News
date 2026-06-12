@@ -1,0 +1,15 @@
+theme: minima
+title: AI Weekly News
+description: Wöchentliche KI-Neuigkeiten für AI Engineers im Microsoft Partner Umfeld
+lang: de
+
+minima:
+  skin: dark
+
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-feed
+
+exclude:
+  - .claude/
+  - "*.sh"
