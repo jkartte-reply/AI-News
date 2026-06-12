@@ -451,6 +451,57 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* ── Section anchors (copy-link on headings) ── */
+.md h2, .md h3 { position: relative; scroll-margin-top: 1.5rem; }
+.section-anchor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 1.35em;
+  height: 1.35em;
+  margin-left: 0.4em;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--ink-4);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s, color 0.12s;
+  position: relative;
+}
+.section-anchor svg { width: 0.9em; height: 0.9em; }
+.md h2:hover .section-anchor,
+.md h3:hover .section-anchor,
+.section-anchor:focus-visible { opacity: 1; }
+.section-anchor:hover { color: var(--green); }
+/* Tap targets on touch devices have no hover — keep anchors faintly visible */
+@media (hover: none) {
+  .section-anchor { opacity: 0.4; }
+}
+.section-anchor.copied,
+.section-anchor.copy-failed { opacity: 1; color: var(--green); }
+.section-anchor.copied::after,
+.section-anchor.copy-failed::after {
+  content: "Kopiert ✓";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: #fff;
+  background: var(--green);
+  padding: 0.2rem 0.45rem;
+  border-radius: 3px;
+  pointer-events: none;
+}
+.section-anchor.copy-failed::after { content: "Kopieren fehlgeschlagen"; background: #b4533a; }
+
 /* ── Report footer / print button ── */
 .report-footer {
   margin-top: 3.5rem;

@@ -41,3 +41,54 @@ const { Content } = await render(report.entry);
 <script>
   document.getElementById('printBtn')?.addEventListener('click', () => window.print());
 </script>
+
+<script>
+  // Section anchors (#10): each h2/h3 (id set at build time by rehypeHeadingIds)
+  // gets a hover link button that copies its deep-link to the clipboard.
+  // On load / hashchange we scroll the matching section into view — needed
+  // because the content scrolls inside #contentArea, not the document.
+  const headings = document.querySelectorAll<HTMLElement>('.md h2[id], .md h3[id]');
+
+  const copy = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch {}
+      document.body.removeChild(ta);
+      return ok;
+    }
+  };
+
+  headings.forEach((h) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'section-anchor';
+    btn.setAttribute('aria-label', 'Link zu diesem Abschnitt kopieren');
+    btn.innerHTML = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 8.5a2.5 2.5 0 0 0 3.5 0l2-2a2.5 2.5 0 0 0-3.5-3.5l-1 1"/><path d="M9.5 7.5a2.5 2.5 0 0 0-3.5 0l-2 2a2.5 2.5 0 0 0 3.5 3.5l1-1"/></svg>';
+    btn.addEventListener('click', async () => {
+      const url = `${location.origin}${location.pathname}#${h.id}`;
+      const ok = await copy(url);
+      history.replaceState(null, '', `#${h.id}`);
+      btn.classList.add(ok ? 'copied' : 'copy-failed');
+      setTimeout(() => btn.classList.remove('copied', 'copy-failed'), 1400);
+    });
+    h.appendChild(btn);
+  });
+
+  const scrollToHash = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  };
+  if (location.hash) scrollToHash();
+  window.addEventListener('hashchange', scrollToHash);
+</script>
