@@ -84,6 +84,20 @@ body {
 }
 .sidebar-toggle svg { width: 18px; height: 18px; }
 
+/* ── Reading-progress bar ── */
+.read-progress {
+  height: 3px;
+  background: var(--paper-2);
+  flex-shrink: 0;
+}
+.read-progress-bar {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--green);
+  transition: width 0.08s linear;
+}
+
 /* ── Layout ── */
 .layout { display: flex; flex: 1; overflow: hidden; }
 

@@ -48,6 +48,8 @@ const total = reports.length;
   </a>
 </header>
 
+<div class="read-progress" aria-hidden="true"><span class="read-progress-bar" id="readProgressBar"></span></div>
+
 <div class="layout">
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-top">
@@ -96,6 +98,33 @@ const total = reports.length;
   const toggle = document.getElementById('sidebarToggle');
   const sidebar = document.getElementById('sidebar');
   toggle?.addEventListener('click', () => sidebar?.classList.toggle('open'));
+</script>
+
+<script>
+  // Reading-progress bar: reflects how far the content area is scrolled.
+  // The content scrolls inside #contentArea (not window). Hidden while the
+  // search-results view is active so it stays a pure reading indicator.
+  const bar = document.getElementById('readProgressBar');
+  const area = document.getElementById('contentArea');
+  const reportView = document.getElementById('reportView');
+  if (bar && area) {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      if (reportView?.hidden) { bar.style.width = '0%'; return; }
+      const max = area.scrollHeight - area.clientHeight;
+      const pct = max > 0 ? (area.scrollTop / max) * 100 : 0;
+      bar.style.width = `${pct}%`;
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+    area.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
 </script>
 
 <script>
