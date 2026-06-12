@@ -451,6 +451,88 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* ── Table of contents ── */
+.toc {
+  margin: 2rem 3.5rem 0;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+.toc-summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.toc-summary::-webkit-details-marker { display: none; }
+.toc-summary::after {
+  content: "";
+  width: 7px; height: 7px;
+  border-right: 1.5px solid var(--ink-4);
+  border-bottom: 1.5px solid var(--ink-4);
+  transform: rotate(45deg);
+  transition: transform 0.18s;
+}
+.toc[open] .toc-summary::after { transform: rotate(-135deg); }
+.toc-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0.5rem 0.6rem;
+  border-top: 1px solid var(--rule);
+}
+.toc-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--ink-3);
+  text-decoration: none;
+  padding: 0.32rem 0.6rem;
+  border-left: 2px solid transparent;
+  border-radius: 0 3px 3px 0;
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+.toc-link:hover { color: var(--ink); background: var(--paper-3); }
+.toc-h3 { padding-left: 1.4rem; font-size: 0.74rem; color: var(--ink-4); }
+.toc-link.active { color: var(--green); border-left-color: var(--green); font-weight: 600; }
+
+@media (min-width: 1200px) {
+  .report-shell {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .report-shell > .content-inner { order: 1; margin: 0; flex: 1 1 760px; max-width: 1100px; min-width: 0; }
+  .toc {
+    order: 2;
+    flex: 0 0 220px;
+    width: 220px;
+    margin: 3.2rem 0 0;
+    border: none;
+    border-left: 1px solid var(--rule);
+    border-radius: 0;
+    background: none;
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - var(--header-h) - 3rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule-2) transparent;
+  }
+  .toc-summary { cursor: default; padding: 0 1rem 0.5rem; }
+  .toc-summary::after { display: none; }
+  .toc-nav { border-top: none; padding: 0 0.25rem; }
+}
+
 /* ── Section anchors (copy-link on headings) ── */
 .md h2, .md h3 { position: relative; scroll-margin-top: 1.5rem; }
 .section-anchor {
@@ -572,4 +654,5 @@ body {
   .sidebar.open { max-height: 70vh; overflow-y: auto; }
   .content { overflow: visible; }
   .content-inner { padding: 1.5rem 1.2rem 3rem; }
+  .toc { margin: 1.5rem 1.2rem 0; }
 }

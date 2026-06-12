@@ -14,6 +14,11 @@ const { report, indexed = false } = Astro.props;
 const { Content } = await render(report.entry);
 ---
 <div class="report-shell">
+  <details class="toc" id="toc" data-pagefind-ignore hidden>
+    <summary class="toc-summary">Auf dieser Seite</summary>
+    <nav class="toc-nav" id="tocNav" aria-label="Inhaltsverzeichnis"></nav>
+  </details>
+
   <article class="content-inner" data-pagefind-body={indexed ? true : undefined}>
     <!-- Print-only header (hidden on screen, shown in print/PDF) -->
     <div class="print-head" aria-hidden="true">
@@ -91,4 +96,60 @@ const { Content } = await render(report.entry);
   };
   if (location.hash) scrollToHash();
   window.addEventListener('hashchange', scrollToHash);
+</script>
+
+<script>
+  // Table of contents (#09): built from the section headings, sticky beside the
+  // report on wide screens, collapsible on mobile. Active section is highlighted
+  // while scrolling via IntersectionObserver (root = #contentArea scroll box).
+  const toc = document.getElementById('toc') as HTMLDetailsElement | null;
+  const tocNav = document.getElementById('tocNav');
+  const area = document.getElementById('contentArea');
+  const headings = Array.from(
+    document.querySelectorAll<HTMLElement>('.md h2[id], .md h3[id]')
+  );
+
+  if (toc && tocNav && headings.length >= 3) {
+    const linkFor = new Map<string, HTMLAnchorElement>();
+    for (const h of headings) {
+      const a = document.createElement('a');
+      a.className = `toc-link toc-${h.tagName.toLowerCase()}`;
+      a.href = `#${h.id}`;
+      // Use only the heading's own text, ignoring the injected anchor button.
+      a.textContent = (h.childNodes[0]?.textContent || h.textContent || '').trim();
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.replaceState(null, '', `#${h.id}`);
+        h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (toc.open && window.matchMedia('(max-width: 1199px)').matches) toc.open = false;
+      });
+      tocNav.appendChild(a);
+      linkFor.set(h.id, a);
+    }
+
+    toc.hidden = false;
+    // Open by default on wide screens (sticky rail), collapsed on mobile.
+    const wide = window.matchMedia('(min-width: 1200px)');
+    toc.open = wide.matches;
+    wide.addEventListener('change', (e) => { toc.open = e.matches; });
+
+    let activeId = '';
+    const setActive = (id: string) => {
+      if (id === activeId) return;
+      if (activeId) linkFor.get(activeId)?.classList.remove('active');
+      activeId = id;
+      linkFor.get(id)?.classList.add('active');
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Pick the heading nearest the top edge of the viewport band.
+        const visible = entries
+          .filter((en) => en.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) setActive((visible[0].target as HTMLElement).id);
+      },
+      { root: area, rootMargin: '0px 0px -78% 0px', threshold: 0 }
+    );
+    headings.forEach((h) => observer.observe(h));
+  }
 </script>
