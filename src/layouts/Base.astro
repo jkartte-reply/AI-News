@@ -188,7 +188,7 @@ const total = reports.length;
           <strong>Tipp:</strong> Versuche einen kürzeren oder allgemeineren Begriff.</div></div>`;
       } else {
         const cards = results.map((d) => {
-          const url = fixUrl(d.url);
+          const url = fixUrl(d.url) + `?q=${encodeURIComponent(query)}`;
           const iso = dateFromUrl(url);
           const label = iso ? fmtDate(iso) : (d.meta?.title || 'Report');
           const subs = (d.sub_results && d.sub_results.length

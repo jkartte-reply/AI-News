@@ -584,6 +584,23 @@ body {
 }
 .section-anchor.copy-failed::after { content: "Kopieren fehlgeschlagen"; background: #b4533a; }
 
+/* ── Search-term highlight inside an opened report (#04) ── */
+.md mark.search-hl {
+  background: #ffe6a3;
+  color: var(--ink);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+.md mark.search-hl-first {
+  background: #ffd24d;
+  box-shadow: 0 0 0 2px #ffd24d;
+  animation: hlPulse 1.1s ease 1;
+}
+@keyframes hlPulse {
+  0% { box-shadow: 0 0 0 4px #ffd24d88; }
+  100% { box-shadow: 0 0 0 2px #ffd24d; }
+}
+
 /* ── Report footer / print button ── */
 .report-footer {
   margin-top: 3.5rem;

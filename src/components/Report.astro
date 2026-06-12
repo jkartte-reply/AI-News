@@ -153,3 +153,56 @@ const { Content } = await render(report.entry);
     headings.forEach((h) => observer.observe(h));
   }
 </script>
+
+<script>
+  // Search-term highlighting (#04): when a report is opened from a search result
+  // its URL carries ?q=<term>. We mark every occurrence in the report body and
+  // scroll the first one into view. Opening a report normally (no ?q=) → no marks.
+  const md = document.querySelector<HTMLElement>('.md');
+  const q = new URLSearchParams(location.search).get('q');
+  if (md && q) {
+    const tokens = q.trim().split(/\s+/).filter((t) => t.length >= 2)
+      .map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    if (tokens.length) {
+      const re = new RegExp(`(${tokens.join('|')})`, 'gi');
+      const walker = document.createTreeWalker(md, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          const p = (node as Text).parentElement;
+          if (!p || p.closest('mark, code, pre, .section-anchor')) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        },
+      });
+
+      const targets: Text[] = [];
+      let n: Node | null;
+      while ((n = walker.nextNode())) targets.push(n as Text);
+
+      let first: HTMLElement | null = null;
+      for (const textNode of targets) {
+        const value = textNode.nodeValue || '';
+        if (!re.test(value)) continue;
+        re.lastIndex = 0;
+        const frag = document.createDocumentFragment();
+        let last = 0;
+        for (const m of value.matchAll(re)) {
+          const idx = m.index ?? 0;
+          if (idx > last) frag.appendChild(document.createTextNode(value.slice(last, idx)));
+          const mark = document.createElement('mark');
+          mark.className = 'search-hl';
+          mark.textContent = m[0];
+          if (!first) first = mark;
+          frag.appendChild(mark);
+          last = idx + m[0].length;
+        }
+        if (last < value.length) frag.appendChild(document.createTextNode(value.slice(last)));
+        textNode.parentNode?.replaceChild(frag, textNode);
+      }
+
+      if (first) {
+        first.classList.add('search-hl-first');
+        requestAnimationFrame(() => first!.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+      }
+    }
+  }
+</script>
