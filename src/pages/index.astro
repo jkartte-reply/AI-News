@@ -1,19 +1,14 @@
 ---
-import { render } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Report from '../components/Report.astro';
 import { getReports } from '../lib/reports';
 
 // Homepage shows the newest report (mirrors the old auto-open behaviour).
-// No data-pagefind-body here, so this page is excluded from the search index
-// (the canonical /reports/<date>/ page carries the indexable content).
+// Not indexed here, so this page is excluded from the search index — the
+// canonical /reports/<date>/ page carries the indexable content.
 const reports = await getReports();
 const current = reports[0];
-const { Content } = await render(current.entry);
 ---
 <Base title={`AI Weekly — ${current.label}`} reports={reports} activeSlug={current.slug}>
-  <article class="content-inner">
-    <div class="md">
-      <Content />
-    </div>
-  </article>
+  <Report report={current} />
 </Base>

@@ -437,6 +437,67 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* ── Report footer / print button ── */
+.report-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: flex-end;
+}
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--paper);
+  border: 1px solid var(--rule-2);
+  border-radius: 4px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.12s;
+}
+.print-btn svg { width: 15px; height: 15px; }
+.print-btn:hover { border-color: var(--green); color: var(--green); background: #f3f9f5; }
+
+/* Print-only report header (hidden on screen) */
+.print-head { display: none; }
+
+/* ── Print / PDF ── */
+@media print {
+  .topbar, .sidebar, .sidebar-toggle, .read-progress,
+  .toc, .report-footer, #searchResults, .section-anchor { display: none !important; }
+
+  body { background: #fff !important; background-image: none !important; color: #000; }
+  .layout { display: block; overflow: visible; }
+  .content { overflow: visible; }
+  .report-shell { display: block; }
+  .content-inner { max-width: none; margin: 0; padding: 0; }
+
+  .print-head {
+    display: flex !important;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1.5px solid #000;
+  }
+  .print-head-brand { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .print-head-date { font-family: 'Instrument Serif', serif; font-size: 1rem; }
+
+  .md a { color: #000; text-decoration: underline; }
+  /* Spell out external link targets so printed links stay usable */
+  .md a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.78em; color: #555; word-break: break-all; }
+  .md .table-wrap { overflow: visible; }
+  .md table, .md tr, .md thead { page-break-inside: avoid; }
+  .md h1, .md h2, .md h3 { page-break-after: avoid; }
+}
+
 /* ── Mobile ── */
 @media (max-width: 700px) {
   .sidebar-toggle { display: block; }

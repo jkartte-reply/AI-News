@@ -1,6 +1,6 @@
 ---
-import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import Report from '../../components/Report.astro';
 import { getReports } from '../../lib/reports';
 
 export async function getStaticPaths() {
@@ -12,12 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { current, reports } = Astro.props;
-const { Content } = await render(current.entry);
 ---
 <Base title={`AI Weekly — ${current.label}`} reports={reports} activeSlug={current.slug}>
-  <article class="content-inner" data-pagefind-body>
-    <div class="md">
-      <Content />
-    </div>
-  </article>
+  <Report report={current} indexed />
 </Base>
