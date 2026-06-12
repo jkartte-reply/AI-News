@@ -11,8 +11,6 @@ interface Props {
 const { title, reports, activeSlug } = Astro.props;
 const base = import.meta.env.BASE_URL;            // "/AI-News/"
 const reportHref = (slug: string) => `${base}reports/${slug}/`;
-const pagefindUI = `${base}pagefind/pagefind-ui.js`;
-const pagefindCSS = `${base}pagefind/pagefind-ui.css`;
 const total = reports.length;
 ---
 <!DOCTYPE html>
@@ -28,7 +26,6 @@ const total = reports.length;
     rel="stylesheet"
   />
   <link rel="alternate" type="application/rss+xml" title="AI Weekly News" href={`${base}rss.xml`} />
-  <link rel="stylesheet" href={pagefindCSS} />
 </head>
 <body>
 
@@ -55,7 +52,21 @@ const total = reports.length;
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-top">
       <div class="sidebar-label">Suche</div>
-      <div id="search"></div>
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="6.5" cy="6.5" r="4.5" />
+          <line x1="10.5" y1="10.5" x2="14" y2="14" />
+        </svg>
+        <input
+          class="search-input"
+          id="searchInput"
+          type="search"
+          placeholder="Inhalte durchsuchen…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="search-clear" id="searchClear" aria-label="Suche leeren">×</button>
+      </div>
     </div>
     <div class="report-nav">
       <div class="sidebar-label">Alle Reports</div>
@@ -76,7 +87,8 @@ const total = reports.length;
   </nav>
 
   <main class="content" id="contentArea">
-    <slot />
+    <div id="reportView"><slot /></div>
+    <div id="searchResults" class="content-inner" hidden></div>
   </main>
 </div>
 
@@ -86,35 +98,120 @@ const total = reports.length;
   toggle?.addEventListener('click', () => sidebar?.classList.toggle('open'));
 </script>
 
-<script src={pagefindUI} is:inline></script>
-<script is:inline define:vars={{ base }}>
-  function initPagefind() {
-    if (typeof window.PagefindUI === 'undefined') return; // not built yet (dev mode)
-    new window.PagefindUI({
-      element: '#search',
-      bundlePath: base + 'pagefind/',
-      showImages: false,
-      showSubResults: true,
-      pageSize: 6,
-      // Pagefind indexes paths relative to dist root (e.g. /reports/x/);
-      // the site is served under base, so prepend it to every result URL.
-      processResult(result) {
-        const b = base.replace(/\/$/, '');
-        const fix = (u) => (u && u.startsWith('/') && !u.startsWith(b + '/')) ? b + u : u;
-        if (result && result.url) result.url = fix(result.url);
-        if (result && result.sub_results) {
-          result.sub_results.forEach((s) => { if (s.url) s.url = fix(s.url); });
+<script>
+  // Custom search UI powered by the Pagefind JS API.
+  // Input lives in the sidebar; results render full-width in the content area
+  // as cards — the whole card links to the report (clear "click = open report").
+  const base = import.meta.env.BASE_URL; // "/AI-News/"
+  const DE_MONTHS = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+
+  const input = document.getElementById('searchInput') as HTMLInputElement | null;
+  const clearBtn = document.getElementById('searchClear');
+  const reportView = document.getElementById('reportView');
+  const resultsEl = document.getElementById('searchResults');
+  const contentArea = document.getElementById('contentArea');
+
+  if (input && clearBtn && reportView && resultsEl && contentArea) {
+    let pagefind: any = null;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
+    const escapeHtml = (s: string) =>
+      s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const fmtDate = (iso: string) => {
+      const [y, m, d] = iso.split('-').map(Number);
+      return `${d}. ${DE_MONTHS[m - 1]} ${y}`;
+    };
+    const fixUrl = (u: string) => {
+      const b = base.replace(/\/$/, '');
+      return u && u.startsWith('/') && !u.startsWith(b + '/') ? b + u : u;
+    };
+    const dateFromUrl = (u: string) => {
+      const m = u.match(/reports\/(\d{4}-\d{2}-\d{2})/);
+      return m ? m[1] : null;
+    };
+
+    const showResults = () => { reportView.hidden = true; resultsEl.hidden = false; contentArea.scrollTo(0, 0); };
+    const showReport = () => { resultsEl.hidden = true; reportView.hidden = false; resultsEl.innerHTML = ''; };
+    const exitSearch = () => { input.value = ''; clearBtn.classList.remove('visible'); showReport(); };
+
+    async function loadPagefind() {
+      if (pagefind) return pagefind;
+      pagefind = await import(/* @vite-ignore */ `${base}pagefind/pagefind.js`);
+      await pagefind.options({ excerptLength: 24 });
+      return pagefind;
+    }
+
+    function renderResults(results: any[], query: string) {
+      showResults();
+      const head = (label: string) => `
+        <div class="results-hd">
+          <div class="results-hd-left">
+            <span class="results-label">Suche</span>
+            <span class="results-count">${label}</span>
+            <span class="results-query">„${escapeHtml(query)}"</span>
+          </div>
+          <button class="results-close" type="button">Schließen</button>
+        </div>`;
+
+      if (!results.length) {
+        resultsEl!.innerHTML = `<div class="results-panel">${head('Keine Treffer für')}
+          <div class="results-none">Keine Ergebnisse gefunden.<br>
+          <strong>Tipp:</strong> Versuche einen kürzeren oder allgemeineren Begriff.</div></div>`;
+      } else {
+        const cards = results.map((d) => {
+          const url = fixUrl(d.url);
+          const iso = dateFromUrl(url);
+          const label = iso ? fmtDate(iso) : (d.meta?.title || 'Report');
+          const subs = (d.sub_results && d.sub_results.length
+            ? d.sub_results
+            : [{ title: '', excerpt: d.excerpt }]).slice(0, 3);
+          const blocks = subs.map((s: any) => `
+            ${s.title ? `<span class="result-section">${escapeHtml(s.title)}</span>` : ''}
+            <p class="result-snippet">${s.excerpt}</p>`).join('');
+          return `<a class="result-card" href="${url}">
+            <div class="result-header">
+              <span class="result-date-label">${escapeHtml(label)}</span>
+              <span class="result-open">Report öffnen <span class="result-arrow">&#8594;</span></span>
+            </div>${blocks}</a>`;
+        }).join('');
+        const noun = results.length === 1 ? 'Report' : 'Reports';
+        resultsEl!.innerHTML = `<div class="results-panel">${head(`${results.length} ${noun} für`)}${cards}</div>`;
+      }
+      resultsEl!.querySelector('.results-close')?.addEventListener('click', exitSearch);
+    }
+
+    async function runSearch(query: string) {
+      try {
+        const pf = await loadPagefind();
+        const search = await pf.search(query);
+        if (input!.value.trim() !== query) return; // query changed while loading
+        const results = await Promise.all(search.results.slice(0, 20).map((r: any) => r.data()));
+        renderResults(results, query);
+      } catch (e) {
+        showResults();
+        resultsEl!.innerHTML = `<div class="results-panel"><div class="results-none">
+          Suche ist nur im Build verfügbar (<code>npm run build &amp;&amp; npm run preview</code>).</div></div>`;
+      }
+    }
+
+    input.addEventListener('input', (e) => {
+      const v = (e.target as HTMLInputElement).value;
+      clearBtn.classList.toggle('visible', v.length > 0);
+      clearTimeout(timer);
+      const q = v.trim();
+      if (q.length < 2) { if (!resultsEl.hidden) showReport(); return; }
+      timer = setTimeout(() => {
+        if (!pagefind) {
+          showResults();
+          resultsEl.innerHTML = '<div class="search-loading"><div class="spinner"></div><span>Suche wird vorbereitet…</span></div>';
         }
-        return result;
-      },
-      translations: {
-        placeholder: 'Inhalte durchsuchen…',
-        zero_results: 'Keine Treffer für [SEARCH_TERM]',
-      },
+        runSearch(q);
+      }, 300);
     });
+
+    clearBtn.addEventListener('click', () => { exitSearch(); input.focus(); });
+    input.addEventListener('keydown', (e) => { if (e.key === 'Escape') exitSearch(); });
   }
-  if (document.readyState !== 'loading') initPagefind();
-  else document.addEventListener('DOMContentLoaded', initPagefind);
 </script>
 
 </body>
