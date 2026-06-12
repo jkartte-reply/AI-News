@@ -7,234 +7,261 @@
   <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
   <style>
     :root {
-      --bg:           #0d1117;
-      --surface:      #161b22;
-      --surface-2:    #1c2230;
-      --border:       #30363d;
-      --border-hover: #58a6ff55;
-      --text:         #e6edf3;
-      --text-muted:   #8b949e;
-      --accent:       #58a6ff;
-      --accent-glow:  #58a6ff22;
-      --new-bg:       #1a3a1a;
-      --new-fg:       #3fb950;
+      --bg:          #0d1117;
+      --sidebar-bg:  #161b22;
+      --surface:     #1c2230;
+      --border:      #30363d;
+      --text:        #e6edf3;
+      --text-muted:  #8b949e;
+      --accent:      #58a6ff;
+      --active-bg:   #1d3a5e;
+      --active-border: #58a6ff;
+      --new-bg:      #1a3a1a;
+      --new-fg:      #3fb950;
+      --sidebar-w:   260px;
+      --header-h:    56px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
-      min-height: 100vh;
-      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* ── Header ── */
-    header {
-      background: linear-gradient(160deg, #161b22 0%, #0d1117 60%);
+    /* ── Top bar ── */
+    .topbar {
+      height: var(--header-h);
+      background: var(--sidebar-bg);
       border-bottom: 1px solid var(--border);
-      padding: 3.5rem 1.5rem 2.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-shrink: 0;
     }
-    header::before {
-      content: '';
-      position: absolute;
-      top: -60px; left: 50%; transform: translateX(-50%);
-      width: 400px; height: 200px;
-      background: radial-gradient(ellipse, #58a6ff18 0%, transparent 70%);
-      pointer-events: none;
-    }
-    header h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      background: linear-gradient(135deg, #79c0ff 0%, #a5f3fc 100%);
+    .topbar-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #79c0ff, #a5f3fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      letter-spacing: -0.01em;
     }
-    header p {
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-    }
-    .repo-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 1.2rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.3rem 0.85rem;
+    .topbar-sub {
       font-size: 0.75rem;
       color: var(--text-muted);
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .repo-badge:hover { border-color: var(--accent); color: var(--accent); }
-    .repo-badge svg { width: 13px; height: 13px; fill: currentColor; }
+    .topbar a {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      transition: color 0.15s;
+      flex-shrink: 0;
+    }
+    .topbar a:hover { color: var(--accent); }
+    .topbar a svg { width: 16px; height: 16px; fill: currentColor; }
 
-    /* ── Main ── */
-    main {
-      max-width: 860px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem 4rem;
+    /* mobile toggle */
+    .sidebar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.25rem;
+      line-height: 0;
+    }
+    .sidebar-toggle svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
+
+    /* ── Layout ── */
+    .layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
     }
 
-    .section-label {
-      font-size: 0.72rem;
+    /* ── Sidebar ── */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .sidebar-header {
+      padding: 1rem 1rem 0.5rem;
+      font-size: 0.68rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--text-muted);
-      margin-bottom: 1rem;
+      flex-shrink: 0;
     }
 
-    /* ── Report list ── */
-    #reports-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
+    .report-nav {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0.25rem 0.5rem 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
     }
+    .report-nav::-webkit-scrollbar { width: 4px; }
+    .report-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-    /* ── Skeleton loader ── */
-    .skeleton {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      height: 58px;
-      animation: pulse 1.6s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.4; }
-    }
-
-    /* ── Report card ── */
-    .report-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .report-card:hover        { border-color: var(--border-hover); }
-    .report-card.open         { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent-glow); }
-
-    .report-toggle {
+    .nav-item {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
-      padding: 0.9rem 1.2rem;
+      gap: 0.6rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
       cursor: pointer;
-      width: 100%;
-      background: none;
-      border: none;
-      color: var(--text);
-      text-align: left;
+      border: 1px solid transparent;
+      transition: background 0.15s, border-color 0.15s;
+      user-select: none;
+    }
+    .nav-item:hover:not(.active) { background: #ffffff08; }
+    .nav-item.active {
+      background: var(--active-bg);
+      border-color: var(--active-border);
+    }
+    .nav-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
       transition: background 0.15s;
     }
-    .report-toggle:hover { background: #ffffff07; }
+    .nav-item.active .nav-dot { background: var(--accent); }
 
-    .report-num {
-      font-size: 0.72rem;
-      font-variant-numeric: tabular-nums;
+    .nav-info { flex: 1; min-width: 0; }
+    .nav-date {
+      font-size: 0.7rem;
       color: var(--text-muted);
-      min-width: 22px;
-      text-align: right;
-    }
-    .report-date-col {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      min-width: 80px;
       font-variant-numeric: tabular-nums;
     }
-    .report-title-col {
-      flex: 1;
-      font-size: 0.92rem;
+    .nav-item.active .nav-date { color: #79b8ff; }
+    .nav-label {
+      font-size: 0.8rem;
       font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text);
     }
+    .nav-item.active .nav-label { color: var(--accent); }
+
     .badge-new {
-      font-size: 0.67rem;
+      font-size: 0.62rem;
       font-weight: 600;
-      padding: 0.15rem 0.55rem;
+      padding: 0.1rem 0.45rem;
       border-radius: 999px;
       background: var(--new-bg);
       color: var(--new-fg);
       border: 1px solid #2ea04326;
-      white-space: nowrap;
-    }
-    .chevron {
-      width: 15px; height: 15px;
-      color: var(--text-muted);
       flex-shrink: 0;
-      transition: transform 0.25s ease;
-    }
-    .report-card.open .chevron { transform: rotate(180deg); }
-
-    /* ── Report body / content ── */
-    .report-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-      border-top: 0px solid var(--border);
-    }
-    .report-card.open .report-body {
-      max-height: 9999px;
-      border-top: 1px solid var(--border);
-    }
-    .report-body-inner {
-      padding: 1.5rem 1.6rem 1.8rem;
     }
 
+    /* skeleton in sidebar */
+    .nav-skeleton {
+      height: 48px;
+      border-radius: 6px;
+      background: var(--surface);
+      margin-bottom: 4px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+    /* ── Content area ── */
+    .content {
+      flex: 1;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+    .content::-webkit-scrollbar { width: 5px; }
+    .content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    .content-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 2.5rem 4rem;
+    }
+
+    /* loading state */
     .content-loader {
-      text-align: center;
-      padding: 2.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
       color: var(--text-muted);
       font-size: 0.85rem;
+      gap: 0.5rem;
     }
-    .content-loader span {
-      display: inline-block;
-      animation: pulse 1.2s ease-in-out infinite;
+    .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
     }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── Markdown content ── */
-    .md h1 { display: none; }
-    .md > *:first-child { margin-top: 0; }
-
+    /* ── Markdown styles ── */
+    .md h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+    .md > blockquote:first-of-type {
+      margin-top: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
     .md h2 {
-      font-size: 0.95rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--accent);
-      margin: 1.6rem 0 0.5rem;
+      margin: 2rem 0 0.6rem;
       padding-bottom: 0.35rem;
       border-bottom: 1px solid var(--border);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
     }
     .md h3 {
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: #cdd9e5;
-      margin: 1.1rem 0 0.3rem;
+      margin: 1.2rem 0 0.35rem;
     }
     .md p {
-      margin: 0.45rem 0;
+      margin: 0.5rem 0;
       color: #cdd9e5;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
     }
-    .md ul, .md ol {
-      padding-left: 1.4rem;
-      margin: 0.45rem 0;
-    }
+    .md ul, .md ol { padding-left: 1.4rem; margin: 0.5rem 0; }
     .md li {
-      margin: 0.25rem 0;
-      font-size: 0.88rem;
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
       color: #cdd9e5;
+      line-height: 1.6;
     }
     .md li strong { color: var(--text); }
     .md strong { color: var(--text); }
@@ -246,15 +273,11 @@
       margin: 0.75rem 0;
       background: #58a6ff0a;
       border-radius: 0 4px 4px 0;
-      font-style: italic;
       color: var(--text-muted);
       font-size: 0.85rem;
     }
-    .md hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 1.5rem 0;
-    }
+    .md blockquote p { color: var(--text-muted); font-size: 0.85rem; }
+    .md hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
     .md code {
       background: #1f2937;
       padding: 0.15em 0.4em;
@@ -271,19 +294,17 @@
       margin: 0.75rem 0;
     }
     .md pre code { background: none; padding: 0; }
-
-    /* Tables */
     .md table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       margin: 1rem 0;
       display: block;
       overflow-x: auto;
     }
     .md th {
       background: #1c2230;
-      padding: 0.45rem 0.7rem;
+      padding: 0.5rem 0.75rem;
       text-align: left;
       border: 1px solid var(--border);
       font-weight: 600;
@@ -291,143 +312,175 @@
       white-space: nowrap;
     }
     .md td {
-      padding: 0.4rem 0.7rem;
+      padding: 0.45rem 0.75rem;
       border: 1px solid var(--border);
       color: #cdd9e5;
       vertical-align: top;
+      line-height: 1.5;
     }
     .md tr:nth-child(even) td { background: #161b2255; }
 
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      border-top: 1px solid var(--border);
+    /* ── Mobile ── */
+    @media (max-width: 700px) {
+      .sidebar-toggle { display: block; }
+      .topbar-sub { display: none; }
+
+      .layout { flex-direction: column; overflow: visible; }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .sidebar.open {
+        max-height: 60vh;
+        overflow-y: auto;
+      }
+
+      .content { overflow: visible; }
+      .content-inner { padding: 1.25rem 1rem 3rem; }
     }
-    footer a { color: var(--accent); text-decoration: none; }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>AI Weekly News</h1>
-  <p>Wöchentliche KI-Neuigkeiten &mdash; kuratiert für AI Engineers im Microsoft Partner Umfeld</p>
-  <a class="repo-badge" href="https://github.com/jkartte-reply/AI-News" target="_blank" rel="noopener">
+<!-- Top bar -->
+<header class="topbar">
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Navigation ein-/ausblenden">
+    <svg viewBox="0 0 18 18" stroke-width="1.8" stroke-linecap="round">
+      <line x1="2" y1="4.5" x2="16" y2="4.5"/>
+      <line x1="2" y1="9"   x2="16" y2="9"/>
+      <line x1="2" y1="13.5" x2="16" y2="13.5"/>
+    </svg>
+  </button>
+  <span class="topbar-title">AI Weekly News</span>
+  <span class="topbar-sub">Wöchentliche KI-Neuigkeiten &middot; Microsoft Partner</span>
+  <a href="https://github.com/jkartte-reply/AI-News" target="_blank" rel="noopener" title="GitHub">
     <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    jkartte-reply / AI-News
   </a>
 </header>
 
-<main>
-  <p class="section-label">Reports &mdash; neueste zuerst</p>
-  <div id="reports-list">
-    <div class="skeleton"></div>
-    <div class="skeleton" style="opacity:.7"></div>
-    <div class="skeleton" style="opacity:.4"></div>
-  </div>
-</main>
+<!-- Layout -->
+<div class="layout">
 
-<footer>
-  Automatisch generiert &middot; <a href="https://github.com/jkartte-reply/AI-News" target="_blank" rel="noopener">GitHub</a>
-</footer>
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">Reports</div>
+    <div class="report-nav" id="reportNav">
+      <div class="nav-skeleton"></div>
+      <div class="nav-skeleton" style="opacity:.7;margin-top:4px"></div>
+      <div class="nav-skeleton" style="opacity:.4;margin-top:4px"></div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="content" id="contentArea">
+    <div class="content-inner" id="contentInner">
+      <div class="content-loader">
+        <div class="spinner"></div>
+        Lade Report&hellip;
+      </div>
+    </div>
+  </main>
+
+</div>
 
 <script>
 const REPO   = 'jkartte-reply/AI-News';
 const BRANCH = 'main';
-
 const DE_MONTHS = ['Januar','Februar','März','April','Mai','Juni',
                    'Juli','August','September','Oktober','November','Dezember'];
 
-function formatDate(iso) {
+function fmtDate(iso) {
   const [y, m, d] = iso.split('-').map(Number);
-  return `${d}. ${DE_MONTHS[m - 1]} ${y}`;
+  return `${d}. ${DE_MONTHS[m-1]} ${y}`;
 }
 
-function rawUrl(filename) {
-  return `https://raw.githubusercontent.com/${REPO}/${BRANCH}/Reports/${filename}`;
+function rawUrl(name) {
+  return `https://raw.githubusercontent.com/${REPO}/${BRANCH}/Reports/${name}`;
 }
 
-function chevron() {
-  return `<svg class="chevron" viewBox="0 0 16 16" fill="none"
-    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="4 6 8 10 12 6"/>
-  </svg>`;
-}
+const nav     = document.getElementById('reportNav');
+const inner   = document.getElementById('contentInner');
+const sidebar = document.getElementById('sidebar');
 
-async function loadReports() {
-  const apiUrl = `https://api.github.com/repos/${REPO}/contents/Reports`;
-  const res = await fetch(apiUrl);
-  if (!res.ok) throw new Error('GitHub API error');
-  const files = await res.json();
-  return files
-    .filter(f => f.name.endsWith('.md'))
-    .sort((a, b) => b.name.localeCompare(a.name));
-}
+// Mobile toggle
+document.getElementById('sidebarToggle').addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+});
 
-function buildCard(file, index, total) {
-  const iso   = file.name.slice(0, 10);
-  const label = formatDate(iso);
-  const isNew = index === 0;
+let currentFile = null;
 
-  const card = document.createElement('div');
-  card.className = 'report-card';
-  card.innerHTML = `
-    <button class="report-toggle" aria-expanded="false">
-      <span class="report-num">${total - index}</span>
-      <span class="report-date-col">${iso}</span>
-      <span class="report-title-col">AI Weekly Report &mdash; ${label}</span>
-      ${isNew ? '<span class="badge-new">neu</span>' : ''}
-      ${chevron()}
-    </button>
-    <div class="report-body" role="region">
-      <div class="report-body-inner">
-        <div class="content-loader"><span>Lädt Inhalt&hellip;</span></div>
-      </div>
-    </div>
-  `;
+async function showReport(name, navEl) {
+  if (name === currentFile) return;
+  currentFile = name;
 
-  const btn   = card.querySelector('.report-toggle');
-  const body  = card.querySelector('.report-body');
-  const inner = card.querySelector('.report-body-inner');
-  let   loaded = false;
+  // update active state
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  navEl.classList.add('active');
 
-  btn.addEventListener('click', async () => {
-    const willOpen = !card.classList.contains('open');
-    card.classList.toggle('open', willOpen);
-    btn.setAttribute('aria-expanded', willOpen);
+  // close sidebar on mobile
+  if (window.innerWidth <= 700) sidebar.classList.remove('open');
 
-    if (willOpen && !loaded) {
-      loaded = true;
-      try {
-        const r  = await fetch(rawUrl(file.name));
-        if (!r.ok) throw new Error('not found');
-        const md = await r.text();
-        const div = document.createElement('div');
-        div.className = 'md';
-        div.innerHTML = marked.parse(md);
-        inner.innerHTML = '';
-        inner.appendChild(div);
-      } catch {
-        inner.innerHTML =
-          '<p style="color:var(--text-muted);font-size:.85rem">Inhalt konnte nicht geladen werden.</p>';
-      }
-    }
-  });
+  // scroll content to top
+  document.getElementById('contentArea').scrollTo(0, 0);
 
-  return card;
+  // show spinner
+  inner.innerHTML = '<div class="content-loader"><div class="spinner"></div> Lade Report&hellip;</div>';
+
+  try {
+    const res = await fetch(rawUrl(name));
+    if (!res.ok) throw new Error('not found');
+    const md  = await res.text();
+    const div = document.createElement('div');
+    div.className = 'md';
+    div.innerHTML = marked.parse(md);
+    inner.innerHTML = '';
+    inner.appendChild(div);
+  } catch {
+    inner.innerHTML =
+      '<p style="color:var(--text-muted);font-size:.88rem;padding:2rem 0">Report konnte nicht geladen werden.</p>';
+  }
 }
 
 (async () => {
-  const list = document.getElementById('reports-list');
   try {
-    const files = await loadReports();
-    list.innerHTML = '';
-    files.forEach((f, i) => list.appendChild(buildCard(f, i, files.length)));
+    const res   = await fetch(`https://api.github.com/repos/${REPO}/contents/Reports`);
+    const files = (await res.json())
+      .filter(f => f.name.endsWith('.md'))
+      .sort((a, b) => b.name.localeCompare(a.name));
+
+    nav.innerHTML = '';
+
+    files.forEach((f, i) => {
+      const iso   = f.name.slice(0, 10);
+      const label = fmtDate(iso);
+      const isNew = i === 0;
+
+      const item = document.createElement('div');
+      item.className = 'nav-item';
+      item.innerHTML = `
+        <span class="nav-dot"></span>
+        <span class="nav-info">
+          <span class="nav-date">${iso}</span>
+          <span class="nav-label">${label}</span>
+        </span>
+        ${isNew ? '<span class="badge-new">neu</span>' : ''}
+      `;
+
+      item.addEventListener('click', () => showReport(f.name, item));
+      nav.appendChild(item);
+
+      // auto-load newest
+      if (i === 0) showReport(f.name, item);
+    });
+
   } catch {
-    list.innerHTML =
-      '<p style="color:var(--text-muted);font-size:.85rem;padding:.5rem">Reports konnten nicht geladen werden.</p>';
+    nav.innerHTML = '<p style="color:var(--text-muted);font-size:.8rem;padding:.75rem">Fehler beim Laden.</p>';
+    inner.innerHTML = '';
   }
 })();
 </script>
