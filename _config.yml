@@ -1,11 +1,9 @@
 theme: minima
 title: AI Weekly News
-description: Wöchentliche KI-Neuigkeiten für AI Engineers im Microsoft Partner Umfeld
 lang: de
 
 plugins:
   - jekyll-optional-front-matter
-  - jekyll-feed
 
 exclude:
   - .claude/
