@@ -7,6 +7,7 @@ import { ReportSidecarSchema, type ReportSidecar } from './reportSchema';
  * Returns null if the file does not exist or fails schema validation.
  */
 export function loadSidecar(iso: string): ReportSidecar | null {
+  // process.cwd() is the project root during Astro build
   const filePath = join(process.cwd(), 'Reports', `${iso}_AI_Weekly.json`);
   try {
     const raw = readFileSync(filePath, 'utf-8');
@@ -16,7 +17,10 @@ export function loadSidecar(iso: string): ReportSidecar | null {
       return null;
     }
     return result.data;
-  } catch {
+  } catch (err: unknown) {
+    if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {
+      console.warn(`[sidecar] Failed to load ${iso}:`, err);
+    }
     return null;
   }
 }
