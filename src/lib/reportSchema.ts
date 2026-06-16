@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const SourceSchema = z.object({
+export const SourceSchema = z.object({
   label: z.string(),
   url: z.string(),
 });
@@ -28,7 +28,7 @@ const FrameworkItemSchema = z.object({
 
 const OpenSourceItemSchema = z.object({
   name: z.string(),
-  language_type: z.string().optional(),
+  languageType: z.string().optional(),
   stars: z.string().optional(),
   date: z.string().optional(),
   relevance: RelevanceSchema,
@@ -65,7 +65,7 @@ const BusinessItemSchema = z.object({
   sources: z.array(SourceSchema),
 });
 
-function section<T extends z.ZodTypeAny>(itemSchema: T) {
+export function section<T extends z.ZodTypeAny>(itemSchema: T) {
   return z.object({
     summary: z.string(),
     items: z.array(itemSchema),
@@ -92,3 +92,7 @@ export type ReportSidecar = z.infer<typeof ReportSidecarSchema>;
 export type ModelItem = z.infer<typeof ModelItemSchema>;
 export type FrameworkItem = z.infer<typeof FrameworkItemSchema>;
 export type AzureItem = z.infer<typeof AzureItemSchema>;
+export type OpenSourceItem = z.infer<typeof OpenSourceItemSchema>;
+export type ProductItem = z.infer<typeof ProductItemSchema>;
+export type IndustryItem = z.infer<typeof IndustryItemSchema>;
+export type BusinessItem = z.infer<typeof BusinessItemSchema>;
