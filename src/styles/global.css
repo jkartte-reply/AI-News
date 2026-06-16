@@ -289,6 +289,7 @@ body {
   top: 0;
   z-index: 5;
   background: var(--paper);
+  scroll-margin-top: 1.5rem;
 }
 .md h3 {
   font-family: 'DM Sans', sans-serif;
@@ -589,7 +590,7 @@ body {
 }
 
 /* ── Section anchors (copy-link on headings) ── */
-.md h2, .md h3 { position: relative; scroll-margin-top: 1.5rem; }
+.md h3 { position: relative; scroll-margin-top: 1.5rem; }
 .section-anchor {
   display: inline-flex;
   align-items: center;
@@ -725,6 +726,7 @@ body {
   .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--rule); max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
   .sidebar.open { max-height: 70vh; overflow-y: auto; }
   .content { overflow: visible; }
+  .md h2 { top: var(--header-h); }
   .content-inner { padding: 1.5rem 1.2rem 3rem; }
   .toc { margin: 1.5rem 1.2rem 0; }
 }
