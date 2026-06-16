@@ -1,0 +1,152 @@
+{
+  "date": "2026-06-12",
+  "period": "2026-06-06/2026-06-12",
+  "executive_summary": {
+    "intro": "Eine Woche mit weitreichenden Entwicklungen: Microsoft Build 2026 dominierte mit sieben neuen MAI-Modellen und der Foundry-Plattform, während Anthropic mit Claude Fable 5 neue Maßstäbe setzte.",
+    "highlights": [
+      "Microsoft Build 2026: 7 MAI-Modelle, Agent Framework 1.0 GA und Microsoft Foundry als einheitliche Agentenplattform.",
+      "Claude Fable 5: Öffentlicher Release von Anthropics Mythos-Modell; Bewertung nahe einer Billion Dollar.",
+      "Apple WWDC 2026: Neuer Siri powered by Google Gemini, iOS/macOS 27 mit Next-Gen Apple Intelligence.",
+      "MCP Release Candidate: Stateless-Protokoll, MCP Apps und Tasks-Extension; finale Spec am 28. Juli.",
+      "EU AI Act: Compliance-Deadline 2. August 2026 — Kernanforderungen treten in Kraft."
+    ]
+  },
+  "models": {
+    "summary": "Microsoft dominierte mit sieben neuen MAI-Modellen auf Build 2026, darunter das Reasoning-Flaggschiff MAI-Thinking-1 und das erste hauseigene Coding-Modell MAI-Code-1-Flash.",
+    "items": [
+      {
+        "name": "MAI-Thinking-1",
+        "provider": "Microsoft",
+        "type": "LLM Reasoning",
+        "context": "256K Token",
+        "highlight": "35B-Parameter Reasoning-Modell; schlägt Sonnet 4.6 in Blind-Tests, erreicht Opus 4.6 auf SWE-Bench Pro",
+        "relevance": "high",
+        "sources": [{"label": "microsoft.ai", "url": "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/"}]
+      },
+      {
+        "name": "MAI-Code-1-Flash",
+        "provider": "Microsoft",
+        "type": "Code-LLM",
+        "highlight": "Erstes in-house Microsoft Coding-Modell, generiert Apps aus natürlichsprachlichen Beschreibungen",
+        "relevance": "high",
+        "sources": [{"label": "CNBC", "url": "https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html"}]
+      },
+      {
+        "name": "Claude Fable 5",
+        "provider": "Anthropic",
+        "type": "LLM / Creative",
+        "highlight": "Öffentlicher Release des Mythos-Modells; Long-form Fiction, Game-Gen, Code",
+        "relevance": "high",
+        "sources": [{"label": "CNBC", "url": "https://www.cnbc.com/2026/06/09/anthropic-mythos-claude-fable-5.html"}]
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "provider": "Google",
+        "type": "LLM",
+        "highlight": "GA seit 19. Mai; $1,50/$9,00 pro Mio. Token; Standard in Gemini App",
+        "relevance": "medium",
+        "sources": [{"label": "wavespeed.ai", "url": "https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/"}]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Microsoft Agent Framework 1.0 GA und der MCP Release Candidate sind die zentralen Framework-Neuigkeiten — beide direkt relevant für Agentenarchitekturen bei Microsoft Partnern.",
+    "items": [
+      {
+        "name": "Microsoft Agent Framework 1.0 GA",
+        "release": "1.0 GA + Build-Erweiterungen",
+        "date": "2026-06-02",
+        "relevance": "high",
+        "description": "Unified successor zu AutoGen und Semantic Kernel. Bei Build 2026 wurden Agent Harness, Hosted Agents in Foundry Agent Service und framework-agnostische Observability vorgestellt. Python und .NET werden beide unterstützt.",
+        "sources": [
+          {"label": "Microsoft Agent Framework Blog", "url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026/"},
+          {"label": "Foundry Hosted Agents", "url": "https://devblogs.microsoft.com/foundry/agent-service-build2026/"}
+        ]
+      },
+      {
+        "name": "MCP Specification Release Candidate",
+        "date": "2026-07-28",
+        "relevance": "high",
+        "description": "Stateless Protocol, MCP Apps (Server liefern interaktive HTML-UIs), Tasks Extension (asynchrone Aufgaben). Über 200 Server-Implementierungen. Finale Spec am 28. Juli.",
+        "sources": [{"label": "MCP RC Blog", "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/"}]
+      },
+      {
+        "name": "GitHub Copilot: AI Credits Billing",
+        "date": "2026-06-01",
+        "relevance": "high",
+        "description": "Wechsel von Request-based zu Usage-based AI Credits. Pro-Abo ($10/Monat) enthält 1.500 Credits/Monat. Neuer $100/Monat Max-Tier für Heavy Users.",
+        "sources": [{"label": "WeavAI Blog", "url": "https://weavai.app/blog/en/2026/05/30/2026-github-copilot-vs-cursor-ai-assistant-vs-ai-ide/"}]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "JetBrains Mellum2 ist das herausragende Open-Source-Release der Woche — ein 12B MoE Coding-Modell direkt auf Hugging Face.",
+    "items": [
+      {
+        "name": "Mellum2",
+        "languageType": "LLM (MoE)",
+        "date": "2026-06-12",
+        "relevance": "low",
+        "description": "12B Mixture-of-Experts Coding-Modell von JetBrains, direkt auf Hugging Face verfügbar.",
+        "sources": [{"label": "Hugging Face Blog", "url": "https://huggingface.co/blog"}]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Microsoft Build 2026 brachte eine Flut an Azure AI-Neuigkeiten: Microsoft Foundry als zentrale Agentenplattform und neue MAI-Modelle in Azure AI Foundry.",
+    "items": [
+      {
+        "title": "Microsoft Foundry — Einheitliche Agentenplattform",
+        "product": "Azure AI Foundry",
+        "date": "2026-06-02",
+        "relevance": "high",
+        "description": "Microsoft Foundry zentralisiert Model Catalog, Agent Service und Observability unter einem Dach. Für Microsoft Partner ist dies die Go-to-Plattform für Agentenarchitekturen.",
+        "sources": [{"label": "Microsoft Build Blog", "url": "https://devblogs.microsoft.com/foundry/agent-service-build2026/"}]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Apple WWDC 2026 war das dominante Consumer-AI-Event der Woche mit dem neuen Siri (powered by Google Gemini) und dem Rebranding von Windsurf zu Devin Desktop.",
+    "items": [
+      {
+        "name": "Apple Intelligence Next Gen / WWDC 2026",
+        "date": "2026-06-09",
+        "relevance": "medium",
+        "description": "Neuer Siri mit Google Gemini Integration, iOS/macOS 27. Auswirkungen auf Mobile-AI-Integrationsprojekte.",
+        "sources": [{"label": "WWDC 2026", "url": "https://developer.apple.com/wwdc26/"}]
+      },
+      {
+        "name": "Windsurf → Devin Desktop",
+        "date": "2026-06-02",
+        "relevance": "medium",
+        "description": "Windsurf wurde zu Devin Desktop umbenannt. Agent Command Center als Standard-Interface, unterstützt offenes Agent Client Protocol.",
+        "sources": [{"label": "Lushbinary", "url": "https://lushbinary.com/blog/ai-coding-agents-comparison-cursor-windsurf-claude-copilot-kiro-2026/"}]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "Der EU AI Act rückt mit der Compliance-Deadline im August in den Vordergrund, während Anthropic mit einer Rekord-Bewertung Schlagzeilen macht.",
+    "items": [
+      {
+        "title": "EU AI Act — Compliance-Deadline August 2026",
+        "description": "Am 2. August 2026 treten die Kernanforderungen in Kraft; Digital-Omnibus-Änderungen wurden provisionell vereinbart.",
+        "sources": [{"label": "EU AI Act", "url": "https://artificialintelligenceact.eu/"}]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Anthropics Bewertungssprung und IPO-Signale sowie Qwen3.7-Max als Herausforderer für Google sind die wichtigsten Business-Meldungen der Woche.",
+    "items": [
+      {
+        "company": "Anthropic",
+        "description": "Anthropic überholt OpenAI mit einer Bewertung von $965 Mrd. und meldete vertraulich IPO-Absichten.",
+        "sources": [{"label": "CNBC", "url": "https://www.cnbc.com/2026/06/09/anthropic-mythos-claude-fable-5.html"}]
+      },
+      {
+        "company": "Alibaba / Qwen3.7-Max",
+        "description": "Fordert Googles Position auf Platz 3 heraus; laut DeepLearning.AI bemerkenswert kompetitiv.",
+        "sources": [{"label": "The Batch", "url": "https://www.deeplearning.ai/the-batch/"}]
+      }
+    ]
+  }
+}
