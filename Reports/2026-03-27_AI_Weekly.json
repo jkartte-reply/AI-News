@@ -1,0 +1,390 @@
+{
+  "date": "2026-03-27",
+  "period": "2026-03-20/2026-03-27",
+  "executive_summary": {
+    "intro": "Eine ereignisreiche Woche mit weitreichenden Entwicklungen in den Bereichen Enterprise-AI, Modell-Leaks und regulatorische Compliance.",
+    "highlights": [
+      "Microsoft Foundry Agent Service ist Generally Available mit Enterprise-Features wie End-to-End Private Networking, Voice Live und MCP-Authentifizierung.",
+      "Anthropic Claude Mythos wurde durch ein internes Datenleck enthüllt — das nächste Flaggschiff-Modell mit bedeutenden Fortschritten in Coding und Cybersecurity.",
+      "OpenAI veröffentlicht GPT-5.4 inklusive Mini- und Nano-Varianten mit 1M-Token-Kontext als stärkstes Enterprise-Modell.",
+      "Das Microsoft Agent Framework RC 1.0 vereint AutoGen und Semantic Kernel als neue Standardempfehlung für Azure-AI-Projekte.",
+      "Die EU-AI-Act-Compliance-Deadline naht: Hauptregeln treten am 2. August 2026 in Kraft, Kundenprojekte müssen auf High-Risk-Einstufung geprüft werden."
+    ]
+  },
+  "models": {
+    "summary": "Bedeutende neue Modelle in dieser Woche: GPT-5.4 von OpenAI als stärkstes Enterprise-Modell, ein geleaktes Anthropic-Flaggschiff-Modell namens Claude Mythos mit Fokus auf Coding und Cybersecurity, sowie Open-Source-Modelle von Mistral und NVIDIA.",
+    "items": [
+      {
+        "name": "GPT-5.4 (+ Mini, Nano)",
+        "provider": "OpenAI",
+        "type": "LLM (3 Varianten: Standard, Thinking, Pro)",
+        "context": "1M Token",
+        "highlight": "83% GDPval, 33% weniger Errors vs. 5.2; Mini/Nano ab 17.3. für High-Volume",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/"
+          }
+        ]
+      },
+      {
+        "name": "Claude Mythos (Leak)",
+        "provider": "Anthropic",
+        "type": "LLM — neue Tier \"Capybara\" (> Opus)",
+        "highlight": "\"Step change\" in Coding & Cybersecurity; Early Access nur für Cyber-Defense-Orgs",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "Fortune",
+            "url": "https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/"
+          }
+        ]
+      },
+      {
+        "name": "Voxtral TTS",
+        "provider": "Mistral AI",
+        "type": "Text-to-Speech (Open Source)",
+        "context": "4B Params",
+        "highlight": "9 Sprachen, läuft on-device (Laptop/Smartphone), Voice-Cloning mit <5s Sample",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/03/26/mistral-releases-a-new-open-source-model-for-speech-generation/"
+          }
+        ]
+      },
+      {
+        "name": "Nemotron 3 Super",
+        "provider": "NVIDIA",
+        "type": "LLM — Enterprise Coding",
+        "context": "120B Params",
+        "highlight": "60.47% SWE-Bench Verified; verfügbar über Microsoft Foundry",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "NVIDIA",
+            "url": "https://blogs.nvidia.com/blog/gtc-2026-news/"
+          }
+        ]
+      },
+      {
+        "name": "GDPval",
+        "provider": "OpenAI",
+        "type": "Benchmark",
+        "highlight": "Neues Eval über 44 Berufsfelder / Knowledge-Work-Tasks; GPT-5.4 erzielt 83%",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "LM Council",
+            "url": "https://lmcouncil.ai/benchmarks"
+          }
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Das Microsoft Agent Framework RC 1.0 vereint AutoGen und Semantic Kernel als neues Standardframework. MCP erreicht 97 Millionen monatliche Downloads und veröffentlicht eine Enterprise-fokussierte 2026-Roadmap.",
+    "items": [
+      {
+        "name": "Microsoft Agent Framework",
+        "release": "RC 1.0",
+        "date": "2026-02-19",
+        "relevance": "high",
+        "description": "Das Microsoft Agent Framework (MAF) vereinigt AutoGen und Semantic Kernel zu einem einheitlichen Framework für .NET und Python. Neue Agent-Projekte sollten direkt auf MAF aufsetzen; Migrationsdokumentation für bestehende Projekte verfügbar.",
+        "sources": [
+          {
+            "label": "MAF RC Blog",
+            "url": "https://devblogs.microsoft.com/semantic-kernel/migrate-your-semantic-kernel-and-autogen-projects-to-microsoft-agent-framework-release-candidate/"
+          },
+          {
+            "label": "Learn Docs",
+            "url": "https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/"
+          }
+        ]
+      },
+      {
+        "name": "MCP (Model Context Protocol) v1.27",
+        "release": "Roadmap März 2026",
+        "date": "2026-03",
+        "relevance": "high",
+        "description": "MCP hat 97 Millionen monatliche Downloads und 5.800+ Community- und Enterprise-Server erreicht. Die 2026-Roadmap fokussiert auf Transport Scalability, Governance Maturation, Enterprise Readiness und Agent Communication für Multi-Agent-Architekturen.",
+        "sources": [
+          {
+            "label": "MCP 2026 Roadmap",
+            "url": "http://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/"
+          },
+          {
+            "label": "VentureBeat: MCP Update",
+            "url": "https://venturebeat.com/ai/the-open-source-model-context-protocol-was-just-updated-heres-why-its-a-big-deal"
+          }
+        ]
+      },
+      {
+        "name": "LangChain Deep Agents",
+        "date": "2026-03",
+        "relevance": "medium",
+        "description": "LangChain's Deep Agents sammelte in 5 Stunden nach Release 9.900 GitHub Stars. Strategische NVIDIA-Partnerschaft positioniert LangGraph als Enterprise-Standard für komplexe Stateful-Workflows.",
+        "sources": [
+          {
+            "label": "LangChain Deep Agents",
+            "url": "https://emelia.io/hub/deep-agents-langchain-autonomous-ai-agents"
+          }
+        ]
+      },
+      {
+        "name": "GitHub Copilot",
+        "date": "2026-03-17",
+        "relevance": "medium",
+        "description": "Neue Updates: Semantic Code Search (17. März) und Jira-Integration (25. März). Wichtige Datenschutz-Änderung: Ab 24. April 2026 werden Interaktionsdaten von Free/Pro/Pro+-Nutzern für Modelltraining verwendet — Opt-out empfohlen. Business/Enterprise nicht betroffen.",
+        "sources": [
+          {
+            "label": "GitHub Changelog: Semantic Search",
+            "url": "https://github.blog/changelog/2026-03-17-copilot-coding-agent-works-faster-with-semantic-code-search/"
+          },
+          {
+            "label": "Data Policy",
+            "url": "https://helpnetsecurity.com/2026/03/26/github-copilot-data-privacy-policy-update/"
+          }
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Keine dedizierten Open-Source-Library-Releases in dieser Woche; Voxtral TTS von Mistral ist als Open-Source-Modell hervorzuheben.",
+    "items": [
+      {
+        "name": "Voxtral TTS",
+        "languageType": "Python",
+        "relevance": "medium",
+        "description": "Mistral AI veröffentlicht Voxtral als Open-Source Text-to-Speech-Modell mit 4B Parametern, 9 Sprachen und Voice-Cloning aus weniger als 5 Sekunden Audio-Sample. Läuft on-device auf Laptops und Smartphones.",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/03/26/mistral-releases-a-new-open-source-model-for-speech-generation/"
+          },
+          {
+            "label": "Mistral",
+            "url": "https://mistral.ai/news/voxtral"
+          }
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Microsoft Foundry Agent Service ist Generally Available mit bedeutenden Enterprise-Features. Azure OpenAI Service bietet GPT-5.4 Mini/Nano und Spillover GA. M365 Copilot Wave 3 und die neue E7 Frontier Suite werden angekündigt.",
+    "items": [
+      {
+        "title": "Microsoft Foundry Agent Service — Generally Available",
+        "product": "Azure AI Foundry / Microsoft Foundry",
+        "date": "2026-03-16",
+        "relevance": "high",
+        "description": "Der Foundry Agent Service ist GA mit End-to-End Private Networking, Voice Live Integration, erweiterter MCP-Authentifizierung, GA Evaluations mit Continuous Monitoring, Hosted Agent Deployments in 6 neuen Azure Regionen und NVIDIA Nemotron-Modellen im Foundry-Modellkatalog.",
+        "sources": [
+          {
+            "label": "Microsoft Blog: NVIDIA GTC",
+            "url": "https://blogs.microsoft.com/blog/2026/03/16/microsoft-at-nvidia-gtc-new-solutions-for-microsoft-foundry-azure-ai-infrastructure-and-physical-ai/"
+          },
+          {
+            "label": "Foundry What's New",
+            "url": "https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry"
+          }
+        ]
+      },
+      {
+        "title": "Azure OpenAI Service — GPT-5.4 Mini/Nano + Spillover GA",
+        "product": "Azure OpenAI Service",
+        "date": "2026-03",
+        "relevance": "high",
+        "description": "GPT-5.4 Mini und Nano jetzt in Azure AI Foundry verfügbar. Spillover ist Generally Available für Traffic-Management bei Provisioned Deployments. Neue Audio-Modelle mit verbessertem Instruction Following, Multilingual-Support und Tool Calling.",
+        "sources": [
+          {
+            "label": "Azure What's New: OpenAI",
+            "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/whats-new"
+          },
+          {
+            "label": "Azure Update Hub",
+            "url": "https://www.hubsite365.com/en-ww/crm-pages/azure-update-20th-march-2026-d3b75320-a9e5-49c4-a091-c2838f5b8467.htm"
+          }
+        ]
+      },
+      {
+        "title": "Microsoft 365 Copilot Wave 3 + E7 Frontier Suite",
+        "product": "M365 Copilot / Microsoft 365",
+        "date": "2026-03-09",
+        "relevance": "high",
+        "description": "Neue M365 E7 Frontier Suite (GA 1. Mai 2026): $99/User/Monat mit allen E5-Features plus Copilot-Suite und Frontier-AI-Modellen (Claude + next-gen OpenAI). Agent 365 für $15/User/Monat und Claude Cowork in M365 Copilot angekündigt.",
+        "sources": [
+          {
+            "label": "Microsoft Blog: Frontier Suite",
+            "url": "https://blogs.microsoft.com/blog/2026/03/09/introducing-the-first-frontier-suite-built-on-intelligence-trust/"
+          }
+        ]
+      },
+      {
+        "title": "Copilot Leadership-Neustrukturierung",
+        "product": "Microsoft Copilot",
+        "date": "2026-03-17",
+        "relevance": "medium",
+        "description": "Jacob Andreou als neuer EVP Copilot, berichtet direkt an Satya Nadella — verantwortlich für Consumer und Commercial Copilot Experience.",
+        "sources": [
+          {
+            "label": "Microsoft Blog: Copilot Leadership",
+            "url": "https://blogs.microsoft.com/blog/2026/03/17/announcing-copilot-leadership-update/"
+          }
+        ]
+      },
+      {
+        "title": "Windows Copilot — Reduzierung der Integrationen",
+        "product": "Windows / Copilot",
+        "date": "2026-03-20",
+        "relevance": "low",
+        "description": "Microsoft reduziert Copilot-Integrationen in Windows-Apps (Photos, Widgets, Notepad, Snipping Tool) mit dem Ziel, auf genuinely useful AI experiences zu fokussieren. Kein Einfluss auf Business/Enterprise-Nutzung.",
+        "sources": [
+          {
+            "label": "TechCrunch: Windows Copilot Rollback",
+            "url": "https://techcrunch.com/2026/03/20/microsoft-rolls-back-some-of-its-copilot-ai-bloat-on-windows/"
+          }
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "AMI Labs von Yann LeCun schließt die größte europäische Seed-Runde ab, und Anthropic Cowork erscheint als autonomer Claude Desktop-Agent. Robotics-Startups sammeln mehr als $1,2 Mrd. in einer Woche.",
+    "items": [
+      {
+        "name": "AMI Labs",
+        "date": "2026-03",
+        "relevance": "medium",
+        "description": "Yann LeCuns AMI Labs (Advanced Machine Intelligence) schließt die größte europäische Seed-Runde mit $1,03 Mrd. ab (Bezos, NVIDIA, Samsung, Temasek). Ziel: World Models auf Basis der JEPA-Architektur als Alternative zu Transformer-basierten LLMs.",
+        "sources": [
+          {
+            "label": "Crunchbase: AMI Labs Funding",
+            "url": "https://news.crunchbase.com/ai/humans-raises-huge-seed-round-unicorn-valuation/"
+          }
+        ]
+      },
+      {
+        "name": "Robotics-Boom",
+        "date": "2026-03",
+        "relevance": "low",
+        "description": "Mind Robotics ($500M), Rhoda AI ($450M), Sunday ($165M, Unicorn), Oxa ($103M) sammeln in einer Woche mehr als $1,2 Mrd. für KI-Robotik in Industrial, Household und Logistics.",
+        "sources": [
+          {
+            "label": "Crunchbase: Funding Rounds",
+            "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-space-tech-sierra-ai-ayar/"
+          }
+        ]
+      },
+      {
+        "name": "Anthropic Cowork",
+        "date": "2026-03",
+        "relevance": "medium",
+        "description": "Anthropic bringt Cowork als eigenständigen Claude-Desktop-Agenten, der direkt in lokalen Dateien arbeitet. Technologie wird gleichzeitig in M365 Copilot Wave 3 integriert.",
+        "sources": [
+          {
+            "label": "AI Developer Tools",
+            "url": "https://dev.to/ajay_kumar_1daef5fe089885/ai-developer-tools-enter-autonomous-era-the-rise-of-agentic-systems-in-march-2026-31l0"
+          }
+        ]
+      },
+      {
+        "name": "Oracle AI Database 26ai",
+        "date": "2026-03",
+        "relevance": "low",
+        "description": "Oracle stellt AI Database 26ai mit agentic Innovations vor: Persistent Memory für AI Agents und eine No-Code Private Agent Factory."
+      }
+    ]
+  },
+  "industry": {
+    "summary": "EU AI Act-Compliance-Deadline rückt näher, Anthropic steht im Konflikt mit dem Pentagon, und ein neues Jailbreak-Safety-Benchmark-Framework wurde veröffentlicht.",
+    "items": [
+      {
+        "title": "EU AI Act — 2. August 2026 Deadline",
+        "description": "Hauptregeln treten in Kraft; EU-Rat beschloss am 13.3. Vereinfachungspaket (Omnibus VII) mit verschobenen High-Risk-Deadlines (Stand-alone: Dez 2027, eingebettet: Aug 2028).",
+        "sources": [
+          {
+            "label": "EU Council",
+            "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/03/13/council-agrees-position-to-streamline-rules-on-artificial-intelligence/"
+          }
+        ]
+      },
+      {
+        "title": "Anthropic vs. Pentagon",
+        "description": "DoD stufte Anthropic als Supply-Chain-Risk ein, nachdem das Unternehmen Nutzung für Massenüberwachung und autonomes Waffentargeting verweigerte; 30+ OpenAI/Google-Mitarbeitende unterstützen Anthropic öffentlich.",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/03/09/openai-and-google-employees-rush-to-anthropics-defense-in-dod-lawsuit/"
+          }
+        ]
+      },
+      {
+        "title": "JBDistill (Johns Hopkins) — Jailbreak Safety Benchmark",
+        "description": "Neues erneuerbares Jailbreak-Safety-Benchmark-Framework mit bis zu 81,8% Effectiveness, kompatibel mit 13 verschiedenen LLMs.",
+        "sources": [
+          {
+            "label": "TechXplore",
+            "url": "https://techxplore.com/news/2026-03-renewable-benchmark-llm-jailbreak-safety.html"
+          }
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "OpenAI meldet $25+ Mrd. annualisierten Umsatz und bereitet einen möglichen IPO vor, während Anthropic seinen ARR auf $19 Mrd. verdoppelt. NVIDIA kündigt $1 Billion in Orders auf dem GTC an.",
+    "items": [
+      {
+        "company": "OpenAI",
+        "description": "$25+ Mrd. annualisierter Umsatz; bereitet sich auf möglichen IPO Ende 2026 vor. Marktanteil bei Unternehmen fiel um 1,5% MoM — größter Rückgang eines AI-Anbieters seit Start des Ramp AI Index.",
+        "sources": [
+          {
+            "label": "Axios",
+            "url": "https://www.axios.com/2026/03/11/openai-anthropic-pentagon-google"
+          }
+        ]
+      },
+      {
+        "company": "Anthropic",
+        "description": "$19 Mrd. annualisierter Umsatz (von $9 Mrd. Ende 2025 verdoppelt). Unternehmensadoption +4,9% MoM. Gleichzeitig Datenleck (Mythos) und Pentagon-Dispute.",
+        "sources": [
+          {
+            "label": "European Business Magazine",
+            "url": "https://europeanbusinessmagazine.com/business/sam-altmans-openai-is-burning-billions-most-users-pay-nothing-as-anthropic-closes-in/"
+          }
+        ]
+      },
+      {
+        "company": "NVIDIA",
+        "description": "GTC 2026 (16.–19. März): Jensen Huang meldet $1 Billion an Orders für Blackwell und Vera Rubin bis 2027. Vera Rubin als nächste GPU-Generation vorgestellt.",
+        "sources": [
+          {
+            "label": "CNBC",
+            "url": "https://www.cnbc.com/2026/03/16/nvidia-gtc-2026-ceo-jensen-huang-keynote-blackwell-vera-rubin.html"
+          }
+        ]
+      },
+      {
+        "company": "GitHub / Microsoft",
+        "description": "Ab 24. April 2026 werden Interaktionsdaten von Free/Pro/Pro+-Nutzern für Modelltraining verwendet — Opt-out erforderlich. Business/Enterprise nicht betroffen.",
+        "sources": [
+          {
+            "label": "Help Net Security",
+            "url": "https://www.helpnetsecurity.com/2026/03/26/github-copilot-data-privacy-policy-update/"
+          }
+        ]
+      },
+      {
+        "company": "Ramp AI Index",
+        "description": "Business-AI-Adoption auf Rekordhoch von 47,6%. Fast jedes vierte Unternehmen zahlt jetzt für Anthropic (vor einem Jahr: 1 von 25).",
+        "sources": [
+          {
+            "label": "Ramp AI Index",
+            "url": "https://ramp.com/velocity/ai-index-march-2026"
+          }
+        ]
+      }
+    ]
+  }
+}

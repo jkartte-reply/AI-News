@@ -1,0 +1,537 @@
+{
+  "date": "2026-06-01",
+  "period": "2026-05-08/2026-06-01",
+  "executive_summary": {
+    "intro": "Außergewöhnlich ereignisreiche 3,5 Wochen: Anthropic wird wertvollstes AI-Startup der Welt, Google I/O 2026 präsentiert umfassende Gemini-3.5-Ankündigungen und Microsofts Build-Vorbereitung deutet auf tiefgreifende Unabhängigkeit von OpenAI hin.",
+    "highlights": [
+      "Anthropic überholt OpenAI: $65B Series H bei einer Bewertung von $965B — nun wertvollstes AI-Startup der Welt, gleichzeitig Claude-Ökosystem mit Partner Network, Enterprise Services und Gates Foundation Deal.",
+      "Claude Mythos bleibt vorerst gesperrt: 97,6% auf USAMO, 93,9% SWE-bench, autonomes FreeBSD-Exploit — Cybersicherheitsalarmierung löste US-China-Diplomatie aus; GA in den kommenden Wochen angekündigt.",
+      "Google I/O 2026 (19. Mai): Gemini 3.5 Flash als neues Frontier-Modell ist sofort Default in Google Search (1B Nutzer) und Gemini App (900M MAU).",
+      "Microsoft Build 2026 Pre-Ankündigungen: Project Polaris als Microsofts eigenes Coding-Modell, Azure Agent Mesh, Copilot Workspace GA — Microsoft baut gezielt Unabhängigkeit von OpenAI auf.",
+      "Microsoft Foundry: Foundry Local GA + Computer-Using Agents GA + 53 M365-Copilot-Updates — dichtester Monat für Azure-Partner."
+    ]
+  },
+  "models": {
+    "summary": "Google I/O dominiert mit Gemini 3.5 Flash als neuem Default, Anthropic launcht Claude Opus 4.8 und Mythos bleibt der leistungsfähigste gesperrte Kandidat; offene Modelle wie DeepSeek V4-Pro, Kimi K2.6 und Mistral Medium 3.5 bereichern das Feld erheblich.",
+    "items": [
+      {
+        "name": "Claude Opus 4.8",
+        "provider": "Anthropic",
+        "type": "LLM",
+        "highlight": "Kürzester Abstand zwischen Opus-Releases (42 Tage); deutlich ehrlichere Fehlereinschätzung; Fast Mode 3x günstiger",
+        "relevance": "high",
+        "sources": [
+          { "label": "9to5Mac", "url": "https://9to5mac.com/2026/05/28/anthropic-upgrades-claude-with-new-opus-4-8-model-heres-whats-new/" }
+        ]
+      },
+      {
+        "name": "Claude Mythos",
+        "provider": "Anthropic",
+        "type": "LLM (neue Klasse)",
+        "highlight": "97,6% USAMO, 93,9% SWE-bench; autonomes FreeBSD-Exploit; nur ~50 Orgs via Project Glasswing; GA in Kürze",
+        "relevance": "high",
+        "sources": [
+          { "label": "Anthropic Red Team", "url": "https://red.anthropic.com/2026/mythos-preview/" }
+        ]
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "provider": "Google",
+        "type": "Multimodal",
+        "highlight": "Übertrifft Gemini 3.1 Pro bei Coding & Agenten; Default in Google Search (1B User) & Gemini App (900M MAU); <50% Kosten vs. andere Frontier-Modelle",
+        "relevance": "high",
+        "sources": [
+          { "label": "Google Blog", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" }
+        ]
+      },
+      {
+        "name": "Gemini 3.5 Lite",
+        "provider": "Google",
+        "type": "Leichtgewicht multimodal",
+        "highlight": "Maximum-Reaktivität für Edge/Echtzeit",
+        "relevance": "medium",
+        "sources": [
+          { "label": "Google I/O 2026", "url": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/" }
+        ]
+      },
+      {
+        "name": "Gemini Omni",
+        "provider": "Google",
+        "type": "Multimodal (Video-first)",
+        "highlight": "Any-input-to-any-output; konversationelle Video-Bearbeitung; Quantensprung im Welt-Verstehen",
+        "relevance": "medium",
+        "sources": [
+          { "label": "CNBC", "url": "https://www.cnbc.com/2026/05/19/google-ai-ultra-gemini-spark-omni.html" }
+        ]
+      },
+      {
+        "name": "Gemma 4",
+        "provider": "Google",
+        "type": "Open-weight multimodal",
+        "highlight": "Apache 2.0; native Audio+Vision+Function Calling; agentic; läuft auf Consumer-Hardware; HuggingFace/Ollama/vLLM Day-one-Support",
+        "relevance": "medium",
+        "sources": [
+          { "label": "Google Blog Gemma 4", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" }
+        ]
+      },
+      {
+        "name": "Qwen 3.7-Max",
+        "provider": "Alibaba",
+        "type": "Agentic LLM",
+        "context": "1M Token",
+        "highlight": "35 Stunden autonome Ausführung; 1.000+ Tool Calls in einem Run; schlägt Claude Opus 4.6 Max auf Terminal-Bench 2.0 & SWE-Bench Pro",
+        "relevance": "medium",
+        "sources": [
+          { "label": "TechNode", "url": "https://technode.com/2026/05/21/alibaba-introduces-qwen3-7-max-as-next-gen-ai-agent-model/" }
+        ]
+      },
+      {
+        "name": "DeepSeek V4-Pro",
+        "provider": "DeepSeek",
+        "type": "Open-weight MoE",
+        "context": "1M Token",
+        "highlight": "MIT-Lizenz; 75% Preissenkung permanent (ab 22.5.): $0,435/M Input; 80,6% SWE-bench",
+        "relevance": "medium",
+        "sources": [
+          { "label": "Simon Willison", "url": "https://simonwillison.net/2026/apr/24/deepseek-v4/" }
+        ]
+      },
+      {
+        "name": "Mistral Medium 3.5",
+        "provider": "Mistral",
+        "type": "Dense LLM",
+        "highlight": "128B Parameter; vereint Chat/Reasoning/Code in einem Modell mit togglebarem Reasoning-Mode; jetzt in Copilot Studio verfügbar",
+        "relevance": "high",
+        "sources": [
+          { "label": "The Decoder", "url": "https://the-decoder.com/mistrals-new-flagship-medium-3-5-folds-chat-reasoning-and-code-into-one-model/" }
+        ]
+      },
+      {
+        "name": "GPT-5.5 Instant",
+        "provider": "OpenAI",
+        "type": "LLM",
+        "highlight": "Neuer ChatGPT-Default für alle (auch Free); 52,5% weniger Halluzinationen als Vorgänger",
+        "relevance": "medium",
+        "sources": [
+          { "label": "OpenAI", "url": "https://openai.com/index/gpt-5-5-instant/" }
+        ]
+      },
+      {
+        "name": "Kimi K2.6",
+        "provider": "Moonshot AI",
+        "type": "Open-weight MoE+Vision",
+        "context": "256K Token",
+        "highlight": "#1 Open-Source-Modell weltweit; 300 Sub-Agenten / 4.000 koordinierte Schritte; auf Cloudflare Workers AI verfügbar",
+        "relevance": "medium",
+        "sources": [
+          { "label": "Cloudflare", "url": "https://developers.cloudflare.com/changelog/post/2026-04-20-kimi-k2-6-workers-ai/" }
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "LangGraph erhält feingranuläre Node-Ausführung mit DeltaChannel; MCP RC eingefroren mit zustandslosem Protokoll; GitHub Copilot stellt auf Usage-Based Billing um; Cursor 3.5 bringt Cloud Agents.",
+    "items": [
+      {
+        "name": "LangChain / LangGraph",
+        "release": "v1.3.2 / langchain-core v1.4.0",
+        "date": "2026-05-26",
+        "relevance": "high",
+        "description": "LangGraph-Update (12. Mai): Feingranuläre Node-Ausführung mit Timeouts & Error Recovery, neuer DeltaChannel (beta) speichert nur inkrementelle Deltas — reduziert Checkpoint-Overhead erheblich. Neue Streaming API v3. LangSmith etabliert sich als Standard-Observability-Layer.",
+        "sources": [
+          { "label": "LangChain Changelog", "url": "https://changelog.langchain.com/" }
+        ]
+      },
+      {
+        "name": "CrewAI",
+        "release": "v1.14.6",
+        "date": "2026-05-28",
+        "relevance": "medium",
+        "description": "v1.14.5: CrewAgentExecutor deprecated zugunsten AgentExecutor; neue restore_from_state_id-Kickoff-Parameter; CLI als eigenständiges Package. 44K+ GitHub Stars, 60% Fortune-500-Adoption.",
+        "sources": [
+          { "label": "CrewAI Changelog", "url": "https://docs.crewai.com/en/changelog" }
+        ]
+      },
+      {
+        "name": "Microsoft Agent Framework (MAF) v1.0",
+        "release": "v1.0 GA",
+        "date": "2026-04-03",
+        "relevance": "high",
+        "description": "MAF vereint Semantic Kernel (Enterprise-Features), AutoGen (Agent-Abstraktion) und Graph-Based Workflows. AutoGen ist in Maintenance Mode. Semantic Kernel wird als deprecated path markiert — Migration Guides verfügbar. VS Code-Extension: BYOK-Support für Restricted Environments.",
+        "sources": [
+          { "label": "MAF v1.0 Blog", "url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/" }
+        ]
+      },
+      {
+        "name": "OpenAI Agents SDK (TypeScript)",
+        "release": "TypeScript-Version",
+        "date": "2026-05-26",
+        "relevance": "medium",
+        "description": "Python-Version im April erschienen, TypeScript folgt am 26. Mai. Sandbox-Agent-Ausführung mit Datei-, Kommando- und Code-Editing-Fähigkeiten; konfigurierbares Memory; standardisierte Primitiven für Frontier-Agent-Systeme.",
+        "sources": [
+          { "label": "OpenAI Agents SDK", "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk/" }
+        ]
+      },
+      {
+        "name": "LlamaIndex v0.14.22 + LlamaParse v2",
+        "release": "v0.14.22",
+        "date": "2026-05-14",
+        "relevance": "medium",
+        "description": "LlamaParse v2: 4-Tier-Konfiguration, bis zu 50% Kostenreduktion. Neu: AgentFS (sichere Coding-Agenten mit virtueller Filesystem-Isolation), LlamaSplit Beta, LlamaSheets. Integration mit Google Agents API.",
+        "sources": [
+          { "label": "LlamaIndex Blog", "url": "https://www.llamaindex.ai/blog" }
+        ]
+      },
+      {
+        "name": "Google Genkit — Middleware Architecture",
+        "release": "Middleware-System",
+        "relevance": "medium",
+        "description": "Neues Middleware-System für TypeScript und Go: Composable Interception Layer rund um Model Calls, Tool Execution und Generation Loops. Features: Retries, Model Fallbacks, Tool Approval Gates, Scoped Filesystem Access. Genkit Go 1.0 stable released.",
+        "sources": [
+          { "label": "InfoQ", "url": "https://www.infoq.com/news/2026/05/google-genkit-middleware/" }
+        ]
+      },
+      {
+        "name": "MCP (Model Context Protocol) — Release Candidate",
+        "release": "RC",
+        "date": "2026-05-21",
+        "relevance": "high",
+        "description": "RC eingefroren (21. Mai); finaler Spec-Release am 28. Juli 2026. Größte Änderung: MCP wird auf Protokoll-Ebene zustandslos. Neues Streamable HTTP Transport. Neue Caching-Semantik mit ttlMs und cacheScope. NSA veröffentlichte Security-Design-Empfehlungen für MCP (20. Mai).",
+        "sources": [
+          { "label": "MCP Blog", "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/" },
+          { "label": "NSA CSI", "url": "https://www.nsa.gov/Portals/75/documents/Cybersecurity/CSI_MCP_SECURITY.pdf" }
+        ]
+      },
+      {
+        "name": "Pinecone Nexus",
+        "release": "Nexus + KnowQL",
+        "date": "2026-05-08",
+        "relevance": "high",
+        "description": "Nexus: Knowledge Engine für AI-Agenten mit compiled Vector Artifacts; 90%+ Task Completion Rate, bis zu 30x schneller, bis zu 90% Token-Reduktion. KnowQL: Deklarative Abfragesprache für agentic Retrieval. Builder Tier für $20/Monat.",
+        "sources": [
+          { "label": "Pinecone Nexus", "url": "https://www.pinecone.io/product/nexus/" }
+        ]
+      },
+      {
+        "name": "Cursor 3.3 & 3.5",
+        "release": "3.5",
+        "date": "2026-05-20",
+        "relevance": "high",
+        "description": "3.3 (7. Mai): Parallele Agent-Ausführung (Build in Parallel) für unabhängige Subtasks. 3.5 (20. Mai): Cloud Agents in isolierten Cloud-VMs mit vollem Terminal-, Browser- und Desktop-Zugriff; parallele Arbeit über mehrere Repos; Jira-Integration. Bewertung: $50B Valuation bei $2B ARR.",
+        "sources": [
+          { "label": "Cursor Changelog", "url": "https://cursor.com/changelog" }
+        ]
+      },
+      {
+        "name": "GitHub Copilot — Billing-Umstellung & Modell-Updates",
+        "release": "Usage-Based Billing",
+        "date": "2026-06-01",
+        "relevance": "high",
+        "description": "Ab 1. Juni: Alle Pläne erhalten monatliche AI Credits statt Flatrate. Opus-Modelle aus Pro-Tier entfernt. Neuer Copilot Max Plan (ab 1. Juni). Modell-Update (20. Mai): Alle Gemini-Modelle und GPT-5.2 Codex / GPT-5.4 nano entfernt; Claude und OpenAI-Modelle bleiben.",
+        "sources": [
+          { "label": "GitHub Changelog", "url": "https://github.blog/changelog/month/05-2026/" },
+          { "label": "Copilot Billing", "url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/" }
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Gemma 4 (Apache 2.0) mit nativer Audio+Vision+Function-Calling-Unterstützung; DeepSeek V4-Pro und V4-Flash unter MIT-Lizenz mit permanenter 75% Preissenkung.",
+    "items": [
+      {
+        "name": "Gemma 4",
+        "date": "2026-05-19",
+        "relevance": "medium",
+        "description": "Apache 2.0; native Audio+Vision+Function Calling; agentic; läuft auf Consumer-Hardware; HuggingFace/Ollama/vLLM Day-one-Support.",
+        "sources": [
+          { "label": "Google Blog Gemma 4", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" }
+        ]
+      },
+      {
+        "name": "DeepSeek V4-Pro / V4-Flash",
+        "date": "2026-05-22",
+        "relevance": "medium",
+        "description": "MIT-Lizenz; 75% Preissenkung permanent (ab 22.5.): V4-Pro $0,435/M Input, 80,6% SWE-bench. V4-Flash 284B/13B aktiv als kostengünstige Variante.",
+        "sources": [
+          { "label": "DeepSeek API", "url": "https://api-docs.deepseek.com/news/news260424" }
+        ]
+      },
+      {
+        "name": "Weaviate v1.37 — Native MCP Server",
+        "release": "v1.37",
+        "date": "2026-04-16",
+        "relevance": "medium",
+        "description": "Erste Vektordatenbank mit nativem MCP-Server (/v1/mcp-Endpoint): Claude, Cursor und VS Code können direkt ohne Custom-Integration-Code auf Weaviate lesen und schreiben. Weitere Neuerungen: Incremental Backups, Diversity Search (MMR), Query Profiling.",
+        "sources": [
+          { "label": "Vector DB News April 2026", "url": "https://ranksquire.com/2026/05/01/vector-database-news-april-2026/" }
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Größter Microsoft-AI-Monat des Jahres: Foundry Local GA, Computer-Using Agents GA, 53 M365-Copilot-Updates; Build-2026-Pre-Ankündigungen enthüllen Project Polaris und Azure Agent Mesh.",
+    "items": [
+      {
+        "title": "Microsoft Foundry — Mai 2026 Updates",
+        "product": "Microsoft Foundry (ehem. Azure AI Foundry)",
+        "relevance": "high",
+        "description": "Foundry Local GA: Cross-Platform Local AI für Windows, macOS, Linux. Keine Cloud-Dependency. v1.1: Live Audio Transcription, Embeddings, Qwen 3.5 Vision. Managed VNET GA mit Private Endpoints. Content Understanding GA. Project-Level Cost Attribution. Trace-Based Evaluation. MAI-Image-2-Efficient: 22% schneller, 4x effizienter. Neue Modelle im Katalog: DeepSeek V4, Grok 4.3, Kimi 2.6. Foundry IQ (5. Mai) als Knowledge Layer.",
+        "sources": [
+          { "label": "What's New Microsoft Foundry Mai 2026", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-may-2026/" },
+          { "label": "Foundry Local GA", "url": "https://devblogs.microsoft.com/foundry/foundry-local-ga/" }
+        ]
+      },
+      {
+        "title": "Azure OpenAI Service — Mai 2026",
+        "product": "Azure OpenAI",
+        "relevance": "high",
+        "description": "GPT-5 Modelle: gpt-5-chat verfügbar; gpt-5 Reinforcement Fine-Tuning (RFT) von Preview auf Gated GA. Spillover-Traffic GA: Overflow von Provisioned-Deployments automatisch geroutet. Realtime-Audio-Modelle (18. Mai): gpt-realtime-1.5 und gpt-audio-1.5 mit besserem Instruction Following. Service-Incident (29. Mai, 09:39–17:05 UTC): HTTP 5XX-Fehler in mehreren Regionen.",
+        "sources": [
+          { "label": "Azure OpenAI What's New", "url": "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/whats-new" }
+        ]
+      },
+      {
+        "title": "Microsoft Build 2026 — Pre-Ankündigungen",
+        "product": "Verschiedene",
+        "date": "2026-05-28",
+        "relevance": "high",
+        "description": "Project Polaris: Microsofts eigenes Coding-Modell (Mixture-of-Experts) auf Maia AI Accelerators — ersetzt GPT-4 Turbo als GitHub Copilot Default ab August 2026. Windows Agent Framework (WAF) v1.0 (MIT). Azure Agent Mesh: Control Plane zur Federation von Agent-Execution über On-Premises, Cloud und Edge. Copilot Workspace GA mit Extensions und Fleet Mode.",
+        "sources": [
+          { "label": "Microsoft Build 2026", "url": "https://news.microsoft.com/build-2026/" }
+        ]
+      },
+      {
+        "title": "Copilot Studio — Mai 2026",
+        "product": "Copilot Studio",
+        "date": "2026-05-26",
+        "relevance": "high",
+        "description": "Computer-Using Agents (CUAs) GA (26. Mai): Agenten interagieren direkt mit Websites und Desktop-Apps über UI — kein API erforderlich. Agent-to-Agent-Kommunikation GA. Neues Orchestrierungs-Layer: ~+20% Evaluation Performance, -50% Token-Verbrauch. Real-Time Voice GA (Nordamerika). Mistral Medium 3.5 in Copilot Studio verfügbar.",
+        "sources": [
+          { "label": "Copilot Studio Mai 2026", "url": "https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/" }
+        ]
+      },
+      {
+        "title": "M365 Copilot — 53 Updates Mai 2026",
+        "product": "Microsoft 365 Copilot",
+        "relevance": "high",
+        "description": "Neues Design (28. Mai): Task-aware Prompt Surface. Neue Modelle: Claude Opus 4.8 und GPT-5.5 Instant. M365 Copilot 3-Jahres-CSP-SKU (1. Mai). Copilot Agents — Agentic Outlook: Automatisches E-Mail-Triage und Kalender-Management. Legal Agent in Word. Copilot Researcher mit Multi-Model Intelligence. Federated Copilot Connectors via MCP. ISO/IEC 42001:2023 Zertifizierung.",
+        "sources": [
+          { "label": "M365 Copilot Mai 2026", "url": "https://techcommunity.microsoft.com/blog/microsoft365copilotblog/what%E2%80%99s-new-in-microsoft-365-copilot--may-2026/4522010" }
+        ]
+      },
+      {
+        "title": "EY + Microsoft — Global AI Initiative",
+        "product": "Partnership",
+        "date": "2026-05-21",
+        "relevance": "medium",
+        "description": "1 Milliarde USD über 5 Jahre für Enterprise-AI-Skalierung. Signal für wachsendes Ökosystem-Engagement — Benchmark für Partner-Investitionsargumentation.",
+        "sources": [
+          { "label": "News Microsoft", "url": "https://news.microsoft.com/source/2026/05/21/ey-and-microsoft-announce-global-initiative-to-help-clients-scale-ai-enterprisewide-value-creation-and-move-beyond-experimentation/" }
+        ]
+      },
+      {
+        "title": "Anthropic + Microsoft — Chip-Deal",
+        "product": "Maia AI Chips",
+        "date": "2026-05-21",
+        "relevance": "medium",
+        "description": "Verhandlungen über Lieferung von Maia AI Chips (2nd Gen) an Anthropic bestätigt. Signal: Claude-Workloads ziehen in Microsoft-Infrastruktur — strategische Untermauerung der Claude-Modelle in M365 Copilot.",
+        "sources": [
+          { "label": "CNBC", "url": "https://www.cnbc.com/2026/05/21/anthropic-microsoft-maia-200-ai-chip.html" }
+        ]
+      },
+      {
+        "title": "Foundry Copilot for Factories",
+        "product": "Azure Industrial AI",
+        "date": "2026-05-13",
+        "relevance": "medium",
+        "description": "Azure + Microsoft Foundry + Copilot in industriellen Fertigungs-Workflows. Use Cases: KAYA (Conversational Interface für CNC-Maschinen), LUCA Bot (CFO-Entscheidungsunterstützung bei Cemex), geotechnische KI. Roadmap: Domain-Specific Models auf OPC-UA-Telemetrie bis Ende 2026.",
+        "sources": [
+          { "label": "WindowsForum", "url": "https://windowsforum.com/threads/microsoft-may-13-2026-industrial-ai-azure-foundry-copilot-for-factories.418107/" }
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Cognition AI (Devin) erreicht $26B Bewertung bei 13x Umsatzwachstum; OpenAI gründet Deployment Company mit $4B; Google I/O präsentiert Gmail Live, Universal Cart und Audio Glasses.",
+    "items": [
+      {
+        "name": "Cognition AI (Devin)",
+        "date": "2026-05-28",
+        "relevance": "high",
+        "description": "Co-Lead: Lux Capital, General Catalyst, 8VC. Revenue Run Rate wuchs von $37M (Mai 2025) auf $492M — 13x in 12 Monaten. Enterprise-Kunden: Goldman Sachs, Mercedes-Benz, US-Regierungsbehörden. Valuation von $10,2B auf $26B. 90% des eigenen Codes wird von Devin geschrieben.",
+        "sources": [
+          { "label": "Bloomberg", "url": "https://www.bloomberg.com/news/articles/2026-05-27/ai-coding-startup-cognition-raises-1-billion-at-26-billion-value" },
+          { "label": "TechCrunch", "url": "https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" }
+        ]
+      },
+      {
+        "name": "OpenAI Deployment Company (DeployCo)",
+        "date": "2026-05-11",
+        "relevance": "high",
+        "description": "OpenAI gründet OpenAI Deployment Company (Joint Venture mit >$4B von 19 Investmentfirmen, geführt von TPG, Advent, Bain Capital, Brookfield). Übernahme von Tomoro (~150 Forward Deployed Engineers). Mission: Unternehmen beim Aufbau und Deployment von AI-Systemen unterstützen. Capgemini steigt als Investor ein.",
+        "sources": [
+          { "label": "OpenAI", "url": "https://openai.com/index/openai-launches-the-deployment-company/" }
+        ]
+      },
+      {
+        "name": "Perplexity AI — Personal Computer & Updates",
+        "relevance": "medium",
+        "description": "Personal Computer: Always-on AI auf dediziertem Mac mini. Deep Research Outputs: Präsentationen, Spreadsheets, Dashboards direkt generierbar. Space Skills für Teams. Direkte Verbindung zu Snowflake und Databricks. Finance Search API verfügbar.",
+        "sources": [
+          { "label": "Perplexity Changelog", "url": "https://www.perplexity.ai/changelog/improved-computer-models-and-enterprise-updates---may-4-2026" }
+        ]
+      },
+      {
+        "name": "Notion Developer Platform 3.5",
+        "date": "2026-05-13",
+        "relevance": "medium",
+        "description": "Rebuilt Developer Docs mit AI-Assistent, Notion Workers (hosted Runtime für Custom Code), neue CLI. Custom Agents sind seit 4. Mai kostenpflichtig (~$10/1.000 Credits). Über 1 Million Custom Agents seit Beta-Launch erstellt.",
+        "sources": [
+          { "label": "Notion Releases", "url": "https://www.notion.com/releases/2026-05-13" }
+        ]
+      },
+      {
+        "name": "Google I/O 2026 — Consumer-Produkte",
+        "date": "2026-05-19",
+        "relevance": "medium",
+        "description": "Gmail Live / Docs Live: Konversationelle Suche über E-Mails und Echtzeit-Dokument-Erstellung. Google Universal Cart: Intelligenter Shopping-Cart über Search, Gemini, YouTube und Gmail. Audio Glasses mit Gentle Monster, Warby Parker, Samsung — Herbst 2026.",
+        "sources": [
+          { "label": "Google I/O 2026", "url": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/" }
+        ]
+      },
+      {
+        "name": "Coupa — Akquisition Tonkean",
+        "date": "2026-05-21",
+        "relevance": "medium",
+        "description": "Tonkean: israelisches AI Workflow-Automation-Startup; 250+ native Connectors, Multi-Agent-Orchestrierung. Coupa baut Agentic Trade Network für Procurement/Supply Chain. Claimed Impact: 50% Reduktion der Operational Cycle Times.",
+        "sources": [
+          { "label": "Axios", "url": "https://www.axios.com/pro/fintech-deals/2026/05/21/coupa-tonkean-ai-procurement-acquisition" }
+        ]
+      },
+      {
+        "name": "Parallel Web Systems",
+        "relevance": "medium",
+        "description": "$100M Series B bei $2B Bewertung. Gegründet von Twitter-Ex-CEO Parag Agrawal. Web-Such- und Research-APIs für AI-Agenten. Kunden: Clay, Harvey, Notion, Opendoor; 100.000+ Entwickler.",
+        "sources": [
+          { "label": "TechCrunch", "url": "https://techcrunch.com/2026/04/29/parallel-web-systems-hits-2b-valuation-five-months-after-its-last-big-raise/" }
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "EU AI Act Omnibus verschiebt High-Risk-Deadline auf Dezember 2027; Claude Mythos löst US-China-Diplomatie-Gespräche aus; Open-Weight-Modelle liegen nur noch 3 Monate hinter SOTA-proprietären Modellen.",
+    "items": [
+      {
+        "title": "EU AI Act Digital Omnibus (7. Mai)",
+        "description": "Politische Einigung zwischen EU-Rat, -Parlament und Kommission. Compliance-Deadline für High-Risk AI (Annex III) von August 2026 auf Dezember 2027 verschoben (16 Monate). Neue Verbote: KI-generierte NCII und CSAM.",
+        "sources": [
+          { "label": "EU Council", "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/" }
+        ]
+      },
+      {
+        "title": "Claude Mythos Cybersecurity-Alarm",
+        "description": "Anthropics Mythos-Preview fand selbstständig zehntausende kritische Schwachstellen in allen großen OSes und Browsern, inkl. Zero-Days in Closed-Source-Software. Löste US-China-Diplomatiegespräche aus. Anthropic informiert Regulatoren.",
+        "sources": [
+          { "label": "Anthropic Red Team", "url": "https://red.anthropic.com/2026/mythos-preview/" },
+          { "label": "JustSecurity", "url": "https://www.justsecurity.org/138011/too-dangerous-anthropic-mythos/" }
+        ]
+      },
+      {
+        "title": "US-China AI Safety Protocol Talks (14.–15. Mai)",
+        "description": "Beim Trump-Xi-Gipfel in Peking vereinbarten beide Länder offizielle Gespräche über AI Safety Guardrails. Treasury Secretary Bessent: USA werden dabei die Führung übernehmen.",
+        "sources": [
+          { "label": "CNBC", "url": "https://www.cnbc.com/2026/05/14/us-china-ai-rules-bessent-us-lead.html" }
+        ]
+      },
+      {
+        "title": "Colorado revidiert AI-Gesetz (14. Mai)",
+        "description": "SB 189 hebt das ursprüngliche Colorado AI Act von 2024 vollständig auf und ersetzt es durch engere Transparenz- und Offenlegungspflichten für ADMT in folgenreichen Entscheidungen. Wirkung: 1. Januar 2027.",
+        "sources": [
+          { "label": "Holland & Knight", "url": "https://www.hklaw.com/en/insights/publications/2026/05/colorado-governor-signs-sb-189" }
+        ]
+      },
+      {
+        "title": "Open-Weight Safety-Risiken (31. Mai)",
+        "description": "NPR-Untersuchung: Das Entfernen von Safety-Guardrails in Open-Weight-Modellen ist dramatisch zugänglicher geworden. Open-Weight-Modelle liegen nur noch <1 Jahr hinter Closed-Source-Modellen.",
+        "sources": [
+          { "label": "NPR", "url": "https://www.npr.org/2026/05/31/nx-s1-5816391/ai-safety-concerns-danger-open-weight-models-risks" }
+        ]
+      },
+      {
+        "title": "International AI Safety Report 2026 (Bengio et al.)",
+        "description": "100+ internationale Experten, 30+ Länder. Kernbefunde: Open-Weight-Modelle liegen <1 Jahr hinter Closed-Weight; AI-Modelle geben in 19% der Medizin-Anfragen schädliche Antworten; Anzahl Frontier-AI-Safety-Frameworks hat sich seit 2025 mehr als verdoppelt.",
+        "sources": [
+          { "label": "Offiziell", "url": "https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" }
+        ]
+      },
+      {
+        "title": "Weißes Haus verzögert AI Executive Order (21. Mai)",
+        "description": "Trump verzögert geplante Executive Order für freiwillige Pre-Launch-Review-Prozesse für Frontier-Modelle (14–90 Tage Government-Access-Fenster). \"Studiert\" die Situation weiter.",
+        "sources": [
+          { "label": "CNN", "url": "https://www.cnn.com/2026/05/20/tech/ai-executive-order-trump-white-house" }
+        ]
+      },
+      {
+        "title": "Newsom: CA AI Workforce Executive Order (21. Mai)",
+        "description": "Erste US-State-EO zu AI-Workforce-Disruption. Mobilisiert Agenturen, Ökonomen und Universitäten für Schutzpolitiken bei AI-bedingten Entlassungen.",
+        "sources": [
+          { "label": "CA Governor", "url": "https://www.gov.ca.gov/2026/05/21/governor-newsom-signs-first-of-its-kind-executive-order-to-prepare-workers-and-businesses-for-potential-ai-disruption/" }
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Anthropic überholt OpenAI als wertvollstes AI-Startup ($965B Bewertung); OpenAI reicht vertraulich IPO-Unterlagen ein; xAI wird als SpaceXAI-Division in SpaceX integriert; NVIDIA Q1 2026 mit $81,62B Umsatz.",
+    "items": [
+      {
+        "company": "Anthropic",
+        "description": "$65B Series H bei $965B Bewertung (28. Mai) — überholt OpenAI als wertvollstes AI-Startup. Revenue Run Rate: $47B. 80-faches Quartalsumsatzwachstum (8. Mai). Erste Akquisition: Fractional AI (21. Mai). Andrej Karpathy wechselt zu Anthropic. Gates Foundation: $200M in Grants über vier Jahre.",
+        "sources": [
+          { "label": "Bloomberg", "url": "https://www.bloomberg.com/news/articles/2026-05-28/anthropic-raises-at-965-billion-valuation-eclipsing-openai" }
+        ]
+      },
+      {
+        "company": "OpenAI",
+        "description": "Vertrauliche IPO-Einreichung (20. Mai): Ziel Börsengang Herbst 2026 via Goldman Sachs und Morgan Stanley. $50B Compute-Ausgaben 2026 (Brockman bestätigt). Strategische Partnerschaft mit NVIDIA für 10 Gigawatt gemeinsame Systeme.",
+        "sources": [
+          { "label": "CNBC", "url": "https://www.cnbc.com/2026/05/20/openai-ipo-filing.html" }
+        ]
+      },
+      {
+        "company": "xAI / SpaceXAI",
+        "description": "Musk gibt bekannt, dass xAI als eigenständige Entität endet und als SpaceXAI-Division in SpaceX aufgeht. SpaceXAI unterzeichnet Anthropic-Zugriffsvertrag für Colossus 1 Rechenzentrum (15. Mai).",
+        "sources": [
+          { "label": "Wikipedia SpaceXAI", "url": "https://en.wikipedia.org/wiki/SpaceXAI" }
+        ]
+      },
+      {
+        "company": "Google",
+        "description": "Google I/O 2026 (19. Mai): Umfangreichste Google-KI-Ankündigungen der Geschichte; Search-Redesign als \"größte Änderung in 25+ Jahren\". Google priorisiert Geschwindigkeit und Skalierung.",
+        "sources": [
+          { "label": "Axios", "url": "https://www.axios.com/2026/05/21/google-ai-anthropic-openai-war" }
+        ]
+      },
+      {
+        "company": "NVIDIA",
+        "description": "Q1 2026: $81,62B Umsatz. KI-Infrastrukturdemand ungebrochen.",
+        "sources": [
+          { "label": "Intellectia", "url": "https://intellectia.ai/blog/nvidia-earnings-report-may-2026" }
+        ]
+      },
+      {
+        "company": "Microsoft",
+        "description": "Microsoft erkundet neue AI-Partnerschaften angesichts von Bedenken über zu starke OpenAI-Abhängigkeit. 2026 Work Trend Index (20.000 AI-User befragt): Kulturelle Faktoren (nicht Technologie) sind das Haupthindernis für AI-ROI. 31,3% der US-Working-Age-Bevölkerung nutzt AI.",
+        "sources": [
+          { "label": "Analytics Insight", "url": "https://www.analyticsinsight.net/amp/story/news/microsoft-explores-new-ai-partnerships-amid-openai-dependence-concerns" }
+        ]
+      },
+      {
+        "company": "OpenAI — Sora 2 eingestellt",
+        "description": "OpenAI stellt Sora 2 ein (ab 26. April); Video-API bleibt bis 24. September 2026 für Legacy-Integrationen aktiv.",
+        "sources": [
+          { "label": "Futurum Group", "url": "https://futurumgroup.com/insights/openai-sora-discontinuation-what-the-end-of-a-platform-means-for-enterprise-ai-strategy/" }
+        ]
+      }
+    ]
+  }
+}

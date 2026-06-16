@@ -1,0 +1,463 @@
+{
+  "date": "2026-06-11",
+  "period": "2026-06-01/2026-06-11",
+  "executive_summary": {
+    "intro": "Microsoft Build 2026 dominiert die Woche mit dem bisher größten Update-Paket für den Microsoft-AI-Stack, während Anthropic das erste öffentliche Mythos-Klasse-Modell Claude Fable 5 launcht und beide Unternehmen vertrauliche IPO-Unterlagen einreichen.",
+    "highlights": [
+      "Microsoft Build 2026 (2.–4. Juni, agent-first): Foundry IQ GA, Hosted Agents mit A2A-Support, Agent Framework Harness + CodeAct, sieben eigene MAI-Modelle, Copilot Store & Windows Copilot Runtime.",
+      "GitHub Copilot stellt zum 1. Juni auf Usage-Based Billing um: Alle Pläne arbeiten jetzt mit AI Credits — Kundenbudgets und Lizenzberatung müssen neu kalkuliert werden.",
+      "Anthropic Claude Fable 5 (9. Juni): Erstes öffentlich verfügbares Mythos-Klasse-Modell, SOTA in Software Engineering; sofort in Claude API, Amazon Bedrock, Claude Code und GA in GitHub Copilot.",
+      "Microsoft launcht 7 eigene MAI-Modelle (2. Juni): MAI-Thinking-1, MAI-Code-1-Flash (in Copilot/VS Code), MAI-Image-2.5, MAI-Voice-2 — strategischer Schritt weg von der OpenAI-Abhängigkeit.",
+      "EU AI Act konkretisiert sich: Finaler Code of Practice zur Kennzeichnung KI-generierter Inhalte (10. Juni) — Vorboten des Stichtags 2. August 2026."
+    ]
+  },
+  "models": {
+    "summary": "Claude Fable 5 als erstes öffentliches Mythos-Klasse-Modell ist der Release der Woche; Microsofts 7 neue MAI-Modelle stärken First-Party-Alternativen; MiniMax M3 und Nemotron 3 Ultra erweitern das Open-Weight-Feld.",
+    "items": [
+      {
+        "name": "Claude Fable 5 / Mythos 5",
+        "provider": "Anthropic",
+        "type": "Frontier-LLM (Multimodal, Agentic)",
+        "highlight": "Erstes Mythos-Klasse-Modell, SOTA in SWE/Science/Vision; $10/$50 pro Mio. Tokens, sofort via API + Bedrock",
+        "relevance": "high",
+        "sources": [
+          { "label": "Anthropic", "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5" }
+        ]
+      },
+      {
+        "name": "MAI-Familie (7 Modelle)",
+        "provider": "Microsoft AI",
+        "type": "Reasoning, Coding, Image, STT, TTS",
+        "context": "MAI-Thinking-1: 256K",
+        "highlight": "First-Party-Alternative zu OpenAI; MAI-Code-1-Flash bereits in GitHub Copilot/VS Code integriert",
+        "relevance": "high",
+        "sources": [
+          { "label": "Microsoft AI", "url": "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/" }
+        ]
+      },
+      {
+        "name": "MiniMax-M3",
+        "provider": "MiniMax",
+        "type": "Open-Weight LLM, multimodal",
+        "context": "1M Token",
+        "highlight": "Frontier-Coding (59,0% SWE-Bench Pro) + 1M-Kontext bei 5–10% der Kosten; Weights angekündigt",
+        "relevance": "medium",
+        "sources": [
+          { "label": "MiniMax", "url": "https://www.minimax.io/blog/minimax-m3" }
+        ]
+      },
+      {
+        "name": "Gemma 4 12B",
+        "provider": "Google",
+        "type": "Open-Source Multimodal",
+        "highlight": "Unified-Architektur ohne separate Encoder, läuft mit 16 GB VRAM lokal, Apache 2.0",
+        "relevance": "medium",
+        "sources": [
+          { "label": "Google", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" }
+        ]
+      },
+      {
+        "name": "Nemotron 3 Ultra",
+        "provider": "NVIDIA",
+        "type": "Open-Weight Reasoning (550B MoE)",
+        "highlight": "NVIDIAs stärkstes offenes Modell, auf Multi-Agent-Workloads optimiert",
+        "relevance": "medium",
+        "sources": [
+          { "label": "NVIDIA", "url": "https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models" }
+        ]
+      },
+      {
+        "name": "DiffusionGemma 26B",
+        "provider": "Google DeepMind",
+        "type": "Text-Diffusionsmodell (Research)",
+        "context": "256-Token-Canvas",
+        "highlight": "Text per Diffusion statt autoregressiv — bis 4x schneller, bidirektionale Selbstkorrektur; experimentell",
+        "relevance": "low",
+        "sources": [
+          { "label": "MarkTechPost", "url": "https://www.marktechpost.com/2026/06/10/google-ai-releases-diffusiongemma-a-26b-moe-open-model-using-text-diffusion-for-up-to-4x-faster-generation/" }
+        ]
+      },
+      {
+        "name": "Gemini 3.5 Pro (Ausblick)",
+        "provider": "Google DeepMind",
+        "type": "Frontier-Multimodal",
+        "context": "2M Token (angekündigt)",
+        "highlight": "Deep Think-Modus; GA für Juni bestätigt, Stand 6. Juni noch Limited Preview",
+        "relevance": "medium",
+        "sources": [
+          { "label": "TechTimes", "url": "https://www.techtimes.com/articles/317919/20260606/google-gemini-35-pro-nears-june-launch-2-million-token-context-deep-think-reasoning.htm" }
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Microsoft Agent Framework bekommt den Agent Harness und CodeAct; GitHub Copilot SDK wird GA; Claude Fable 5 ist sofort in Claude Code und GitHub Copilot verfügbar; Windsurf wird zu Devin Desktop.",
+    "items": [
+      {
+        "name": "Microsoft Agent Framework — Build-2026-Welle",
+        "release": "Agent Harness (GA), CodeAct (Alpha), Copilot SDK Integration 1.0",
+        "date": "2026-06-03",
+        "relevance": "high",
+        "description": "Agent Harness: automatische Context-Compaction, File/Memory/Todo/Skills-Provider, Tool-Approval-Middleware. CodeAct: Modell generiert statt sequenzieller Tool-Calls Python-Programme, ausgeführt in Hyperlight-Micro-VMs (−52% Zeit, −64% Tokens). Handoff-Orchestrierung 1.0 für Multi-Agent-Routing. Migrationspfad von Semantic-Kernel-Projekten jetzt aktiv planen — SK gilt als Legacy.",
+        "sources": [
+          { "label": "Quelle", "url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/" }
+        ]
+      },
+      {
+        "name": "GitHub Copilot — Usage-Based Billing (AI Credits)",
+        "release": "Neue Abrechnungsstruktur alle Pläne",
+        "date": "2026-06-01",
+        "relevance": "high",
+        "description": "Pro ($10) = 1.000 Base- + 500 Flex-Credits, Pro+ ($39) = 7.000, neuer Max-Plan ($100) = 20.000; Business 1.900 / Enterprise 3.900 Credits pro User. Code Completions bleiben unlimitiert, Chat/Agent-Workflows werden tokenbasiert abgerechnet. Massiver Community-Backlash; für Kundenberatung: Spending-Controls und Budgets neu kalkulieren.",
+        "sources": [
+          { "label": "Quelle", "url": "https://github.blog/news-insights/company-news/github-copilot-individual-plans-introducing-flex-allotments-in-pro-and-pro-and-a-new-max-plan/" }
+        ]
+      },
+      {
+        "name": "GitHub Copilot SDK GA + Desktop-App",
+        "release": "SDK 1.0 GA",
+        "date": "2026-06-02",
+        "relevance": "high",
+        "description": "Die agentische Copilot-Engine lässt sich mit stabiler API in eigene Apps und Dev-Tools einbetten; dazu neue native Desktop-App in Preview. Option, Copilot-Agentik als Baustein in Kundenlösungen zu integrieren.",
+        "sources": [
+          { "label": "Quelle", "url": "https://github.blog/changelog/2026-06-02-copilot-sdk-is-now-generally-available/" }
+        ]
+      },
+      {
+        "name": "Claude Fable 5 in Claude Code & GitHub Copilot",
+        "release": "Claude Code 2.1.170, GA in Copilot",
+        "date": "2026-06-09",
+        "relevance": "high",
+        "description": "Das neue Anthropic-Topmodell ist ab sofort in Claude Code und GA in GitHub Copilot (bis 22. Juni ohne Aufpreis in Pro/Max/Team/Enterprise, danach Extra-Credits). Early-Tester Stripe berichtet von einer codebase-weiten Migration in 1 Tag statt 2 Monaten.",
+        "sources": [
+          { "label": "Quelle", "url": "https://github.blog/changelog/2026-06-09-claude-fable-5-is-generally-available-for-github-copilot/" }
+        ]
+      },
+      {
+        "name": "Cursor — SDK-Updates & Cursor 3.7",
+        "release": "SDK-Update 04.06. / Cursor 3.7 am 05.06.2026",
+        "date": "2026-06-05",
+        "relevance": "medium",
+        "description": "SDK: eigene Persistenz-Stores, Custom Tools, Auto-Review-Routing, unbegrenzt verschachtelte Subagents — relevant für CI/CD-Einbettung. Cursor 3.7 bringt Design Mode (UI-Änderungen per Klick/Zeichnen/Sprache); Enterprise Organizations (getrennte Security/Governance/Budgets) seit 03.06. GA.",
+        "sources": [
+          { "label": "Quelle SDK", "url": "https://cursor.com/changelog/sdk-updates-jun-2026" },
+          { "label": "Quelle Changelog", "url": "https://cursor.com/changelog" }
+        ]
+      },
+      {
+        "name": "Windsurf → Devin Desktop (Cognition-Rebrand)",
+        "release": "OTA-Rebrand, Devin Local, ACP-Support",
+        "date": "2026-06-02",
+        "relevance": "medium",
+        "description": "Windsurf heißt jetzt Devin Desktop: Agent Command Center (Kanban über lokale + Cloud-Agents), Devin Local als Cascade-Nachfolger (−30% Tokens), Support für das offene Agent Client Protocol (ACP). Achtung: Cascade-EOL am 01.07.2026 — Automationen bis dahin migrieren.",
+        "sources": [
+          { "label": "Quelle", "url": "https://devin.ai/blog/windsurf-is-now-devin-desktop/" }
+        ]
+      },
+      {
+        "name": "LangGraph 1.2.4",
+        "release": "Patch",
+        "date": "2026-06-02",
+        "relevance": "low",
+        "description": "Reines Wartungsrelease der stabilen 1.x-Linie; keine größeren LangChain/LlamaIndex-Releases im Zeitraum.",
+        "sources": [
+          { "label": "Quelle", "url": "https://github.com/langchain-ai/langgraph/releases" }
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "MiniMax M3 mit 1M Token Kontext kündigt Open-Weight-Release an; Gemma 4 12B (Apache 2.0) läuft lokal mit 16 GB VRAM; Nemotron 3 Ultra als NVIDIAs stärkstes offenes Modell.",
+    "items": [
+      {
+        "name": "MiniMax-M3",
+        "date": "2026-06-01",
+        "relevance": "medium",
+        "description": "Frontier-Coding (59,0% SWE-Bench Pro) + 1M-Kontext bei 5–10% der proprietären Kosten. Open-Weight-Release angekündigt.",
+        "sources": [
+          { "label": "MiniMax", "url": "https://www.minimax.io/blog/minimax-m3" }
+        ]
+      },
+      {
+        "name": "Gemma 4 12B",
+        "date": "2026-06-01",
+        "relevance": "medium",
+        "description": "Apache 2.0; Unified-Architektur ohne separate Encoder; läuft mit 16 GB VRAM lokal; nativ multimodal.",
+        "sources": [
+          { "label": "Google", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/" }
+        ]
+      },
+      {
+        "name": "Nemotron 3 Ultra (550B MoE)",
+        "date": "2026-06-01",
+        "relevance": "medium",
+        "description": "NVIDIAs stärkstes offenes Modell, auf Multi-Agent-Workloads optimiert.",
+        "sources": [
+          { "label": "NVIDIA", "url": "https://nvidianews.nvidia.com/news/nvidia-debuts-nemotron-3-family-of-open-models" }
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Microsoft Build 2026 liefert das bislang dichteste Azure-AI-Update-Paket: Foundry IQ GA, Hosted Agents, A2A Public Preview, Work IQ API GA am 16. Juni, Agent Mode GA in M365-Apps und neue Lizenzanforderungen für Agent 365.",
+    "items": [
+      {
+        "title": "Microsoft Foundry: Foundry IQ GA, VS-Code-Toolkit GA, Hosted Agents",
+        "product": "Microsoft Foundry (ehem. Azure AI Foundry)",
+        "date": "2026-06-02",
+        "relevance": "high",
+        "description": "Foundry IQ (SLA-gestützte Knowledge-/RAG-Schicht über Work IQ, Fabric IQ, Azure SQL, File Search, MCP-Quellen) ist GA und ersetzt selbstgebaute RAG-Pipelines. Foundry Toolkit für VS Code GA (Agent-Templates, lokales Debugging mit Trace-Visualisierung). Memory, Routines, Toolboxes in Public Preview. Hosted Agents GA Anfang Juli.",
+        "sources": [
+          { "label": "Quelle", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/" }
+        ]
+      },
+      {
+        "title": "Foundry Agent Service: Hosted Agents, A2A Public Preview, Agent Optimizer",
+        "product": "Foundry Agent Service",
+        "date": "2026-06-05",
+        "relevance": "high",
+        "description": "Hosted Agents (Scale-to-zero, persistentes Filesystem, Per-Session-VM-Isolation, App-Insights-Observability). Eingehender A2A-Protokoll-Support (Public Preview) — jeder Foundry-Agent als framework-/cloudübergreifend aufrufbarer A2A-Endpoint. Agent Optimizer übersetzt Produktionsfehler in priorisierte Verbesserungen. Agent-Publishing direkt nach Teams und M365 Copilot (GA im Juni).",
+        "sources": [
+          { "label": "Quelle", "url": "https://devblogs.microsoft.com/foundry/agent-service-build2026/" }
+        ]
+      },
+      {
+        "title": "Work IQ API: GA am 16. Juni",
+        "product": "M365 / Copilot Studio / Foundry",
+        "date": "2026-06-16",
+        "relevance": "high",
+        "description": "Die Work IQ API (M365-Daten/-Kontext/-Tools für eigene Agents) wird am 16. Juni GA; Abrechnung verbrauchsbasiert über Copilot Credits, kein separates SKU. Vor dem 16. Juni bei allen Kunden mit Work-IQ-Preview-Agents Pay-as-you-go, Access Policies und Spending Limits im Admin Center konfigurieren.",
+        "sources": [
+          { "label": "Quelle", "url": "https://devblogs.microsoft.com/microsoft365dev/work-iq-production-ready-intelligence-for-every-agent/" }
+        ]
+      },
+      {
+        "title": "M365 Copilot: Agent Mode in Word/Excel/PowerPoint GA, Microsoft IQ",
+        "product": "Microsoft 365 Copilot",
+        "date": "2026-06-04",
+        "relevance": "high",
+        "description": "Agent Mode in Word, Excel, PowerPoint ist GA und laut Nadella jetzt Default (Copilot plant, führt aus, verfeinert mehrstufig); Microsoft IQ als neue Intelligence-Schicht; Federated Copilot Connectors GA.",
+        "sources": [
+          { "label": "Quelle", "url": "https://news.microsoft.com/build-2026/" }
+        ]
+      },
+      {
+        "title": "Copilot Studio: Computer-Using Agents GA, neue Workflow-Canvas",
+        "product": "Microsoft Copilot Studio",
+        "date": "2026-06-04",
+        "relevance": "high",
+        "description": "UI-Automatisierung per Computer-Using Agents (Web + Desktop) GA inkl. Credential-Management; redesignte visuelle Workflow-Canvas; GPT-5- und Claude-Modelle global GA für Produktions-Agents. Legacy-Systeme ohne APIs werden automatisierbar — RPA-Ablöse-Geschäftsfeld in Power-Platform-Projekten.",
+        "sources": [
+          { "label": "Quelle", "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new" }
+        ]
+      },
+      {
+        "title": "Agent 365: SDK GA + neue Lizenzvoraussetzung M365 E5",
+        "product": "Microsoft Agent 365",
+        "date": "2026-06-04",
+        "relevance": "high",
+        "description": "Agent 365 SDK (Kontrollebene via Entra, Defender, Purview) ist GA. Neukäufe erfordern seit 1. Juni: Enterprise → M365 E5, SMB → Business Premium. Lizenz-Assessments früh in Agent-365-Deals einbauen — E5-Upsell-Hebel, aber potenzieller Deal-Blocker.",
+        "sources": [
+          { "label": "Quelle", "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-june" }
+        ]
+      },
+      {
+        "title": "M365 Business mit Copilot wird permanentes SKU (ab 1. Juli)",
+        "product": "M365 Copilot / CSP",
+        "date": "2026-07-01",
+        "relevance": "high",
+        "description": "Business Standard with Copilot ($23,50) und Business Premium with Copilot ($32) werden zum 1. Juli permanente SKUs; neue Promo Business Basic + Copilot Business ($21), Copilot-Business-Standalone-Promo ($18) bis 31.12.2026. SMB-Verkaufsmotion und Renewals auf die Bundle-SKUs umstellen.",
+        "sources": [
+          { "label": "Quelle", "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-june" }
+        ]
+      },
+      {
+        "title": "Anthropic-Claude-Modelle & Fireworks AI in Microsoft Foundry",
+        "product": "Foundry Models",
+        "date": "2026-06-02",
+        "relevance": "medium",
+        "description": "Claude Sonnet 4.5 / Haiku 4.5 / Opus 4.1 in Public Preview direkt in Foundry; Fireworks AI (Open-Model-Inferenz mit Enterprise-SLAs, PTU-Data-Zone) GA. Modellvielfalt unter einem Azure-Vertrag — Anti-Lock-in-Argument in Foundry-Pitches.",
+        "sources": [
+          { "label": "Quelle", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/" }
+        ]
+      },
+      {
+        "title": "Agent-Security: ASSERT, Agent Control Specification, Guided Guardrails",
+        "product": "Foundry / Security",
+        "date": "2026-06-02",
+        "relevance": "medium",
+        "description": "Open-Source-Releases für Agent-Governance: ASSERT (policy-getriebene Agent-Evaluation, auch für LangChain/CrewAI/OpenAI), Agent Control Specification (deterministische Kontrollen an 5 Checkpoints), Guided Guardrail Setup in Foundry (PII-Filter, Jailbreak-Schutz).",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.microsoft.com/en-us/security/blog/2026/06/02/microsoft-build-2026-securing-code-agents-and-models-across-the-development-lifecycle/" }
+        ]
+      },
+      {
+        "title": "Partner-Skilling: AI Skills Fest + neue Designation-Anforderungen",
+        "product": "Partner Center / Zertifizierungen",
+        "date": "2026-06-12",
+        "relevance": "medium",
+        "description": "AI Skills Fest 8.–12. Juni (kostenlos, digital) mit Fast-Track zum neuen Frontier Transformation Engineer Badge. Neue Zertifizierung M365 Certified: Copilot and Agent Administration Fundamentals (Modern Work); GitHub Actions/Administration/Advanced Security/Copilot als neue Advanced-Skilling-Optionen.",
+        "sources": [
+          { "label": "Quelle", "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-june" }
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Apple launcht neue konversationelle Siri auf Google Gemini; KPMG rollt M365 Copilot auf 276.000+ Mitarbeiter aus; Perplexity integriert sich als nativer M365-Wettbewerber in Word/Excel/PowerPoint.",
+    "items": [
+      {
+        "name": "Apple — neue konversationelle Siri (WWDC 2026)",
+        "date": "2026-06-08",
+        "relevance": "medium",
+        "description": "Komplett neue, konversationelle Siri mit eigener Standalone-App (iPhone, iPad, Mac), gestützt auf Google Gemini bzw. Apple Foundation Models on Cloud; neue Apple-Intelligence-Features über iOS 27. Tim Cooks letzte Keynote als CEO — Übergabe an John Ternus zum 1. September.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/" }
+        ]
+      },
+      {
+        "name": "Perplexity — Computer als Add-in in M365-Apps",
+        "relevance": "high",
+        "description": "Perplexitys Agent ist als natives Add-in in Word, Excel, PowerPoint und Outlook verfügbar (Pro/Max/Enterprise) inkl. SharePoint-Anbindung — direkter Wettbewerber zu M365 Copilot im Microsoft-Ökosystem.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.perplexity.ai/hub/blog/computer-comes-to-word-excel-powerpoint-and-outlook" }
+        ]
+      },
+      {
+        "name": "KPMG & Microsoft — globaler Rollout Agent 365 und M365 Copilot",
+        "date": "2026-06-09",
+        "relevance": "high",
+        "description": "KPMG setzt Agent 365 zum Verwalten/Absichern von AI-Agents ein und rollt M365 Copilot auf alle 276.000+ Mitarbeiter aus — Blaupause und Referenz-Case für Microsoft-Partner-Consultings.",
+        "sources": [
+          { "label": "Quelle", "url": "https://news.microsoft.com/source/2026/06/09/kpmg-and-microsoft-scale-trusted-enterprise-ai-agents-globally-through-deployment-of-agent-365-and-copilot/" }
+        ]
+      },
+      {
+        "name": "Accenture & Carnegie Mellon SEI — AI Adoption Maturity Model",
+        "date": "2026-06-08",
+        "relevance": "medium",
+        "description": "Reifegradmodell für die Skalierung von Enterprise-AI-Adoption — direkt als Framework in Kunden-Assessments verwendbar.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates" }
+        ]
+      },
+      {
+        "name": "Supabase — $500M bei $10,5 Mrd.",
+        "relevance": "medium",
+        "description": "Postgres-Backend, beliebt für AI-Agent-Backends und Vibe-Coding.",
+        "sources": [
+          { "label": "Quelle", "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" }
+        ]
+      },
+      {
+        "name": "PhysicsX — $300M Series C bei ~$2,4 Mrd.",
+        "relevance": "medium",
+        "description": "Large Physics Models für Engineering-Simulation; Lead Temasek, mit NVIDIA & Siemens. Neue Anwendungsklasse für AI in Industrial Engineering.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.physicsx.ai/newsroom/physicsx-announces-300m-series-c-to-accelerate-physics-ai-for-industrial-engineering" }
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "EU AI Act konkretisiert sich durch finalen Code of Practice und Draft Guidelines zur Hochrisiko-Klassifizierung; US EO fördert freiwillige Sicherheitsprüfungen; bipartisaner GAAIA als erster umfassender US-Bundesrahmen vorgestellt.",
+    "items": [
+      {
+        "title": "EU: Finaler Code of Practice zur Kennzeichnung KI-generierter Inhalte (10.06.)",
+        "description": "Freiwilliger Kodex konkretisiert maschinenlesbares Markieren von KI-Inhalten und Deepfake-Labeling — praktische Umsetzungshilfe für die ab 02.08.2026 geltenden Art.-50-Transparenzpflichten.",
+        "sources": [
+          { "label": "Quelle", "url": "https://digital-strategy.ec.europa.eu/en/news/commission-publishes-code-practice-marking-and-labelling-ai-generated-content" }
+        ]
+      },
+      {
+        "title": "EU: Draft Guidelines zur Hochrisiko-Klassifizierung, Konsultation bis 23.06.",
+        "description": "Abgrenzung Annex I vs. Annex III; Hintergrund ist die Digital-Omnibus-Verschiebung der Annex-III-Pflichten auf 02.12.2027.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-the-european-commission-publishes-draft-guidelines-on-hrais/" }
+        ]
+      },
+      {
+        "title": "EU: Scientific Panel & Advisory Forum für AI-Act-Durchsetzung berufen",
+        "description": "60 unabhängige Experten + 174-köpfiges Advisory Forum beraten AI Office und nationale Behörden zu GPAI-Compliance.",
+        "sources": [
+          { "label": "Quelle", "url": "https://digital-strategy.ec.europa.eu/en/news/ai-act-enforcement-gets-independent-expert-support" }
+        ]
+      },
+      {
+        "title": "US: Executive Order 'Promoting Advanced AI Innovation and Security' (02.06.)",
+        "description": "Freiwilliges Framework für Pre-Release-Sicherheitsprüfungen von Frontier-Modellen + AI Cybersecurity Clearinghouse; explizit keine Lizenzpflicht.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/" }
+        ]
+      },
+      {
+        "title": "US: Bipartisaner 'Great American AI Act' (GAAIA) vorgestellt (04.06.)",
+        "description": "Erster umfassender föderaler AI-Rahmen — Offenlegungspflichten, Third-Party-Audits, Whistleblower-Schutz für Frontier-Entwickler.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.mcdonaldhopkins.com/insights/news/the-great-american-ai-act-what-businesses-need-to-know" }
+        ]
+      },
+      {
+        "title": "Anthropic skaliert Project Glasswing auf 150 Organisationen (04.06.)",
+        "description": "Claude Mythos findet und fixt Schwachstellen in kritischen Codebasen, jetzt in 15 Ländern aktiv.",
+        "sources": [
+          { "label": "Quelle", "url": "https://dentro.de/ai/news/" }
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Anthropic und OpenAI reichen beide vertraulich IPO-Unterlagen ein; Google zahlt SpaceX $920M/Monat für GPU-Kapazität; Moonshot AI sucht $2 Mrd. bei $30 Mrd. Bewertung.",
+    "items": [
+      {
+        "company": "Anthropic",
+        "description": "Vertrauliches IPO-Filing (S-1) bei der SEC am 1. Juni — nach $65-Mrd.-Series-H bei $965 Mrd. Bewertung, erstmals höher bewertet als OpenAI; Börsengang evtl. schon Oktober 2026.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" }
+        ]
+      },
+      {
+        "company": "OpenAI",
+        "description": "Reicht eine Woche später (8. Juni) ebenfalls vertraulich IPO-Unterlagen ein — Bewertung ~$852 Mrd., Ziel bis $1 Billion, Listing-Fenster September–November 2026. Deprecations: Evals-Plattform und Agent Builder werden eingestellt; GPT-4.5 wird am 27. Juni aus ChatGPT entfernt.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.nbcnews.com/business/markets/openai-chatgpt-files-ipo-rcna349101" }
+        ]
+      },
+      {
+        "company": "Google",
+        "description": "Google zahlt SpaceX $920 Mio./Monat (Okt. 2026–Juni 2029) für ~110.000 NVIDIA-GPUs — Begründung: Nachfrage nach Gemini Enterprise. Alphabet kündigt $80-Mrd.-Fundraise für AI-Infrastruktur an.",
+        "sources": [
+          { "label": "Quelle", "url": "https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/" }
+        ]
+      },
+      {
+        "company": "Microsoft / Google",
+        "description": "Beide Konzerne greifen mit eigenen AI-Coding-Modellen an, nachdem Anthropic mit Claude Code davongezogen ist.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.cnbc.com/2026/06/01/microsoft-and-google-take-on-anthropic-and-openai-in-ai-coding-models.html" }
+        ]
+      },
+      {
+        "company": "Moonshot AI",
+        "description": "Sucht $2 Mrd. bei $30 Mrd. Bewertung — dritte Runde in 6 Monaten, ARR >$200 Mio.",
+        "sources": [
+          { "label": "Quelle", "url": "https://www.bloomberg.com/news/articles/2026-06-08/china-s-moonshot-ai-seeks-30-billion-value-in-new-funding-talks" }
+        ]
+      },
+      {
+        "company": "Meta",
+        "description": "Business Agent nach Pilotphase (~1 Mio. Unternehmen) global in WhatsApp, Messenger, Instagram ausgerollt; Anbindung an Shopify/Zendesk.",
+        "sources": [
+          { "label": "Quelle", "url": "https://dentro.de/ai/news/" }
+        ]
+      },
+      {
+        "company": "NVIDIA × SK hynix",
+        "description": "Mehrjährige Partnerschaft für Next-Gen-Speicher (AI Factories, Vera-Rubin-Roadmap).",
+        "sources": [
+          { "label": "Quelle", "url": "https://nvidianews.nvidia.com/news/sk-hynix-ai-factory" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,522 @@
+{
+  "date": "2026-04-24",
+  "period": "2026-04-17/2026-04-24",
+  "executive_summary": {
+    "intro": "Eine Woche dominiert von Google Cloud Next 2026, einem massiven Amazon-Anthropic-Investment und einem einschneidenden GitHub Copilot Plan-Umbau.",
+    "highlights": [
+      "Google Cloud Next 2026 präsentiert 8th-Gen TPUs, Axion-CPUs und die neue Gemini Enterprise Agent Platform als starker Konkurrent zu Azure AI Foundry.",
+      "Amazon investiert weitere $25 Mrd. in Anthropic ($5 Mrd. sofort + $20 Mrd. meilensteingebunden) bei $380 Mrd. Bewertung und bestätigt die AWS-Anthropic-Achse als Gegenpol zu Microsoft-OpenAI.",
+      "GitHub Copilot pausiert neue Individual-Plan-Signups, verschärft Rate-Limits und bereitet Token-basiertes Billing vor — Betriebskosten haben sich seit Januar verdoppelt.",
+      "OpenAI veröffentlicht GPT-5.5/GPT-5.5 Pro mit GPT-5.4-Latenz bei deutlich höherer Intelligenz.",
+      "Claude Opus 4.7 ist GA in GitHub Copilot (Pro+, Business, Enterprise) und Anthropic launcht Claude Design (Preview) für Slides, Prototypes und One-Pager."
+    ]
+  },
+  "models": {
+    "summary": "GPT-5.5/Pro von OpenAI und Claude Opus 4.7 GA sind die wichtigsten Releases. Dazu kommen Googles Gemini 3.2 (angekündigt auf Cloud Next), mehrere neue Microsoft MAI-Modelle und DeepSeek V4 als Open-Source MoE-Modell.",
+    "items": [
+      {
+        "name": "GPT-5.5 / GPT-5.5 Pro",
+        "provider": "OpenAI",
+        "type": "LLM (agentic)",
+        "highlight": "GPT-5.4-Latenz bei deutlich höherer Intelligenz, autonomes Tool-Switching",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "llm-stats.com",
+            "url": "https://llm-stats.com/ai-news"
+          }
+        ]
+      },
+      {
+        "name": "Claude Opus 4.7 (GA)",
+        "provider": "Anthropic",
+        "type": "LLM",
+        "context": "200K+",
+        "highlight": "Software-Engineering-Fokus, höhere Bildauflösung, long-horizon Agents",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "Anthropic News",
+            "url": "https://www.anthropic.com/news"
+          }
+        ]
+      },
+      {
+        "name": "DeepSeek V4",
+        "provider": "DeepSeek",
+        "type": "MoE multimodal",
+        "highlight": "~1T Parameter MoE, native Text/Image/Video-Generierung, schließt Lücke zur Frontier",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "llm-stats.com",
+            "url": "https://llm-stats.com/ai-news"
+          }
+        ]
+      },
+      {
+        "name": "Gemini 3.2 (angekündigt Cloud Next)",
+        "provider": "Google DeepMind",
+        "type": "LLM multimodal",
+        "context": ">1M Token",
+        "highlight": "Erweitertes Kontextfenster, niedrigere Inferenz-Latenz, Native Agent-Platform-Bindung",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "TNW",
+            "url": "https://thenextweb.com/news/google-cloud-next-ai-agents-agentic-era"
+          }
+        ]
+      },
+      {
+        "name": "MAI-Transcribe-1",
+        "provider": "Microsoft AI",
+        "type": "ASR",
+        "context": "bis 60 Min",
+        "highlight": "3.9% WER auf FLEURS (25 Sprachen), ~50% niedrigere GPU-Kosten, 2.5x Batch-Speed",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "Foundry Labs Blog",
+            "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/whats-new-in-foundry-labs---april-2026/4509714"
+          }
+        ]
+      },
+      {
+        "name": "MAI-Voice-1",
+        "provider": "Microsoft AI",
+        "type": "TTS",
+        "context": "60s/single GPU",
+        "highlight": "High-Fidelity-Voice mit Custom-Voice aus wenigen Sekunden, emotionale Nuancen",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "Foundry Labs Blog",
+            "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/whats-new-in-foundry-labs---april-2026/4509714"
+          }
+        ]
+      },
+      {
+        "name": "MAI-Image-2",
+        "provider": "Microsoft AI",
+        "type": "Text-to-Image",
+        "highlight": "#3 auf Arena.ai, 2x schneller auf Foundry/Copilot, bessere In-Image-Text",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "Foundry Labs Blog",
+            "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/whats-new-in-foundry-labs---april-2026/4509714"
+          }
+        ]
+      },
+      {
+        "name": "Phi-4-Reasoning-Vision-15B",
+        "provider": "Microsoft",
+        "type": "Vision + Reasoning",
+        "highlight": "15B-Modell für Diagramm- und GUI-Interpretation",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "Foundry Labs Blog",
+            "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/whats-new-in-foundry-labs---april-2026/4509714"
+          }
+        ]
+      },
+      {
+        "name": "OpenAI Privacy Filter",
+        "provider": "OpenAI",
+        "type": "Open-weight (PII)",
+        "context": "128K Token",
+        "highlight": "1.5B Parameter, lokal ausgeführtes PII-Redaction-Modell",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "AI Dispatch",
+            "url": "https://hipther.com/latest-news/2026/04/23/110667/ai-dispatch-daily-trends-and-innovations-april-23-2026-anthropic-mythos-openai-privacy-filter-jailbroken-ai-safety-claude-economics-ai-health-research/"
+          }
+        ]
+      },
+      {
+        "name": "Gigatime",
+        "provider": "Microsoft AI",
+        "type": "Medical Multimodal",
+        "highlight": "Übersetzt Pathologie-Slides in virtuelle multiplex Immunfluoreszenz, 14.256 Patienten",
+        "relevance": "low",
+        "sources": [
+          {
+            "label": "Foundry Labs Blog",
+            "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/whats-new-in-foundry-labs---april-2026/4509714"
+          }
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "OpenAI Agents SDK erhält native Sandbox-Execution, Anthropic launcht Claude Design und Claude Code Enhancements, und Google shippt MCP-Server für BigQuery, GKE und Colab.",
+    "items": [
+      {
+        "name": "OpenAI Agents SDK — next gen",
+        "release": "v.next",
+        "date": "2026-04-15",
+        "relevance": "high",
+        "description": "Native Sandbox-Execution, Filesystem-Tools, apply_patch, Snapshots. Unterstützt Blaxel, Cloudflare, Daytona, E2B, Modal, Runloop und Vercel. Anthropic hatte sieben Tage vorher eine fast identische Architektur mit Claude Managed Agents geshipped.",
+        "sources": [
+          {
+            "label": "Idlen",
+            "url": "https://www.idlen.io/news/openai-agents-sdk-sandbox-harness-codex-filesystem-tools-april-2026"
+          }
+        ]
+      },
+      {
+        "name": "Claude Design + Claude Code Enhancements",
+        "release": "Research Preview",
+        "date": "2026-04-17",
+        "relevance": "high",
+        "description": "Claude Design (Prototypes, Slides, One-Pager) powered by Opus 4.7 für Pro/Max/Team/Enterprise. Claude Code bekommt Prompt-Caching-Controls, Session-Recap, Skill-Tool-Access und verbessertes Resume, Model-Switching, Memory.",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/"
+          }
+        ]
+      },
+      {
+        "name": "Microsoft Agent Framework 1.0 (RC → GA)",
+        "release": "v1.0 RC → 1.0",
+        "date": "2026-04",
+        "relevance": "high",
+        "description": "Das aus Semantic Kernel + AutoGen hervorgegangene Microsoft Agent Framework erreicht v1.0 für .NET und Python. Enterprise-grade Multi-Agent-Orchestrierung, Multi-Provider, A2A- und MCP-Interop.",
+        "sources": [
+          {
+            "label": "Microsoft Foundry Blog",
+            "url": "https://devblogs.microsoft.com/foundry/"
+          }
+        ]
+      },
+      {
+        "name": "Google Cloud MCP Servers (BigQuery, GKE, Colab)",
+        "date": "2026-04",
+        "relevance": "medium",
+        "description": "Google shippt vollständig gemanagte, remote MCP-Server für Google Cloud-Dienste — BigQuery MCP (Schema + Queries), GKE MCP (strukturiertes Interface für K8s-Agents), Colab MCP (offener Zugriff für beliebige Agents).",
+        "sources": [
+          {
+            "label": "Google Cloud Blog",
+            "url": "https://cloud.google.com/blog/products/ai-machine-learning/announcing-official-mcp-support-for-google-services"
+          },
+          {
+            "label": "Colab MCP",
+            "url": "https://developers.googleblog.com/announcing-the-colab-mcp-server-connect-any-ai-agent-to-google-colab/"
+          }
+        ]
+      },
+      {
+        "name": "Cursor — Composer 2",
+        "release": "Composer 2",
+        "date": "2026-04-19",
+        "relevance": "medium",
+        "description": "Cursor in Gesprächen über $2 Mrd. Funding-Runde bei >$50 Mrd. Bewertung. Composer 2 (Moonshot Kimi K2.5 + extensive RL) kostet $0.50/M Input-Tokens, +37% gegen Composer 1.5.",
+        "sources": [
+          {
+            "label": "CNBC",
+            "url": "https://www.cnbc.com/2026/04/19/cursor-ai-2-billion-funding-round.html"
+          }
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Keine dedizierten Open-Source-Library-Releases in dieser Woche. harrier-oss-v1 ist das relevanteste Open-Source-Modell aus dem Microsoft-Ökosystem.",
+    "items": [
+      {
+        "name": "harrier-oss-v1",
+        "provider": "Microsoft",
+        "relevance": "medium",
+        "description": "Multilinguales Embedding-Modell (94 Sprachen), 270M–27B Parameter, SOTA auf Multilingual MTEB v2. Open Source.",
+        "sources": [
+          {
+            "label": "Foundry Labs Blog",
+            "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/whats-new-in-foundry-labs---april-2026/4509714"
+          }
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Microsoft Foundry erhält ein umfangreiches April-Update mit Auto-Upgrade, Task Adherence Guardrails, Prompt Optimizer und dem Foundry MCP Server. Azure OpenAI Spillover ist GA, GitHub Copilot plant Token-basiertes Billing.",
+    "items": [
+      {
+        "title": "Microsoft Foundry — April-2026-Drop",
+        "product": "Microsoft Foundry / Foundry Labs",
+        "date": "2026-04",
+        "relevance": "high",
+        "description": "Auto-Upgrade-Pfad von Azure OpenAI zu Microsoft Foundry, Task Adherence Guardrails (Preview), Prompt Optimizer (Preview), Toolbox (Public Preview), Fireworks-Modelle auf Foundry (Preview), Foundry MCP Server-Tool-Updates.",
+        "sources": [
+          {
+            "label": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry"
+          }
+        ]
+      },
+      {
+        "title": "Reinforcement Fine-Tuning (RFT) — 3 große Updates",
+        "product": "Microsoft Foundry Fine-Tune",
+        "date": "2026-04",
+        "relevance": "medium",
+        "description": "Global Training für o4-mini mit niedrigeren Per-Token-Raten in 12+ Regionen, neue GPT-4.1-Model-Graders für reichere Reward-Signale, RFT-Best-Practices-Guide.",
+        "sources": [
+          {
+            "label": "Foundry Blog",
+            "url": "https://devblogs.microsoft.com/foundry/whats-new-in-foundry-finetune-april-2026/"
+          }
+        ]
+      },
+      {
+        "title": "Azure OpenAI Spillover GA + neue Audio/Image-Modelle",
+        "product": "Azure OpenAI Service",
+        "date": "2026-04",
+        "relevance": "high",
+        "description": "Spillover jetzt GA — Provisioned-Deployment-Überläufe werden automatisch an Standard-Deployments geroutet. Neue Audio-Modelle (Instruction-Following, Multi-Lingual, Tool-Calling bei Low-Latency). GPT-image-1.5 mit besserem Editing und Face Preservation.",
+        "sources": [
+          {
+            "label": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/whats-new"
+          }
+        ]
+      },
+      {
+        "title": "GitHub Copilot — Plan-Changes für Individuals",
+        "product": "GitHub Copilot",
+        "date": "2026-04-20",
+        "relevance": "high",
+        "description": "GitHub pausiert neue Signups für Student- und paid Individual-Plans, verschärft Rate-Limits, entfernt Opus-Modelle aus Copilot Pro (nur noch Pro+). Übergang zu Token-basiertem Billing in Vorbereitung. Betriebskosten wöchentlich ~verdoppelt seit Januar 2026.",
+        "sources": [
+          {
+            "label": "GitHub Changelog",
+            "url": "https://github.blog/changelog/2026-04-20-changes-to-github-copilot-plans-for-individuals/"
+          },
+          {
+            "label": "The Register",
+            "url": "https://www.theregister.com/2026/04/20/microsofts_github_grounds_copilot_account/"
+          }
+        ]
+      },
+      {
+        "title": "Claude Opus 4.7 GA in GitHub Copilot",
+        "product": "GitHub Copilot",
+        "date": "2026-04-16",
+        "relevance": "high",
+        "description": "Opus 4.7 ist generell verfügbar für Copilot Pro+, Business, Enterprise. Long-horizon Coding-Tasks und schwierige Reviews ab jetzt im täglichen Flow nutzbar.",
+        "sources": [
+          {
+            "label": "Anthropic",
+            "url": "https://www.anthropic.com/news"
+          }
+        ]
+      },
+      {
+        "title": "Microsoft 365 Copilot Pricing-Änderung",
+        "product": "Microsoft 365 Copilot",
+        "date": "2026-07-01",
+        "relevance": "medium",
+        "description": "Globale Preisanpassung ab 01.07.2026 über alle Kanäle — vor diesem Datum gebuchte M365 Copilot Business-Bundles haben locked-in-Pricing. Akquise-Hebel bis Juni.",
+        "sources": [
+          {
+            "label": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes"
+          }
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Perplexity bringt Personal Computer für Mac als always-on Agenten, Factory erreicht $1,5 Mrd. Bewertung für Enterprise AI Coding, und Verda sichert €100M für EU-souveräne AI-Cloud.",
+    "items": [
+      {
+        "name": "Perplexity Personal Computer for Mac",
+        "date": "2026-04-16",
+        "relevance": "medium",
+        "description": "Agentic AI mit Zugriff auf lokale Dateien und native Apps; Aktivierung per Command-Command. Für Max-Subscriber ($200/Monat). Direkte Konkurrenz zu M365 Copilot + Salesforce-Agent-Cloud.",
+        "sources": [
+          {
+            "label": "MacRumors",
+            "url": "https://www.macrumors.com/2026/04/16/perplexity-personal-computer-for-mac/"
+          },
+          {
+            "label": "VentureBeat",
+            "url": "https://venturebeat.com/technology/perplexity-takes-its-computer-ai-agent-into-the-enterprise-taking-aim-at"
+          }
+        ]
+      },
+      {
+        "name": "Factory — Enterprise AI Coding",
+        "date": "2026-04-16",
+        "relevance": "medium",
+        "description": "Factory hebt $1.5-Mrd.-Bewertung für Enterprise-AI-Coding-Plattform. Signal, dass der Enterprise-Coding-Layer hart monetarisierbar ist.",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/04/16/factory-hits-1-5b-valuation-to-build-ai-coding-for-enterprises/"
+          }
+        ]
+      },
+      {
+        "name": "Verda (ex-Datacrunch) — EU AI Cloud",
+        "date": "2026-04-24",
+        "relevance": "medium",
+        "description": "Helsinki-basierter AI-Cloud-Provider sichert €100M — relevant für EU-Souveränitäts-Narrativ bei Compliance-sensiblen Kunden.",
+        "sources": [
+          {
+            "label": "llm-stats.com",
+            "url": "https://llm-stats.com/ai-news"
+          }
+        ]
+      },
+      {
+        "name": "Bluefish — AI-Brand-Control",
+        "date": "2026-04",
+        "relevance": "low",
+        "description": "$43M Series B (Co-Lead: Threshold Ventures + NEA, mit Salesforce + Amex Ventures). Zeigt: AI-Visibility/-Control ist als Fortune-500-Budgetkategorie angekommen.",
+        "sources": [
+          {
+            "label": "AI Funding Tracker",
+            "url": "https://aifundingtracker.com/ai-startup-funding-news-today/"
+          }
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "Amazon investiert massiv in Anthropic, Google Cloud Next zeigt neue TPU-Hardware, und ein AI-Safety-Panel im US-Kongress demonstriert die Risiken von Modellen ohne Guardrails.",
+    "items": [
+      {
+        "title": "Amazon-Anthropic-Deal ($25 Mrd.)",
+        "description": "AWS-Anthropic-Achse wird zum echten Gegenpol zu Microsoft-OpenAI; Anthropic-Bewertung bei $380 Mrd., Commitment $100 Mrd. AWS über 10 Jahre, 1 GW Trainium2/3-Kapazität bis Jahresende.",
+        "sources": [
+          {
+            "label": "CNBC",
+            "url": "https://www.cnbc.com/2026/04/20/amazon-invest-up-to-25-billion-in-anthropic-part-of-ai-infrastructure.html"
+          }
+        ]
+      },
+      {
+        "title": "Google Cloud Next 2026 — TPU 8t/8i + Axion",
+        "description": "TPU 8t: 9.600 Chips/Superpod, 121 Exaflops, 2 PB shared Memory. TPU 8i: +80% Perf/$ für Inference. Axion N4A: +30% Price-Perf vs. andere Hyperscaler.",
+        "sources": [
+          {
+            "label": "Bloomberg",
+            "url": "https://www.bloomberg.com/news/articles/2026-04-22/google-cloud-releases-new-tpu-chip-lineup-in-bid-to-speed-up-ai"
+          },
+          {
+            "label": "Google Cloud Blog",
+            "url": "https://cloud.google.com/blog/products/compute/ai-infrastructure-at-next26"
+          }
+        ]
+      },
+      {
+        "title": "AI-Safety-Panel im Kongress (23.04.)",
+        "description": "Demonstration wie Modelle nach Entfernen von Safety-Guardrails gefährliche Inhalte erzeugen — Druck auf Regulierung steigt.",
+        "sources": [
+          {
+            "label": "AI Dispatch",
+            "url": "https://hipther.com/latest-news/2026/04/23/110667/ai-dispatch-daily-trends-and-innovations-april-23-2026-anthropic-mythos-openai-privacy-filter-jailbroken-ai-safety-claude-economics-ai-health-research/"
+          }
+        ]
+      },
+      {
+        "title": "Anthropic Claude Economics Survey",
+        "description": "81.000 Claude-User befragt: Die produktivsten Nutzer haben die größte Verdrängungsangst; Top-25% Exposure nennen Displacement 3x häufiger als Bottom-25%.",
+        "sources": [
+          {
+            "label": "AI Dispatch",
+            "url": "https://hipther.com/latest-news/2026/04/23/110667/ai-dispatch-daily-trends-and-innovations-april-23-2026-anthropic-mythos-openai-privacy-filter-jailbroken-ai-safety-claude-economics-ai-health-research/"
+          }
+        ]
+      },
+      {
+        "title": "EU AI Act — 02.08.2026-Deadline",
+        "description": "Enforcement-Powers für AI Office ab 2. August 2026. Für bereits deployte GPAI: Compliance bis 02.08.2027. Jetzt Compliance-Vorbereitung in Azure-basierten Projekten sinnvoll.",
+        "sources": [
+          {
+            "label": "EU AI Act",
+            "url": "https://artificialintelligenceact.eu/implementation-timeline/"
+          }
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Amazon verdoppelt sein Anthropic-Investment auf bis zu $25 Mrd., OpenAI stellt Sora ein und verliert mehrere Führungskräfte, Apple bereitet den CEO-Wechsel vor.",
+    "items": [
+      {
+        "company": "Amazon × Anthropic",
+        "description": "Up to $25 Mrd. neue Investition ($5 Mrd. sofort + $20 Mrd. meilensteingebunden) bei $380 Mrd. Bewertung; Anthropic verpflichtet sich zu >$100 Mrd. AWS-Ausgaben über 10 Jahre.",
+        "sources": [
+          {
+            "label": "CNBC",
+            "url": "https://www.cnbc.com/2026/04/20/amazon-invest-up-to-25-billion-in-anthropic-part-of-ai-infrastructure.html"
+          }
+        ]
+      },
+      {
+        "company": "OpenAI (Sora)",
+        "description": "Sora Web/App-Shutdown am 26.04.2026, API folgt am 24.09. Grund: ~$1M/Tag Inference-Kosten bei <500k MAU, strategischer Refokus auf Enterprise vor geplantem IPO.",
+        "sources": [
+          {
+            "label": "The Decoder",
+            "url": "https://the-decoder.com/openai-sets-two-stage-sora-shutdown-with-app-closing-april-2026-and-api-following-in-september/"
+          }
+        ]
+      },
+      {
+        "company": "OpenAI",
+        "description": "Executive Exits (17.04.): Bill Peebles (Sora), Kevin Weil (VP Science) und Srinivas Narayanan (CTO B2B Apps) verlassen OpenAI.",
+        "sources": [
+          {
+            "label": "CNBC",
+            "url": "https://www.cnbc.com/2026/04/17/openai-executives-leave.html"
+          }
+        ]
+      },
+      {
+        "company": "Apple",
+        "description": "John Ternus übernimmt im September als CEO, Tim Cook wird Executive Chairman. Apples AI-Strategie-Refokus.",
+        "sources": [
+          {
+            "label": "CNN",
+            "url": "https://www.cnn.com/2026/04/21/tech/apple-new-ceo-ai-john-ternus"
+          }
+        ]
+      },
+      {
+        "company": "Meta × Amazon",
+        "description": "Multi-Billionen-Deal über Graviton-CPU-Lease für AI-Workloads — Zeichen für CPU-basierte AI-Infrastruktur-Welle.",
+        "sources": [
+          {
+            "label": "llm-stats.com",
+            "url": "https://llm-stats.com/ai-news"
+          }
+        ]
+      },
+      {
+        "company": "OpenAI",
+        "description": "Akquiriert TBPN (Tech-Podcast/Media-Team) — OpenAI baut eigene Distribution/Reach auf.",
+        "sources": [
+          {
+            "label": "OpenAI",
+            "url": "https://openai.com/index/openai-acquires-tbpn/"
+          }
+        ]
+      },
+      {
+        "company": "Anthropic",
+        "description": "Lobbying Q1 2026: Anthropic $1.6M, OpenAI $1M — Rekord für beide. Anthropic überholt OpenAI auch beim Lobbying.",
+        "sources": [
+          {
+            "label": "Axios",
+            "url": "https://www.axios.com/2026/04/21/anthropic-outspends-openai-biggest-lobbying-quarter"
+          }
+        ]
+      }
+    ]
+  }
+}

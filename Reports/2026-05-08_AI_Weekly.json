@@ -1,0 +1,328 @@
+{
+  "date": "2026-05-08",
+  "period": "2026-04-24/2026-05-08",
+  "executive_summary": {
+    "intro": "Zwei ereignisreiche Wochen mit GPT-5.5 Instant in Microsoft Foundry, dem Open-Source-Frontier-Release DeepSeek V4, Anthropics bahnbrechendem Mythos-Modell und einer historischen Google-Investition in Anthropic.",
+    "highlights": [
+      "GPT-5.5 Instant in Microsoft Foundry (5. Mai): OpenAIs neuestes Chat-Modell ist als gpt-chat-latest in Azure/Microsoft Foundry verfügbar — 52,5% weniger Halluzinationen, direkter Ersatz für GPT-5.3-Instant.",
+      "DeepSeek V4 — Open-Source Frontier (24. April): 1,6T-Parameter-MoE-Modell unter MIT-Lizenz, 1M-Token-Kontext, performance auf Frontier-Niveau zu Bruchteil der Kosten.",
+      "Anthropic Claude Mythos + Project Glasswing: Nicht öffentlich verfügbares Modell mit bahnbrechenden Cybersecurity-Fähigkeiten — findet Zero-Days in allen Major-OS.",
+      "Google investiert 40 Mrd. USD in Anthropic: Anthropic committed im Gegenzug 200 Mrd. USD Google Cloud — stärkstes strategisches Signal für die Google-Anthropic-Allianz.",
+      "EU AI Act Omnibus — Agreement 7. Mai: Rat und Parlament haben Vereinfachungen der AI-Act-Regeln beschlossen. Vollständige Anwendung ab 2. August 2026."
+    ]
+  },
+  "models": {
+    "summary": "DeepSeek V4 stellt das Open-Source-Frontier-Modell mit MIT-Lizenz und 1M-Token-Kontext vor, während Anthropics Claude Mythos Preview durch seine Cybersecurity-Fähigkeiten für Aufsehen sorgt; GPT-5.5 Instant wird neuer ChatGPT-Standard.",
+    "items": [
+      {
+        "name": "GPT-5.5 Instant",
+        "provider": "OpenAI",
+        "type": "LLM",
+        "highlight": "52,5% weniger Halluzinierungen vs. GPT-5.3; neues ChatGPT-Standardmodell; in Foundry als gpt-chat-latest",
+        "relevance": "high",
+        "sources": [
+          { "label": "OpenAI", "url": "https://openai.com/index/gpt-5-5-instant/" },
+          { "label": "TechCrunch", "url": "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/" }
+        ]
+      },
+      {
+        "name": "DeepSeek V4 Pro",
+        "provider": "DeepSeek",
+        "type": "LLM (MoE, Open)",
+        "context": "1M Token",
+        "highlight": "1,6T total / 49B aktive Parameter; MIT-Lizenz; rivalisiert closed-source Frontier-Modelle",
+        "relevance": "high",
+        "sources": [
+          { "label": "DeepSeek API Docs", "url": "https://api-docs.deepseek.com/news/news260424" },
+          { "label": "MIT Review", "url": "https://www.technologyreview.com/2026/04/24/1136422/why-deepseeks-v4-matters/" }
+        ]
+      },
+      {
+        "name": "DeepSeek V4 Flash",
+        "provider": "DeepSeek",
+        "type": "LLM (MoE, Open)",
+        "context": "1M Token",
+        "highlight": "284B total / 13B aktiv; kleinster Activation-Footprint aller Tier-1-Modelle; ideal für Self-Hosting",
+        "relevance": "high",
+        "sources": [
+          { "label": "HuggingFace", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro" }
+        ]
+      },
+      {
+        "name": "Gemini 3.1 Pro",
+        "provider": "Google",
+        "type": "LLM / Multimodal",
+        "context": "2M Token",
+        "highlight": "ARC-AGI-2: 77,1%; Built-in Tools + Function Calling kombinierbar; native Image Embedding",
+        "relevance": "medium",
+        "sources": [
+          { "label": "Google Blog", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/" }
+        ]
+      },
+      {
+        "name": "Claude Mythos Preview",
+        "provider": "Anthropic",
+        "type": "LLM (restricted)",
+        "highlight": "93,9% SWE-bench; GPQA Diamond: 94,6%; nicht öffentlich; Security-Fokus; Teil von Project Glasswing",
+        "relevance": "high",
+        "sources": [
+          { "label": "Anthropic red", "url": "https://red.anthropic.com/2026/mythos-preview/" },
+          { "label": "The Hacker News", "url": "https://thehackernews.com/2026/04/anthropics-claude-mythos-finds.html" }
+        ]
+      },
+      {
+        "name": "NVIDIA Nemotron 3 Nano Omni",
+        "provider": "NVIDIA",
+        "type": "Multimodal (Open)",
+        "context": "256K Token",
+        "highlight": "30B-A3B Hybrid MoE; Vision + Audio + Text unified; verfügbar via HuggingFace & OpenRouter",
+        "relevance": "medium",
+        "sources": [
+          { "label": "NVIDIA Blog", "url": "https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents/" }
+        ]
+      },
+      {
+        "name": "GLM-5.1",
+        "provider": "Zhipu AI",
+        "type": "LLM (Open)",
+        "highlight": "Trainiert auf Huawei Ascend; 1,2% Halluzinierungsrate; Teil der Chinese-Frontier-Welle",
+        "relevance": "low",
+        "sources": [
+          { "label": "LLM Stats", "url": "https://llm-stats.com/ai-news" }
+        ]
+      },
+      {
+        "name": "Kimi K2.6",
+        "provider": "Moonshot",
+        "type": "LLM (Open)",
+        "highlight": "Agentic Engineering auf Frontier-Niveau zu deutlich geringeren Kosten",
+        "relevance": "low",
+        "sources": [
+          { "label": "LLM Stats", "url": "https://llm-stats.com/ai-news" }
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "GitHub Copilot erhält umfangreichstes Update seit Monaten mit BYOK und Agent Mode; MCP-Ökosystem explodiert auf 200+ Community-Server; Microsoft Agent Framework als konsolidierter Standard.",
+    "items": [
+      {
+        "name": "GitHub Copilot — April Releases (VS Code)",
+        "release": "April 2026",
+        "date": "2026-05-06",
+        "relevance": "high",
+        "description": "Umfangsreichstes Update seit Monaten: Semantic Search jetzt in allen Workspaces, neues /chronicle-Feature, 56% SWE-bench-Score. BYOK: Eigene API-Keys (OpenRouter, Foundry, Anthropic, Google) direkt in VS Code; Agent Mode mit Inline Diffs, Browser-Tab-Sharing, Terminal-Read/Write; Token Efficiency mit Smart Prompt Caching.",
+        "sources": [
+          { "label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-05-06-github-copilot-in-visual-studio-code-april-releases/" }
+        ]
+      },
+      {
+        "name": "MCP (Model Context Protocol) — 2026 Roadmap",
+        "relevance": "high",
+        "description": "Das Ökosystem ist explodiert: >200 Community-MCP-Server (GitHub, Slack, PostgreSQL, Stripe, Figma, Docker, Kubernetes). Drei Feature-Gruppen: Stateless HTTP Transport für horizontales Skalieren, MCP Server Cards (.well-known Metadata) für Standard-Discovery, Tasks Primitive für Async Long-Running Operations.",
+        "sources": [
+          { "label": "MCP Blog", "url": "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/" },
+          { "label": "The New Stack", "url": "https://thenewstack.io/model-context-protocol-roadmap-2026/" }
+        ]
+      },
+      {
+        "name": "Microsoft Agent Framework (AutoGen + Semantic Kernel)",
+        "relevance": "high",
+        "description": "Microsoft hat Semantic Kernel und AutoGen zum Microsoft Agent Framework zusammengeführt — multi-agent Orchestrierung, session-based State Management, Type Safety und Telemetry. Im April ergänzt um das Agent Governance Toolkit (Open Source) für LangChain Callbacks, CrewAI Task Decorators und MAF Middleware.",
+        "sources": [
+          { "label": "Help Net Security", "url": "https://www.helpnetsecurity.com/2026/04/03/microsoft-ai-agent-governance-toolkit/" }
+        ]
+      },
+      {
+        "name": "AI Coding Assistants — Marktlage Mai 2026",
+        "relevance": "medium",
+        "description": "Cursor: Benchmark für AI-native IDE-Erfahrung; Pro ($20/mo) mit GPT-5.4, Claude Opus 4.6, Gemini 3 Pro. GitHub Copilot: $10/mo, Agent Mode seit März 2026. Cline: 5 Mio. Installs, Open Source. Claude Code: Direkte CLI-Konkurrenz zu Cursor.",
+        "sources": [
+          { "label": "Dev.to Vergleich", "url": "https://dev.to/linou518/the-2026-ai-coding-assistant-showdown-cursor-vs-copilot-vs-windsurf-vs-cline-vs-claude-code-64e" }
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "DeepSeek V4 unter MIT-Lizenz ist der herausragende Open-Source-Release der Periode — Frontier-Qualität zu einem Bruchteil der proprietären Kosten.",
+    "items": [
+      {
+        "name": "DeepSeek V4 (Pro + Flash)",
+        "date": "2026-04-24",
+        "relevance": "high",
+        "description": "DeepSeek V4 Pro (1,6T total / 49B aktiv) und V4 Flash (284B / 13B aktiv) unter MIT-Lizenz mit 1M-Token-Kontext. Rivalisiert closed-source Frontier-Modelle bei einem Bruchteil der Kosten — Self-Hosting jetzt ernsthaft erwägenswert.",
+        "sources": [
+          { "label": "DeepSeek API Docs", "url": "https://api-docs.deepseek.com/news/news260424" },
+          { "label": "MIT Review", "url": "https://www.technologyreview.com/2026/04/24/1136422/why-deepseeks-v4-matters/" }
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "GPT-5.5 Instant ist in Microsoft Foundry verfügbar; GPT-image-2 GA; GitHub Copilot erhält BYOK für Enterprise; US-Regierung schließt Pre-Deployment-Evaluierungsabkommen mit Microsoft.",
+    "items": [
+      {
+        "title": "GPT-5.5 Instant in Microsoft Foundry",
+        "product": "Azure / Microsoft Foundry",
+        "date": "2026-05-05",
+        "relevance": "high",
+        "description": "OpenAIs GPT-5.5 Instant ist jetzt in Microsoft Foundry als gpt-chat-latest verfügbar. 52,5% weniger Halluzinierungen bei High-Stakes-Prompts, 37,3% weniger fehlerhafte Claims, 30,2% kürzere Antworten. Bestehende Azure OpenAI Deployments können mit Model-Router auf gpt-chat-latest migriert werden.",
+        "sources": [
+          { "label": "Azure Blog", "url": "https://azure.microsoft.com/en-us/blog/openais-gpt-5-5-in-microsoft-foundry-frontier-intelligence-on-an-enterprise-ready-platform/" },
+          { "label": "Microsoft Community Hub", "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-openais-newest-chat-model-in-microsoft-foundry/4516848" }
+        ]
+      },
+      {
+        "title": "GPT-image-2 Generally Available in Microsoft Foundry",
+        "product": "Azure / Microsoft Foundry",
+        "relevance": "medium",
+        "description": "GPT-image-2 ist GA in Microsoft Foundry. Verbesserungen: Multilingual Understanding, verbessertes Instruction Following, erhöhte Auflösungsunterstützung, Intelligent Routing Layer für Web-Suche und Multi-Bild-Generierung aus einem Prompt.",
+        "sources": [
+          { "label": "Microsoft Community Hub", "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-openais-gpt-image-2-in-microsoft-foundry/4500571" }
+        ]
+      },
+      {
+        "title": "Sora & Audio-Modelle — GA in Azure Foundry",
+        "product": "Azure AI Foundry",
+        "relevance": "medium",
+        "description": "Sora (2025-05-02 Version) nun verfügbar. GPT RealTime + Audio GA mit neuen Stimmen Marin und Cedar. Model Router: Deployable AI Chat Model wählt automatisch das beste Underlying-Model für den jeweiligen Prompt.",
+        "sources": [
+          { "label": "MS Learn What's New", "url": "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/whats-new" }
+        ]
+      },
+      {
+        "title": "GitHub Copilot — BYOK & Agent Mode in Enterprise",
+        "product": "GitHub Copilot Business/Enterprise",
+        "relevance": "high",
+        "description": "Copilot Business/Enterprise Kunden können jetzt eigene API-Keys (inkl. Azure AI Foundry) direkt in VS Code verknüpfen. Lokale Modelle via Ollama und Foundry Local ebenfalls unterstützt. Kunden können eigene Deployments in Copilot integrieren.",
+        "sources": [
+          { "label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-05-06-github-copilot-in-visual-studio-code-april-releases/" }
+        ]
+      },
+      {
+        "title": "US-Regierung: Pre-Deployment Evaluierung — Google, Microsoft, xAI",
+        "product": "Microsoft (AI Oversight)",
+        "date": "2026-05-05",
+        "relevance": "medium",
+        "description": "Das Center for AI Standards and Innovation (CASI) hat Agreements mit Google DeepMind, Microsoft und xAI geschlossen, die der US-Regierung Pre-Deployment-Evaluierungen neuer AI-Modelle ermöglichen. Relevant für öffentliche Auftraggeber.",
+        "sources": [
+          { "label": "CNBC", "url": "https://www.cnbc.com/2026/05/05/ai-oversight-trump-google-microsoft-xai.html" }
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Sierra schließt $950M-Runde ab und bestätigt anhaltende Enterprise-Nachfrage nach Action-Taking Agents; RadixArk und BMW i Ventures zeigen breites Investitionsinteresse in AI Infrastructure.",
+    "items": [
+      {
+        "name": "Sierra",
+        "date": "2026-05-01",
+        "relevance": "medium",
+        "description": "Sierra (AI Enterprise Chat Agents, gegründet von Bret Taylor) schließt eine $950M-Runde (Tiger Global und GV) ab. Bewertung fast verdoppelt auf $15,8 Mrd. Unterstreicht anhaltende Enterprise-Nachfrage nach Action-Taking Agents.",
+        "sources": [
+          { "label": "Crunchbase", "url": "https://news.crunchbase.com/venture/new-ai-unicorn-startups-april-2026-frontier-labs-ineffable-intelligence-recursive-superintelligence/" }
+        ]
+      },
+      {
+        "name": "RadixArk",
+        "date": "2026-05-01",
+        "relevance": "low",
+        "description": "Ex-xAI- und NVIDIA-Engineers gründen RadixArk und sichern $100M Seed (Accel, Spark Capital) für Hardware+Software, die Frontier-AI-Infrastruktur breit zugänglich machen soll.",
+        "sources": [
+          { "label": "AI Startup Funding News", "url": "https://blog.mean.ceo/ai-startup-funding-news-may-2026/" }
+        ]
+      },
+      {
+        "name": "BMW i Ventures — $300M Fund III",
+        "date": "2026-05-01",
+        "relevance": "low",
+        "description": "BMW i Ventures startet Fund III mit $300M Fokus auf AI-Startups in Automotive, Industrial Tech und Circular Supply Chains (NA + Europa).",
+        "sources": [
+          { "label": "The AI World", "url": "https://theaiworld.org/news/bmw-i-ventures-launches-300m-ai-startup-fund" }
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "EU AI Act Omnibus-Vereinfachung beschlossen; Anthropics Project Glasswing und Claude Mythos lösen branchenweite Cybersecurity-Debatte aus; Stanford AI Index 2026 und International AI Safety Report veröffentlicht.",
+    "items": [
+      {
+        "title": "Sony Ace — Tischtennis-Roboter in Nature",
+        "description": "Sony AIs Projekt Ace, ein autonomes Robotersystem auf Elite-Tischtennis-Niveau, wurde auf dem Cover von Nature veröffentlicht — erstes Mal, dass ein Roboter in einem verbreiteten kompetitiven Sport auf Profi-Niveau spielt.",
+        "sources": [
+          { "label": "Sony AI", "url": "https://ai.sony/news/sony-ai-announces-breakthrough-research-in-real-world-artificial-intelligence-and-robotics" }
+        ]
+      },
+      {
+        "title": "Neuro-Symbolische KI — 100x Energieeffizienz",
+        "description": "Forscher präsentieren Ansatz, der KI-Energieverbrauch um bis zu 100× reduziert und dabei Accuracy steigert.",
+        "sources": [
+          { "label": "ScienceDaily", "url": "https://www.sciencedaily.com/releases/2026/04/260405003952.htm" }
+        ]
+      },
+      {
+        "title": "Stanford AI Index 2026 Report",
+        "description": "HAI publiziert 2026 AI Index — 12 zentrale Erkenntnisse, u.a. zu Benchmark-Sättigung, Energieverbrauch und globaler AI-Governance.",
+        "sources": [
+          { "label": "Stanford HAI", "url": "https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report" }
+        ]
+      },
+      {
+        "title": "International AI Safety Report 2026",
+        "description": "Globaler Report zu Governance in der Ära schnell wachsender AI-Leistungsfähigkeit; Frontier Safety Frameworks haben sich 2025 mehr als verdoppelt; erste echte UN-weite Governance-Konsultationen laufen.",
+        "sources": [
+          { "label": "internationalaisafetyreport.org", "url": "https://internationalaisafetyreport.org/publication/2026-report-extended-summary-policymakers" }
+        ]
+      },
+      {
+        "title": "EU AI Act Omnibus — Vereinfachung beschlossen",
+        "description": "Rat und Parlament einigten sich am 7. Mai 2026 auf Vereinfachung der AI-Act-Regeln. Sandbox-Deadline auf August 2027 verschoben; Transparency-Deadline für synthetischen Content auf 2. Dezember 2026 verkürzt. Vollständige AI-Act-Anwendung ab 2. August 2026.",
+        "sources": [
+          { "label": "EU Consilium", "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/" }
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Google investiert bis zu $40 Mrd. in Anthropic; DeepSeek V4 trotz US-Exportkontrolldruck unter MIT-Lizenz; Anthropic Project Glasswing etabliert kontrolliertes Cybersecurity-Konsortium.",
+    "items": [
+      {
+        "company": "Google / Anthropic",
+        "description": "Google investiert bis zu $40 Mrd. in Anthropic: $10 Mrd. sofort committed, weitere $30 Mrd. an Performance-Milestones gebunden. Im Gegenzug committed Anthropic $200 Mrd. Google Cloud-Ausgaben über 5 Jahre.",
+        "sources": [
+          { "label": "CNBC", "url": "https://www.cnbc.com/2026/04/24/google-to-invest-up-to-40-billion-in-anthropic-as-search-giant-spreads-its-ai-bets" },
+          { "label": "TechCrunch", "url": "https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/" }
+        ]
+      },
+      {
+        "company": "US-Verteidigungsministerium / Anthropic",
+        "description": "DoD schließt Verträge mit OpenAI, Google, Microsoft, NVIDIA, AWS, Oracle, SpaceX und Reflection ab. Anthropic war initial ausgeschlossen (Konflikt über Safety Guardrails für Kriegsanwendungen), Gespräche nach Mythos-Ankündigung wieder aufgenommen.",
+        "sources": [
+          { "label": "CNN", "url": "https://www.cnn.com/2026/05/01/tech/pentagon-ai-anthropic" }
+        ]
+      },
+      {
+        "company": "Anthropic — Project Glasswing",
+        "description": "Konsortium aus AWS, Apple, Microsoft, Google, CrowdStrike, Palo Alto Networks und ~40 weiteren Organisationen, die kontrolliert Zugang zu Mythos Preview für defensive Sicherheitsforschung erhalten.",
+        "sources": [
+          { "label": "Anthropic", "url": "https://www.anthropic.com/glasswing" },
+          { "label": "Dark Reading", "url": "https://www.darkreading.com/cybersecurity-operations/anthropic-mythos-cyber-what-comes-next" }
+        ]
+      },
+      {
+        "company": "DeepSeek",
+        "description": "DeepSeek released V4 unter MIT-Lizenz trotz anhaltender US-Exportkontrolldiskussion. Vier chinesische Labs (Zhipu, MiniMax, Moonshot, DeepSeek) releaseten innerhalb von 12 Tagen Frontier-fähige Open-Weight Coding Models.",
+        "sources": [
+          { "label": "CNN", "url": "https://www.cnn.com/2026/04/24/tech/chinas-ai-deepseek-v4-intl-hnk" }
+        ]
+      },
+      {
+        "company": "Google / Amazon — AI Profits aus Anthropic-Beteiligung",
+        "description": "Analysen zeigen, dass ein erheblicher Teil der Q1-AI-Gewinne von Google und Amazon aus Wertsteigerungen der Anthropic-Beteiligung kommt — nicht aus dem operativen Geschäft. Bubble-Warnung in Branchenmedien.",
+        "sources": [
+          { "label": "Fortune", "url": "https://fortune.com/2026/04/30/google-amazon-ai-profits-anthropic-stake-bubble-earnings-2026/" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,459 @@
+{
+  "date": "2026-04-19",
+  "period": "2026-04-12/2026-04-19",
+  "executive_summary": {
+    "intro": "Die Woche ist geprägt von Microsoft Agent Framework 1.0 GA als neuer Standard-Basis für Agentic AI, einem massiven Kostenvorteil von Gemini 3.1 Pro gegenüber GPT-5.4 und der sich nähernden EU AI Act Compliance-Deadline.",
+    "highlights": [
+      "Microsoft Agent Framework 1.0 GA: Semantic Kernel und AutoGen in einem produktionsreifen Framework vereint — neuer Standard für Agentic AI in .NET und Python.",
+      "Gemini 3.1 Pro führt 13 von 16 Major-Benchmarks bei ca. einem Drittel der GPT-5.4-Kosten — massiver Kostenvorteil für Enterprise-Deployments.",
+      "MCP 2026 Roadmap und Governance-Update fokussiert auf Enterprise-Readiness, horizontale Skalierung und SSO-Authentifizierung.",
+      "EU AI Act August 2026 Compliance-Deadline: KI-gestützte HR-Tools gelten als High-Risk — Kunden brauchen jetzt Handlungsbedarf-Analyse.",
+      "Azure AI Foundry launcht neue MAI-Modelle für Speech, Voice und Image exklusiv in Foundry — günstigere Alternativen zu Azure OpenAI."
+    ]
+  },
+  "models": {
+    "summary": "Signifikante neue Modelle dieser Woche: Claude Opus 4.7 als Flaggschiff für autonome Coding-Sessions, Gemini 3.1 Pro mit Top-Benchmark-Performance bei deutlich niedrigeren Kosten sowie DeepSeek V3.2 als günstige Alternative.",
+    "items": [
+      {
+        "name": "Claude Opus 4.7",
+        "provider": "Anthropic",
+        "type": "LLM (Agentic)",
+        "context": "Lang",
+        "highlight": "Flagship für autonome Coding-Sessions & Multi-Step Agent Tasks; läuft in GitHub Copilot",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "Anthropic",
+            "url": "https://www.anthropic.com/news"
+          }
+        ]
+      },
+      {
+        "name": "Claude Mythos Preview",
+        "provider": "Anthropic",
+        "type": "LLM (10T Param)",
+        "highlight": "Nur via Project Glasswing (~50 Partner) für Cybersecurity/Coding; KEIN Public Release",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "llm-stats.com",
+            "url": "https://llm-stats.com/ai-news"
+          }
+        ]
+      },
+      {
+        "name": "GPT-5 Turbo",
+        "provider": "OpenAI",
+        "type": "Multimodal LLM",
+        "context": "Erweitert",
+        "highlight": "Natives Image + Audio Generation im selben Modell; $2,50/$15 per M Token",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "llm-stats.com",
+            "url": "https://llm-stats.com/ai-news"
+          }
+        ]
+      },
+      {
+        "name": "Gemini 3.1 Pro",
+        "provider": "Google DeepMind",
+        "type": "Multimodal LLM",
+        "context": "2M Token",
+        "highlight": "Führt 13/16 Benchmarks, ~⅓ GPT-5.4-Kosten, Real-Time Voice & Image",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "buildfastwithai.com",
+            "url": "https://www.buildfastwithai.com/blogs/latest-ai-models-april-2026"
+          }
+        ]
+      },
+      {
+        "name": "Gemini 2.5 Pro",
+        "provider": "Google DeepMind",
+        "type": "Multimodal LLM",
+        "context": "1M Token",
+        "highlight": "Native multimodale Reasoning (Video, Audio, Text, Image in einem Prompt)",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "llm-stats.com",
+            "url": "https://llm-stats.com/ai-news"
+          }
+        ]
+      },
+      {
+        "name": "Gemma 4 (31B Dense)",
+        "provider": "Google",
+        "type": "Open-Source LLM",
+        "highlight": "4 Varianten 2,3B–31B, nativ multimodal (Text/Bild/Video), Rang #3 Arena AI unter Open Models",
+        "relevance": "low",
+        "sources": [
+          {
+            "label": "renovateqr.com",
+            "url": "https://renovateqr.com/blog/ai-models-april-2026"
+          }
+        ]
+      },
+      {
+        "name": "DeepSeek V3.2",
+        "provider": "DeepSeek",
+        "type": "LLM",
+        "highlight": "~90% GPT-5.4-Qualität zu $0,28/M Token (vs. $2,50 Input/$15 Output)",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "cadchain.com",
+            "url": "https://cadchain.com/tpost/new-ai-model-releases-april-2026"
+          }
+        ]
+      },
+      {
+        "name": "Muse Spark",
+        "provider": "Meta",
+        "type": "Proprietary LLM",
+        "highlight": "Erstes proprietäres Modell von Meta — strategische Abkehr vom Open-Weight Llama-Ansatz",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "VentureBeat",
+            "url": "https://venturebeat.com/technology/goodbye-llama-meta-launches-new-proprietary-ai-model-muse-spark-first-since"
+          }
+        ]
+      },
+      {
+        "name": "GLM-5.1",
+        "provider": "Zhipu AI",
+        "type": "LLM",
+        "highlight": "Behauptet, führende proprietäre Modelle auf SWE-Bench Pro zu übertreffen",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "lmcouncil.ai",
+            "url": "https://lmcouncil.ai/benchmarks"
+          }
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Microsoft Agent Framework 1.0 GA ist der wichtigste Framework-Release — der neue Standard für Enterprise-Agent-Entwicklung in .NET und Python. MCP erhält ein Governance-Update mit neuen Maintainern und Enterprise-Fokus. GitHub Copilot CLI ist GA.",
+    "items": [
+      {
+        "name": "Microsoft Agent Framework 1.0 GA",
+        "release": "v1.0 stable",
+        "date": "2026-04-03",
+        "relevance": "high",
+        "description": "Semantic Kernel und AutoGen in einem einzigen produktionsreifen Open-Source-Framework vereint. Unterstützt 6 Provider mit One-Line-Provider-Switch, Multi-Agent-Orchestration, A2A und MCP Interoperabilität sowie DevUI (Browser-basierter Debugger). Long-Term Support zugesichert.",
+        "sources": [
+          {
+            "label": "Visual Studio Magazine",
+            "url": "https://visualstudiomagazine.com/articles/2026/04/06/microsoft-ships-production-ready-agent-framework-1-0-for-net-and-python.aspx"
+          }
+        ]
+      },
+      {
+        "name": "MCP (Model Context Protocol) — Governance-Update & 2026 Roadmap",
+        "release": "Roadmap Update",
+        "date": "2026-04-08",
+        "relevance": "high",
+        "description": "Den Delimarsky (Anthropic) wird Lead Maintainer. Die 2026-Roadmap adressiert horizontale Skalierung (Stateless Streamable HTTP, Load Balancer-Support), Enterprise SSO-Auth, Audit Trails, Gateway-Behavior und Configuration Portability.",
+        "sources": [
+          {
+            "label": "MCP Blog",
+            "url": "https://blog.modelcontextprotocol.io/posts/2026-04-08-maintainer-update/"
+          },
+          {
+            "label": "2026 Roadmap",
+            "url": "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/"
+          }
+        ]
+      },
+      {
+        "name": "GitHub Copilot CLI — General Availability",
+        "release": "GA",
+        "date": "2026-04",
+        "relevance": "high",
+        "description": "GA mit Agentic Workflows (Autopilot Mode), Claude Opus 4.7 Support, Enterprise Telemetry, Remote MCP Server Config Defaults und Data Residency für US und EU. Achtung: Ab 24. April darf GitHub Copilot (Free/Pro/Pro+) User-Interaktionen zum Model-Training nutzen.",
+        "sources": [
+          {
+            "label": "InfoQ",
+            "url": "https://www.infoq.com/news/2026/04/github-copilot-cli-ga/"
+          },
+          {
+            "label": "GitHub Changelog",
+            "url": "https://github.blog/changelog/month/04-2026/"
+          }
+        ]
+      },
+      {
+        "name": "Microsoft Agent Governance Toolkit",
+        "release": "Open Source",
+        "date": "2026-04-03",
+        "relevance": "medium",
+        "description": "Microsoft veröffentlicht Open-Source-Toolkit zur Governance autonomer AI-Agents mit Integration in LangChain Callback Handlers und LlamaIndex TrustedAgentWorker.",
+        "sources": [
+          {
+            "label": "Help Net Security",
+            "url": "https://www.helpnetsecurity.com/2026/04/03/microsoft-ai-agent-governance-toolkit/"
+          }
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Keine dedizierten Open-Source-Library-Releases im Berichtszeitraum; Gemma 4 von Google ist das wichtigste Open-Source-Modell.",
+    "items": [
+      {
+        "name": "Gemma 4 (31B Dense)",
+        "languageType": "Python",
+        "relevance": "low",
+        "description": "4 Varianten von 2,3B bis 31B Parameter, nativ multimodal (Text/Bild/Video), Rang #3 Arena AI unter Open Models.",
+        "sources": [
+          {
+            "label": "renovateqr.com",
+            "url": "https://renovateqr.com/blog/ai-models-april-2026"
+          }
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Azure AI Foundry launcht drei neue exklusive MAI-Modelle (Transcribe, Voice, Image), erhält Reinforcement Fine-Tuning Updates und Copilot Studio bekommt Multi-Agent Coordination GA.",
+    "items": [
+      {
+        "title": "Azure AI Foundry: Neue MAI-Modelle (Public Preview)",
+        "product": "Azure AI Foundry",
+        "date": "2026-04",
+        "relevance": "high",
+        "description": "MAI-Transcribe-1 (3,9% WER, ~50% günstigere GPU-Kosten, 2,5x schneller), MAI-Voice-1 (60 Sek. Audio in unter 1 Sek., Custom Voice), MAI-Image-2 (2x schneller, verbesserte Qualität) in Public Preview.",
+        "sources": [
+          {
+            "label": "Microsoft Tech Community",
+            "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/whats-new-in-foundry-labs---april-2026/4509714"
+          },
+          {
+            "label": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry"
+          }
+        ]
+      },
+      {
+        "title": "Reinforcement Fine-Tuning: GPT-4.1 Graders + o4-mini Global Training",
+        "product": "Azure AI Foundry / Azure OpenAI",
+        "date": "2026-04",
+        "relevance": "high",
+        "description": "Global Training für o4-mini mit niedrigeren per-Token-Kosten in 12+ Regionen, neue GPT-4.1 Model Graders für reichhaltigere Reward Signals und offizieller RFT Best Practices Guide.",
+        "sources": [
+          {
+            "label": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry"
+          }
+        ]
+      },
+      {
+        "title": "Copilot Studio 2026 Release Wave 1: Multi-Agent Orchestration GA",
+        "product": "Microsoft Copilot Studio",
+        "date": "2026-04",
+        "relevance": "high",
+        "description": "Multi-Agent Coordination ist Generally Available mit Koordination über Microsoft Fabric, M365 Agents SDK und offene Agent-to-Agent (A2A) Protokolle. Classic Agent Creation in Teams-App ab 01. April 2026 eingestellt.",
+        "sources": [
+          {
+            "label": "Microsoft Learn — Copilot Studio Wave 1",
+            "url": "https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/"
+          }
+        ]
+      },
+      {
+        "title": "harrier-oss-v1: Open-Source Embedding-Modell in Microsoft Foundry",
+        "product": "Azure AI Foundry",
+        "date": "2026-04",
+        "relevance": "medium",
+        "description": "Neue Familie multilingualer Text-Embedding-Modelle (Open Source) jetzt in Microsoft Foundry — relevant für RAG-Workflows und Vektor-Suche-Applikationen.",
+        "sources": [
+          {
+            "label": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/azure/foundry/whats-new-foundry"
+          }
+        ]
+      },
+      {
+        "title": "Azure AI Fundamentals Zertifizierung wird weiterentwickelt",
+        "product": "Microsoft Certification",
+        "date": "2026-04-16",
+        "relevance": "medium",
+        "description": "Die Azure AI Fundamentals Zertifizierung (AI-900) wird aktualisiert, um Generative AI, Foundry und Agent-Paradigmen besser abzubilden.",
+        "sources": [
+          {
+            "label": "Azure Feeds",
+            "url": "https://azurefeeds.com/2026/04/16/evolving-the-microsoft-certified-azure-ai-fundamentals-certification/"
+          }
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Q1 2026 ist das größte VC-Quartal aller Zeiten mit $300 Mrd. global. Snap entlässt ~1.000 Mitarbeiter wegen AI-Produktivitätssteigerungen — ein klares Marktsignal.",
+    "items": [
+      {
+        "name": "Q1 2026: Rekord-Venture-Funding",
+        "date": "2026-04",
+        "relevance": "medium",
+        "description": "$300 Mrd. in 6.000 Startups (+150% QoQ). AI allein: $242 Mrd. (80% aller globalen VC-Investitionen). Größte Runden: OpenAI ($122 Mrd., Bewertung $852 Mrd.), Anthropic ($30 Mrd.), xAI ($20 Mrd.).",
+        "sources": [
+          {
+            "label": "Crunchbase",
+            "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/"
+          }
+        ]
+      },
+      {
+        "name": "Runware — Sonic Inference Engine",
+        "date": "2026-04",
+        "relevance": "low",
+        "description": "Runware sicherte sich $50 Mio. zur Skalierung seiner Sonic Inference Engine für Optimierung von Generative AI Performance (Speed + Cost).",
+        "sources": [
+          {
+            "label": "Crunchbase",
+            "url": "https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/"
+          }
+        ]
+      },
+      {
+        "name": "Snap — AI-bedingte Entlassungen",
+        "date": "2026-04",
+        "relevance": "medium",
+        "description": "CEO Evan Spiegel begründet Entlassungen (~1.000 MA, 300+ offene Stellen gestrichen) mit rapid advancements in AI — klares Marktsignal für AI-Produktivitätsgewinne auf Headcount.",
+        "sources": [
+          {
+            "label": "crescendo.ai",
+            "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates"
+          }
+        ]
+      },
+      {
+        "name": "Rezolve AI brainpowa™ Commerce Models",
+        "date": "2026-04",
+        "relevance": "low",
+        "description": "Rezolve AIs Commerce-spezialisierte brainpowa™-Modelle sind jetzt in Microsoft Foundry verfügbar — Brands können Commerce Copilots direkt auf Azure aufbauen.",
+        "sources": [
+          {
+            "label": "Rezolve",
+            "url": "https://rezolve.com/press-releases/rezolve-ai-launches-brainpowa-commerce-tuned-models-in-microsoft-foundry/"
+          }
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "EU AI Act Compliance-Deadline für HR-Tools als High-Risk rückt näher, Stanford AI Index sieht Anthropic als führend, und AI Scientist-v2 wurde erstmals von einer Major Conference akzeptiert.",
+    "items": [
+      {
+        "title": "EU AI Act — August 2026 Compliance-Deadline für HR-Tools",
+        "description": "KI-Tools im HR-Bereich (Screening, Ranking, Performance-Monitoring) gelten jetzt als High-Risk — Pflicht: Risikoabschätzung, Bias-Tests, Transparenz-Disclosure, kontinuierliches Monitoring.",
+        "sources": [
+          {
+            "label": "kennedyslaw.com",
+            "url": "https://www.kennedyslaw.com/en/thought-leadership/article/2026/the-eu-ai-act-implementation-timeline-understanding-the-next-deadline-for-compliance/"
+          }
+        ]
+      },
+      {
+        "title": "EU AI Omnibus-Bedenken",
+        "description": "41 Menschenrechts- und Digital-Rights-Organisationen (inkl. ARTICLE 19) schrieben ans EU-Parlament — der AI Omnibus könnte den AI Act abschwächen und High-Risk-Schutzmaßnahmen aushöhlen.",
+        "sources": [
+          {
+            "label": "ARTICLE 19",
+            "url": "https://www.article19.org/resources/eu-safeguard-the-ai-act/"
+          }
+        ]
+      },
+      {
+        "title": "Stanford AI Index 2026",
+        "description": "Anthropic führt im Ranking, knapp gefolgt von xAI, Google und OpenAI. AI beschleunigt sich weiter, Gesellschaft hat Schwierigkeiten Schritt zu halten.",
+        "sources": [
+          {
+            "label": "MIT Technology Review",
+            "url": "https://www.technologyreview.com/2026/04/13/1135675/want-to-understand-the-current-state-of-ai-check-out-these-charts/"
+          }
+        ]
+      },
+      {
+        "title": "AI Scientist-v2: Erstes KI-generiertes Paper auf Major Conference akzeptiert",
+        "description": "Das System nutzt agentic tree search für autonome Hypothesen-Generierung, Experimente und Paper-Schreibung.",
+        "sources": [
+          {
+            "label": "devflokers.com",
+            "url": "https://www.devflokers.com/blog/new-ai-papers-arxiv-last-24-hours-april-2026-model-releases-breakthroughs"
+          }
+        ]
+      },
+      {
+        "title": "AI Hallucinations im Rechtsbereich",
+        "description": "Nebraska Supreme Court suspendiert Anwalt nach 57 fehlerhaften AI-Zitaten (20 Halluzinationen) in Berufungsschrift. US-Gerichte verhängten in Q1 2026 mindestens $145.000 Strafen.",
+        "sources": [
+          {
+            "label": "Radical Data Science",
+            "url": "https://radicaldatascience.wordpress.com/2026/04/17/ai-news-briefs-bulletin-board-for-april-2026/"
+          }
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Große strategische Bewegungen: OpenAI/Anthropic/Google kooperieren gegen chinesisches Model-Copying, Anthropic baut seine Compute-Kapazitäten massiv aus, Meta verlässt mit Muse Spark den Open-Weight-Ansatz.",
+    "items": [
+      {
+        "company": "OpenAI / Anthropic / Google",
+        "description": "Drei US-KI-Firmen kooperieren erstmals zum Schutz gegen chinesische Modell-Klone; Informationsaustausch via Frontier Model Forum (mit Microsoft).",
+        "sources": [
+          {
+            "label": "Bloomberg",
+            "url": "https://www.bloomberg.com/news/articles/2026-04-06/openai-anthropic-google-unite-to-combat-model-copying-in-china"
+          }
+        ]
+      },
+      {
+        "company": "Anthropic",
+        "description": "Zugang zu ~3,5 GW GPU-Kapazität über Google AI Processors gesichert. Broadcom-Deals erweitert. Revenue Run-Rate: $30 Mrd. (von ~$9 Mrd. Ende 2025).",
+        "sources": [
+          {
+            "label": "CNBC",
+            "url": "https://www.cnbc.com/2026/04/06/broadcom-agrees-to-expanded-chip-deals-with-google-anthropic.html"
+          }
+        ]
+      },
+      {
+        "company": "OpenAI",
+        "description": "$25 Mrd.+ Jahresumsatz überschritten; bereitet sich auf Börsengang Ende 2026 vor. Post-Money Bewertung: $852 Mrd. nach letzter Runde ($122 Mrd.).",
+        "sources": [
+          {
+            "label": "Crunchbase",
+            "url": "https://news.crunchbase.com/venture/foundational-ai-startup-funding-doubled-openai-anthropic-xai-q1-2026/"
+          }
+        ]
+      },
+      {
+        "company": "Meta",
+        "description": "Meta verlässt mit Muse Spark den Open-Weight-Ansatz und launcht sein erstes proprietäres Modell — signifikanter strategischer Richtungswechsel nach Jahren der Llama-Openness.",
+        "sources": [
+          {
+            "label": "VentureBeat",
+            "url": "https://venturebeat.com/technology/goodbye-llama-meta-launches-new-proprietary-ai-model-muse-spark-first-since"
+          }
+        ]
+      },
+      {
+        "company": "Eclipse",
+        "description": "Cerebras-Backer Eclipse sichert sich $1,3 Mrd. für Robotics und AI Infrastructure.",
+        "sources": [
+          {
+            "label": "Bloomberg",
+            "url": "https://www.bloomberg.com/news/articles/2026-04-07/cerebras-backer-eclipse-raises-1-3-billion-for-robotics-ai-infrastructure"
+          }
+        ]
+      }
+    ]
+  }
+}
