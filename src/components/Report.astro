@@ -26,6 +26,32 @@ const { Content } = await render(report.entry);
       <span class="print-head-date">{report.label}</span>
     </div>
 
+    <div class="rel-filter" data-pagefind-ignore>
+      <span class="rel-filter-label">Filter:</span>
+      <div class="rel-dd" id="relDd">
+        <button class="rel-dd-btn" type="button" id="relDdBtn" aria-haspopup="true" aria-expanded="false">
+          <span id="relDdText">Alle</span>
+          <svg class="rel-dd-chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M1 1l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="rel-dd-panel" id="relDdPanel" hidden>
+          <label class="rel-opt">
+            <input type="checkbox" value="high" checked>
+            <span class="rb rb-high">Hoch</span>
+          </label>
+          <label class="rel-opt">
+            <input type="checkbox" value="medium" checked>
+            <span class="rb rb-mid">Mittel</span>
+          </label>
+          <label class="rel-opt">
+            <input type="checkbox" value="low" checked>
+            <span class="rb rb-low">Gering</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
     <div class="md">
       <Content />
     </div>
@@ -45,6 +71,114 @@ const { Content } = await render(report.entry);
 
 <script>
   document.getElementById('printBtn')?.addEventListener('click', () => window.print());
+</script>
+
+<script>
+  // Relevanz-Badges + Filter (#08)
+  // Replace 🔴/🟡/🟢 emoji in .md with styled badge spans, tag tbody rows with
+  // data-relevance, then wire up the filter buttons above the report.
+  (function () {
+    const md = document.querySelector<HTMLElement>('.md');
+    if (!md) return;
+
+    const BADGE: Record<string, [string, string]> = {
+      '🔴': ['rb-high', 'Hoch'],
+      '🟡': ['rb-mid',  'Mittel'],
+      '🟢': ['rb-low',  'Gering'],
+    };
+
+    // Replace every relevance emoji in text nodes with a badge <span>.
+    const walker = document.createTreeWalker(md, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!/[🔴🟡🟢]/u.test(node.nodeValue || '')) return NodeFilter.FILTER_REJECT;
+        const p = (node as Text).parentElement;
+        if (!p || p.closest('code, pre')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    const targets: Text[] = [];
+    let n: Node | null;
+    while ((n = walker.nextNode())) targets.push(n as Text);
+
+    for (const textNode of targets) {
+      const value = textNode.nodeValue || '';
+      const frag = document.createDocumentFragment();
+      let last = 0;
+      for (const m of value.matchAll(/[🔴🟡🟢]/gu)) {
+        const idx = m.index!;
+        const entry = BADGE[m[0]];
+        if (idx > last) frag.appendChild(document.createTextNode(value.slice(last, idx)));
+        if (entry) {
+          const span = document.createElement('span');
+          span.className = `rb ${entry[0]}`;
+          span.textContent = entry[1];
+          frag.appendChild(span);
+        } else {
+          frag.appendChild(document.createTextNode(m[0]));
+        }
+        last = idx + m[0].length;
+      }
+      if (last < value.length) frag.appendChild(document.createTextNode(value.slice(last)));
+      textNode.parentNode?.replaceChild(frag, textNode);
+    }
+
+    // Tag each tbody <tr> with data-relevance based on the badge it contains.
+    for (const row of Array.from(md.querySelectorAll<HTMLTableRowElement>('tbody tr'))) {
+      const badge = row.querySelector('.rb-high, .rb-mid, .rb-low');
+      if (badge) {
+        row.dataset.relevance = badge.classList.contains('rb-high') ? 'high'
+          : badge.classList.contains('rb-mid') ? 'medium' : 'low';
+      }
+    }
+
+    // Relevanz dropdown filter.
+    const dd     = document.getElementById('relDd');
+    const ddBtn  = document.getElementById('relDdBtn') as HTMLButtonElement | null;
+    const ddPanel = document.getElementById('relDdPanel') as HTMLElement | null;
+    const ddText = document.getElementById('relDdText') as HTMLElement | null;
+
+    if (ddBtn && ddPanel && ddText) {
+      const rows = Array.from(md.querySelectorAll<HTMLTableRowElement>('tbody tr[data-relevance]'));
+      const cbs  = Array.from(ddPanel.querySelectorAll<HTMLInputElement>('input[type="checkbox"]'));
+      const LABEL: Record<string, string> = { high: 'Hoch', medium: 'Mittel', low: 'Gering' };
+
+      const applyFilter = () => {
+        const checked = new Set(cbs.filter((c) => c.checked).map((c) => c.value));
+        const all = checked.size === cbs.length;
+        for (const row of rows) {
+          row.style.display = (all || checked.has(row.dataset.relevance || '')) ? '' : 'none';
+        }
+        ddText.textContent = all ? 'Alle'
+          : checked.size === 0 ? 'Keine'
+          : [...checked].map((v) => LABEL[v] || v).join(', ');
+      };
+
+      cbs.forEach((cb) => cb.addEventListener('change', applyFilter));
+
+      ddBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = ddPanel.hidden;
+        ddPanel.hidden = !open;
+        ddBtn.setAttribute('aria-expanded', String(open));
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dd?.contains(e.target as Node)) {
+          ddPanel.hidden = true;
+          ddBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !ddPanel.hidden) {
+          ddPanel.hidden = true;
+          ddBtn.setAttribute('aria-expanded', 'false');
+          ddBtn.focus();
+        }
+      });
+    }
+  })();
 </script>
 
 <script>
