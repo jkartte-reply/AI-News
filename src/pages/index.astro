@@ -1,14 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
-import Report from '../components/Report.astro';
+import SummaryDashboard from '../components/SummaryDashboard.astro';
 import { getReports } from '../lib/reports';
 
-// Homepage shows the newest report (mirrors the old auto-open behaviour).
-// Not indexed here, so this page is excluded from the search index — the
-// canonical /reports/<date>/ page carries the indexable content.
 const reports = await getReports();
-const current = reports[0];
+
+const sidecars = import.meta.glob<{ default: any }>('../../Reports/*_AI_Weekly.json', { eager: true });
+const summaries: Record<string, { intro: string; highlights: string[] } | null> = {};
+for (const [path, mod] of Object.entries(sidecars)) {
+  const m = path.match(/(\d{4}-\d{2}-\d{2})/);
+  if (m) summaries[m[1]] = mod.default?.executive_summary ?? null;
+}
 ---
-<Base title={`AI Weekly — ${current.label}`} reports={reports} activeSlug={current.slug}>
-  <Report report={current} />
+<Base title="AI Weekly — Übersicht" reports={reports}>
+  <SummaryDashboard reports={reports} summaries={summaries} />
 </Base>
