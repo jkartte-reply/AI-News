@@ -275,6 +275,11 @@ for (const r of reports) {
         const search = await pf.search(query);
         if (input!.value.trim() !== query) return; // query changed while loading
         const results = await Promise.all(search.results.slice(0, 20).map((r: any) => r.data()));
+        results.sort((a: any, b: any) => {
+          const da = dateFromUrl(fixUrl(a.url)) ?? '';
+          const db = dateFromUrl(fixUrl(b.url)) ?? '';
+          return db.localeCompare(da); // newest first
+        });
         renderResults(results, query);
       } catch (e) {
         showResults();
