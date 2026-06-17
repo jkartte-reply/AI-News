@@ -211,6 +211,31 @@ body {
 .nav-title { font-size: 0.82rem; font-weight: 500; color: var(--ink-2); margin-top: 0.05rem; line-height: 1.3; display: block; }
 .nav-item.active .nav-title { color: var(--green); font-weight: 600; }
 
+/* Sidebar month filter (#12) */
+.nav-filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+  padding: 0 0.1rem;
+}
+.nav-month-select {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  color: var(--ink-3);
+  background: var(--paper-2);
+  border: 1px solid var(--rule-2);
+  border-radius: 3px;
+  padding: 0.15rem 0.3rem;
+  cursor: pointer;
+  outline: none;
+  max-width: 118px;
+  transition: border-color 0.12s, color 0.12s;
+}
+.nav-month-select:hover,
+.nav-month-select:focus { border-color: var(--green); color: var(--ink-2); }
+
 .badge-new {
   font-size: 0.58rem;
   font-weight: 700;

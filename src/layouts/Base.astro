@@ -12,6 +12,19 @@ const { title, reports, activeSlug } = Astro.props;
 const base = import.meta.env.BASE_URL;            // "/AI-News/"
 const reportHref = (slug: string) => `${base}reports/${slug}/`;
 const total = reports.length;
+
+// Unique months for the sidebar month-filter select (#12).
+const DE_MONTHS_SIDEBAR = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+const seenMonths = new Set<string>();
+const filterMonths: { key: string; label: string }[] = [];
+for (const r of reports) {
+  const key = r.iso.slice(0, 7);
+  if (!seenMonths.has(key)) {
+    seenMonths.add(key);
+    const [yr, mo] = key.split('-');
+    filterMonths.push({ key, label: `${DE_MONTHS_SIDEBAR[Number(mo) - 1]} ${yr}` });
+  }
+}
 ---
 <!DOCTYPE html>
 <html lang="de">
@@ -87,11 +100,18 @@ const total = reports.length;
       </div>
     </div>
     <div class="report-nav">
-      <div class="sidebar-label">Alle Reports</div>
+      <div class="nav-filter-row">
+        <span class="sidebar-label" style="margin-bottom:0">Alle Reports</span>
+        <select class="nav-month-select" id="navMonthSelect" aria-label="Nach Monat filtern">
+          <option value="">Alle Zeiträume</option>
+          {filterMonths.map((m) => <option value={m.key}>{m.label}</option>)}
+        </select>
+      </div>
       {reports.map((r, i) => (
         <a
           class:list={['nav-item', { active: r.slug === activeSlug }]}
           href={reportHref(r.slug)}
+          data-month={r.iso.slice(0, 7)}
         >
           <span class="nav-num">{total - i}</span>
           <span class="nav-text">
@@ -280,6 +300,19 @@ const total = reports.length;
 
     clearBtn.addEventListener('click', () => { exitSearch(); input.focus(); });
     input.addEventListener('keydown', (e) => { if (e.key === 'Escape') exitSearch(); });
+  }
+</script>
+
+<script>
+  // Sidebar month filter (#12): show only nav-items matching the selected month.
+  const sel = document.getElementById('navMonthSelect') as HTMLSelectElement | null;
+  if (sel) {
+    sel.addEventListener('change', () => {
+      const month = sel.value;
+      for (const item of document.querySelectorAll<HTMLElement>('.nav-item[data-month]')) {
+        item.style.display = (!month || item.dataset.month === month) ? '' : 'none';
+      }
+    });
   }
 </script>
 
