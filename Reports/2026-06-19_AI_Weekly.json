@@ -2,427 +2,410 @@
   "date": "2026-06-19",
   "period": "2026-06-12/2026-06-19",
   "executive_summary": {
-    "intro": "Die KW 25/2026 war von Anthropics Doppel-Release (Claude Fable 5 + Mythos 5), Microsofts Build-Konferenz mit sieben eigenen MAI-Modellen und dem Open-Source-Knaller GLM-5.2 geprägt — ein Zeichen, dass das Wettrennen um Frontier-Modelle sich weiter beschleunigt.",
+    "intro": "Die KW 25 markiert die vollständige Produktionsreife des Microsoft-Agenten-Stacks: Work IQ APIs, Foundry Hosted Agents, GitHub Copilot Agent Finder und das Microsoft Agent Framework konvergierten in einer Woche — während SpaceX die Übernahme von Cursor für 60 Milliarden Dollar ankündigte und die US-Regierung erstmals Exportkontrollen für ein spezifisches Frontier-Modell verhängte.",
     "highlights": [
-      "Claude Fable 5: Anthropic bringt am 9. Juni sein erstes öffentliches Mythos-Klasse-Modell mit State-of-the-Art-Coding und Wissenschafts-Benchmarks.",
-      "Microsoft Build 2026: Sieben neue MAI-Eigenmodelle, Microsoft Scout als persönlicher Arbeitsagent und tief integrierte Foundry-Agenten für Microsoft 365.",
-      "GLM-5.2: Zhipus 744B-MoE-Modell (MIT-Lizenz, 1M-Token-Kontext) schlägt GPT-5.5 auf SWE-bench Pro bei einem Sechstel der Kosten.",
-      "EU AI Act & Colorado AI Act: Ab August 2026 greifen die meisten Hochrisiko-Pflichten des EU AI Act; Colorado-Gesetz tritt am 30. Juni in Kraft.",
-      "Headroom & MemPalace: Zwei stark wachsende Open-Source-Bibliotheken für Token-Kompression und LLM-Persistenz-Speicher erreichen Trending-Status auf GitHub."
+      "Microsoft Agenten-Stack GA: Work IQ APIs, Foundry Hosted Agents und GitHub Copilot Agent Finder sind produktionsreif — das vollständige Baukastensystem für M365-integrierte Agenten ist jetzt verfügbar.",
+      "SpaceX übernimmt Cursor für 60 Milliarden Dollar und konsolidiert damit den KI-Coding-Markt erheblich, während die Unabhängigkeit des wichtigsten Developer Tools in Frage steht.",
+      "US-Exportkontrolle für Claude Fable 5 und Mythos 5: Erstmals verhängt die US-Regierung Exportkontrollen für ein spezifisches Frontier-Modell — ein Gouvernanz-Präzedenzfall mit globaler Reichweite.",
+      "EU AI Act Digital Omnibus: Die High-Risk-AI-Compliance-Frist für Anhang III wurde um 16 Monate auf Dezember 2027 verschoben — kurzfristige Entlastung, aber fortlaufende Unsicherheit für Implementierungsprojekte.",
+      "Starke Open-Weight-Woche: GLM-5.2 (744B MoE, 1M Kontext, MIT-Lizenz) und NVIDIA Nemotron 3 Ultra setzen neue Maßstäbe für frei verfügbare Frontier-Modelle."
     ]
   },
   "models": {
-    "summary": "Anthropic dominiert die Woche mit Claude Fable 5 und Mythos 5; parallel liefern Zhipu (GLM-5.2), Google (Gemini 3.5 Pro Preview), Apple (AFM 3) und Microsoft (MAI-Familie) bedeutende Releases.",
+    "summary": "Eine modellreiche Woche mit Claude Fable 5 als leistungsstärkstem öffentlich verfügbarem Coding-Modell (80,3% auf SWE-Bench Pro) und starken Open-Weight-Releases von Z.ai und NVIDIA — die Lücke zwischen proprietären und offenen Modellen schrumpft weiter.",
     "items": [
       {
-        "name": "Claude Fable 5 + Mythos 5",
+        "name": "Claude Fable 5",
         "provider": "Anthropic",
-        "type": "Text/Code/Vision/Science",
-        "highlight": "Erstes öffentliches Mythos-Klasse-Modell; Top-Benchmarks in Software-Engineering, Wissenschaft und Vision; Mythos 5 nur für Gov-Cybersecurity; $10/$50 pro M Token.",
+        "type": "LLM",
+        "context": "Multi-Million Token",
+        "highlight": "Führend auf SWE-Bench Pro mit 80,3% (vs. GPT-5.5 mit 58,6%); stärkstes öffentlich verfügbares Coding- und Reasoning-Modell zum Preis von 10/50 USD pro 1M Token.",
         "relevance": "high",
         "sources": [
-          {"label": "Anthropic Blog", "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"},
-          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/"},
-          {"label": "The Decoder", "url": "https://the-decoder.com/anthropic-releases-claude-fable-5-and-mythos-5-with-major-gains-in-coding-and-science/"}
+          {"label": "Anthropic", "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"},
+          {"label": "Tom's Hardware", "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-fable-5-brings-mythos-to-the-masses-anthropics-next-frontier-model-is-state-of-the-art-on-nearly-all-tested-benchmarks"}
+        ]
+      },
+      {
+        "name": "NVIDIA Nemotron 3 Ultra",
+        "provider": "NVIDIA",
+        "type": "LLM",
+        "highlight": "550B-Parameter-MoE-Hybrid-Mamba-Attention-Architektur, vollständig open-weight; bestes US-Open-Weight-Modell (47,7 auf dem Artificial Analysis Intelligence Index) mit besonderer Stärke in mehrstufigen Agenten-Workflows.",
+        "relevance": "high",
+        "sources": [
+          {"label": "Artificial Analysis", "url": "https://artificialanalysis.ai/articles/nvidia-nemotron-3-ultra-released"}
         ]
       },
       {
         "name": "GLM-5.2",
-        "provider": "Zhipu AI / Z.ai",
-        "type": "Open-Source LLM (MoE)",
+        "provider": "Z.ai",
+        "type": "LLM",
         "context": "1M Token",
-        "highlight": "744B Parameter, 40B aktiv, MIT-Lizenz; schlägt GPT-5.5 auf SWE-bench Pro (62.1 vs. 58.6) bei 1/6 der Kosten; verfügbar auf Hugging Face.",
+        "highlight": "744B-MoE-Architektur mit 1M-Token-Kontext, zwei Denkanstrengungsstufen (High/Max) und MIT-Lizenz — besonders optimiert für Long-Horizon-Coding-Agenten mit Self-Hosting-Option für regulierte Umgebungen.",
         "relevance": "high",
         "sources": [
-          {"label": "VentureBeat", "url": "https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost"},
-          {"label": "TechTimes", "url": "https://www.techtimes.com/articles/318543/20260617/glm-52-open-weights-live-top-coding-benchmark-api-use-carries-china-data-risk.htm"},
-          {"label": "HuggingFace Blog", "url": "https://huggingface.co/blog"}
+          {"label": "MarkTechPost", "url": "https://www.marktechpost.com/2026/06/14/z-ai-launches-glm-5-2-with-a-usable-1m-token-context-two-thinking-effort-levels-and-no-benchmarks-at-launch/"}
         ]
       },
       {
-        "name": "Microsoft MAI-Familie (7 Modelle)",
-        "provider": "Microsoft",
-        "type": "Reasoning / Code / Image / Voice / Transcription",
-        "highlight": "MAI-Thinking-1 (35B MoE, 256K Kontext, 97% AIME 25), MAI-Code-1-Flash, MAI-Image-2.5, MAI-Transcribe-1.5, MAI-Voice-2 — alle auf Build 2026 vorgestellt.",
+        "name": "Grok 4.3",
+        "provider": "xAI",
+        "type": "LLM",
+        "context": "1M Token",
+        "highlight": "Erstes xAI-Modell auf Amazon Bedrock mit aggressivem Pricing (1,25/2,50 USD pro 1M Token) und konfigurierbaren Reasoning-Stufen über das neue AWS Mantle Inference Engine.",
         "relevance": "high",
         "sources": [
-          {"label": "Microsoft Build Blog", "url": "https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/"},
-          {"label": "Tom's Guide", "url": "https://www.tomsguide.com/news/live/microsoft-build-2026"},
-          {"label": "Redmond Magazine", "url": "https://redmondmag.com/articles/2026/06/02/microsoft-uses-build-2026-to-put-ai-agents-at-the-center-of-windows.aspx"}
+          {"label": "AWS", "url": "https://aws.amazon.com/about-aws/whats-new/2026/06/grok-amazon-bedrock/"},
+          {"label": "VentureBeat", "url": "https://venturebeat.com/technology/xai-launches-grok-4-3-at-an-aggressively-low-price-and-a-new-fast-powerful-voice-cloning-suite"}
         ]
       },
       {
         "name": "Gemini 3.5 Pro",
         "provider": "Google DeepMind",
-        "type": "Multimodal LLM",
+        "type": "Multimodal",
         "context": "2M Token",
-        "highlight": "Deep-Think-Reasoning-Modus, nativ multimodal für Text, Bild, Audio, Video; GA im Juni 2026 angekündigt (noch im Preview-Stadium, GA folgt).",
+        "highlight": "Googles neues Flagship-Modell mit 2M-Token-Kontext und Deep-Think-Reasoning-Modus befindet sich in der Enterprise-Preview und ersetzt den bisherigen Gemini-Ultra-Tier.",
         "relevance": "high",
         "sources": [
-          {"label": "TechTimes", "url": "https://www.techtimes.com/articles/317919/20260606/google-gemini-35-pro-nears-june-launch-2-million-token-context-deep-think-reasoning.htm"},
-          {"label": "Codersera", "url": "https://codersera.com/blog/gemini-3-5-pro-launch-guide-2026/"}
+          {"label": "TechTimes", "url": "https://www.techtimes.com/articles/317919/20260606/google-gemini-35-pro-nears-june-launch-2-million-token-context-deep-think-reasoning.htm"}
         ]
       },
       {
-        "name": "Apple Foundation Models (3. Generation)",
+        "name": "MiniMax M3",
+        "provider": "MiniMax",
+        "type": "Multimodal",
+        "context": "1M Token",
+        "highlight": "Erstes Open-Weight-Modell mit Frontier-Coding (59% SWE-Bench Pro), 1M-Kontext und nativer Multimodalität bei 0,60/2,40 USD pro 1M Token — chinesischer Ursprung kann Adoption in regulierten Umgebungen einschränken.",
+        "relevance": "medium",
+        "sources": [
+          {"label": "VentureBeat", "url": "https://venturebeat.com/technology/minimax-m3-debuts-eclipsing-gpt-5-5-and-gemini-3-1-pro-on-key-benchmark-performance-for-just-5-10-of-the-cost"},
+          {"label": "MarkTechPost", "url": "https://www.marktechpost.com/2026/06/01/minimax-releases-minimax-m3-with-msa-architecture-supporting-1m-token-context-native-multimodality-and-agentic-coding/"}
+        ]
+      },
+      {
+        "name": "Apple Foundation Models 3 (AFM 3)",
         "provider": "Apple",
-        "type": "On-Device Multimodal",
-        "highlight": "Am 8. Juni vorgestellt; fünf Foundation-Modelle in Kooperation mit Google; AFM 3 Core Advanced ist nativ multimodal und läuft vollständig auf dem Gerät.",
+        "type": "Multimodal",
+        "highlight": "Familie aus 5 Modellen mit einem 20B-Sparse-Modell, das vollständig on-device auf dem iPhone läuft und via Private Cloud Compute ohne Datenspeicherung den neuen Siri antreibt.",
         "relevance": "medium",
         "sources": [
           {"label": "Apple ML Research", "url": "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models"}
         ]
       },
       {
-        "name": "Meta Muse Spark",
-        "provider": "Meta",
-        "type": "Multimodal LLM",
-        "highlight": "Erstes Flagship-LLM unter Chief AI Officer Alexandr Wang (Superintelligence Labs); kompetitiv bei Multimodal, Reasoning, Health und Agentic Tasks bei niedrigem Compute-Bedarf.",
-        "relevance": "medium",
+        "name": "VibeThinker-3B",
+        "provider": "WeiboAI",
+        "type": "Code-LLM",
+        "highlight": "MIT-lizenzierter Qwen2.5-Coder-3B-Fine-Tune, der auf Math- und Code-Benchmarks mit deutlich größeren Frontier-Modellen konkurriert — bemerkenswert für Edge- oder kostensensitive Deployments.",
+        "relevance": "low",
         "sources": [
-          {"label": "LLM Stats", "url": "https://llm-stats.com/ai-news"},
-          {"label": "Mean CEO Blog", "url": "https://blog.mean.ceo/new-ai-model-releases-news-june-2026/"}
+          {"label": "LLM Stats", "url": "https://llm-stats.com/llm-updates"}
         ]
       }
     ]
   },
   "frameworks": {
-    "summary": "Microsoft festigt mit dem Agent Framework 1.0 (AutoGen + Semantic Kernel vereint) seine Plattform-Rolle; MCP nähert sich dem Release Candidate mit Stateless Core und Extensions; Cursor 3 setzt mit Composer 2 neue Maßstäbe für KI-Coding-IDEs.",
+    "summary": "Microsoft dominiert die Developer-Tooling-Woche: GitHub Copilot App wird GA, VS Code 1.125 liefert MDM-Governance für Copilot-Enterprise, das Microsoft Agent Framework bringt CodeAct und Hosted-Agent-Integration — ergänzt durch Anthropics neues SDK-Credit-Modell für Drittanbieter-Agenten.",
     "items": [
       {
-        "name": "Microsoft Agent Framework 1.0",
-        "release": "1.0 GA",
-        "date": "2026-04-03",
+        "name": "GitHub Copilot App",
+        "release": "Generally Available",
+        "date": "2026-06-17",
         "relevance": "high",
-        "description": "Microsoft hat AutoGen und Semantic Kernel in einem einzigen .NET- und Python-SDK zusammengeführt. Das Framework bietet produktionsreife Mehrагenten-Orchestrierung, Memory-Management und Tool-Integration. Für Microsoft-Partner besonders relevant, da es direkt mit Azure AI Foundry und Microsoft 365 Copilot integriert ist.",
+        "description": "Die GitHub Copilot Desktop-App (macOS, Windows, Linux) ist jetzt allgemein verfügbar. Sie bietet parallele Coding-Sessions auf eigenen Branches und Worktrees, bidirektionale Canvases für Mensch-Agent-Zusammenarbeit und cloudbasierte Automationen ohne laufende lokale Maschine. Für Microsoft-Partner-Entwicklungsteams ist dies der neue zentrale Steuerungsrahmen für Copilot Business und Enterprise.",
         "sources": [
-          {"label": "Visual Studio Magazine", "url": "https://visualstudiomagazine.com/articles/2026/04/06/microsoft-ships-production-ready-agent-framework-1-0-for-net-and-python.aspx"},
-          {"label": "Microsoft Dev Blog", "url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026/"}
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-06-17-github-copilot-app-generally-available/"}
         ]
       },
       {
-        "name": "MCP Release Candidate 2026",
-        "date": "2026-07-28",
+        "name": "Microsoft Agent Framework (MAF)",
+        "release": "dotnet-1.10.0",
+        "date": "2026-06-10",
         "relevance": "high",
-        "description": "Der Release Candidate für das nächste Model Context Protocol umfasst einen Stateless Protocol Core, das Extensions Framework, Tasks, MCP Apps, Authorization Hardening und eine formale Deprecation Policy. MCP übersteigt 200 Server-Implementierungen und 97 Millionen monatliche SDK-Downloads. Das Finale der Spec erscheint am 28. Juli 2026.",
+        "description": "Der konvergierte Nachfolger von AutoGen und Semantic Kernel liefert in dieser Version Agent-Harness-Patterns, CodeAct-Fähigkeiten (Agenten schreiben und führen Code aus), Skills-Unterstützung über Azure AI Foundry Toolboxes und prozedurale Speicherintegration. Die native Integration mit dem Foundry Agent Service ermöglicht gehostete Agenten ohne eigene Deployment-Infrastruktur. Teams, die noch eigenständiges Semantic Kernel oder AutoGen nutzen, sollten die Migration zu MAF einplanen.",
         "sources": [
-          {"label": "MCP Blog", "url": "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/"},
-          {"label": "New Stack", "url": "https://thenewstack.io/why-the-model-context-protocol-won/"}
+          {"label": "Microsoft DevBlogs", "url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-at-build-2026-announce/"},
+          {"label": "GitHub Releases", "url": "https://github.com/microsoft/agent-framework/releases"}
         ]
       },
       {
-        "name": "Cursor 3 / Composer 2",
-        "date": "2026-Q2",
+        "name": "Visual Studio Code 1.125",
+        "date": "2026-06-17",
         "relevance": "high",
-        "description": "Cursor 3 ist ein Agent-First-Rebuild des beliebten AI-Code-Editors mit dem neuen Composer 2, parallelen Agenten-Ausführungen und einem Plugin-Marketplace. Claude Opus 4.7 hält im WebDev Arena Elo-Ranking Platz 1 (1567 Elo). Cursor bleibt laut Rankings das führende Full-IDE-Erlebnis nach Claude Code.",
+        "description": "Das Juni-Milestone liefert unternehmenskritische Features: MDM/Intune-kompatible Copilot-Policy-Bereitstellung für Enterprise-Governance, einen integrierten Browser für sichere Web-Suche in Remote-SSH-Verbindungen und einen AI Model Discovery Button für den direkten Marketplace-Zugriff auf LLM-Provider-Extensions. Das MDM-Feature ist besonders relevant für Partner, die Copilot-Governance für Kunden konfigurieren und durchsetzen müssen.",
         "sources": [
-          {"label": "LogRocket Blog", "url": "https://blog.logrocket.com/ai-dev-tool-power-rankings/"},
-          {"label": "Nipralo Technologies", "url": "https://www.nipralo.com/blogs/best-ai-coding-tools-2026"}
+          {"label": "VS Code Updates", "url": "https://code.visualstudio.com/updates/v1_125"}
         ]
       },
       {
-        "name": "Claude Code (GA)",
-        "date": "2026-Q2",
-        "relevance": "high",
-        "description": "Anthropics CLI-basierter Coding-Agent ist aus der Research Preview in die General Availability gewechselt und hat laut aktuellen Rankings GitHub Copilot als meistgenutztes AI-Coding-Tool überholt. Seit 15. Juni 2026 zieht der Agent-SDK-Betrieb von einem separaten monatlichen Credit-Budget auf Subscription-Plänen.",
-        "sources": [
-          {"label": "Pragmatic Engineer", "url": "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026"},
-          {"label": "Nipralo Technologies", "url": "https://www.nipralo.com/blogs/best-ai-coding-tools-2026"}
-        ]
-      },
-      {
-        "name": "ACP/A2A-Konsolidierung unter Linux Foundation",
-        "date": "2026-06",
+        "name": "Anthropic Claude Agent SDK — Metered Credits",
+        "date": "2026-06-15",
         "relevance": "medium",
-        "description": "Das Agent Communication Protocol (ACP) wurde unter dem Agent-to-Agent-Standard (A2A) bei der Linux Foundation zusammengeführt. Dies vereinfacht die Interoperabilität zwischen verschiedenen Agenten-Frameworks und setzt eine neutrale Governance-Struktur für Multi-Agent-Kommunikation.",
+        "description": "Anthropic führte einen separaten monatlichen Agent-SDK-Credit-Pool für alle bezahlten Claude-Abonnements ein (Pro: 20 USD, Max 5x: 100 USD, Max 20x: 200 USD), der die Nutzung von Drittanbieter-Agenten wieder ermöglicht. Die Claude Platform auf AWS unterstützt jetzt native IAM-Authentifizierung via Workload Identity Federation statt statischer API-Schlüssel, was Enterprise-Deployments erheblich vereinfacht.",
         "sources": [
-          {"label": "MorphLLM Agent Framework Overview", "url": "https://www.morphllm.com/ai-agent-framework"}
+          {"label": "Coding with AI", "url": "https://codingwithai.com/news/claude-agent-sdk-credits-june-2026"},
+          {"label": "Anthropic Release Notes", "url": "https://releasebot.io/updates/anthropic"}
+        ]
+      },
+      {
+        "name": "Hugging Face Transformers v5.11.0",
+        "relevance": "medium",
+        "description": "Das Update fügt Modell-Support für DiffusionGemma und DeepSeek-V3.2 hinzu, erweitert die KernelConfig-API mit N-to-1-Modul-Fusion für bessere Parallelisierung und enthält umfangreiche Fixes für Model Parallelism, Cache-Handling und Quantisierung. Relevant für Teams, die lokale oder gehostete Open-Source-Modelle betreiben.",
+        "sources": [
+          {"label": "GitHub Release", "url": "https://github.com/huggingface/transformers/releases/tag/v5.11.0"}
+        ]
+      },
+      {
+        "name": "GitHub Code Quality",
+        "release": "GA ab 20. Juli 2026",
+        "date": "2026-06-16",
+        "relevance": "medium",
+        "description": "GitHub Code Quality (über 10.000 Enterprise-Nutzer in der Public Preview) wird am 20. Juli 2026 allgemein verfügbar. Das Tool erkennt Wartbarkeits- und Zuverlässigkeitsprobleme, setzt Quality Gates durch und trackt Code-Coverage direkt in GitHub — eine Zero-Configuration-Code-Quality-Schicht für bestehende GitHub-Pipelines.",
+        "sources": [
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-06-16-github-code-quality-generally-available-july-20-2026/"}
         ]
       }
     ]
   },
   "opensource": {
-    "summary": "Headroom (Token-Kompression) und MemPalace (LLM-Persistenz-Speicher) dominieren das GitHub-Trending; GLM-5.2 setzt als Open-Weights-Frontier-Modell mit MIT-Lizenz neue Maßstäbe für die Community.",
+    "summary": "Hugging Face smolagents erhält mit der nativen MCP/Tiny-Agents-Integration eine interessante Weiterentwicklung hin zu minimalem Agentencode, während GitHub CLI neue Werkzeuge für leichtgewichtigen Remote-Repository-Zugriff in Agenten-Toolchains liefert.",
     "items": [
       {
-        "name": "Headroom",
-        "languageType": "Python / TypeScript",
-        "stars": "34.713",
-        "date": "2026-01",
-        "relevance": "high",
-        "description": "Open-Source Context Compression Layer (Apache 2.0), entwickelt von einem Senior Engineer bei Netflix. Headroom sitzt zwischen der Applikation und dem LLM-Provider und komprimiert Tool-Outputs, Logs, RAG-Ergebnisse und Conversation History auf 5–40% der ursprünglichen Token-Anzahl bei über 95% Genauigkeitserhalt. Im Juni 2026 auf Platz 2 der monatlichen GitHub-Trending-Liste.",
-        "sources": [
-          {"label": "GitHub", "url": "https://github.com/chopratejas/headroom"},
-          {"label": "Nexus AI Tech", "url": "https://www.nexusai-tech.com/ai-apps/headroom-open-source-context-compression-layer-for-ai-agents"}
-        ]
-      },
-      {
-        "name": "MemPalace",
-        "languageType": "Python",
-        "stars": "47.000+",
-        "date": "2026-04",
-        "relevance": "high",
-        "description": "Lokales, quelloffenes LLM-Memory-System (MIT) mit 96.6% Recall@5 auf dem LongMemEval-Benchmark. Verwendet nur ChromaDB und PyYAML, läuft vollständig lokal ohne externe API-Calls, und unterstützt MCP für Claude, ChatGPT, Cursor und Gemini. Das Projekt erreichte 47.000 Stars in den ersten zwei Wochen.",
-        "sources": [
-          {"label": "GitHub", "url": "https://github.com/mempalace/mempalace"},
-          {"label": "Analytics Vidhya", "url": "https://www.analyticsvidhya.com/blog/2026/05/mempalace-explained/"}
-        ]
-      },
-      {
-        "name": "Agent-Reach (Panniantong)",
-        "languageType": "Python",
-        "stars": "34.403",
-        "date": "2026-06",
+        "name": "smolagents (Hugging Face)",
+        "languageType": "Python / LLM",
         "relevance": "medium",
-        "description": "Ermöglicht AI-Agenten den Zugriff auf Social-Media-Plattformen und Videoseiten über eine einzige CLI, aktuell eines der am schnellsten wachsenden Repos mit 7.856 neuen Stars in dieser Woche.",
+        "description": "Hugging Faces code-first Agenten-Bibliothek (ca. 1.000 Zeilen Kerncode) integriert jetzt nativ MCP-basierte Tiny Agents in ca. 50 Zeilen Python. Via LiteLLM funktioniert die Integration mit Claude, OpenAI, Gemini und lokalen Modellen. Das Designprinzip minimaler Abstraktion erleichtert Debugging und Anpassung gegenüber schwergewichtigeren Frameworks wie LangChain.",
         "sources": [
-          {"label": "GitHub Trending", "url": "https://github.com/trending/python?since=weekly"}
+          {"label": "Hugging Face Docs", "url": "https://huggingface.co/docs/smolagents/en/index"}
         ]
       },
       {
-        "name": "NVIDIA SkillSpector",
-        "languageType": "Python",
-        "stars": "7.951",
-        "date": "2026-06",
-        "relevance": "medium",
-        "description": "Security Scanner für AI-Agent-Skills; erkennt Schwachstellen, bösartige Muster und Sicherheitsrisiken in Agent-Skill-Implementierungen. Diese Woche mit 5.505 neuen Stars der am schnellsten wachsende neue Eintrag im Python-Trending.",
+        "name": "GitHub CLI — gh repo read-file / gh repo read-dir",
+        "date": "2026-06-17",
+        "languageType": "CLI",
+        "relevance": "low",
+        "description": "Zwei neue CLI-Subcommands ermöglichen das Lesen von Remote-Repository-Dateien und Verzeichnisauflistungen ohne lokales Klonen. Nützlich für leichtgewichtige Agenten-Tools oder CI-Skripte, die Repository-Inhalte inspizieren müssen.",
         "sources": [
-          {"label": "GitHub Trending", "url": "https://github.com/trending/python?since=weekly"}
-        ]
-      },
-      {
-        "name": "Bumblebee (Perplexity AI)",
-        "languageType": "Python / Multi-Ecosystem",
-        "date": "2026-Q2",
-        "relevance": "medium",
-        "description": "Open-Source Read-only Supply Chain Scanner, der npm, PyPI, Go Modules, RubyGems, Composer, MCP-Server, Editor-Extensions und Browser-Extensions auf schadhafte oder verdächtige Abhängigkeiten prüft.",
-        "sources": [
-          {"label": "ByteByteGo", "url": "https://blog.bytebytego.com/p/top-ai-github-repositories-in-2026"},
-          {"label": "NocoBase", "url": "https://www.nocobase.com/en/blog/best-open-source-ai-projects-github-2026"}
-        ]
-      },
-      {
-        "name": "GLM-5.2 (Open Weights)",
-        "languageType": "Python",
-        "stars": "wachsend",
-        "date": "2026-06-13",
-        "relevance": "high",
-        "description": "Z.ais 744B-MoE-Modell ist MIT-lizenziert und sofort auf Hugging Face verfügbar. Es schlägt GPT-5.5 auf SWE-bench Pro und Terminal-Bench 2.1 und ist damit das stärkste öffentlich verfügbare Open-Weights-Coding-Modell. Enterprise-Abo ab $12.60/Monat.",
-        "sources": [
-          {"label": "VentureBeat", "url": "https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost"},
-          {"label": "Hugging Face Blog", "url": "https://huggingface.co/blog"}
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-06-17-read-remote-repository-content-with-github-cli/"}
         ]
       }
     ]
   },
   "azure": {
-    "summary": "Microsoft Build 2026 (2.–3. Juni in San Francisco) war geprägt von Agenten-first-Architektur: Foundry-Agenten können jetzt direkt in Microsoft 365 publizieren, und die neuen MAI-Eigenmodelle ergänzen das Azure-Portfolio signifikant.",
+    "summary": "Microsoft liefert in einer einzigen Woche die vollständige Produktionsreife seines KI-Agenten-Stacks: Work IQ APIs und Foundry Hosted Agents gehen GA, GitHub Copilot Agent Finder automatisiert die MCP-Tool-Discovery, und MAI-Thinking-1 signalisiert Microsofts strategischen Schritt zur Modell-Unabhängigkeit von OpenAI.",
     "items": [
       {
-        "title": "Microsoft Build 2026 — MAI-Modelle & Microsoft Scout",
-        "product": "Azure AI / MAI",
-        "date": "2026-06-02",
+        "title": "Work IQ APIs — General Availability",
+        "product": "Microsoft 365 / Azure AI Foundry",
+        "date": "2026-06-16",
         "relevance": "high",
-        "description": "Satya Nadella stellte sieben eigene MAI-Modelle vor (Reasoning, Code, Image, Voice, Transcription). MAI-Thinking-1 (35B MoE, 256K Kontext) erreicht 97% auf AIME 25 und 53% auf SWE Bench Pro. Microsoft Scout ist ein neuer persönlicher Arbeitsagent, der Teams, Outlook und andere M365-Tools proaktiv nutzt. Web IQ ist ein MCP-nativer KI-Websuchstack, der relevante Passagen 2,5× schneller liefert.",
+        "description": "Die Work IQ APIs sind GA und exponieren über 10 generische MCP-Tools sowie eine REST API den gesamten semantischen M365-Index (E-Mail, Kalender, Meetings, Dokumente, LoB-Systeme). Jeder MCP-kompatible Agent (Claude, LangGraph, AutoGen) kann den Work IQ MCP Server direkt ansprechen. Die verbrauchsbasierte Abrechnung über Copilot Credits erfordert klares Cost-Governance-Design — ein direktes Beratungsthema für Microsoft Partner, die M365-integrierte Agenten bauen.",
         "sources": [
-          {"label": "Microsoft Build Blog", "url": "https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work/"},
-          {"label": "Memeburn Build Recap", "url": "https://memeburn.com/microsoft-build-2026-7-biggest-ai-announcements/"}
+          {"label": "Microsoft 365 Blog", "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/announcing-the-new-work-iq-apis/"},
+          {"label": "Cloud Factory Group", "url": "https://blog.cloudfactorygroup.com/posts/work-iq-api-hits-general-availability-what-csp-partners-must-know-about-consumptive-pricing-1"}
         ]
       },
       {
-        "title": "Azure AI Foundry — Agent Publishing & Foundry IQ",
+        "title": "MAI-Thinking-1 — Microsofts erstes In-House Reasoning Model",
         "product": "Azure AI Foundry",
-        "date": "2026-06",
+        "date": "2026-06-02",
         "relevance": "high",
-        "description": "Foundry-Agenten können ab Juni 2026 direkt in Microsoft Teams und Microsoft 365 Copilot publiziert werden (GA geplant). Foundry IQ vereint Work IQ, Fabric IQ, Azure SQL, File Search und MCP-Quellen hinter einem SLA-gesicherten Retrieval-Endpoint. Toolboxes in Foundry (Public Preview), erweiterte Agent-Memory (procedural, user, session), und Tracing/Evaluation für gehostete Agenten sind ebenfalls neu.",
+        "description": "MAI-Thinking-1 ist Microsofts erstes selbst entwickeltes Reasoning-Modell (35B aktive Parameter, sparsames MoE, 256K Kontext), das ohne Destillation aus OpenAI-Modellen und ausschließlich auf kommerziell lizenzierten Daten trainiert wurde. Es ist IP-bereinigt und über Azure AI Foundry in der Private Preview verfügbar. Das Modell wird in blinden Human-Evals über Claude Sonnet 4.6 bevorzugt und signalisiert Microsofts Weg zur strategischen Modell-Unabhängigkeit — relevant für Partner, die rechtliche Klarheit über Trainingsdaten benötigen.",
         "sources": [
-          {"label": "Foundry Build Blog", "url": "https://devblogs.microsoft.com/foundry/agent-service-build2026/"},
-          {"label": "Microsoft Foundry What's New (Build Edition)", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/"},
+          {"label": "Microsoft AI", "url": "https://microsoft.ai/news/introducing-mai-thinking-1/"},
+          {"label": "TechTimes", "url": "https://www.techtimes.com/articles/317631/20260602/microsoft-build-2026-mai-thinking-1-first-house-reasoning-model-trained-without-openai-data.htm"}
+        ]
+      },
+      {
+        "title": "GitHub Copilot Agent Finder — General Availability",
+        "product": "GitHub Copilot",
+        "date": "2026-06-17",
+        "relevance": "high",
+        "description": "GitHub Copilot entdeckt und priorisiert jetzt automatisch verfügbare MCP-Server, Skills und Tools, wenn ein Entwickler eine Aufgabe in natürlicher Sprache beschreibt — kein manuelles Verdrahten von Agenten mehr erforderlich. Für Microsoft Partner bedeutet das, dass unternehmensspezifische MCP-Server (z.B. eigene Azure DevOps-Toolchains oder Kunden-APIs) automatisch von Copilot genutzt werden, sobald sie registriert sind.",
+        "sources": [
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-06-17-agent-finder-for-github-copilot-now-available/"}
+        ]
+      },
+      {
+        "title": "Microsoft Foundry Hosted Agents — GA (Ende Juni 2026)",
+        "product": "Azure AI Foundry",
+        "relevance": "high",
+        "description": "Der Foundry Agent Service erreicht Ende Juni 2026 die allgemeine Verfügbarkeit mit Tracing, Evaluation für gehostete Agenten, Foundry IQ Knowledge Plane (serverloser Retrieval), Toolboxes in Public Preview und direktem Publishing-Pfad in Microsoft Teams und M365 Copilot. Partner können jetzt ohne eigene Infrastruktur produktionsfähige Custom Agents deployen, beobachten und skalieren.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/"},
           {"label": "InfoQ", "url": "https://www.infoq.com/news/2026/06/microsoft-foundry-agents/"}
         ]
       },
       {
-        "title": "Microsoft 365 Copilot — Claude Opus 4.8 & GPT-5.5 Integration",
-        "product": "Microsoft 365 Copilot",
-        "date": "2026-06",
-        "relevance": "high",
-        "description": "Anthropics Claude Opus 4.8 ist jetzt in Microsoft 365 Copilot verfügbar für komplexe mehrstufige Aufgaben (Dokumentenanalyse, Präsentationserstellung). Neue GPT-5.5 Instant und Thinking Models wurden integriert. Infografiken in Copilot Notebooks und Outlook E-Mail Grounding ergänzen die Produktivitätsfunktionen.",
-        "sources": [
-          {"label": "Microsoft 365 Copilot Blog", "url": "https://techcommunity.microsoft.com/blog/microsoft365copilotblog/what%e2%80%99s-new-in-microsoft-365-copilot--may-2026/4522010"},
-          {"label": "Tom's Guide Build Recap", "url": "https://www.tomsguide.com/news/live/microsoft-build-2026"}
-        ]
-      },
-      {
-        "title": "Azure OpenAI Service — Resilienz-Verbesserungen",
+        "title": "Azure OpenAI — gpt-realtime-1.5 und gpt-audio-1.5 verfügbar",
         "product": "Azure OpenAI Service",
-        "date": "2026-06",
-        "relevance": "medium",
-        "description": "Nach dem Ausfall Ende Mai 2026 (erhöhte Latenz, HTTP-5XX-Fehler) hat Microsoft Verbesserungsmaßnahmen angekündigt: bessere Diagnose-Runbooks, stärkere Overload-Prevention und Abbau von Single Points of Failure im Inference-Routing. Multi-Region-Resilienz für mission-critical Workloads wird empfohlen.",
+        "relevance": "high",
+        "description": "Die Modelle gpt-realtime-1.5 und gpt-audio-1.5 sind jetzt auf Azure OpenAI Service verfügbar mit verbesserter Instruction-Following-Qualität, erweitertem Mehrsprachensuport und zuverlässigerem Tool-Calling bei gleichzeitig geringer Latenz. Direkt relevant für Partner-Projekte im Bereich Contact-Center-Modernisierung, Sprach-Assistenten und Echtzeit-Transkription auf Azure.",
         "sources": [
-          {"label": "Azure Status History", "url": "https://azure.status.microsoft/en-us/status/history/"},
-          {"label": "Azure Charts", "url": "https://azurecharts.com/updates?monthback=0"}
+          {"label": "Azure OpenAI What's New", "url": "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/whats-new"}
         ]
       },
       {
-        "title": "Azure AI Foundry Benchmarks & Auto-Rubric-Evaluatoren (Preview)",
-        "product": "Azure AI Foundry",
-        "date": "2026-06-15",
-        "relevance": "medium",
-        "description": "Microsoft Foundry Labs bietet jetzt Benchmarks als standardisierte Qualitätschecks für Modelle und Agenten (Preview, 15. Juni) sowie Auto-Generated Rubric Evaluators zum Erstellen kontextsensibler Evaluatoren für AI-Agenten. Intelligentes Sampling wandelt Production Traces automatisch in Evaluation- und Fine-Tuning-Datasets um.",
-        "sources": [
-          {"label": "Azure AI Foundry Blog", "url": "https://techcommunity.microsoft.com/category/azure-ai-foundry/blog/azure-ai-foundry-blog"},
-          {"label": "Foundry Labs Blog", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/"}
-        ]
-      },
-      {
-        "title": "GitHub Copilot App (Preview)",
-        "product": "GitHub Copilot",
+        "title": "Azure HorizonDB + Microsoft Fabric Agent Connectors",
+        "product": "Azure Data Platform / Microsoft Fabric",
         "date": "2026-06-02",
         "relevance": "medium",
-        "description": "Auf der Build 2026 wurde die GitHub Copilot App als eigenständige Applikation in die Preview gehoben. Parallel ist Cursor 3 mit Composer 2 und parallelen Agenten als stärkster Konkurrent positioniert.",
+        "description": "Azure HorizonDB kombiniert transaktionale Daten, Vektorsuche und KI-Funktionen in einer einheitlichen Plattform. Microsoft Fabric Agent Connectors und OneLake Agent Memory ermöglichen es, bestehende Datenbestände direkt in Agenten-Reasoning-Loops einzuspeisen. Für Data-Platform-Partner eliminiert HorizonDB die Notwendigkeit, separate Vektorspeicher- und Transaktions-DB-Infrastruktur in KI-Lösungen zu pflegen.",
         "sources": [
-          {"label": "Tom's Guide Build Recap", "url": "https://www.tomsguide.com/news/live/microsoft-build-2026"}
+          {"label": "Azure Blog", "url": "https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases/"}
+        ]
+      },
+      {
+        "title": "M365 Copilot Spezialisierung umbenannt + SMB-SKU-Änderungen",
+        "product": "Microsoft Partner Network",
+        "relevance": "medium",
+        "description": "Ab Juli 2026 heißt die Microsoft Copilot Spezialisierung offiziell Microsoft 365 Copilot Spezialisierung, wobei die Performance-Anforderungen jetzt auf bezahlte M365 Copilot MAU abzielen. Gleichzeitig werden die bisherigen Promotions-Copilot-Business-Bundles dauerhaft als Microsoft 365 Business with Copilot SKUs zum Promotionspreis geführt. Partner mit Copilot-Kompetenz müssen ihre Nachweise an die neue MAU-Metrik anpassen.",
+        "sources": [
+          {"label": "Microsoft Partner Center", "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-june"},
+          {"label": "Sherweb Blog", "url": "https://www.sherweb.com/blog/microsoft-ecosystem/microsoft-updates-msps-june-2026/"}
+        ]
+      },
+      {
+        "title": "Copilot Studio — Classic-Chatbot-Deprecation in Teams",
+        "product": "Microsoft Copilot Studio",
+        "relevance": "medium",
+        "description": "Ab Ende Juni 2026 können im Copilot Studio Teams-App keine klassischen Chatbots mehr erstellt werden; Ersteller werden zur Copilot Studio Web-App weitergeleitet. Computer-Using Agents (seit Mai 2026 verfügbar) und das neue Workflows-Erlebnis sind der Ersatzpfad. Partner, die klassische Bots in Teams gebaut oder verwalten, sollten Kunden-Migrationen einplanen.",
+        "sources": [
+          {"label": "Microsoft Copilot Studio Blog", "url": "https://www.microsoft.com/en-us/microsoft-copilot/blog/copilot-studio/new-and-improved-computer-using-agents-a-new-workflows-experience-and-real-time-voice-experiences/"}
         ]
       }
     ]
   },
   "products": {
-    "summary": "Neben dem dominierenden Anthropic-Release stechen Zooms ZoomMate-Integration, Googles Imagen 3 und die Bereitstellung von Gemini 3.5 Flash für Enterprise-Workflows als praktisch einsatzreife Neuheiten hervor.",
+    "summary": "Anthropic baute seine Enterprise-Partnerschaften deutlich aus (TCS, Samsung, NAVER, Nexon), während Microsoft Office-Agenten für Excel, Word und PowerPoint in den allgemeinen Zugriff gehen und Amazons Bedrock AgentCore seinen ersten prominenten Produktions-Kunden gewinnt.",
     "items": [
       {
-        "name": "Zoom ZoomMate",
-        "date": "2026-06-01",
-        "relevance": "medium",
-        "description": "Zoom hat ZoomMate zum Preis von $20/Nutzer/Monat eingeführt. Die KI integriert sich direkt in Live-Meetings und verbindet Entscheidungen mit Salesforce, Jira, ServiceNow und Slack. Zielgruppe sind Enterprise-Teams, die Meeting-Ergebnisse direkt in Workflows einspeisen wollen.",
-        "sources": [
-          {"label": "WaveSpeed Blog", "url": "https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/"},
-          {"label": "AIapps", "url": "https://www.aiapps.com/blog/ai-news-breakthroughs-launches-trends-must-read/"}
-        ]
-      },
-      {
-        "name": "Google Imagen 3 Nano & Pro",
-        "date": "2026-06",
-        "relevance": "medium",
-        "description": "Googles Bildgenerierungsmodelle der dritten Generation sind jetzt breit verfügbar. Eine Neuerung: Video-Dateien können als Prompts genutzt werden, um kontextbewusste Bilder zu erzeugen (Nano für effiziente, Pro für hochwertige Anwendungsfälle).",
-        "sources": [
-          {"label": "WaveSpeed Blog", "url": "https://wavespeed.ai/blog/posts/june-2026-ai-launch-wave/"},
-          {"label": "Crescendo AI News", "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates"}
-        ]
-      },
-      {
-        "name": "Itential FlowAI",
-        "date": "2026-06-01",
-        "relevance": "low",
-        "description": "FlowAI von Itential ermöglicht IT- und Infrastruktur-Teams, KI-Agenten für Live-Produktionsnetzwerke einzusetzen — Reasoning und Ausführung auf echten Netzwerk-Umgebungen ohne manuelle Skripte.",
-        "sources": [
-          {"label": "Mean CEO Blog", "url": "https://blog.mean.ceo/ai-product-launches-news-june-2026/"}
-        ]
-      },
-      {
-        "name": "Anthropic Series H — $65 Milliarden",
-        "date": "2026-06",
+        "name": "Microsoft Office-Agenten + Copilot Platform APIs",
         "relevance": "high",
-        "description": "Anthropic hat eine Series-H-Finanzierungsrunde über $65 Milliarden abgeschlossen und ist damit mit $965 Milliarden Post-Money-Bewertung das wertvollste private KI-Unternehmen der Welt — vor OpenAI ($852 Mrd.).",
+        "description": "Excel-, Word- und PowerPoint-Agenten sind jetzt allgemein im Chat verfügbar. Gleichzeitig wurden die Copilot Platform APIs freigegeben: APIs, Connectors und Runtime zum Einbetten von Copilot-Agenten in beliebige eigene Anwendungen. Für Microsoft Partner ergeben sich direkt umsetzbare Angebote zur Integration von Office-Automatisierung in bestehende Kundenlösungen.",
         "sources": [
-          {"label": "AI Funding Tracker", "url": "https://aifundingtracker.com/top-50-ai-startups/"},
-          {"label": "Qubit Capital", "url": "https://qubit.capital/blog/ai-startup-fundraising-trends"}
+          {"label": "Tom's Guide Build 2026", "url": "https://www.tomsguide.com/news/live/microsoft-build-2026"}
+        ]
+      },
+      {
+        "name": "TCS x Anthropic — Claude für regulierte Branchen",
+        "date": "2026-06-12",
+        "relevance": "high",
+        "description": "Tata Consultancy Services und Anthropic gaben eine Partnerschaft bekannt, um Claude-Modelle in regulierten Branchen (Finanzen, Gesundheitswesen, Öffentliche Hand) bereitzustellen. Die Kooperation eines der weltgrößten IT-Dienstleister mit Anthropic zeigt den wachsenden Enterprise-Bedarf nach compliance-fähigen LLM-Deployments und erhöht den Wettbewerbsdruck auf Microsoft-Partner in denselben Vertikalen.",
+        "sources": [
+          {"label": "Anthropic Release Notes", "url": "https://releasebot.io/updates/anthropic"}
+        ]
+      },
+      {
+        "name": "Claude Managed Agents — Public Beta",
+        "relevance": "high",
+        "description": "Anthropic öffnete die Public Beta für Managed Agents in Claude: Kron-basiertes Scheduling, sichere Nutzung von CLI-Tools und authentifizierten Services, Vault-gespeicherte Umgebungsvariablen sowie Enterprise-Admin-Provisionierung von MCP-Konnektoren (beginnend mit Okta). Dies ist ein wesentlicher Schritt hin zu produktionsfähiger Agenten-Automatisierung auf der Claude-Plattform.",
+        "sources": [
+          {"label": "Anthropic Release Notes", "url": "https://releasebot.io/updates/anthropic/claude-code"}
+        ]
+      },
+      {
+        "name": "Amazon Bedrock AgentCore — Erste Produktions-Referenz (Kate Spade)",
+        "relevance": "medium",
+        "description": "Kate Spade startete einen KI-Gift-Concierge auf Basis von Amazon Bedrock AgentCore mit einer Conversion-Rate des 3,5-fachen gegenüber klassischer Keyword-Suche. Es ist der erste hochkarätige Produktions-Deploy von Amazons neuem Agenten-Orchestrierungs-Framework und ein Indikator für den Reifegrad der Plattform.",
+        "sources": [
+          {"label": "mean.ceo Blog", "url": "https://blog.mean.ceo/ai-product-launches-news-june-2026/"}
+        ]
+      },
+      {
+        "name": "Anthropic — Seoul-Büro + Samsung / NAVER / Nexon Deployments",
+        "date": "2026-06-17",
+        "relevance": "medium",
+        "description": "Anthropic eröffnete sein Seoul-Büro. NAVER setzt Claude Code unternehmensweit in der Engineering-Organisation ein, Nexon für Spieleentwicklung und Samsung SDS für alle Samsung-Electronics-Ingenieure. Die Entwicklung zeigt die schnell wachsende Enterprise-Adoption von Claude Code für interne Developer-Tool-Rollouts.",
+        "sources": [
+          {"label": "Anthropic Release Notes", "url": "https://releasebot.io/updates/anthropic"}
         ]
       }
     ]
   },
   "industry": {
-    "summary": "Regulatorisch wird die Woche von der bevorstehenden EU AI Act Deadline und dem Colorado AI Act geprägt; wissenschaftlich sticht der KI-Nachweis eines 80 Jahre alten Mathe-Irrtums heraus.",
+    "summary": "Regulierung und Gouvernanz dominierten die Woche: Die EU verschob ihre High-Risk-AI-Frist um 16 Monate, während die USA erstmals Exportkontrollen für ein spezifisches Frontier-Modell verhängten — beides schafft kurzfristige Entlastung und langfristige Unsicherheit.",
     "items": [
       {
-        "title": "EU AI Act — Hochrisiko-Pflichten ab August 2026",
-        "description": "Die meisten Hochrisiko-Verpflichtungen des EU AI Act treten am 2. August 2026 in Kraft, darunter Systeme in Personalwesen, Kredit, Bildung, kritischer Infrastruktur und Strafverfolgung. Am 10. Juni veröffentlichte die Kommission einen Code of Practice zur Kennzeichnung KI-generierter Inhalte.",
+        "title": "US-Exportkontrolle für Claude Fable 5 und Mythos 5",
+        "description": "Die Trump-Regierung erließ eine Exportkontroll-Direktive, die Anthropic verpflichtet, den weltweiten Zugang zu Claude Fable 5 und Mythos 5 auszusetzen — der erste Fall, in dem die US-Regierung Exportkontrollen für ein spezifisches Frontier-KI-Modell verhängt und damit einen regulatorischen Präzedenzfall setzt.",
         "sources": [
-          {"label": "Holland & Knight", "url": "https://www.hklaw.com/en/insights/publications/2026/04/us-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline"},
-          {"label": "European Commission", "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"}
+          {"label": "Build Fast with AI", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-15-2026"}
         ]
       },
       {
-        "title": "Colorado AI Act tritt am 30. Juni 2026 in Kraft",
-        "description": "Das erste umfassende US-Staatsgesetz für Hochrisiko-KI (Colorado SB 24-205) tritt am 30. Juni in Kraft (verschoben von Februar). Es verlangt Impact Assessments, Consumer Disclosures und zumutbare Sorgfalt zur Vermeidung algorithmischer Diskriminierung.",
+        "title": "EU AI Act Digital Omnibus — High-Risk-Frist auf Dezember 2027 verschoben",
+        "description": "EU, Parlament und Kommission einigten sich im Digital Omnibus provisorisch darauf, die Compliance-Frist für Anhang-III-Hochrisiko-KI um 16 Monate auf den 2. Dezember 2027 zu verschieben; die öffentliche Konsultation zu den HRAI-Klassifizierungsrichtlinien läuft noch bis zum 23. Juni 2026.",
         "sources": [
-          {"label": "Kiteworks AI Regulation 2026", "url": "https://www.kiteworks.com/cybersecurity-risk-management/ai-regulation-2026-business-compliance-guide/"},
-          {"label": "The Hill", "url": "https://thehill.com/opinion/technology/5924895-ai-safety-report-2026-highlights/"}
+          {"label": "Global Policy Watch", "url": "https://www.globalpolicywatch.com/2026/06/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions-2/"}
         ]
       },
       {
-        "title": "KI beweist Fehler in 80 Jahre altem Mathe-Theorem",
-        "description": "Das größte KI-Forschungsthema der Jahresmitte ist, dass KI aufgehört hat, nur Fragen zu beantworten, und jetzt aktiv Entdeckungen macht — einschließlich eines Ergebnisses, das eine 80 Jahre alte Mathe-Vermutung widerlegt.",
-        "sources": [
-          {"label": "Build This Now", "url": "https://www.buildthisnow.com/blog/guide/mechanics/ai-research-june-2026"}
-        ]
-      },
-      {
-        "title": "Google TurboQuant (ICLR 2026) — KV-Cache-Effizienz",
-        "description": "Googles Forschungsteam stellte TurboQuant auf der ICLR 2026 vor: ein Algorithmus, der den Speicher-Overhead des KV-Cache durch PolarQuant Vektorrotation und Quantized Johnson-Lindenstrauss Kompression erheblich reduziert.",
-        "sources": [
-          {"label": "Build This Now", "url": "https://www.buildthisnow.com/blog/guide/mechanics/ai-research-june-2026"}
-        ]
-      },
-      {
-        "title": "2026 International AI Safety Report (Bengio)",
-        "description": "Der von Turing-Award-Gewinner Yoshua Bengio geleitete Report (100+ Experten aus 30+ Ländern, unterstützt von OECD, EU und UN) stellt fest: Die drängendsten KI-Risiken kommen nicht von den Modellen selbst, sondern von den komplexen Systemen, die Unternehmen darum herum bauen.",
+        "title": "2026 International AI Safety Report — Systemebene als Hauptrisiko",
+        "description": "Der OECD/EU/UN-gestützte Sicherheitsbericht (Vorsitz Yoshua Bengio, 100+ Experten aus 30+ Ländern) identifiziert komplexe Systeme rund um Modelle — nicht die Modelle selbst — als größtes KI-Risiko und hebt Prompt-Injection-Schwachstellen in Tool-Using-Agenten als kritisches Designthema hervor.",
         "sources": [
           {"label": "IBM Think", "url": "https://www.ibm.com/think/news/new-global-ai-safety-report-means-enterprise"}
         ]
       },
       {
-        "title": "G7-Gipfel — AI-CEO-Lunch mit Weltführern",
-        "description": "OpenAIs Sam Altman, Anthropics Dario Amodei und Google DeepMinds Demis Hassabis nahmen am G7-Gipfel in Frankreich teil. Auf der Agenda: Frontier-AI-Risiken, KI-Infrastruktur und digitale Souveränität.",
+        "title": "Colorado AI Act tritt am 30. Juni 2026 in Kraft",
+        "description": "Das erste umfassende US-Bundesstaatsgesetz für Hochrisiko-KI verlangt Impact Assessments, Verbraucherinformationen und angemessene Sorgfalt zur Verhinderung algorithmischer Diskriminierung — relevant für US-Markt-Produkte und Kundenberatung.",
         "sources": [
-          {"label": "CNBC", "url": "https://www.cnbc.com/2026/06/17/g7-trump-ai-tech-leaders-openai-anthropic-google.html"},
-          {"label": "Bloomberg", "url": "https://www.bloomberg.com/news/articles/2026-06-12/anthropic-openai-google-executives-plan-to-attend-g7-summit"}
+          {"label": "WSGR", "url": "https://www.wsgr.com/en/insights/2026-year-in-preview-ai-regulatory-developments-for-companies-to-watch-out-for.html"}
+        ]
+      },
+      {
+        "title": "Google TurboQuant — KV-Cache-Kompression bei ICLR 2026",
+        "description": "Googles TurboQuant-Algorithmus reduziert den KV-Cache-Speicherbedarf signifikant und signalisiert einen Trend der Forschungsgemeinschaft hin zu Effizienz- statt Parameter-Skalierung, was die Inferenzkosten langfristig senken dürfte.",
+        "sources": [
+          {"label": "Build This Now", "url": "https://www.buildthisnow.com/blog/guide/mechanics/ai-research-june-2026"}
+        ]
+      },
+      {
+        "title": "CVPR 2026 — Best Papers bekannt gegeben",
+        "description": "Die IEEE und Computer Vision Foundation gaben die Auszeichnungen der besten Arbeiten auf der CVPR 2026 bekannt; kein einzelnes Paper dominierte die Berichterstattung in consulting-relevanten Bereichen.",
+        "sources": [
+          {"label": "Newswise", "url": "https://www.newswise.com/articles/cvpr-2026-honors-the-year-s-most-innovative-computer-vision-and-ai-research"}
         ]
       }
     ]
   },
   "business": {
-    "summary": "OpenAI und Anthropic dominieren durch Investitionsrunden und strategische Moves; die DOJ-Freigabe der Google-Wiz-Akquisition und der $40-Mrd.-Datencenter-Deal signalisieren eine Konsolidierung der KI-Infrastruktur.",
+    "summary": "SpaceX' 60-Milliarden-Dollar-Übernahme von Cursor ist die größte Einzelmeldung der Woche, während OpenAI seinen IPO für Q4 2026 bestätigt und Google seinen veralteten Vertex AI Generative AI SDK offiziell abschaltet.",
     "items": [
       {
-        "company": "Anthropic",
-        "description": "Series-H-Runde über $65 Milliarden abgeschlossen; mit $965 Mrd. Post-Money-Bewertung nun das wertvollste private KI-Unternehmen der Welt. Claude Code hat GitHub Copilot als meistgenutztes AI-Coding-Tool überholt.",
+        "company": "SpaceX / Cursor (Anysphere)",
+        "description": "SpaceX unterzeichnete eine All-Stock-Fusionsvereinbarung zur Übernahme von Cursor für 60 Milliarden Dollar (bei ca. 2,6–4 Mrd. USD annualisiertem Umsatz), erwartet in Q3 2026 über SpaceX-Tochter X67 — die Übernahme wirft Fragen zur langfristigen Unabhängigkeit des meistgenutzten KI-Coding-Assistenten auf.",
         "sources": [
-          {"label": "AI Funding Tracker", "url": "https://aifundingtracker.com/top-50-ai-startups/"}
+          {"label": "CNBC", "url": "https://www.cnbc.com/2026/06/16/-spacex-to-buy-cursor-ai-parent-anysphere-for-60-billion.html"}
         ]
       },
       {
         "company": "OpenAI",
-        "description": "Akquirierte TBPN (Silicon-Valley-Technologieprogramm/-Talk-Show) für mehrere hundert Millionen USD — erste Medien-Akquisition des Unternehmens. GPT-5.5 Cyber löst regulatorische Bedenken aus.",
+        "description": "OpenAI bestätigte Pläne für einen Börsengang in Q4 2026 bei ca. 34 Mrd. USD Ausgaben (19 Mrd. F&E) gegenüber 13 Mrd. USD Umsatz in 2025 — ein definierender Moment für die KI-Kapitalmarktstory.",
         "sources": [
-          {"label": "Acquirezy", "url": "https://acquirezy.com/acquisitions/industry/artificial-intelligence-ai"}
+          {"label": "AI Business", "url": "https://aibusiness.com/generative-ai/openai-vs-anthropic-vs-google-model-isn-t-the-point"}
         ]
       },
       {
-        "company": "Google / DOJ",
-        "description": "Das US-Justizministerium hat Googles Akquisition von Wiz genehmigt und damit den Weg für Plattform-Konsolidierungen in der Cloud-Security frei gemacht.",
+        "company": "Microsoft / GitHub",
+        "description": "Microsoft bestätigte, dass GitHub-Traffic über Amazon Web Services geleitet wird, nachdem KI-Coding-Agenten die eigene Infrastruktur überlastet hatten — ein Indikator für den enormen Skalierungsdruck agentengetriebener Entwickler-Workflows.",
         "sources": [
-          {"label": "Crescendo AI News", "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates"}
+          {"label": "Build Fast with AI", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-17-2026"}
         ]
       },
       {
-        "company": "BlackRock / MGX",
-        "description": "Das Konsortium übernahm Aligned Data Centers für $40 Milliarden — einer der größten privaten Infrastrukturdeals der Geschichte und Zeichen des langfristigen Vertrauens in KI-Rechenkapazitäten.",
+        "company": "Google — Vertex AI Generative AI SDK",
+        "description": "Googles Generative-AI-Modul im Vertex AI Python SDK wird am 24. Juni 2026 offiziell abgeschaltet (deprecated seit Juni 2025); Teams müssen auf das Google Gen AI SDK migrieren — konkreter Handlungsbedarf für Kunden mit GCP-Azure-Hybrid-Workloads.",
         "sources": [
-          {"label": "Crescendo AI News", "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates"}
+          {"label": "Google Cloud Docs", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations"}
         ]
       },
       {
-        "company": "Microsoft",
-        "description": "Vierjährige $10-Milliarden-Investition in Japan (2026–2029) für KI-Rechenzentren in Partnerschaft mit SoftBank und Sakura Internet; Zusage zur Ausbildung von 1 Million Entwicklern bis 2030.",
+        "company": "AI-Markt (CB Insights Q1 2026)",
+        "description": "266 KI-M&A-Deals in Q1 2026 (+90% YoY), Acqui-Hires als dominante Struktur — die beschleunigte Marktkonsolidierung ist relevant für strategische Vendor-Landschaft-Beratungen.",
         "sources": [
-          {"label": "Crescendo AI VC Deals", "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups"}
-        ]
-      },
-      {
-        "company": "NVIDIA / Cadence",
-        "description": "Erweiterte Partnerschaft kombiniert Cadences Multiphysik-Simulation mit NVIDIAs Isaac Robotics Libraries und Cosmos-Modellen, um die Sim-to-Real-Lücke für Industrieroboter zu schließen.",
-        "sources": [
-          {"label": "Crescendo AI News", "url": "https://www.crescendo.ai/news/latest-ai-news-and-updates"}
+          {"label": "FE International", "url": "https://www.feinternational.com/blog/ai-ma-trend"}
         ]
       }
     ]
