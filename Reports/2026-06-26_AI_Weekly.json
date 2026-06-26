@@ -1,0 +1,294 @@
+{
+  "date": "2026-06-26",
+  "period": "2026-06-19/2026-06-26",
+  "executive_summary": {
+    "intro": "Die Woche vom 19.–26. Juni 2026 stand im Zeichen regulatorischer Weichenstellungen und infrastruktureller Reife: Googles Gemini 3.5 Flash erreichte die allgemeine Verfügbarkeit mit nativer Computer-Use-Fähigkeit, Microsoft öffnete sein Work IQ-API-Layer für Entwickler, und der EU Digital Omnibus schob zentrale KI-Act-Pflichten um 16 Monate hinaus.",
+    "highlights": [
+      "Gemini 3.5 Flash GA mit Computer Use: Google macht natives Browser- und Desktop-Steuern per API allgemein verfügbar und ebnet so den Weg für autonome Enterprise-Agenten.",
+      "EU Digital Omnibus beschlossen: Das EU-Parlament billigte Verzögerungen beim AI Act — eigenständige Hochrisiko-KI-Systeme sind erst ab Dezember 2027 verpflichtet; Art. 50 Transparenzpflichten gelten ab 2. August 2026.",
+      "OpenAI Partner Network: Mit 150 Mio. USD und Zielpunkt 300.000 zertifizierte Berater adressiert OpenAI den Go-to-Market-Engpass und betritt das Consulting-Ökosystem direkt.",
+      "Agentjacking-Sicherheitslücke: Angreifer können über Fake-Sentry-Fehlerberichte AI Coding Agents (Claude Code, Cursor, Codex) mit ~85% Erfolgsquote kapern — kritisch für alle AI-Engineering-Teams.",
+      "Google Talent-Abwanderung: Mit Jonas Adler und Alexander Pritzel verlassen zwei weitere Schlüsselarchitekten das Gemini-Team zu Anthropic, was Fragen zur langfristigen Google-AI-Strategie aufwirft."
+    ]
+  },
+  "models": {
+    "summary": "Google macht Gemini 3.5 Flash mit nativem Computer Use allgemein verfügbar und setzt damit einen neuen Standard für Agentic-Anwendungen; Microsoft konsolidiert seine MAI-Modellreihe, während Anthropic mit Opus 4.8 die Benchmark-Spitze hält und Fable 5 nach dem Export-Control-Vorfall ausgesetzt bleibt.",
+    "items": [
+      {
+        "name": "Gemini 3.5 Flash",
+        "provider": "Google DeepMind",
+        "type": "Multimodal",
+        "highlight": "GA mit nativem Computer-Use-Tool (Browser, Desktop per API) und Führungsposition in multimodaler Verständnis (CharXiv 84.2%) — übertrifft Gemini 3.1 Pro auf allen Key-Benchmarks",
+        "relevance": "high",
+        "sources": [
+          {"label": "Google Blog", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/"},
+          {"label": "Nokia Power User", "url": "https://nokiapoweruser.com/google-gemini-3-5-flash-computer-use-agent-launch/"}
+        ]
+      },
+      {
+        "name": "MAI-Thinking-1",
+        "provider": "Microsoft AI",
+        "type": "LLM (Reasoning)",
+        "context": "256K Token",
+        "highlight": "35B-Parameter-Reasoning-Modell, ohne Distillation von Drittmodellen trainiert; 97% auf AIME 2025; bevorzugt gegenüber Claude Sonnet 4.6 in Blind-Evaluierungen",
+        "relevance": "high",
+        "sources": [
+          {"label": "Microsoft AI Blog", "url": "https://microsoft.ai/news/introducing-mai-thinking-1/"},
+          {"label": "CNBC", "url": "https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html"}
+        ]
+      },
+      {
+        "name": "Claude Opus 4.8",
+        "provider": "Anthropic",
+        "type": "LLM",
+        "highlight": "Platz 1 auf Artificial Analysis Intelligence Index (Score 61.4, erstes Modell über 60); Fable 5 bleibt aufgrund US-Export-Control-Direktive (Jailbreak-Fund) global ausgesetzt",
+        "relevance": "high",
+        "sources": [
+          {"label": "Anthropic", "url": "https://www.anthropic.com/news/claude-opus-4-8"},
+          {"label": "Fortune", "url": "https://fortune.com/2026/06/13/anthropic-disables-fable-mythos-export-controls-national-security-threat/"}
+        ]
+      },
+      {
+        "name": "Grok 4.3",
+        "provider": "xAI",
+        "type": "LLM",
+        "context": "1M Token",
+        "highlight": "Allgemein verfügbar auf Amazon Bedrock mit konfigurierbaren Reasoning-Levels und niedrigem Halluzinations-Rate für Enterprise-Einsatz",
+        "relevance": "medium",
+        "sources": [
+          {"label": "xAI Release Notes", "url": "https://releasebot.io/updates/xai"}
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Microsoft vereint AutoGen und Semantic Kernel zum Microsoft Agent Framework (GA bei Build 2026) und gibt mit Work IQ die programmierbare Unternehmens-Wissensschicht für Agents frei; Cursor übernimmt Continue und verdichtet den AI-Developer-Tools-Markt weiter.",
+    "items": [
+      {
+        "name": "Microsoft Agent Framework",
+        "release": "GA",
+        "date": "2026-06-02",
+        "relevance": "high",
+        "description": "Microsoft hat AutoGen und Semantic Kernel zu einem einzigen, kommerziell unterstützten SDK für Multi-Agent-Systeme zusammengeführt. Das Framework ist wire-kompatibel mit dem Copilot Studio Agent-to-Agent-Protokoll (ebenfalls GA), sodass gemischte Deployments ohne Custom-Adapter möglich sind. Für Microsoft-Partner ist dies die erste produktionsreife SDK-Basis für Unternehmensagenten auf der Azure-Plattform — geeignet für LangGraph-, Copilot-Studio- und reine SDK-Architekturen.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog", "url": "https://devblogs.microsoft.com/foundry/agent-service-build2026/"},
+          {"label": "DEV Community Build 2026", "url": "https://dev.to/akaranjkar08/microsoft-build-2026-developer-preview-windows-agent-runtime-multi-model-copilot-and-the-agentic-5pi"}
+        ]
+      },
+      {
+        "name": "Work IQ APIs",
+        "release": "GA",
+        "date": "2026-06-16",
+        "relevance": "high",
+        "description": "Work IQ ist die Workplace-Intelligence-Schicht für Agents und erfasst, wie Arbeit tatsächlich in Microsoft 365, organisatorischen Systemen und externen Quellen stattfindet. Die APIs gingen am 16. Juni in GA und bieten Entwicklern programmatischen Zugriff auf Unternehmenskontexte wie Meetings, Dokumente und Workflows — die Basis für kontextsensitive Enterprise-Agenten ohne eigene Datenpipelines.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/"},
+          {"label": "InfoQ", "url": "https://www.infoq.com/news/2026/06/microsoft-foundry-agents/"}
+        ]
+      },
+      {
+        "name": "Cursor — Akquisition von Continue",
+        "relevance": "medium",
+        "description": "Cursor hat Continue, das Open-Source-AI-Coding-Plugin mit 34.000 GitHub-Stars, übernommen. Gleichzeitig hat GitHub Copilot am 1. Juni auf nutzungsbasierte Abrechnung (AI Credits) umgestellt; Copilots Marktanteil unter professionellen Entwicklern sank von 67% auf 51%, während Cursor auf 18% kletterte. Die Konsolidierung im AI-Coding-Tools-Markt beschleunigt sich.",
+        "sources": [
+          {"label": "The New Stack", "url": "https://thenewstack.io/cursor-acquires-continue-coding/"},
+          {"label": "Morphllm Vergleich", "url": "https://www.morphllm.com/comparisons/cursor-vs-copilot"}
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Sicherheitsforscher deckten mit Agentjacking eine kritische Angriffsfläche für AI Coding Agents auf, die sofortigen Handlungsbedarf für alle Teams mit Claude Code, Cursor oder Codex auslöst; vLLM und Ollama bleiben die dominanten Open-Source-Inference-Engines für produktive und lokale Deployments.",
+    "items": [
+      {
+        "name": "Agentjacking PoC (Tenet Security)",
+        "languageType": "Security Research",
+        "date": "2026-06-12",
+        "relevance": "high",
+        "description": "Tenet Security veröffentlichte einen Proof-of-Concept für Agentjacking: Angreifer injizieren über manipulierte Sentry-Fehlerberichte Schadcode in AI Coding Agents (Claude Code, Cursor, Codex). Der Angriff erfordert lediglich einen öffentlich zugänglichen Sentry DSN-Key und erzielt eine Erfolgsquote von ~85%. Das Forscherteam bestätigte über 100 reale Fälle bei Fortune-500-Unternehmen. Entwicklerteams sollten umgehend Sentry-DSN-Rotation, Agent-Sandbox-Isolation und Prompt-Injection-Abwehr implementieren.",
+        "sources": [
+          {"label": "The Hacker News", "url": "https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html"},
+          {"label": "Cloud Security Alliance", "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-agentjacking-mcp-sentry-injection-20260612/"}
+        ]
+      },
+      {
+        "name": "vLLM",
+        "languageType": "Python / Inference",
+        "stars": "172K+",
+        "date": "2026-04-03",
+        "relevance": "medium",
+        "description": "vLLM v0.19.0 bleibt der Industriestandard für hochdurchsatzfähige GPU-Inferenz und erreicht laut Community-Benchmarks bis zu 19× den Durchsatz von Ollama bei parallelen Anfragen. Das Projekt treibt Produktionfeatures bei Amazon und LinkedIn an. Für Teams, die Modelle selbst hosten, ist vLLM der erste Evaluierungskandidat für Server-seitige Inferenz.",
+        "sources": [
+          {"label": "GitHub vllm", "url": "https://github.com/vllm-project/vllm"},
+          {"label": "Tech Insider Benchmark", "url": "https://tech-insider.org/vllm-vs-ollama-2026-2/"}
+        ]
+      },
+      {
+        "name": "Ollama",
+        "languageType": "Go / Local Inference",
+        "stars": "172K",
+        "date": "2026-05-03",
+        "relevance": "low",
+        "description": "Ollama v0.6.8 kombiniert Modell-Management, Deployment und eine OpenAI-kompatible API in einem einzigen Tool und ist besonders für Apple-Silicon optimiert. Mit 172.000 GitHub-Stars ist es das meistgenutzte Tool für lokale LLM-Experimente und Entwicklungsumgebungen.",
+        "sources": [
+          {"label": "AI4U Blog", "url": "https://ai4u.space/blog/ollama-vs-vllm-2026-local-llm-manager-vs-inference-server"}
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Microsoft baut die Foundry-Plattform zur vollständigen Agenteninfrastruktur aus: Work IQ APIs gingen am 16. Juni in GA, Voice Live ist als Echtzeit-Sprach-API generell verfügbar, und Azure OpenAI erweitert sein Realtime-Angebot mit gpt-realtime-1.5 sowie dem Spillover-Feature für stabile Provisioned-Deployments.",
+    "items": [
+      {
+        "title": "Microsoft Foundry: Work IQ APIs — General Availability",
+        "product": "Microsoft Foundry / Microsoft 365",
+        "date": "2026-06-16",
+        "relevance": "high",
+        "description": "Die Work IQ APIs sind nun allgemein verfügbar und geben Entwicklern programmatischen Zugriff auf die M365-Unternehmenskontext-Schicht. Agenten können auf Meetings, Dokumente, Kollaborationsmuster und Workflows zugreifen, ohne eigene Datenpipelines aufzubauen. Ergänzt durch Foundry IQ, das manuelle RAG-Pipelines durch ein SLA-gesichertes Retrieval-Endpoint ersetzt, entsteht eine vollständige Wissensinfrastruktur für Enterprise-Agenten — direkt relevant für Microsoft-Partner-Projekte.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog Build 2026", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/"},
+          {"label": "InfoQ Foundry Agents", "url": "https://www.infoq.com/news/2026/06/microsoft-foundry-agents/"}
+        ]
+      },
+      {
+        "title": "Foundry Agent Service: Hosted Agents + Teams/M365-Integration (GA)",
+        "product": "Microsoft Foundry",
+        "relevance": "high",
+        "description": "Hosted Agents in Foundry Agent Service laufen in isolierten Sandboxes mit dedizierter Compute, Memory und Filesystem-Zugriff; unterstützte Frameworks: Microsoft Agent Framework, GitHub Copilot SDK und LangGraph. Die Teams- und M365-Copilot-Integration ist seit Juni GA — Agenten lassen sich direkt in M365-Tools deployen, mit automatischem Identity-, Permissions- und Policy-Durchsatz. GA für Hosted Agents ist für Anfang Juli 2026 geplant.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog Build 2026", "url": "https://devblogs.microsoft.com/foundry/agent-service-build2026/"},
+          {"label": "InfoQ Foundry Agents", "url": "https://www.infoq.com/news/2026/06/microsoft-foundry-agents/"}
+        ]
+      },
+      {
+        "title": "Azure OpenAI: gpt-realtime-1.5 + Spillover GA",
+        "product": "Azure OpenAI Service",
+        "relevance": "medium",
+        "description": "Die neuen Modelle gpt-realtime-1.5 und gpt-audio-1.5 verbessern Instruction Following, Mehrsprachigkeit und Tool-Calling bei Echtzeit-Interaktionen. Das Spillover-Feature ist nun GA und routet Traffic-Spitzen von provisioned Deployments automatisch auf ein Standard-Deployment — stabile SLAs ohne Überprovisioning, praktisch relevant für alle produktiven Azure-OpenAI-Deployments.",
+        "sources": [
+          {"label": "Azure Updates", "url": "https://azure.microsoft.com/en-us/updates"},
+          {"label": "Microsoft Learn What's New", "url": "https://learn.microsoft.com/en-us/azure/foundry-classic/openai/whats-new"}
+        ]
+      },
+      {
+        "title": "Foundry Voice Live — General Availability",
+        "product": "Microsoft Foundry",
+        "relevance": "medium",
+        "description": "Voice Live vereint Spracherkennung, Text-to-Speech, Turn Detection, Interrupt-Handling, Avatare und weitere Echtzeit-Konversations-Features in einer einzigen API. Die GA-Version ist der schnellste Einstiegspunkt für Teams, die Voice-Experiences auf Azure aufbauen — besonders relevant für Contact-Center- und Field-Service-Szenarien.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog Build 2026", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/"}
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "OpenAI definiert mit dem Partner Network seinen Enterprise-Go-to-Market neu und betritt das Consulting-Ökosystem direkt; Grok for Microsoft Word bringt xAI-Modelle als kostenloses M365-Add-in; der Marktanteil von ChatGPT fiel erstmals unter 50%.",
+    "items": [
+      {
+        "name": "OpenAI Partner Network",
+        "date": "2026-06-14",
+        "relevance": "high",
+        "description": "OpenAI investiert 150 Mio. USD in ein dreistufiges Partner-Ökosystem (Select, Advanced, Elite) und will bis Ende 2026 300.000 zertifizierte Berater ausbilden. Gründungspartner sind Accenture, BCG und McKinsey. Das Programm adressiert den zentralen Engpass bei Enterprise-AI-Adoption — nicht Modell-Fähigkeit, sondern Use-Case-Identifikation und Workflow-Redesign. Für IT-Beratungen entsteht ein formaler Zertifizierungs- und Partnerkanal, analog zu Microsoft-/AWS-Partnerprogrammen.",
+        "sources": [
+          {"label": "OpenAI", "url": "https://openai.com/index/introducing-openai-partner-network/"},
+          {"label": "Channel Insider", "url": "https://www.channelinsider.com/news-and-trends/openai-debuts-partner-network-backed-by-150m-investment/"}
+        ]
+      },
+      {
+        "name": "Grok for Microsoft Word",
+        "relevance": "medium",
+        "description": "xAI hat ein kostenloses Microsoft 365 Add-in für Word veröffentlicht, das Notizen in polierte Dokumente verwandelt, Text für Klarheit umschreibt und Web-Research sowie X-Daten direkt in Word integriert. Interessant als kostenfreie Alternative zu M365 Copilot für einfache Schreibaufgaben in Enterprise-Umgebungen.",
+        "sources": [
+          {"label": "xAI Release Notes", "url": "https://releasebot.io/updates/xai"}
+        ]
+      },
+      {
+        "name": "ChatGPT Marktanteil unter 50%",
+        "relevance": "medium",
+        "description": "Zum ersten Mal fiel ChatGPTs Anteil am globalen AI-Assistenten-Markt unter 50% auf 46.4%; Google Gemini stieg auf 27.7%, Claude auf 10.3%. Claude zeichnet sich durch die höchste Paid-Conversion-Rate aus: 13% der Nutzer sind zahlende Abonnenten — der höchste Wert aller Wettbewerber.",
+        "sources": [
+          {"label": "AI News Today June 19", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-19-2026"}
+        ]
+      },
+      {
+        "name": "Vapi — $50M Series B",
+        "date": "2026-06-01",
+        "relevance": "low",
+        "description": "Vapi, die Voice-AI-Infrastruktur-Plattform, schloss eine 50-Mio.-USD-Serie-B ab. Nach über 1 Milliarde Enterprise-Sprachcalls gilt der Moment als Wendepunkt: Voice AI wechselt vom Developer-API in die Enterprise-Produktionsinfrastruktur.",
+        "sources": [
+          {"label": "AI Funding Tracker", "url": "https://aifundingtracker.com/ai-startup-funding-news-today/"}
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "Der EU Digital Omnibus schiebt wesentliche AI-Act-Pflichten um bis zu 16 Monate hinaus, während Transparenzpflichten (Art. 50) planmäßig am 2. August 2026 in Kraft treten; der Gartner-Forecast setzt AI-Agent-Software 2026 auf 206 Mrd. USD, und Agentjacking markiert eine neue Sicherheits-Ära für AI-Engineering-Teams.",
+    "items": [
+      {
+        "title": "EU Digital Omnibus: AI Act-Pflichten verschoben",
+        "description": "Das EU-Parlament billigte am 16. Juni Änderungen zum AI Act: Pflichten für eigenständige Hochrisiko-KI-Systeme verschieben sich von August 2026 auf Dezember 2027 (16 Monate Aufschub); Transparenzpflichten nach Art. 50 für Interaktions- und Täuschungsrisiken treten planmäßig am 2. August 2026 in Kraft.",
+        "sources": [
+          {"label": "Morgan Lewis", "url": "https://www.morganlewis.com/pubs/2026/06/eu-approves-delays-and-other-amendments-to-certain-eu-ai-act-obligations-what-businesses-should-know"},
+          {"label": "Sidley Data Matters", "url": "https://datamatters.sidley.com/2026/06/24/eu-ai-act-transparency-obligations-preparing-for-compliance-by-2-august-2026/"}
+        ]
+      },
+      {
+        "title": "Gartner: AI-Agent-Software-Markt wächst 139% auf 206 Mrd. USD in 2026",
+        "description": "Laut aktuellem Gartner-Forecast erreicht AI-Agent-Software 2026 ein Marktvolumen von 206,5 Mrd. USD — ein Anstieg von 139% gegenüber 86,4 Mrd. USD in 2025, das schnellste Wachstum im gesamten Enterprise-Software-Segment.",
+        "sources": [
+          {"label": "AI News Today June 19", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-june-19-2026"}
+        ]
+      },
+      {
+        "title": "Agentjacking: Neue Angriffsfläche für AI Coding Agents",
+        "description": "Sicherheitsforscher bei Tenet Security veröffentlichten Agentjacking — eine Methode, die über manipulierte Sentry-Fehlerberichte schädliche Instruktionen in AI Coding Agents (Claude Code, Cursor, Codex) einschleust und mit ~85% Erfolgsrate ausführt; über 100 reale Fälle bei Fortune-500-Firmen bestätigt.",
+        "sources": [
+          {"label": "The Hacker News", "url": "https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html"},
+          {"label": "Infosecurity Magazine", "url": "https://www.infosecurity-magazine.com/news/agentjacking-attacks-hijack-ai/"}
+        ]
+      },
+      {
+        "title": "US-Export-Control auf Fable 5/Mythos 5 — G7 diskutiert Trusted-Partners-Rahmen",
+        "description": "Die US-Export-Control-Direktive vom 12. Juni (Fable 5/Mythos 5-Sperrung) beschäftigt G7-Regierungen: Sie diskutieren einen 'Trusted-Partners'-Rahmen, der zugelassenen Partnern Zugang zu leistungsstarken US-AI-Modellen trotz Restriktionen ermöglichen soll.",
+        "sources": [
+          {"label": "Al Jazeera", "url": "https://www.aljazeera.com/news/2026/6/14/us-asks-anthropic-to-block-global-access-to-top-ai-models-why-it-matters"},
+          {"label": "CNBC", "url": "https://www.cnbc.com/2026/06/12/anthropic-disables-access-to-fable-5-and-mythos-5-to-comply-with-government-directive.html"}
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Anthropic setzt mit vertraulicher IPO-Einreichung bei 965 Mrd. USD Bewertung einen neuen Meilenstein; Google verliert in rascher Folge weitere Kernforscher an Anthropic; OpenAI verlagert seinen Schwerpunkt mit dem Partner Network klar in Richtung Enterprise.",
+    "items": [
+      {
+        "company": "Anthropic",
+        "description": "Anthropic reichte vertraulich für einen Börsengang ein und schloss eine Finanzierungsrunde bei einer Bewertung von 965 Mrd. USD ab, womit es OpenAI (852 Mrd. USD) überholte; Treiber sind Claude Code als führendes AI Coding Tool und ein ARR von 47 Mrd. USD.",
+        "sources": [
+          {"label": "TechWire Asia", "url": "https://techwireasia.com/2026/06/anthropic-claude-enterprise-ai-openai-google/"}
+        ]
+      },
+      {
+        "company": "Google DeepMind",
+        "description": "Mit Jonas Adler (Gemini-Coding) und Alexander Pritzel (Model-Training) verlassen zwei weitere Schlüsselforscher Google zu Anthropic (Stand: 24. Juni) — nach Nobel-Preisträger John Jumper und Noam Shazeer (zu OpenAI), was den anhaltenden Brain-Drain beim Marktführer unterstreicht.",
+        "sources": [
+          {"label": "Bloomberg", "url": "https://www.bloomberg.com/news/articles/2026-06-24/google-poised-to-lose-two-more-high-profile-ai-staffers-to-anthropic"},
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/"}
+        ]
+      },
+      {
+        "company": "OpenAI",
+        "description": "OpenAI verlagert den Schwerpunkt von Consumer zu Enterprise: Das neue Partner Network (150 Mio. USD, 300.000 Berater) und der Fokus des Codex-Angebots auf Enterprise-Deployments zeigen die strategische Neuausrichtung weg vom reinen Modellverkauf.",
+        "sources": [
+          {"label": "OpenAI", "url": "https://openai.com/index/introducing-openai-partner-network/"}
+        ]
+      },
+      {
+        "company": "Cursor / Continue",
+        "description": "Cursor übernahm Continue (34K Stars) und festigt damit seine Position als führende AI-native IDE; Marktanteil unter Professional Developers: 18% (Cursor) vs. 51% (GitHub Copilot, -16 Prozentpunkte YoY).",
+        "sources": [
+          {"label": "The New Stack", "url": "https://thenewstack.io/cursor-acquires-continue-coding/"}
+        ]
+      }
+    ]
+  }
+}
