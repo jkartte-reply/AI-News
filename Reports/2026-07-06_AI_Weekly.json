@@ -1,0 +1,222 @@
+{
+  "date": "2026-07-06",
+  "period": "2026-06-27/2026-07-06",
+  "executive_summary": {
+    "intro": "Die Woche stand im Zeichen agentischer Modelle zum Mainstream-Preis und Microsofts Verschärfung des Agenten-Governance-Regimes: Anthropic macht mit Claude Sonnet 5 near-Opus-Performance zum Standardmodell, während die Microsoft-Plattform Agenten-Sicherheit ab sofort an eine Agent-365-Lizenz koppelt.",
+    "highlights": [
+      "Claude Sonnet 5: Anthropics agentischstes Sonnet-Modell erreicht near-Opus-4.8-Qualität zu einem Fünftel des Preises und wird zum Default aller Pläne.",
+      "Agent 365 Pflicht: Ab 1. Juli benötigen Copilot-Studio- und Foundry-Agenten eine Agent-365-Lizenz für Sicherheitsfunktionen — direkter Handlungsbedarf bei Microsoft-Partnern.",
+      "MCP 2026-07-28 Release Candidate: Die größte Protokoll-Revision seit Launch macht MCP zustandslos und führt ein formales Extensions-Framework ein.",
+      "EU AI Act final beschlossen: Der Rat gab am 29. Juni grünes Licht für das Simplification-Paket; Transparenzpflichten greifen ab 2. August 2026.",
+      "Foundry Agent-Hosting GA: Produktives, sandboxed Agenten-Hosting in Microsoft Foundry erreicht Anfang Juli allgemeine Verfügbarkeit."
+    ]
+  },
+  "models": {
+    "summary": "Die Modell-Landschaft verschiebt sich diese Woche von reiner Spitzenleistung hin zu agentischer Leistung pro Dollar; Anthropic senkt mit Sonnet 5 die Kosten für autonome Agenten drastisch, OpenAI hält seine GPT-5.6-Familie noch hinter einem Regierungs-Zugangsgatter.",
+    "items": [
+      {
+        "name": "Claude Sonnet 5",
+        "provider": "Anthropic",
+        "type": "LLM (Agentic)",
+        "highlight": "Agentischstes Sonnet bisher; near-Opus-4.8-Performance bei Reasoning, Tool-Use, Coding; Einführungspreis 2 USD/10 USD pro Mio. Token; Default für Free & Pro",
+        "relevance": "high",
+        "sources": [
+          {"label": "Anthropic", "url": "https://www.anthropic.com/news/claude-sonnet-5"},
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/"}
+        ]
+      },
+      {
+        "name": "Claude Fable 5",
+        "provider": "Anthropic",
+        "type": "LLM",
+        "highlight": "Nach fast drei Wochen wieder online, nachdem die US-Regierung die Export-Control-Anordnung aufhob; bis 7. Juli in Pro/Max/Team/Enterprise ohne Credit-Verbrauch enthalten",
+        "relevance": "medium",
+        "sources": [
+          {"label": "ThursdAI", "url": "https://thursdai.news/releases/2026-07"}
+        ]
+      },
+      {
+        "name": "GPT-5.6 (Sol, Terra, Luna)",
+        "provider": "OpenAI",
+        "type": "LLM (Familie)",
+        "highlight": "Seit 26. Juni in Limited Preview, zunächst nur für ~20 regierungsgenehmigte Partnerorganisationen; GA für ChatGPT und API erst Mitte Juli erwartet",
+        "relevance": "medium",
+        "sources": [
+          {"label": "llm-stats", "url": "https://llm-stats.com/llm-updates"}
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Der Agenten-Stack konsolidiert sich weiter: MCP kündigt seine größte Spezifikationsrevision seit Launch an, während Orchestrierungs-Frameworks wie LangGraph und LlamaIndex ihre Produktionsreife mit besserer Fehlerbehandlung und Event-Modellen erhöhen.",
+    "items": [
+      {
+        "name": "Model Context Protocol 2026-07-28",
+        "release": "Release Candidate",
+        "date": "2026-07-28",
+        "relevance": "high",
+        "description": "Die größte MCP-Revision seit Launch: Der Protokoll-Kern wird zustandslos (sechs SEPs zusammen), sodass remote MCP-Server ohne Sticky Sessions hinter einem einfachen Round-Robin-Load-Balancer laufen können. Neu sind zudem ein formales Extensions-Framework mit reverse-DNS-Identifiern und unabhängiger Versionierung, Tasks, MCP Apps sowie gehärtete Autorisierung. Finale Spec am 28. Juli, danach zehn Wochen Validierungsfenster für SDK-Maintainer.",
+        "sources": [
+          {"label": "MCP Blog", "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/"},
+          {"label": "WorkOS", "url": "https://workos.com/blog/mcp-2026-spec-agent-authentication"}
+        ]
+      },
+      {
+        "name": "LlamaIndex Workflows 1.0",
+        "release": "1.0",
+        "date": "2026-06-22",
+        "relevance": "medium",
+        "description": "Leichtgewichtiges, event-getriebenes und async-first Step-Framework zur Orchestrierung agentischer Systeme in Python und TypeScript. Es positioniert LlamaIndex neben LangGraph als Standard-Orchestrator, mit Fokus auf datenintensive RAG-Anwendungen. Für AI Engineers eine schlanke Alternative, wenn ein volles Graph-Framework Overkill wäre.",
+        "sources": [
+          {"label": "ThursdAI", "url": "https://thursdai.news/releases/2026-07"}
+        ]
+      },
+      {
+        "name": "LangGraph (Q2 2026)",
+        "release": "Q2-2026-Updates",
+        "relevance": "medium",
+        "description": "LangGraph härtet sich für den Produktivbetrieb: Per-Node-Timeouts via TimeoutPolicy, node-level Error-Handler mit typisiertem NodeError für Saga-/Compensation-Muster, kooperatives Graceful Shutdown, ein DeltaChannel-Typ für inkrementelle State-Deltas sowie eine v2-Streaming-API mit einheitlichem StreamPart-Output. Relevant für alle, die stateful Multi-Agent-Graphen robust betreiben wollen.",
+        "sources": [
+          {"label": "AliceLabs", "url": "https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026"}
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Auf der Open-Weight-Seite dominieren weiterhin agentische Multimodal-Modelle aus dem asiatischen Raum die Download-Charts, während das Transformers-Ökosystem seine Tooling-Basis für Export und Serving verbreitert.",
+    "items": [
+      {
+        "name": "Kimi 2.5",
+        "languageType": "LLM / Multimodal",
+        "relevance": "medium",
+        "description": "Open-Source, nativ multimodales agentisches Modell mit Fokus auf Long-Horizon-Coding, coding-getriebenes Design, proaktive autonome Ausführung und swarm-basierte Task-Orchestrierung. Positioniert sich als offene Alternative für agentische Workloads, die sonst proprietäre Frontier-Modelle erfordern.",
+        "sources": [
+          {"label": "Hugging Face", "url": "https://huggingface.co/blog"}
+        ]
+      },
+      {
+        "name": "Transformers v5.13.0",
+        "languageType": "Python / Library",
+        "date": "2026-07-01",
+        "relevance": "medium",
+        "description": "Neues Release der Hugging-Face-Transformers-Bibliothek mit Support für weitere Modelle, breiterem Export- und Kernel-Tooling sowie einem einheitlichen HfExporter für PyTorch, ONNX und ExecuTorch. Dazu zahlreiche Fixes bei Generation, Attention, Cache, Quantisierung und Serving — relevant für alle, die HF-Modelle in Produktion bringen.",
+        "sources": [
+          {"label": "Releasebot", "url": "https://releasebot.io/updates/huggingface"}
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Microsoft macht ernst mit Agenten in Produktion: Foundry-Agent-Hosting erreicht GA und ein hauseigenes Copilot-Coding-Modell wird allgemein verfügbar — zugleich wird Agenten-Sicherheit ab dem 1. Juli an die neue Agent-365-Lizenz gekoppelt, was Partner sofort betrifft.",
+    "items": [
+      {
+        "title": "Agent-365-Lizenzpflicht für Agenten-Sicherheit",
+        "product": "Microsoft Agent 365 / Copilot Studio / Foundry",
+        "date": "2026-07-01",
+        "relevance": "high",
+        "description": "Seit 1. Juli 2026 erfordern die Sicherheitsfunktionen für Copilot-Studio- und Foundry-Agenten eine Microsoft-Agent-365-Lizenz; bestehende Defender-für-Cloud-Apps-/Cloud-Lizenzen decken diese Capabilities nicht mehr ab. Tenants ohne Agent-365-fähige Lizenz verlieren den Zugriff auf Agent-Registry, Echtzeit-Bedrohungsschutz und Posture-Management im Defender-Portal. Für Microsoft-Partner mit produktiven Agenten besteht akuter Handlungsbedarf — E7 (99 USD/User/Monat, seit 1. Mai GA) enthält Agent 365 nativ, auf E5 nur als Add-on.",
+        "sources": [
+          {"label": "Microsoft Learn", "url": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/transition-agent-security-to-agent-365"},
+          {"label": "Orchestry", "url": "https://www.orchestry.com/insight/m365-licensing-changes-july2026"}
+        ]
+      },
+      {
+        "title": "Produktives Agent-Hosting in Microsoft Foundry (GA)",
+        "product": "Microsoft Foundry Agent Service",
+        "date": "2026-07-01",
+        "relevance": "high",
+        "description": "Das produktive Hosting von Agenten in Foundry erreicht Anfang Juli GA — mit sandboxed Sessions, State, Filesystem-Zugriff und Framework-Flexibilität. Ergänzend gehen Toolboxes (Public Preview) für mehr Tool-/Channel-Anbindung, Voice Live für Echtzeit-Sprachpfade und erweitertes Agent-Memory (prozedural, User-, Session-Memory) in Preview. Foundry-Agenten können zudem nach Teams und M365 Copilot publizieren. Für Partner die produktionsreife Basis, um Agenten skaliert auf Azure zu betreiben.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog", "url": "https://devblogs.microsoft.com/foundry/agent-service-build2026/"}
+        ]
+      },
+      {
+        "title": "MAI-Code-1-Flash GA für GitHub Copilot",
+        "product": "Microsoft AI / GitHub Copilot",
+        "date": "2026-07-01",
+        "relevance": "medium",
+        "description": "Microsofts hauseigenes Coding-Modell ist nun allgemein verfügbar für GitHub Copilot Business und Enterprise. MAI-Code-1-Flash liefert schnelle, latenzarme Antworten und ist auf hochvolumige agentische Coding-Workflows ausgelegt. Für Partner ein weiterer Baustein in Microsofts Strategie, die Modell-Wertschöpfung von Drittanbietern (Anthropic/OpenAI) unabhängiger zu machen.",
+        "sources": [
+          {"label": "DevOps.com", "url": "https://devops.com/hugging-face-opens-github-copilot-chat-to-open-source-models/"}
+        ]
+      },
+      {
+        "title": "Foundry Toolkit für VS Code (GA)",
+        "product": "Microsoft Foundry / VS Code",
+        "relevance": "medium",
+        "description": "Das Foundry Toolkit für VS Code ist nun allgemein verfügbar und bringt Modell-Katalog, Agent-Entwicklung und Deployment direkt in die IDE. Für AI Engineers senkt das die Reibung zwischen lokaler Entwicklung und Foundry-Deployment.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog", "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-build-2026/"}
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Bei den Produkten dominiert das Thema hybride Inferenz: Perplexity bringt automatisches Routing zwischen On-Device- und Cloud-Modellen, was Datenschutz und Kosten für Enterprise-Deployments neu ausbalanciert.",
+    "items": [
+      {
+        "name": "Perplexity Hybrid-Inference-Orchestrator",
+        "date": "2026-07-01",
+        "relevance": "medium",
+        "description": "Perplexity bringt seinen hybriden Local-Server-Inference-Orchestrator in Perplexity Computer: Ein kompaktes lokales Modell klassifiziert jede Teilaufgabe nach Datensensibilität und Compute-Bedarf und routet automatisch — sensible Daten (Finanzen, Gesundheit) bleiben on-device, rechenintensive Tasks gehen an Cloud-Frontier-Modelle, ohne manuelle Konfiguration. Interessant als Blaupause für datenschutzsensible Enterprise-Agenten.",
+        "sources": [
+          {"label": "MarkTechPost", "url": "https://www.marktechpost.com/2026/06/05/perplexity-ai-introduces-hybrid-local-server-inference-orchestrator-for-personal-computer-automatic-on-device-and-cloud-task-routing/"}
+        ]
+      },
+      {
+        "name": "OpenAI/Broadcom Jalapeño Inference-Chip",
+        "date": "2026-06-24",
+        "relevance": "medium",
+        "description": "OpenAI stellte mit Broadcom seinen ersten eigenen Inferenz-Chip vor: ein reticle-großer ASIC, in nur neun Monaten bis zum Tape-out entwickelt, mit deutlich besserer Performance pro Watt als aktueller State-of-the-Art. Ziel ist rund 50 % günstigere Inferenz; erster Deploy Ende 2026, voller Ramp 2027/28. Teil einer 10-GW-Verpflichtung in Rechenzentren, u.a. mit Microsoft — mittelfristig relevant für Inferenzkosten.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/"}
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "Regulatorisch schließt die EU das AI-Act-Simplification-Paket final ab und verschafft Unternehmen Aufschub bei Hochrisiko-Pflichten, hält aber am August-Termin für Transparenzregeln fest.",
+    "items": [
+      {
+        "title": "EU AI Act — finaler Ratsbeschluss zum Simplification-Paket",
+        "description": "Der Rat der EU gab am 29. Juni grünes Licht für das AI-Act-Simplification-Paket (Parlament: 16. Juni); die Hochrisiko-Deadline verschiebt sich auf 2. Dezember 2027, Transparenzpflichten (Art. 50) greifen jedoch ab 2. August 2026.",
+        "sources": [
+          {"label": "Inside Privacy", "url": "https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/"}
+        ]
+      },
+      {
+        "title": "Neues Verbot für 'Nudifier'-Anwendungen",
+        "description": "Ab 2. Dezember 2026 verbietet die EU KI-Systeme, die ohne ausdrückliche Einwilligung sexuell explizite oder intime Bilder, Videos oder Audio erzeugen oder manipulieren.",
+        "sources": [
+          {"label": "Latham & Watkins", "url": "https://www.lw.com/en/insights/ai-act-update-eu-resolves-to-change-rules-and-extend-deadlines"}
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Die Kapitalkonzentration im KI-Sektor erreicht Rekordniveau: H1 2026 verbucht 510 Mrd. USD globales Startup-Investment, wobei Anthropic und OpenAI mit Mega-Runden die Bewertungsspitze unter sich ausmachen.",
+    "items": [
+      {
+        "company": "Anthropic",
+        "description": "Anthropic überholt OpenAI in der privaten Bewertung mit einer 65-Mrd.-USD-Series-H bei einer Bewertung von 965 Mrd. USD.",
+        "sources": [
+          {"label": "Crunchbase News", "url": "https://news.crunchbase.com/venture/global-startup-exits-ipo-ma-soar-ai-q2-h1-2026/"}
+        ]
+      },
+      {
+        "company": "OpenAI",
+        "description": "OpenAI schloss eine 110-Mrd.-USD-Finanzierungsrunde bei einer Bewertung von 730 Mrd. USD ab.",
+        "sources": [
+          {"label": "Crunchbase News", "url": "https://news.crunchbase.com/venture/global-startup-exits-ipo-ma-soar-ai-q2-h1-2026/"}
+        ]
+      },
+      {
+        "company": "Shield AI",
+        "description": "Der Defense-AI-Anbieter sicherte sich 1,5 Mrd. USD in einer Series G bei 12,7 Mrd. USD Bewertung — plus 140 % innerhalb eines Jahres.",
+        "sources": [
+          {"label": "Crescendo AI", "url": "https://www.crescendo.ai/news/latest-vc-investment-deals-in-ai-startups"}
+        ]
+      }
+    ]
+  }
+}
