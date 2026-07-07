@@ -1,0 +1,253 @@
+{
+  "date": "2026-07-03",
+  "period": "2026-06-26/2026-07-03",
+  "executive_summary": {
+    "intro": "Die Woche vom 26. Juni bis 3. Juli 2026 markiert einen Strategiewechsel im Verhältnis zwischen Frontier-Labs und Regulatoren: Anthropic vereinbarte nach der Fable-5-Krise einen strukturierten 'Frontier AI Governance Compact' mit der US-Regierung und senkte mit Claude Sonnet 5 die Kosten für agentische Spitzenleistung drastisch, während OpenAIs GPT-5.6-Familie weiterhin an ein Regierungsgatter gebunden bleibt und Google mit einer verzögerten Gemini-3.5-Pro-Veröffentlichung und massivem Kursverlust kämpft.",
+    "highlights": [
+      "Claude Sonnet 5 wird Standardmodell: Anthropics agentischste Sonnet-Version erreicht ab 30. Juni nahe Opus-4.8-Qualität zu einem Bruchteil des Preises und ist seit 1. Juli Default für alle Free- und Pro-Nutzer.",
+      "Fable 5 kehrt zurück, neuer Governance-Rahmen etabliert: Nach 18-tägiger Exportkontroll-Sperre ist Fable 5 seit 1. Juli wieder global verfügbar; parallel vereinbarte Anthropic mit der US-Regierung einen Pre-Release-Kooperationsrahmen samt gemeinsamem Risk-Scoring mit Amazon, Microsoft und Google.",
+      "GPT-5.6 bleibt Regierungspartnern vorbehalten: OpenAIs neue Sol/Terra/Luna-Familie startete am 26. Juni exklusiv für rund 20 von der US-Regierung freigegebene Organisationen; breite Verfügbarkeit erst Mitte Juli erwartet.",
+      "EU AI Act final vereinfacht: Der Rat gab am 29. Juni endgültig grünes Licht für das Simplification-Paket — Hochrisiko-Pflichten verschieben sich auf Dezember 2027, Transparenzpflichten bleiben zum 2. August 2026 bestehen.",
+      "Microsoft Agent 365 wird Pflicht: Seit 1. Juli benötigen Sicherheitsfunktionen für Copilot-Studio- und Foundry-Agenten zwingend eine Agent-365-Lizenz — direkter Handlungsbedarf für alle Microsoft-Partner-Projekte."
+    ]
+  },
+  "models": {
+    "summary": "Anthropic dominiert die Woche mit zwei Meilensteinen — einem drastisch günstigeren Agentic-Flaggschiff (Sonnet 5) und der Rückkehr von Fable 5 nach Exportkontroll-Sperre —, während OpenAIs GPT-5.6-Familie und xAIs Grok 4.5 vorerst hinter Zugangsschranken bleiben und Meituan mit LongCat-2.0 das bislang größte vollständig auf chinesischen Chips trainierte Coding-Modell open-sourced.",
+    "items": [
+      {
+        "name": "Claude Sonnet 5",
+        "provider": "Anthropic",
+        "type": "LLM (Agentic)",
+        "highlight": "Agentischste Sonnet-Version bislang, nahe Opus-4.8-Performance bei Einführungspreis von $2/$10 pro Mio. Token; seit 1. Juli Default für alle Free-/Pro-Nutzer. Erste Praxiswoche zeigt aber Reibung: neuer Tokenizer erzeugt 1,0–1,35× mehr Tokens, entfernte Temperature-/Sampling-Parameter brachen Integrationen bei Cursor, Zapier und Lovable.",
+        "relevance": "high",
+        "sources": [
+          {"label": "Anthropic", "url": "https://www.anthropic.com/news/claude-sonnet-5"},
+          {"label": "unrot.co Weekly AI News", "url": "https://unrot.co/blogs/weekly-ai-news-june-23-july-1-2026"}
+        ]
+      },
+      {
+        "name": "Claude Fable 5",
+        "provider": "Anthropic",
+        "type": "LLM (Frontier)",
+        "highlight": "Kehrte am 1. Juli nach 18-tägiger, von der US-Regierung angeordneter Exportkontroll-Sperre global zurück (Claude.ai, Platform API, Claude Code, Claude Cowork). Ein neuer Safety-Classifier blockiert den auslösenden Jailbreak in über 99% der Fälle, produziert aber teils False Positives bei legitimen Security-Anfragen (Vulnerability-Scanning, Kryptografie-Analyse).",
+        "relevance": "high",
+        "sources": [
+          {"label": "BuildFastWithAI News", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-3-2026"}
+        ]
+      },
+      {
+        "name": "GPT-5.6 Sol / Terra / Luna",
+        "provider": "OpenAI",
+        "type": "LLM (3 Tiers)",
+        "highlight": "Neue Modellfamilie mit durabler Tiering-Logik (Sol=Flaggschiff $5/$30, Terra=Mid-Cost $2,50/$15, Luna=schnell/günstig $1/$6 pro Mio. Token). Auf Wunsch der US-Regierung zunächst exklusiv für rund 20 geprüfte Partner in Codex/API verfügbar; breite Freigabe laut OpenAI erst 'in den kommenden Wochen'.",
+        "relevance": "high",
+        "sources": [
+          {"label": "OpenAI", "url": "https://openai.com/index/previewing-gpt-5-6-sol/"},
+          {"label": "VentureBeat", "url": "https://venturebeat.com/technology/openai-unveils-gpt-5-6-sol-terra-and-luna-models-but-only-accessible-to-limited-preview-partners-for-now-per-us-gov"}
+        ]
+      },
+      {
+        "name": "LongCat-2.0",
+        "provider": "Meituan",
+        "type": "LLM (Open-Weight, Coding)",
+        "context": "1M Token",
+        "highlight": "1,6 Billionen Parameter (MoE, ~33–56 Mrd. aktiv pro Token) — erstes Trillion-Parameter-Modell, komplett auf chinesischen Chips ohne Nvidia/AMD-Hardware trainiert (50.000-Karten-Cluster). Erreicht 59,5 auf SWE-bench Pro (vor GPT-5.5s 58,6), veröffentlicht am 30. Juni unter MIT-Lizenz.",
+        "relevance": "medium",
+        "sources": [
+          {"label": "VentureBeat", "url": "https://venturebeat.com/technology/meituan-open-sources-longcat-2-0-the-1-6t-near-frontier-agentic-coding-model-thats-been-leading-openrouter-trained-entirely-on-chinese-chips"}
+        ]
+      },
+      {
+        "name": "Gemini 3.1 Flash Image / Gemini 3 Pro Image",
+        "provider": "Google DeepMind",
+        "type": "Multimodal (Bildgenerierung)",
+        "highlight": "Zwei neue Bildgenerierungsmodelle (30. Juni) — $0,50/$3,00 bzw. $2,00/$12,00 pro Mio. Token, sofort verfügbar über AI Studio und Gemini API. Kontrastiert mit dem eigentlichen Flaggschiff Gemini 3.5 Pro, das wegen Qualitätsnacharbeiten (Token-Effizienz, Coding, Multi-Step-Reasoning) auf Juli verschoben wurde.",
+        "relevance": "medium",
+        "sources": [
+          {"label": "BuildFastWithAI News", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-1-2026"}
+        ]
+      },
+      {
+        "name": "Grok 4.5",
+        "provider": "xAI",
+        "type": "LLM (Private Beta)",
+        "highlight": "1,5 Billionen Parameter (V9-Basis, mit Cursor-IDE-Coding-Daten nachtrainiert), seit 28. Juni in privater Beta exklusiv bei SpaceX und Tesla im Praxiseinsatz. Keine öffentliche API, kein Release-Termin, keine unabhängigen Benchmarks — Leistungsangaben stammen bislang nur von xAI selbst.",
+        "relevance": "low",
+        "sources": [
+          {"label": "TechTimes", "url": "https://www.techtimes.com/articles/319314/20260629/grok-45-enters-private-beta-spacex-tesla-no-public-access-no-independent-benchmark.htm"}
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Die Entwickler-Tools-Woche verlief ruhiger als die Modell-Front: X eröffnete einen offiziellen MCP-Server und reiht sich damit in die wachsende Riege plattformeigener MCP-Endpunkte ein, während Cursor mit einer iOS-App den mobilen Zugriff auf laufende Coding-Agent-Sessions öffnet.",
+    "items": [
+      {
+        "name": "X MCP-Server",
+        "release": "GA",
+        "date": "2026-06-30",
+        "relevance": "medium",
+        "description": "X (vormals Twitter) hat einen offiziell gehosteten MCP-Server veröffentlicht, über den KI-Tools wie Claude, Cursor und Grok Build mit den Nutzerrechten des jeweiligen Accounts auf die X-API zugreifen können. Schreibende Endpunkte sind bewusst ausgeschlossen — autonomes Posten ist damit nicht möglich. X reiht sich in die wachsende Liste von Plattformen mit offiziellen MCP-Servern ein (u. a. GitHub, Slack, Notion, Stripe, Salesforce).",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/06/30/x-now-offers-an-mcp-server-to-make-its-platform-easier-for-ai-tools-to-use/"}
+        ]
+      },
+      {
+        "name": "Cursor iOS App",
+        "date": "2026-07-01",
+        "relevance": "low",
+        "description": "Cursor launchte auf Product Hunt eine iOS-App, mit der sich laufende Coding-Agent-Sessions von unterwegs überwachen und steuern lassen — ein zusätzlicher mobiler Zugriffspunkt neben der Desktop-IDE, ohne den Kernworkflow zu verändern.",
+        "sources": [
+          {"label": "BuildFastWithAI News", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-1-2026"}
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Abseits der Frontier-Modelle wächst OpenClaw als selbstgehostetes persönliches KI-Assistenz-Gateway weiterhin am schnellsten unter Open-Source-Projekten und verbindet LLMs direkt mit gängigen Messaging-Apps.",
+    "items": [
+      {
+        "name": "OpenClaw",
+        "languageType": "Personal AI Gateway",
+        "stars": "~380K",
+        "relevance": "medium",
+        "description": "OpenClaw, ein selbstgehostetes persönliches KI-Assistenz-Gateway, das LLMs direkt mit Signal, Telegram, WhatsApp, Discord und iMessage verbindet, bleibt das am schnellsten wachsende Open-Source-Projekt und hat inzwischen rund 380.000 GitHub-Stars erreicht. Für Teams, die eigene Assistenten ohne Cloud-Lock-in betreiben wollen, ist es aktuell die meistbeobachtete Referenzarchitektur.",
+        "sources": [
+          {"label": "GitHub openclaw/openclaw", "url": "https://github.com/openclaw/openclaw"},
+          {"label": "AI Tool Radar", "url": "https://aitoolradar.io/blog/open-source-ai-radar-june-2026"}
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Microsoft verschärft diese Woche das Agenten-Governance-Regime: Ab 1. Juli ist eine Agent-365-Lizenz für Sicherheitsfunktionen von Foundry- und Copilot-Studio-Agenten Pflicht, Claude Sonnet 5 erreicht am selben Tag GA in Microsoft Foundry, und die Zertifizierungslandschaft für Azure-AI-Partner wird mit dem Wechsel von AI-102 zu AI-103 neu geordnet.",
+    "items": [
+      {
+        "title": "Microsoft Agent 365 — Lizenzpflicht für Agent-Sicherheit",
+        "product": "Microsoft Agent 365 / Foundry / Copilot Studio",
+        "date": "2026-07-01",
+        "relevance": "high",
+        "description": "Seit 1. Juli sind KI-Agenten-Sicherheitsfunktionen für Copilot-Studio- und Microsoft-Foundry-Agenten nicht mehr über bestehende Defender-for-Cloud- bzw. Defender-for-Cloud-Apps-Lizenzen abgedeckt, sondern erfordern zwingend eine Agent-365-Lizenz (Bestandteil von M365 E7 ab 99 USD/Nutzer/Monat oder als Standalone ab 15 USD/Nutzer/Monat). Tenants ohne passende Lizenz verlieren ab diesem Datum den Zugriff auf Security- und Governance-Funktionen — direkter Handlungsbedarf für jedes Partner-Projekt mit Foundry- oder Copilot-Studio-Agenten.",
+        "sources": [
+          {"label": "SAMexpert", "url": "https://samexpert.com/agent-365/"},
+          {"label": "Microsoft Learn", "url": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/transition-agent-security-to-agent-365"}
+        ]
+      },
+      {
+        "title": "Claude Sonnet 5 — General Availability in Microsoft Foundry",
+        "product": "Microsoft Foundry",
+        "date": "2026-07-01",
+        "relevance": "high",
+        "description": "Anthropics Claude Sonnet 5 ist ab sofort in Microsoft Foundry allgemein verfügbar und lässt sich über Foundry Agent Service und Microsoft IQ in Agentic-Anwendungen einbinden — mit Azure-nativer Authentifizierung, Billing, Networking und Wahl der Data-Residency (Global oder US-Datenzone). Einführungspreis 2/10 USD pro Mio. Input-/Output-Token bis 31. August, danach 3/15 USD. Für Microsoft-Partner entfällt damit ein separater Anthropic-Vertrag für produktive Sonnet-5-Workloads.",
+        "sources": [
+          {"label": "Microsoft Tech Community", "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/claude-sonnet-5-is-now-generally-available-in-microsoft-foundry/4530737"},
+          {"label": "Anthropic", "url": "https://www.anthropic.com/news/claude-in-microsoft-foundry"}
+        ]
+      },
+      {
+        "title": "AI-102 → AI-103: Zertifizierungswechsel abgeschlossen",
+        "product": "Microsoft Learn / Azure Certifications",
+        "date": "2026-06-30",
+        "relevance": "medium",
+        "description": "Die Zertifizierung 'Azure AI Engineer Associate' (AI-102) wurde zum 30. Juni offiziell zurückgezogen und durch 'Azure AI Apps and Agents Developer Associate' (AI-103) ersetzt, die bereits seit 19. Juni verfügbar ist. AI-103 verschiebt den Schwerpunkt deutlich Richtung Agentic-Solutions (30–35% der Prüfung) und Foundry-Python-SDK — Partner-Teams mit AI-102-Zertifizierten sollten die Rezertifizierung einplanen.",
+        "sources": [
+          {"label": "Microsoft Learn", "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/"},
+          {"label": "Microsoft Tech Community", "url": "https://techcommunity.microsoft.com/blog/skills-hub-blog/new-microsoft-certified-azure-ai-apps-and-agents-developer-associate/4494126"}
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Anthropic erweitert sein Portfolio mit einem eigenen Workbench für Wissenschaftler und tritt damit offen gegen OpenAIs GPT-Rosalind und Googles Isomorphic Labs an; parallel bleibt die Funding-Landschaft für angewandte KI-Infrastruktur aktiv.",
+    "items": [
+      {
+        "name": "Claude Science",
+        "date": "2026-06-30",
+        "relevance": "high",
+        "description": "Anthropic launchte auf der Veranstaltung 'The Briefing: AI for Science' in San Francisco 'Claude Science' — keine neue Modellversion, sondern eine Forschungsumgebung, die über 60 wissenschaftliche Datenbanken (Genomik, Proteomik, Chemie) mit den bestehenden Claude-Modellen (inkl. Opus 4.8) verknüpft, ohne Sondergating. Ein begleitendes Grant-Programm vergibt API-Guthaben im Wert von 30.000 USD an 50 Forschungsprojekte (Bewerbung bis 15. Juli). Positioniert Anthropic im entstehenden Dreikampf gegen OpenAIs enterprise-gated GPT-Rosalind und Googles proprietäre Isomorphic Labs.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/06/30/anthropics-claude-science-bets-on-workflow-not-a-new-model-to-win-over-scientists/"},
+          {"label": "BuildFastWithAI News", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-3-2026"}
+        ]
+      },
+      {
+        "name": "Higharc — 95 Mio. USD Series C",
+        "date": "2026-06-30",
+        "relevance": "low",
+        "description": "Higharc sicherte sich eine von Insight Partners geführte Series-C-Runde über 95 Mio. USD (Gesamtfinanzierung über 170 Mio. USD) für KI-gestützte Software im Design-to-Construction-Zyklus des Eigenheimbaus.",
+        "sources": [
+          {"label": "Tech Startups", "url": "https://techstartups.com/2026/06/30/venture-capital-startup-funding-roundup-june-30-2026/"}
+        ]
+      },
+      {
+        "name": "EquiLibre Technologies — Series A (>500 Mio. USD Bewertung)",
+        "date": "2026-06-30",
+        "relevance": "low",
+        "description": "Das von drei Ex-DeepMind-Forschern gegründete Prager KI-Lab EquiLibre Technologies schloss unter Führung von Creandum eine Series A bei einer Bewertung über 500 Mio. USD ab; der Fokus liegt auf Reinforcement-Learning-Techniken aus der Poker-KI für den Einsatz in Quant-Hedgefonds.",
+        "sources": [
+          {"label": "Tech Startups", "url": "https://techstartups.com/2026/06/30/venture-capital-startup-funding-roundup-june-30-2026/"}
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "Die Woche markiert einen Strategiewechsel im Verhältnis zwischen Frontier-Labs und Regulatoren: Die EU schließt ihr Simplification-Paket final ab, während die USA von reaktiven Exportkontrollen zu einem verhandelten Pre-Release-Kooperationsrahmen übergehen — mit ersten sichtbaren Arbeitsmarkteffekten durch KI-Automatisierung.",
+    "items": [
+      {
+        "title": "EU AI Act: Rat gibt finales grünes Licht für Simplification-Paket",
+        "description": "Der Rat der EU erteilte am 29. Juni die endgültige Zustimmung zum AI-Act-Simplification-Paket, nachdem das Parlament bereits am 16. Juni zugestimmt hatte. Hochrisiko-Pflichten für eigenständige KI-Systeme verschieben sich von August 2026 auf Dezember 2027, in Produkte eingebettete KI (z. B. Medizingeräte, Maschinen) erhält bis August 2028 Zeit. Neu verboten ab 2. Dezember 2026: KI-generierte nicht-einvernehmliche intime Bildinhalte und CSAM.",
+        "sources": [
+          {"label": "Council of the EU", "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/"},
+          {"label": "Morgan Lewis", "url": "https://www.morganlewis.com/pubs/2026/06/eu-approves-delays-and-other-amendments-to-certain-eu-ai-act-obligations-what-businesses-should-know"}
+        ]
+      },
+      {
+        "title": "Frontier AI Governance Compact zwischen Anthropic und der US-Regierung",
+        "description": "Nach der zweiwöchigen Fable-5-Krise einigten sich Anthropic und die US-Regierung am 30. Juni auf einen strukturierten Kooperationsrahmen: erweiterter Pre-Release-Zugang für Behörden, beschleunigter Austausch bei Jailbreak-Funden, Teilnahme an einem Clearinghouse für Schwachstellen kritischer Infrastruktur sowie ein gemeinsam mit Amazon, Microsoft und Google entwickeltes Risk-Scoring-Framework, das künftig proportionalere Reaktionen statt Notfall-Exportkontrollen ermöglichen soll.",
+        "sources": [
+          {"label": "BuildFastWithAI News", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-3-2026"}
+        ]
+      },
+      {
+        "title": "Weißes Haus verhandelt freiwilligen Standard-Rahmen für Frontier-Modelle",
+        "description": "Laut Financial Times und Reuters (2. Juli) verhandelt das Weiße Haus mit führenden AI-Labs über klassifizierte Benchmarks zur Einstufung als 'covered frontier model', ein 30-Tage-Review-Verfahren sowie Regeln für internationalen Zugang — Ankündigung wird in der Woche ab 7. Juli erwartet. Bis zum 1. August muss laut Executive Order vom 2. Juni zudem ein NSA-geführter klassifizierter Benchmarking-Prozess sowie das finale freiwillige Pre-Release-Framework stehen.",
+        "sources": [
+          {"label": "BuildFastWithAI News", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-3-2026"}
+        ]
+      },
+      {
+        "title": "US-Arbeitsmarktbericht Juni: erste messbare Effekte der KI-Automatisierung",
+        "description": "Der BLS-Bericht für Juni (veröffentlicht 3. Juli) zeigt mit nur 57.000 neuen Stellen ein deutliches Verfehlen der Konsensschätzung von 185.000; laut RAISE US sind 2026 bereits 88.000 US-Jobverluste direkt auf KI zurückzuführen, besonders im Einstiegssegment für Wissensarbeit — ein politisch heikles Thema im Vorfeld der Midterms.",
+        "sources": [
+          {"label": "BuildFastWithAI News", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-3-2026"}
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Google gerät durch die Verschiebung von Gemini 3.5 Pro und einen massiven Kursverlust weiter unter Druck, während Anthropic seinen IPO-Kurs für Oktober vorbereitet und OpenAI trotz GPT-5.6-Gating öffentlich eine neue globale KI-Ordnung einfordert.",
+    "items": [
+      {
+        "company": "Google DeepMind",
+        "description": "Google verschob Gemini 3.5 Pro wegen Nacharbeiten bei Token-Effizienz, Coding-Leistung und Multi-Step-Reasoning von Juni auf Juli und verlor daraufhin in einer einzigen Handelssitzung rund 225 Mrd. USD Marktkapitalisierung — inmitten anhaltender Abwanderung von Kernforschern zu OpenAI und Anthropic.",
+        "sources": [
+          {"label": "Startup Fortune", "url": "https://startupfortune.com/google-delays-gemini-35-pro-to-july-as-talent-exodus-deepens-the-pressure-on-its-ai-ambitions/"}
+        ]
+      },
+      {
+        "company": "Anthropic",
+        "description": "Anthropic bereitet einen Börsengang für Oktober 2026 bei einer Bewertung von 965 Mrd. USD vor; die Zahl der Kunden mit über 1 Mio. USD annualisiertem Umsatz überschritt 1.000 und hat sich in unter zwei Monaten verdoppelt.",
+        "sources": [
+          {"label": "BuildFastWithAI News", "url": "https://www.buildfastwithai.com/blogs/ai-news-today-july-3-2026"}
+        ]
+      },
+      {
+        "company": "OpenAI",
+        "description": "Sam Altman forderte öffentlich eine neue globale 'Weltordnung' für KI-Governance, während OpenAI im Wettbewerb mit Google und Anthropic an Boden verliert und die eigene GPT-5.6-Familie weiterhin nur ausgewählten Regierungspartnern zugänglich ist.",
+        "sources": [
+          {"label": "Fortune", "url": "https://fortune.com/2026/07/02/sam-altman-new-world-order-ai-openai-google-anthropic/"}
+        ]
+      }
+    ]
+  }
+}
