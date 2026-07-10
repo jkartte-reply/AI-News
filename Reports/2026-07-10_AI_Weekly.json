@@ -1,0 +1,226 @@
+{
+  "date": "2026-07-10",
+  "period": "2026-07-04/2026-07-10",
+  "executive_summary": {
+    "intro": "Die Woche vom 4. bis 10. Juli 2026 markiert den Wechsel von angekündigten zu tatsächlich verfügbaren Frontier-Modellen — GPT-5.6 und Grok 4.5 verlassen beide ihre Gating- bzw. Beta-Phase und werden öffentlich nutzbar —, während sich die regulatorische Kluft zwischen EU und China mit je eigenen KI-Sicherheitsmaßnahmen vertieft und OpenAI mit der Atlas-Einstellung seine Produktstrategie weiter auf ChatGPT konzentriert.",
+    "highlights": [
+      "GPT-5.6 wird öffentlich: Nach der zweiwöchigen Regierungs-Preview sind Sol, Terra und Luna seit 9. Juli für alle verfügbar — inklusive der neuen Voice-Modelle GPT-Live-1 für natürlichere Gespräche.",
+      "Grok 4.5 startet public: xAI veröffentlicht am 8. Juli sein bislang stärkstes Coding-/Agentic-Modell zu aggressivem Preis (2/6 USD pro Mio. Token) und integriert es sofort in Cursor.",
+      "EU und China regulieren KI-Risiken parallel: Die EU-Kommission präsentiert am 7. Juli einen Cybersecurity-KI-Aktionsplan, während Chinas neue Regeln für anthropomorphe KI-Interaktion ab 15. Juli ByteDance und Alibaba zwingen, ihre Agenten-Features abzuschalten.",
+      "OpenAI stellt den Atlas-Browser ein: Neun Monate nach Launch wandert die Funktionalität zurück in ChatGPT — Teil einer Konsolidierungsstrategie unter CEO Fidji Simo, die parallel Dutzende Legacy-Modelle zum 23. Juli abschaltet.",
+      "Microsofts Agenten-Stack erreicht Produktionsreife: Foundry Hosted Agents gehen GA, GitHub Copilot bekommt mit Kimi K2.7 Code sein erstes Open-Weight-Modell — direkt relevant für Partner-Projekte mit Foundry- oder Copilot-Workloads."
+    ]
+  },
+  "models": {
+    "summary": "Die beiden großen US-Labs lösen diese Woche ihre Zugangsbeschränkungen: GPT-5.6 (Sol/Terra/Luna) und Grok 4.5 verlassen Gating- bzw. Beta-Phase und sind nun öffentlich nutzbar, während Google Gemini 3.5 Pro wegen eines kompletten Architektur-Rebuilds erneut verschiebt — diesmal auf den 17. Juli.",
+    "items": [
+      {
+        "name": "GPT-5.6 (Sol, Terra, Luna)",
+        "provider": "OpenAI",
+        "type": "LLM (3 Tiers)",
+        "highlight": "Seit 9. Juli öffentlich verfügbar — rund zwei Wochen nach dem auf Regierungswunsch limitierten Preview-Start. Sol (Flaggschiff, $5/$30) erreicht 80 Punkte im Artificial Analysis Coding Agent Index (2,8 vor Claude Fable 5) und führt neue Inference-Controls ein: 'Max Reasoning' für erweiterte Denkketten und 'Ultra Mode' für koordinierte Parallel-Subagenten. Terra ($2,50/$15) liefert GPT-5.5-Niveau zum halben Preis, Luna ($1/$6) ist die Speed-/Cost-Variante. Programmatic Tool Calling führt modellgeschriebenes JavaScript in einer isolierten V8-Runtime ohne Netzwerkzugriff aus.",
+        "relevance": "high",
+        "sources": [
+          {"label": "MarkTechPost", "url": "https://www.marktechpost.com/2026/07/09/openai-releases-gpt-5-6-a-three-tier-model-family-with-programmatic-tool-calling/"},
+          {"label": "CNBC", "url": "https://www.cnbc.com/2026/07/08/openai-expanding-gpt-5point6-ai-model-release-ending-government-limits.html"}
+        ]
+      },
+      {
+        "name": "Grok 4.5",
+        "provider": "xAI",
+        "type": "LLM (Coding/Agentic)",
+        "context": "500K Token",
+        "highlight": "Seit 8. Juli öffentlich verfügbar über xAI-API, Grok Build und ab sofort in Cursor auf allen Plänen — nach einer zweiwöchigen privaten Beta exklusiv bei SpaceX und Tesla. Trainiert auf zehntausenden Nvidia-GB300-GPUs, Preis 2/6 USD pro Mio. Token (günstiger als Claude Opus 4.8, vergleichbar mit GPT-5.6 Luna). Elon Musk positioniert es als 'Opus-Klasse, aber schneller und günstiger'. EU-Verfügbarkeit erst für Mitte Juli angekündigt.",
+        "relevance": "high",
+        "sources": [
+          {"label": "Yahoo Tech / SpaceXAI", "url": "https://tech.yahoo.com/ai/articles/spacexai-launches-grok-4-5-204749219.html"},
+          {"label": "xAI", "url": "https://x.ai/news/grok-4-5"}
+        ]
+      },
+      {
+        "name": "GPT-Live-1 / GPT-Live-1 mini",
+        "provider": "OpenAI",
+        "type": "Voice (Full-Duplex)",
+        "highlight": "Neue Sprachmodelle (8. Juli) können gleichzeitig sprechen und zuhören, erlauben natürliche Unterbrechungen und bieten Live-Übersetzung; GPT-Live-1 mini ersetzt den bisherigen Advanced Voice Mode als Standard für alle Nutzer, das größere GPT-Live-1 bleibt zahlenden Tiers vorbehalten. Schwächen zeigen sich noch bei Aussprache in nicht-englischen Sprachen.",
+        "relevance": "medium",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/07/08/openai-releases-new-voice-models-for-more-natural-live-conversations/"}
+        ]
+      },
+      {
+        "name": "Leanstral 1.5",
+        "provider": "Mistral AI",
+        "type": "Code-LLM (Theorem Proving)",
+        "highlight": "Apache-2.0-lizenzierter Lean-4-Beweis-Agent, der 587 von 672 PutnamBench-Problemen löst. Erschien am 3. Juli als Nischen-Ergänzung zu Mistrals breiterer Ankündigung eines neuen, offen gewichteten Modell-Familie ('fat but sparse' MoE), die im Juli in Early Access geht.",
+        "relevance": "low",
+        "sources": [
+          {"label": "MarkTechPost", "url": "https://www.marktechpost.com/2026/07/03/mistral-ai-releases-leanstral-1-5-an-apache-2-0-lean-4-code-agent-model-solving-587-of-672-putnambench-problems/"}
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "GitHub Copilot bekommt mit Kimi K2.7 Code sein erstes Open-Weight-Modell im Model-Picker und erreicht mit Copilot Vision volle Bildunterstützung; VS Code 1.128 liefert parallele Multi-Chat-Agentensessions für Claude.",
+    "items": [
+      {
+        "name": "GitHub Copilot Vision (GA) + Kimi K2.7 Code",
+        "release": "General Availability",
+        "date": "2026-07-01",
+        "relevance": "high",
+        "description": "Copilot Vision (Bild-/PDF-Anhänge im Chat) ist seit 1. Juli GA über VS Code, github.com und Copilot CLI. Am selben Tag zog mit Moonshot AIs Kimi K2.7 Code (1 Billion Parameter MoE, 32 Mrd. aktiv, 256K Kontext, Multi-Head Latent Attention) das erste Open-Weight-Modell in Copilots Model-Picker ein — gehostet von GitHub auf Azure, nutzungsbasiert abgerechnet, Rollout für Pro/Pro+/Max-Pläne.",
+        "sources": [
+          {"label": "GitHub Changelog — Copilot Vision", "url": "https://github.blog/changelog/2026-07-01-copilot-vision-is-generally-available/"},
+          {"label": "GitHub Changelog — Kimi K2.7", "url": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/"}
+        ]
+      },
+      {
+        "name": "VS Code 1.128",
+        "release": "1.128",
+        "date": "2026-07-08",
+        "relevance": "medium",
+        "description": "Neue Multi-Chat-Agentensessions erlauben mehrere zusammenhängende Chats parallel (Vergleich von Ansätzen, Branching aus früheren Turns); Subagenten-Transkripte erscheinen als Read-only-Peer-Chats neben der Hauptunterhaltung. Dazu GA für Copilot Vision im Editor sowie OS-weite Keyboard-Shortcuts und konfigurierbare Browser-Tab-Platzierung.",
+        "sources": [
+          {"label": "Visual Studio Magazine", "url": "https://visualstudiomagazine.com/articles/2026/07/08/claude-ai-gets-yet-another-boost-in-vs-code-1-128.aspx"},
+          {"label": "VS Code Updates", "url": "https://code.visualstudio.com/updates/v1_128"}
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Die Open-Source-Aktivität abseits der Frontier-Modelle bleibt diese Woche überschaubar; die größte Bewegung kommt aus der Robotik, wo NVIDIA und Hugging Face die offene LeRobot-Bibliothek um neue Modelle und Tooling erweitern.",
+    "items": [
+      {
+        "name": "LeRobot + Isaac GR00T 1.7 / Isaac Teleop",
+        "languageType": "Robotics / Vision-Language-Action",
+        "date": "2026-07-07",
+        "relevance": "medium",
+        "description": "NVIDIA und Hugging Face erweitern die offene Robotik-Bibliothek LeRobot um das Isaac-GR00T-1.7-VLA-Modell für humanoide Robotik sowie das Isaac-Teleop-Framework für standardisierte Teleoperations-Datensammlung. Für AI Engineers, die sich mit Physical AI/Embodied Agents befassen, liefert das einen offenen Einstiegspunkt ohne proprietären Robotik-Stack.",
+        "sources": [
+          {"label": "NVIDIA Blog", "url": "https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics/"}
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Microsofts Agenten-Infrastruktur erreicht Produktionsreife — Foundry Hosted Agents gehen GA —, während GitHub Copilot mit einem Open-Weight-Modell und voller Bildunterstützung nachzieht und Microsoft 365 zum 1. Juli seine Copilot-Preisstruktur neu ordnet.",
+    "items": [
+      {
+        "title": "Foundry Hosted Agents — General Availability",
+        "product": "Microsoft Foundry / Foundry Agent Service",
+        "date": "2026-07-08",
+        "relevance": "high",
+        "description": "Hosted Agents in Foundry Agent Service sind ab sofort allgemein verfügbar: Jede Session läuft in einer eigenen Sandbox mit dedizierter Compute-, Memory- und Filesystem-Zugriff, framework-agnostisch für Microsoft Agent Framework, GitHub Copilot SDK, LangGraph und weitere SDKs. Neu unterstützt werden auch Long-Running-Agenten wie OpenClaw mit persistentem State sowie zeitgesteuerte 'Routines' (Public Preview). Für Partner-Projekte bedeutet das einen produktionsreifen, Azure-nativen Agent-Runtime statt selbstgehosteter Infrastruktur.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog", "url": "https://devblogs.microsoft.com/foundry/hosted-agents-build26/"},
+          {"label": "byteiota", "url": "https://byteiota.com/foundry-agent-service-ga/"}
+        ]
+      },
+      {
+        "title": "GitHub Copilot: Vision GA & erstes Open-Weight-Modell",
+        "product": "GitHub Copilot",
+        "date": "2026-07-01",
+        "relevance": "high",
+        "description": "Siehe Frameworks-Sektion: Copilot Vision (Bild-/PDF-Kontext) ist GA, und mit Kimi K2.7 Code steht erstmals ein Open-Weight-Modell im Copilot-Model-Picker — gehostet auf Azure. Für Partner-Teams eröffnet das eine günstigere Modell-Option direkt im bestehenden Copilot-Abo, ohne separaten Anbieter-Vertrag.",
+        "sources": [
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/"}
+        ]
+      },
+      {
+        "title": "Microsoft 365: Copilot als fester Plan-Bestandteil, neue Preise",
+        "product": "Microsoft 365 / Copilot",
+        "date": "2026-07-01",
+        "relevance": "medium",
+        "description": "Seit 1. Juli bietet Microsoft Business Standard und Business Premium dauerhaft mit eingebautem Copilot an (Standard+Copilot 23,50 USD, Premium+Copilot 32 USD pro Nutzer/Monat); gleichzeitig steigt der Preis für Business Standard ohne Copilot von 12,50 auf 14 USD und die Standalone-Copilot-Lizenz wird teurer. Bestandskunden behalten ihre Preise bis zur nächsten Vertragsverlängerung — Partner sollten Kunden-Lizenzmodelle vor der nächsten Renewal-Runde prüfen.",
+        "sources": [
+          {"label": "Microsoft Licensing News", "url": "https://www.microsoft.com/en-us/licensing/news/2026-m365-packaging-pricing-updates"},
+          {"label": "Windows Latest", "url": "https://www.windowslatest.com/2026/07/05/microsoft-365-just-got-a-price-hike-over-continuous-innovation-but-copilot-is-the-ai-tax-on-businesses/"}
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Die Funding-Landschaft bleibt aktiv mit einer großen Infrastruktur-Runde für offene Modelle, während Notion seine Agenten-Funktionen für den Team-Alltag ausbaut.",
+    "items": [
+      {
+        "name": "Together AI — 800 Mio. USD Series C",
+        "date": "2026-07-01",
+        "relevance": "high",
+        "description": "Together AI sicherte sich eine von Aramco Ventures angeführte Series-C-Runde über 800 Mio. USD bei einer Bewertung von 8,3 Mrd. USD (u. a. mit Nvidia, General Catalyst und Vista Equity Partners als Investoren). Das Unternehmen betreibt eine Full-Stack-Cloud für Training, Fine-Tuning und Inference offener Modelle und meldet über 1,15 Mrd. USD annualisierte Bookings — ein Signal für wachsende Nachfrage nach Open-Weight-Infrastruktur abseits geschlossener APIs.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/07/01/neocloud-together-ai-raises-800m-leaps-to-8-3b-valuation/"},
+          {"label": "Together AI Blog", "url": "https://www.together.ai/blog/announcing-our-series-c"}
+        ]
+      },
+      {
+        "name": "Notion 3.6 — External Agents & Multi-Agent-Workflows",
+        "date": "2026-07-01",
+        "relevance": "medium",
+        "description": "Notion 3.6 bringt External Agents zur allgemeinen Verfügbarkeit — Claude und Cursor lassen sich als Teammitglieder per @-Mention direkt aus geteilten Boards heraus beauftragen. Dazu kommen Multi-Agent-Workflows in einer gemeinsamen UI, Audio-Uploads für AI Meeting Notes mit Sprecher-Kennzeichnung und ein Audit-Log für Custom-Agent-Aktivität.",
+        "sources": [
+          {"label": "Notion Releases", "url": "https://www.notion.com/releases/2026-07-01"}
+        ]
+      },
+      {
+        "name": "Bespoke Labs — 40 Mio. USD Funding",
+        "date": "2026-07-06",
+        "relevance": "low",
+        "description": "Bespoke Labs sicherte sich 40 Mio. USD für simulierte Trainingsumgebungen, in denen autonome Systeme vor dem Produktiveinsatz trainieren und sich verbessern — relevant für Teams, die Agenten-Evals und RL-Pipelines aufbauen.",
+        "sources": [
+          {"label": "Tech Startups", "url": "https://techstartups.com/2026/07/06/venture-capital-startup-funding-roundup-july-6-2026/"}
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "EU und China ziehen diese Woche mit eigenständigen, aber gegensätzlichen KI-Sicherheitsmaßnahmen nach, während der Kostendruck durch günstigere chinesische Modelle bei US-Unternehmen erstmals messbar Kunden verschiebt.",
+    "items": [
+      {
+        "title": "EU Action Plan on Cybersecurity and Artificial Intelligence",
+        "description": "Die EU-Kommission präsentierte am 7. Juli einen Aktionsplan, der KI-Nutzen für Cybersicherheit (Schwachstellenerkennung, Angriffsprävention) und KI-Risiken (automatisierte Angriffe) adressiert: Ein europäischer Blueprint mit ENISA für sicheren Zugang zu fortgeschrittenen KI-Systemen sowie eine sichere Testplattform für kritische Sektoren (Energie, Transport, Gesundheit, Finanzen) sollen bis 2027 operativ sein.",
+        "sources": [
+          {"label": "European Commission", "url": "https://commission.europa.eu/news-and-media/news/new-eu-plan-address-risks-and-opportunities-advanced-ai-cybersecurity-2026-07-07_en"}
+        ]
+      },
+      {
+        "title": "China: Neue Regeln für anthropomorphe KI-Interaktion treten am 15. Juli in Kraft",
+        "description": "Die im April erlassenen 'Interim Measures for the Administration of Anthropomorphic AI Interaction Services' verbieten u. a. emotionale Manipulation und virtuelle Companion-Angebote für Minderjährige; als direkte Folge schalten ByteDances Doubao und Alibabas Qwen ihre KI-Agenten-Erstellungsfunktionen zum Stichtag ab — bestehende Nutzer-Agenten funktionieren danach nicht mehr.",
+        "sources": [
+          {"label": "TechNode", "url": "https://technode.com/2026/07/06/bytedances-doubao-and-alibabas-qwen-to-shut-down-ai-agent-features-on-july-15/"}
+        ]
+      },
+      {
+        "title": "Chinesische Modelle gewinnen bei US-Unternehmen wegen Kostendrucks an Boden",
+        "description": "Laut CNBC (7. Juli) wechseln zunehmend US-Unternehmen zu offenen chinesischen Modellen, die 60–90% günstiger sind als vergleichbare Angebote von OpenAI und Anthropic — ein Trend, der sich mit dieser Woche parallel öffentlich gewordenen aggressiven Preisen von Grok 4.5 und GPT-5.6 Luna weiter verschärfen dürfte.",
+        "sources": [
+          {"label": "CNBC", "url": "https://www.cnbc.com/2026/07/07/chinese-ai-models-costs-us-openai-anthropic.html"}
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "OpenAI räumt sein Produktportfolio auf — Atlas-Browser-Aus und eine große Modell-Deprecation-Welle —, während Google mit der erneuten Gemini-3.5-Pro-Verschiebung weiter unter Druck steht.",
+    "items": [
+      {
+        "company": "OpenAI",
+        "description": "OpenAI stellt den erst im Oktober 2025 gestarteten Atlas-Browser nach neun Monaten ein und verlagert dessen Agentic-Funktionen zurück in ChatGPT (neue Chrome-Extension, erweiterte Desktop-App mit Cloud-Browser). CEO Fidji Simo verfolgt damit eine Konsolidierungsstrategie ('der Browser ist ein Feature, kein Zielprodukt') und lässt parallel Dutzende ältere Modelle in zwei Wellen (23. Juli, 23. Oktober) auslaufen.",
+        "sources": [
+          {"label": "Eastern Herald", "url": "https://easternherald.com/2026/07/10/openai-atlas-browser-shutdown-chatgpt-strategy/"}
+        ]
+      },
+      {
+        "company": "Google DeepMind",
+        "description": "Google verschiebt Gemini 3.5 Pro erneut — vom ursprünglichen Juni-Fenster nun auf den 17. Juli — und verwirft dabei die bisherige 2.5-Pro-Architektur komplett zugunsten eines Neubaus, der Lücken bei mathematischem Reasoning, SVG-Generierung und Bildqualität schließen soll, um mit GPT-5.6 und Claude Fable 5 mitzuhalten.",
+        "sources": [
+          {"label": "BigGo Finance", "url": "https://finance.biggo.com/news/6f0c6bb2-795f-4c57-9d09-6db691d7638a"}
+        ]
+      },
+      {
+        "company": "ByteDance / Alibaba",
+        "description": "Doubao (ByteDance) und Qwen (Alibaba) schalten ihre Funktionen zur Erstellung eigener KI-Agenten zum 15. Juli ab, um Chinas neue Regulierung für anthropomorphe KI-Interaktion einzuhalten — ein regulatorisch erzwungener Rückbau von Consumer-Agentic-Features mitten im globalen Agenten-Hype.",
+        "sources": [
+          {"label": "TechNode", "url": "https://technode.com/2026/07/06/bytedances-doubao-and-alibabas-qwen-to-shut-down-ai-agent-features-on-july-15/"}
+        ]
+      }
+    ]
+  }
+}
