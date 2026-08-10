@@ -1,0 +1,460 @@
+{
+  "date": "2026-08-07",
+  "period": "2026-07-31/2026-08-07",
+  "executive_summary": {
+    "intro": "Die erste Augustwoche 2026 war geprägt von einer neuen Welle offener und agentischer Coding-Modelle (DeepSeek, Qwen, Meta), Microsofts Neupositionierung von Foundry als Multi-Modell-Portfolio, einem Führungswechsel bei Google DeepMind sowie dem Start neuer EU-AI-Act-Transparenzpflichten.",
+    "highlights": [
+      "Modelle: DeepSeek veröffentlicht das agentische Flash-Modell V4-Flash-0731, Alibaba launcht das 2,4-Billionen-Parameter-Modell Qwen3.8-Max, und OpenAI teast sein nächstes Flaggschiff „Astra“ mit zehn gelösten Mathematik-/Informatikproblemen.",
+      "Azure/Microsoft: Microsoft Foundry positioniert sich explizit als Multi-Modell-Portfolio (GPT-5.6, Kimi K2.7-Code, DeepSeek-V4-Pro, MAI-Stack) und veröffentlicht neue Zero-Trust-Leitfäden speziell für KI-Agenten.",
+      "Frameworks: Google treibt die zustandslose MCP-Spezifikation aktiv voran, DSPy erreicht Version 3.3.0 mit neuem Flex-Optimization-Modul.",
+      "Business: Google DeepMind ordnet seine Führung neu (Demis Hassabis wird Chairman/Chief Scientist, Jeff Dean verlässt das Unternehmen), Anthropic beruft mit Tino Cuéllar seinen ersten Chief Global Affairs Officer.",
+      "Regulierung: Neue EU-AI-Act-Transparenzpflichten (KI-Kennzeichnung, Deepfake-Labeling) treten am 02.08. in Kraft, während die USA ein freiwilliges Cybersicherheits-Testframework für Frontier-Modelle vorstellen, das offene Gewichte ausklammert."
+    ]
+  },
+  "models": {
+    "summary": "Die erste Augustwoche 2026 brachte mehrere neue agentische Coding-Modelle von DeepSeek, Alibaba und Meta sowie Mistrals neuen Multimodal-Sicherheitsklassifikator Shieldstral und OpenAIs Ankündigung seines nächsten Flaggschiffmodells „Astra“; eine neue Studie stellt zudem infrage, wie viel echte Fähigkeitszunahme hinter Benchmark-Verbesserungen tatsächlich steckt.",
+    "items": [
+      {
+        "name": "DeepSeek-V4-Flash-0731",
+        "provider": "DeepSeek",
+        "type": "Open-Weight-LLM (MoE, agentisches Coding/Tool-Use)",
+        "context": "bis zu 384K Output-Token empfohlen; MIT-Lizenz",
+        "highlight": "Produktivrelease (löst die April-Preview ab) am 31.07.2026. Laut Hugging-Face-Modellkarte 304 Mrd. Gesamtparameter mit deutlich kleinerer aktiver Parameterzahl; Benchmark-Werte: Terminal-Bench 2.1: 82,7, NL2Repo: 54,2, Cybergym: 76,7, DeepSWE: 54,4 – übertrifft damit DeepSeek-V4-Pro (Preview) trotz deutlich weniger aktiver Parameter. Die Verbesserung stammt allein aus einer neuen Post-Training-Pipeline (keine größere Basis); unterstützt Reasoning-Aufwandsstufen niedrig/hoch/max sowie ein integriertes Spekulative-Decoding-Modul (DSpark); optimiert für vLLM/SGLang.",
+        "relevance": "high",
+        "sources": [
+          {"label": "Hugging Face – Modellkarte DeepSeek-V4-Flash-0731", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731"},
+          {"label": "MarkTechPost – DeepSeek upgrades DeepSeek-V4-Flash-0731", "url": "https://www.marktechpost.com/2026/07/31/deepseek-upgrades-deepseek-v4-flash-0731-with-major-agentic-and-coding-gains/"}
+        ]
+      },
+      {
+        "name": "Astra (angekündigt, noch nicht veröffentlicht)",
+        "provider": "OpenAI",
+        "type": "Angekündigtes Flaggschiff-Modell (Forschungspreview)",
+        "highlight": "Am 01.08.2026 nannte OpenAI erstmals öffentlich seine nächste Modellfamilie „Astra“ – per Blogpost mit zehn behaupteten Lösungen bislang ungelöster Probleme aus Mathematik und theoretischer Informatik, belegt durch Manuskripte, formale Lean-Beweiszertifikate und Entdeckungs-Walkthroughs. OpenAI erklärt, Astra sei so konzipiert, dass mehrere Agenten stunden- bis tagelang gemeinsam an schwierigen Problemen arbeiten können. Das Modell durchläuft einen internen Sicherheits-/Testprozess sowie eine geplante Vorab-Prüfung durch die US-Regierung; ein öffentliches Veröffentlichungsdatum gibt es nicht (externe Berichte rechnen mit frühestens September 2026).",
+        "relevance": "high",
+        "sources": [
+          {"label": "OpenAI – Ten advances in mathematics and theoretical computer science", "url": "https://openai.com/index/ten-advances-in-mathematics/"},
+          {"label": "the-decoder.com – OpenAI announces its next major model Astra", "url": "https://the-decoder.com/openai-announces-its-next-major-model-astra-by-dropping-ten-previously-unsolved-math-solutions/"}
+        ]
+      },
+      {
+        "name": "Qwen3.8-Max",
+        "provider": "Alibaba (Qwen-Team)",
+        "type": "Frontier-LLM (MoE, multimodal, offene Gewichte folgen)",
+        "context": "1.000.000 Token",
+        "highlight": "Verfügbar seit 03.08.2026 über Alibaba Cloud Model Studio und QwenWork; offene Gewichte auf Hugging Face/ModelScope für die Folgewoche angekündigt. 2,4 Billionen Gesamtparameter (MoE) mit ca. 95 Mrd. aktiven Parametern pro Anfrage, aufbauend auf dem Qwen3.5-Fundament. Benchmark-Werte: Terminal-Bench 2.1: 86,6 (vor Claude Opus 4.8 und Claude Fable 5 mit je 84,6, hinter GPT-5.6 Sol-max mit 88,8), PaperBench: 93,0, WideSearch: 81,9, IFBench: 82,8, HealthBench: 60,2, PRBench-Finance: 58,3. Alibaba zeigt eine 10-tägige autonome Coding-Demo, in der das Modell ein GitHub-Projekt ohne menschliche Prüfung einzelner Schritte pflegte (Issue-Triage, Tests, PR-Merges). Preis: 2,0 USD/Mio. Input-, 6,0 USD/Mio. Output-Token.",
+        "relevance": "high",
+        "sources": [
+          {"label": "MarkTechPost – Alibaba Qwen Releases Qwen3.8-Max", "url": "https://www.marktechpost.com/2026/08/03/alibaba-qwen-releases-qwen3-8-max/"},
+          {"label": "Bloomberg – Alibaba drops another China AI model", "url": "https://www.bloomberg.com/news/articles/2026-08-03/alibaba-drops-another-china-ai-model-with-breakthrough-performance"}
+        ]
+      },
+      {
+        "name": "Shieldstral",
+        "provider": "Mistral AI",
+        "type": "Open-Weight Multimodal-Sicherheits-/Moderationsklassifikator",
+        "context": "läuft auf einer einzelnen 16-GB-GPU",
+        "highlight": "Veröffentlicht am 04.08.2026 unter Apache 2.0 auf Hugging Face. Ein 3-Mrd.-Parameter-Modell, das Content-Moderation als Ja/Nein-Frage statt als feste Taxonomie-Klassifikation behandelt: Betreiber übergeben eine natürlichsprachliche Policy-Frage plus Inhalt (Text, Bild oder beides), das Modell liefert eine kalibrierte Sicherheits-Wahrscheinlichkeit – ohne Retraining bei Policy-Änderungen zur Inferenzzeit. Laut Mistral erreicht oder übertrifft es Guard-/Klassifikationsmodelle bis zum 7-Fachen seiner Größe bei Textsicherheit, Ablehnungserkennung, Policy-Anpassbarkeit und multimodaler Sicherheitsbewertung. Der Release fällt mit Mistrals Beitritt zur Open Secure AI Alliance (mit Nvidia u.a.) zusammen.",
+        "relevance": "medium",
+        "sources": [
+          {"label": "Mistral AI – Shieldstral", "url": "https://mistral.ai/news/shieldstral"},
+          {"label": "Techmeme-Aggregation", "url": "https://www.techmeme.com/260804/p36"}
+        ]
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "provider": "Meta AI",
+        "type": "Coding-fokussiertes multimodales LLM",
+        "context": "1.048.576 Token; akzeptiert Text, Bild, Video und PDF",
+        "highlight": "Am 05.08.2026 auf Metas Research-Blog angekündigtes Coding-Update zu Version 1.1: Terminal-Bench 2.1 steigt laut Metas eigener Auswertung auf 82,9% (von 76,2%), DeepSWE v1.1 auf 59,3% (von 53,0%). Begleitet wird das Modell vom neuen Terminal-Coding-Agenten „Muse Code“ (siehe Produkte-Sektion). API-Preise: 1,25 USD/Mio. Input-, 4,25 USD/Mio. Output-Token; ein neuer optionaler „Contributor Tier“ bietet 0,10/0,20 USD pro Mio. Token im Tausch dafür, dass Meta auf Prompts/Antworten trainieren darf.",
+        "relevance": "medium",
+        "sources": [
+          {"label": "Meta AI Research – Introducing Muse Code and Muse Spark 1.2", "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2"},
+          {"label": "Simon Willison – Notes on Muse Code and Muse Spark 1.2", "url": "https://simonwillison.net/2026/Aug/5/muse-code-and-muse-spark-12/"}
+        ]
+      },
+      {
+        "name": "Reachability Is Not Realization: Tracing the Sources of LLM Benchmark Gains",
+        "provider": "Unabhängige Forschende (Li, Liu, Xie, Gao, Wang, Fu, Li)",
+        "type": "Forschungspapier / Benchmark-Methodik-Kritik",
+        "highlight": "Am 04.08.2026 auf arXiv eingereicht (arXiv:2608.03219). Unterscheidet „Realization“ (Standard-Deployment liefert die richtige Antwort) von „Reachability“ (die richtige Antwort ist innerhalb eines festen Rechen-/Suchbudgets erreichbar) und argumentiert, dass aggregierte Benchmark-Scores beides vermischen. Kernbefunde: Zufällige Layer-/Routing-Suche erreichte oder übertraf strukturierte Suche in 43 Modell-Aufgaben-Kombinationen bei gleichem Budget; wurden korrekte Antworten unerreichbar gemacht, verschwanden fast alle scheinbaren Gewinne; in 5 von 6 untersuchten Fällen stieg die deployte (realisierte) Performance, während die erreichbare Obergrenze stagnierte oder sank (ein Fall: +14,7 Punkte deployt vs. −13,3 Punkte erreichbare Obergrenze). Direkt relevant für Engineering-Teams, die Benchmark-Deltas als Grundlage für Modell-Upgrade-Entscheidungen nutzen.",
+        "relevance": "medium",
+        "sources": [
+          {"label": "arXiv:2608.03219", "url": "https://arxiv.org/abs/2608.03219"}
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Diese Woche stand im Zeichen von Googles Vorstoß für die zustandslose MCP-Architektur, DSPys großem 3.3.0-Release mit neuem Flex-Optimization-Modul sowie einer Welle kleinerer Punkt-Releases bei AutoGen, CrewAI, Semantic Kernel und dem Microsoft Agent Framework; bei den Coding-Assistenten schob GitHub Copilot CLI-Verbesserungen nach und kündigte September-Modell-Deprecations an, während Cursor native Google-Workspace-Integration für Agenten ergänzte.",
+    "items": [
+      {
+        "name": "MCP-Spezifikation 2026-07-28 – Google treibt zustandslose Architektur voran",
+        "release": "Protokoll-Revision 2026-07-28",
+        "date": "05.08.2026",
+        "relevance": "high",
+        "description": "Google veröffentlichte am 05.08. einen Blogpost, der die MCP-Spezifikation 2026-07-28 unterstützt – laut Google „die größte Änderung seit MCP-Launch“: Wegfall des initialize/initialized-Handshakes und des Mcp-Session-Id-Headers, sodass Anfragen selbstbeschreibend und zustandslos werden. Google erklärt, in der MCP Transports Working Group (mit Hugging Face u.a.) federführend gewesen zu sein, um Standard-Round-Robin-Load-Balancing, serverloses Deployment (z.B. Cloud Run), transparentes Failover bei Pod-Neustarts und den Wegfall von Redis-basiertem Session-Storage für MCP-Server im großen Maßstab zu ermöglichen. Die zugrundeliegende Spezifikation (veröffentlicht am 28.07.) führte zudem Multi Round-Trip Requests, header-basiertes Routing (Mcp-Method/Mcp-Name), cachebare List-Ergebnisse mit ttlMs/cacheScope ein und stufte Roots/Sampling/Logging als deprecated ein (12 Monate Sunset) zugunsten eines Extensions-Frameworks. Python-, TypeScript- und C#-SDKs erschienen begleitend in Version 2.0.0.",
+        "sources": [
+          {"label": "Google Developers Blog – Scaling AI Agent Infrastructure with the MCP Stateless updates", "url": "https://developers.googleblog.com/scaling-ai-agent-infrastructure-with-the-mcp-stateless-updates/"},
+          {"label": "MCP Blog – The 2026-07-28 Specification", "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"}
+        ]
+      },
+      {
+        "name": "DSPy 3.3.0",
+        "release": "3.3.0",
+        "date": "03.08.2026",
+        "relevance": "high",
+        "description": "Kernstück ist „Flex Optimization“, ein experimentelles Modul, das GEPA erlaubt, nicht nur den Prompt-Text, sondern die Programm-Dekomposition selbst zu optimieren. ReActV2 bringt natives Tool-Calling mit strukturiertem Nachrichtenverlauf, paralleler Tool-Ausführung und laut Angaben bis zu 50% geringeren Kosten für manche Aufgaben durch Prompt-Caching. Eine neue Typed-LM-Boundary (LMRequest/LMResponse) entkoppelt DSPy von der bisher harten LiteLLM-Abhängigkeit; BaseLM erhält dump_state()/load_state() für Laufzeit-State-Management mit bereinigter (API-Key-freier) Serialisierung; NumPy wird über ein neues dspy[numpy]-Extra optional. Breaking Change: Image-/Audio-/File-Ressourcen benötigen jetzt explizite Factories (z.B. Image.from_path()) statt impliziertem I/O.",
+        "sources": [
+          {"label": "GitHub – stanfordnlp/dspy Releases", "url": "https://github.com/stanfordnlp/dspy/releases"},
+          {"label": "PyPI – dspy", "url": "https://pypi.org/project/dspy/"}
+        ]
+      },
+      {
+        "name": "GitHub Copilot CLI v1.0.78 und September-Modell-Deprecations",
+        "release": "Copilot CLI v1.0.78",
+        "date": "31.07.–06.08.2026",
+        "relevance": "medium",
+        "description": "v1.0.78 (03.08.) ergänzt Timeline-Header mit Live-Anzeige der Tool-Call-Dauer, einen experimentellen /new-worktree-Befehl, sich selbst aktualisierende First-Party-Plugins sowie eine deutlich schnellere Session-Wiederaufnahme (ein 230-MB-Transcript mit 74.000 Events lädt in „deutlich unter einer Sekunde“); Pre-Releases 1.0.79-1 bis -6 (04.–06.08.) benennen die Sandbox-Einstellung allowDevToolCaches in allowDevToolAccess um und verbessern das Multi-Session-Handling. Separat kündigte GitHub bereits am 31.07. an, dass ab dem 01.09.2026 Gemini 3.1 Pro, Claude Opus 4.5/4.6, Claude Sonnet 4.5/4.6 sowie Raptor Mini aus allen Copilot-Umgebungen entfernt werden – Nutzer werden auf Gemini 3.6 Flash, Claude Opus 4.7/4.8/5, Claude Sonnet 5 bzw. MAI-Code-1-Flash verwiesen (Claude Sonnet 4.6 bleibt für Einzelabonnenten mit Jahresvertrag verfügbar).",
+        "sources": [
+          {"label": "GitHub Changelog – Upcoming August 2026 model deprecations in GitHub Copilot", "url": "https://github.blog/changelog/2026-07-31-upcoming-august-2026-model-deprecations-in-github-copilot/"},
+          {"label": "GitHub – copilot-cli Releases", "url": "https://github.com/github/copilot-cli/releases"}
+        ]
+      },
+      {
+        "name": "Microsoft Agent Framework 1.17.0 (.NET)",
+        "release": "dotnet-1.17.0",
+        "date": "04.08.2026",
+        "relevance": "medium",
+        "description": "Die .NET-Linie des Microsoft Agent Framework erreicht 1.17.0: Durable-Task- und Azure-Functions-Integrationen werden aus dem Kernpaket ausgelagert, ein Responsiveness-Fix für das Handoff-Orchestrierungsbeispiel wird nachgereicht, und deklarative Workflows brechen nun sofort ab, wenn ein Agent einen Fehler zurückgibt, statt stillschweigend fortzufahren. Dies folgt auf die Releases 1.13.0 (Python) und 1.16.0 (.NET) vom 30.07., die wiederverwendbare Foundry-Responses-Session-Stores, prozessweite Feature-Nutzungs-Telemetrie und die stabile Freigabe der GitHub-Copilot-Agent-Integration gebracht hatten.",
+        "sources": [
+          {"label": "GitHub – microsoft/agent-framework Releases", "url": "https://github.com/microsoft/agent-framework/releases"}
+        ]
+      },
+      {
+        "name": "AutoGen python-v0.7.2",
+        "release": "v0.7.2",
+        "date": "07.08.2026",
+        "relevance": "medium",
+        "description": "Entfernt Assistant-bezogene Methoden aus OpenAIAgent, ergänzt eine neue approval_func-Option auf CodeExecutorAgent zur Freigabesteuerung von Code-Ausführung, unterstützt parallele Tool-Calls über eine neue OpenAI-Modellkonfiguration, erweitert die Redis-gestützte Agenten-Memory um JSON- und Markdown-Formate und behebt Serialisierungsfehler im strukturierten Logging.",
+        "sources": [
+          {"label": "GitHub – microsoft/autogen Releases", "url": "https://github.com/microsoft/autogen/releases"}
+        ]
+      },
+      {
+        "name": "CrewAI 1.15.11 / 1.15.12",
+        "release": "1.15.11, 1.15.12",
+        "date": "05.08.2026",
+        "relevance": "medium",
+        "description": "1.15.11 ergänzt Telemetrie für Interception-Hook-Dispatches, verknüpft Open-Source-Projektnutzung über Projekt-IDs mit Enterprise-Konten, führt ein IBM-Db2-Suchtool ein und hebt aiohttp/cryptography zur Behebung von Sicherheitslücken an. 1.15.12 folgt Stunden später mit einem neuen URLReadTool zum Lesen beliebiger URLs, einem vereinheitlichten Scaffolding-Befehl `crewai create <resource>`, App-Metadaten für Platform-Action-Tools sowie diversen Fehlermeldungs-Verbesserungen.",
+        "sources": [
+          {"label": "GitHub – crewAIInc/crewAI Releases", "url": "https://github.com/crewAIInc/crewAI/releases"}
+        ]
+      },
+      {
+        "name": "Semantic Kernel python-1.44.1 / dotnet-1.79.0",
+        "release": "python-1.44.1, dotnet-1.79.0",
+        "date": "06.08.2026",
+        "relevance": "low",
+        "description": "Das Python-Release behebt OpenAPI-Server-Variable-Encoding, konsolidiert Abhängigkeiten, verbessert das Handling von MCP-Tool-Namenskollisionen und dokumentiert das Zertifikats-Thumbprint-Setup für Copilot-Studio-Agenten. Das .NET-Release rollt Dependency-/Sicherheitsupdates (u.a. form-data) ein und behebt CodeQL-Warnungen in HTTP-Utilities – überwiegend Wartungsarbeit statt neuer Funktionalität.",
+        "sources": [
+          {"label": "GitHub – microsoft/semantic-kernel Releases", "url": "https://github.com/microsoft/semantic-kernel/releases"}
+        ]
+      },
+      {
+        "name": "Cursor: Google-Workspace-Plugins für Agenten",
+        "date": "03.08.2026",
+        "relevance": "medium",
+        "description": "Neue, über den Cursor Marketplace oder die Customize-Seite installierbare Google-Workspace-Plugins lassen Cursors Coding-Agenten Google-Drive-Dateien durchsuchen und öffnen/herunterladen, Gmail durchsuchen sowie Mail-Threads entwerfen/labeln/verwalten, und Google-Calendar-Termine lesen/erstellen sowie Verfügbarkeiten prüfen – alles ohne den Editor zu verlassen.",
+        "sources": [
+          {"label": "Cursor Changelog", "url": "https://cursor.com/changelog"}
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Die technisch interessanteste Entwicklung dieser Woche waren zwei virale Claude-Code-„Agent-Skill“-Repos, die GitHubs Weekly-Trending-Chart dominierten, während ein schnelles Rust-PDF-Toolkit und ein kleines Code-Knowledge-Graph-RAG-Tool weiterhin unauffällig, aber aktiv weiterentwickelt wurden.",
+    "items": [
+      {
+        "name": "i-have-adhd (ayghri)",
+        "languageType": "Markdown / Claude-Code-Skill",
+        "stars": "~17.800 (+3.628 diese Woche)",
+        "date": "erstellt ~26.07.2026; letzter Commit 06.08.2026; Trending-Chart-Platzierung am 07.08.2026",
+        "relevance": "high",
+        "description": "Ein 10-Regel-Claude-Code-Skill, der Coding-Agenten dazu zwingt, direkt mit der handlungsrelevanten Antwort zu beginnen, mehrstufige Arbeit zu nummerieren, den Fortschritt über Turns hinweg zu wiederholen und Präambeln/Abschweifungen zu kappen – lose angelehnt an „The Adult ADHD Tool Kit“ von Ramsay &amp; Rief. Sprang innerhalb weniger Tage von unbekannt auf Platz 1–2 des GitHub-Weekly-Trending-Python-Charts; MIT-lizenziert. Eine einzelne Skill-Datei statt einer Code-Bibliothek, aber ein Beispiel für das schnell wachsende Genre paketierter Agenten-Verhaltens-Skills, die Engineering-Teams inzwischen wie Plugins installieren.",
+        "sources": [
+          {"label": "GitHub-Repo", "url": "https://github.com/ayghri/i-have-adhd"},
+          {"label": "GitHub Trending: Python (weekly)", "url": "https://github.com/trending/python?since=weekly"}
+        ]
+      },
+      {
+        "name": "book-to-skill (virgiliojr94)",
+        "languageType": "Python",
+        "stars": "~17.600 (+3.903 diese Woche)",
+        "date": "Repo aktiv seit ~26.06.2026; letzter Commit 05.08.2026; virales Wachstum in der Berichtswoche",
+        "relevance": "medium",
+        "description": "Wandelt ein technisches Buch oder einen Dokumentenordner (PDF, EPUB, DOCX, HTML, Markdown, RTF, MOBI/AZW via Calibre) in einen strukturierten Claude-Code-/GitHub-Copilot-CLI-/Amp-„Skill“ um: eine Kern-Skill-Datei plus Dateien pro Kapitel, Glossar, Design-Pattern-Notizen und Cheatsheets. Beansprucht 24- bis 51-fach weniger Token als das Buch komplett in den Kontext zu laden, gemessen an echten Büchern. MIT-lizenziert, 113 Commits, 1.900 Forks. Der Code ist rund sechs Wochen alt, gewann aber erst in dieser Woche durch virales Trending nennenswerte Sichtbarkeit.",
+        "sources": [
+          {"label": "GitHub-Repo", "url": "https://github.com/virgiliojr94/book-to-skill"},
+          {"label": "GitHub Trending: Python (weekly)", "url": "https://github.com/trending/python?since=weekly"}
+        ]
+      },
+      {
+        "name": "pdf-inspector (firecrawl)",
+        "languageType": "Rust (mit Python-, Node.js- und WASM-Bindings)",
+        "stars": "~12.400",
+        "date": "Version 0.2.6 am 31.07.2026; laufende Fixes bis 06.08.2026",
+        "relevance": "medium",
+        "description": "Schnelle Rust-Bibliothek, die PDF-Seiten (textbasiert/gescannt/bildbasiert/gemischt) in ca. 10–50 ms durch Sampling der Content-Streams klassifiziert und einen Konfidenzwert (0,0–1,0) für OCR-Routing-Entscheidungen liefert; extrahiert anschließend positionsbewussten Text mit Font-/Koordinateninformationen und konvertiert ohne OCR in sauberes Markdown. Erreicht 0,875 auf dem opendataloader-bench-Korpus, verarbeitet 200 PDFs in 0,470 s. Die Commits dieser Woche brachten Versions-Bumps über PyPI/npm/crates.io, Unterstützung für passwortgeschützte PDFs, Korruptions-Recovery sowie Fixes bei der OCR-Klassifikations-Ausrichtung. MIT-lizenziert; bildet die Grundlage von Firecrawls proprietärer Fire-PDF-Engine, ist selbst aber vollständig quelloffen.",
+        "sources": [
+          {"label": "GitHub-Repo", "url": "https://github.com/firecrawl/pdf-inspector"},
+          {"label": "Commit-Historie", "url": "https://github.com/firecrawl/pdf-inspector/commits/main"},
+          {"label": "Firecrawl Blog – Fire-PDF Launch", "url": "https://www.firecrawl.dev/blog/fire-pdf-launch"}
+        ]
+      },
+      {
+        "name": "code-graph-rag (vitali87)",
+        "languageType": "Python",
+        "stars": "~2.500",
+        "date": "aktive Commits 04.–05.08.2026 (v0.0.554 → v0.0.558)",
+        "relevance": "medium",
+        "description": "Parst mehrsprachige Codebasen mit Tree-sitter, baut einen strukturellen Wissensgraphen in Memgraph auf und erlaubt Abfrage, Bearbeitung und Refactoring von Code in natürlicher Sprache über ein MCP-Tool-Interface. Unterstützt 13+ Sprachen (Python, TypeScript, Rust, Go, Java, C/C++, C#, PHP, Lua, Dart). Die schnellen Versions-Bumps dieser Woche (0.0.554 bis 0.0.558 in zwei Tagen) fokussierten auf verbesserte Rust-Unterstützung: Fixes für #[path]-Redirects, Auflösung von Inherent-Impl-Methoden, Re-Export-Ketten und Performance beim Durchklettern des Modulbaums. MIT-lizenziert, mit unter 3.000 Stars weiterhin außerhalb der Nischen-Code-RAG-Community kaum bekannt.",
+        "sources": [
+          {"label": "GitHub-Repo", "url": "https://github.com/vitali87/code-graph-rag"},
+          {"label": "Commit-Historie", "url": "https://github.com/vitali87/code-graph-rag/commits/main"}
+        ]
+      },
+      {
+        "name": "effGen (ctrl-gaurav)",
+        "languageType": "Python",
+        "stars": "~187",
+        "date": "aktive Refactor-/Infra-Commits 05.–07.08.2026; letztes Versions-Release v0.3.2 am 05./06.07.2026",
+        "relevance": "low",
+        "description": "Forschungsbasiertes Framework (arXiv:2602.00887, ICML 2026), das kleine Sprachmodelle zu fähigen autonomen Agenten macht, mit 66 eingebauten Tools, 9 Nutzungs-Presets, 35 Prompt-Templates, multimodalem Input sowie 9 Cloud- und 4 lokalen Backend-Integrationen. Sehr geringe Sternezahl (unter 200) und kein neues Versions-Release diese Woche, aber tägliche Commit-Aktivität am 05.–07.08. (Website-/Docs-Build, CLI-/Engine-Modularisierung) zeigt, dass das Projekt aktiv bleibt; aufgenommen als genuin unbekanntes, forschungsbasiertes Small-LM-Agenten-Framework.",
+        "sources": [
+          {"label": "GitHub-Repo", "url": "https://github.com/ctrl-gaurav/effGen"},
+          {"label": "Commit-Historie", "url": "https://github.com/ctrl-gaurav/effGen/commits/main"},
+          {"label": "Releases", "url": "https://github.com/ctrl-gaurav/effGen/releases"}
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Die vergangene Woche brachte Microsoft Foundrys explizite Neupositionierung als Multi-Modell-Portfolio, konkrete neue Multi-Agenten-Orchestrierungsmuster im Microsoft Agent Framework, neue Zero-Trust-Sicherheitsleitfäden speziell für KI-Agenten sowie ein neues CSP-geführtes Copilot-Trial-Programm, das direkt für partnergeführte SMB-Vertriebsmotionen relevant ist.",
+    "items": [
+      {
+        "title": "Microsoft Foundrys neue Modellwelle: vom einen besten Modell zum Enterprise-Modell-Portfolio",
+        "product": "Microsoft Foundry / Azure AI Foundry",
+        "date": "06.08.2026",
+        "relevance": "high",
+        "description": "Der Microsoft-Foundry-Blog positioniert Foundry als Enterprise-Modell-Portfolio statt als ein einziges bestes Modell und legt eine empfohlene Routing-Matrix vor: GPT-5.6 (inkl. gpt-5.6-sol/terra/luna) als Premium-Reasoning-/Agentic-Lane; Kimi-K2.7-Code (Moonshot AI, aufbauend auf Kimi-K2.6) als coding-fokussiertes, kostenoptimiertes Agentic-Modell mit ca. 30% geringerem Thinking-Token-Verbrauch gegenüber K2.6; Claude als Enterprise-Agentic-/Coding-Vergleichsmodell; DeepSeek-V4-Pro für großskaliges/mehrsprachiges Reasoning; sowie Microsofts eigenen MAI-Stack (MAI-Thinking-1, MAI-Image-2.5/Flash, MAI-Voice-2, MAI-Transcribe-1.5) für Microsoft-first-multimodale Workloads, ergänzt um Mistral (OCR/Dokumenten-KI), Llama und Grok für spezialisierte/portable Anforderungen. Praktische Relevanz für Microsoft-Partner: Dies verschiebt Beratungsarbeit von „ein Modell wählen“ zu „Modell-Routing-Architekturen entwerfen“ – ein konkret neuer Engagement-Typ (Architektur-Review, Kosten-/Latenz-Benchmarking, Routing-Layer-Implementierung), der als eigenständiges Angebot paketiert und in Renewal-/Expansion-Gesprächen mit Foundry-Kunden genutzt werden kann.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog – Microsoft Foundry's New Model Wave", "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/microsoft-foundrys-new-model-wave/4543620"}
+        ]
+      },
+      {
+        "title": "Multi-Agenten-Workflows mit dem Microsoft Agent Framework",
+        "product": "Microsoft Agent Framework / Azure AI Foundry",
+        "date": "05.08.2026",
+        "relevance": "high",
+        "description": "Ein Foundry-Blog-Tutorial stellt fünf Multi-Agenten-Orchestrierungsmuster vor, die jetzt über das Python-SDK des Microsoft Agent Framework (agent_framework.orchestrations) verfügbar sind: Concurrent (parallele unabhängige Agenten, z.B. Voting/Multi-Perspektiv-Ticket-Triage), Sequential (Pipeline-Übergaben, z.B. erst zusammenfassen, dann klassifizieren), Group Chat (moderatorgesteuerte Debatte mit optionalem Human-in-the-Loop, z.B. bereichsübergreifende Feature-Reviews), Handoff (nicht-deterministisches Routing zwischen Spezialagenten, z.B. dynamische Support-Triage/Rückerstattung/Bestellstatus) und Magentic (dynamisch manager-gesteuerte Planung mit Task-/Progress-Ledger für offene Ziele, z.B. autonomes Draft-and-Review). Enthält vollständige Code-Beispiele mit FoundryChatClient und DefaultAzureCredential. Praktische Relevanz für Microsoft-Partner: konkrete, wiederverwendbare Architektur-Blueprints für Kunden-Engagements im Bereich agentische KI (Support-Automatisierung, Review-/Freigabe-Workflows, Content-Pipelines) – reduziert bespoke Design-Aufwand und liefert ein geprüftes Muster-Vokabular für Angebote/PoCs auf Foundry.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog – Exploring Multi-Agent Workflows with Microsoft Agent Framework", "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/exploring-multi-agent-workflows-with-microsoft-agent-framework/4542512"}
+        ]
+      },
+      {
+        "title": "Advance Zero Trust for AI: neue AI- und DevSecOps-Säulen in Microsofts Zero-Trust-Tools",
+        "product": "Microsoft Security / Zero Trust",
+        "date": "04.08.2026",
+        "relevance": "high",
+        "description": "Microsoft ergänzt das Zero Trust Assessment und den Zero Trust Workshop um eine AI-Säule und eine neue DevSecOps-Säule. Die neue DevSecOps-Säule des Workshops umfasst 15 Kontrollgruppen und 91 Aufgaben entlang der gesamten KI-gestützten Entwicklung (Source Code bis Cloud-Deployment), mit Fokus auf Kontrolle von KI-generiertem Code, Allowlisting freigegebener KI-Tools, Schutz sensibler Daten und Absicherung der KI-/ML-Software-Lieferkette; die erweiterte AI-Säule greift auf Microsofts AI-Memory-Framework zurück. Begleitend erschien das E-Book „Zero Trust for AI: Rebuilding security controls for autonomous and agentic systems“. Praktische Relevanz für Microsoft-Partner: ein fertiges, Microsoft-gebrandetes Assessment-Framework, das Partner direkt mit Kunden durchführen können (Sicherheits-Baseline, Executive-Summaries, gestufte Remediation-Roadmaps) – direkt monetarisierbar als Security-Review- oder Zero-Trust-Workshop-Angebot und relevant für jeden Kunden mit Copilot- oder Foundry-Agenten-Einsatz.",
+        "sources": [
+          {"label": "Microsoft Security Blog – Advance Zero Trust for AI", "url": "https://www.microsoft.com/en-us/security/blog/2026/08/04/advance-zero-trust-for-ai-new-tools-and-guidance-to-secure-ai-agents-and-devsecops/"}
+        ]
+      },
+      {
+        "title": "„Copilot in 30“: CSP-geführtes Microsoft-365-Copilot-Business-Trial-Programm startet",
+        "product": "Microsoft 365 Copilot / CSP Partner Program",
+        "date": "05.08.2026 (Blogpost); Programmstart 01.08.2026",
+        "relevance": "high",
+        "description": "Microsofts Partner-Community-Blog bestätigt: Seit dem 01.08.2026 laufen CSP-geführte „Copilot in 30“-Trials – ein zeitlich begrenztes, partnergeführtes Microsoft-365-Copilot-Business-Trial für SMB-Kunden mit unter 300 Mitarbeitenden, das ein 25-Nutzer-/30-Tage-Trial (abwickelbar in CSP New Commerce unter Produkt-ID CFQ7TTC0MM8R, SKU 006Z) mit partnerfertigen Kampagnenmaterialien, Setup-Ressourcen, Adoption-Content und Conversion-Guidance kombiniert; verfügbar bis 31.12.2026. Eingebettet in eine von Microsoft geschätzte 625-Mrd.-USD-SMB-KI-Chance für FY27, unterlegt mit Rekord-CSP-/Programminvestitionen im Microsoft AI Cloud Partner Program. Eine begleitende Copilot-Success-Microskilling-Serie ist seit dem 03.08.2026 verfügbar. Praktische Relevanz für Microsoft-Partner (v.a. CSP-autorisierte): ein direkt umsetzbares, zeitlich begrenztes Go-to-Market-Vehikel – Partner mit Global-Admin-/Billing-Admin-CSP-Rollen sollten das Onboarding von SMB-Kunden in diese konkrete Trial-SKU jetzt prüfen, da Incentive-Strukturen und Enablement-Content an dieses FY27-Programmfenster gebunden sind.",
+        "sources": [
+          {"label": "Microsoft Partner Community – From AI curiosity to Copilot adoption in 30 days", "url": "https://techcommunity.microsoft.com/blog/partnernews/partner-blog--from-ai-curiosity-to-copilot-adoption-in-30-days/4544025"}
+        ]
+      },
+      {
+        "title": "Real-Time Multichannel Speech-to-Text (Public Preview)",
+        "product": "Azure AI Services (Azure Speech, Microsoft Foundry)",
+        "date": "05.08.2026",
+        "relevance": "medium",
+        "description": "Azure Speech launcht Real-Time Multichannel Speech-to-Text in Public Preview: Stereo-Audio (z.B. getrennte Kunden-/Agenten-Kanäle aus Contact-Center-Aufzeichnungen) kann in Echtzeit transkribiert werden, während die Kanalzuordnung erhalten bleibt – ohne den bisherigen Trade-off zwischen parallelen Per-Kanal-Pipelines oder verschmolzenen Kanälen mit Verlust der Sprechertrennung. Benötigt lediglich Speech SDK ab Version 1.51.0 und ein einziges Config-Flag (Speech_EnableMultiChannelProcessing); kein separater Service-Deployment nötig. Praktische Relevanz für Microsoft-Partner: direkt einsetzbar für Contact-Center-Modernisierungs- und Agent-Assist-Engagements – reduziert den Engineering-Aufwand für kanalbewusste Transkriptions-Pipelines, ein häufiger Wunsch in CX-/Dynamics-/Contact-Center-as-a-Service-Projekten.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog – Introducing Real-Time Multichannel Speech-to-Text", "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/introducing-real-time-multichannel-speech-to-text/4541701"}
+        ]
+      },
+      {
+        "title": "GitHub Copilot ergänzt Kimi K3 als wählbares Modell",
+        "product": "GitHub Copilot",
+        "date": "06.08.2026",
+        "relevance": "medium",
+        "description": "GitHub Copilot ergänzt Kimi K3, ein offenes Modell, das GitHub über Fireworks AI hostet, positioniert für Frontier-Niveau-Agentic-Coding zu kosteneffektiven Preisen: 3 USD/Mio. Input-, 15 USD/Mio. Output-, 0,30 USD/Mio. Cached-Input-Token (nutzungsbasierte Abrechnung). Verfügbar über Copilot Pro, Pro+, Max, Business und Enterprise across VS Code, Visual Studio, Copilot CLI, Cloud Agent, github.com, GitHub Mobile, JetBrains, Xcode und Eclipse; für Business/Enterprise standardmäßig deaktiviert und muss per Admin-Policy freigeschaltet werden. Rollout erfolgt schrittweise und wurde während des Rollout-Fensters kurzzeitig wegen eines GitHub-Actions-Incidents pausiert. Praktische Relevanz für Microsoft-Partner: eine günstigere Modelloption für hochvolumige Agentic-Coding-Aufgaben bei Kunden auf GitHub Copilot Business/Enterprise – erwähnenswert für Dev-Teams zur Kostenoptimierung, erfordert aber einen expliziten Admin-Opt-in und eine kurze Evaluierung vor breitem Rollout angesichts der Incident-bedingten Pause.",
+        "sources": [
+          {"label": "GitHub Changelog – Kimi K3 is now available in GitHub Copilot", "url": "https://github.blog/changelog/2026-08-06-kimi-k3-is-now-available-in-github-copilot/"}
+        ]
+      },
+      {
+        "title": "GitHub Copilot Cloud Agent: einstellbares Reasoning-Level",
+        "product": "GitHub Copilot",
+        "date": "03.08.2026",
+        "relevance": "medium",
+        "description": "Der GitHub Copilot Cloud Agent lässt Nutzer nun das Reasoning-Level (für Modelle, die dies unterstützen) beim Delegieren einer Aufgabe festlegen und damit Antwortqualität bei komplexen Problemen gegen Token-/Credit-Verbrauch abwägen; das Level wird zusammen mit dem Modell beim Task-Start gewählt und gilt für den gesamten Lauf. Verfügbar auf allen bezahlten Plänen inkl. Pro, Pro+, Business, Enterprise und Max. Praktische Relevanz für Microsoft-Partner: ein direkter Kostenkontroll-Hebel für Engagements mit dem Copilot Cloud Agent bei autonomen Coding-Aufgaben – Partner sollten Reasoning-Level-Guidance in Nutzungs-/Kosten-Governance-Playbooks für Copilot-Business-/Enterprise-Rollouts aufnehmen.",
+        "sources": [
+          {"label": "GitHub Changelog – Customize the reasoning level for Copilot cloud agent", "url": "https://github.blog/changelog/2026-08-03-customize-the-reasoning-level-for-copilot-cloud-agent/"}
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Die Woche war geprägt von konkurrierenden Agentic-Feature-Launches der großen Tech-Konzerne (Metas Coding-Agent Muse Code, Google Maps' transaktionsfähiges Ask Maps, OpenAIs unbegrenzter kostenloser ChatGPT-Tarif) sowie starker Funding-Aktivität im Enterprise-KI-Bereich, darunter Omilias 67-Mio.-USD-Runde für seine agentische Customer-Experience-Plattform und mehrere hundert Millionen USD schwere KI-Infrastrukturdeals (Anthropic-Volta, Mirendil-Google Cloud).",
+    "items": [
+      {
+        "name": "Meta launcht Muse Code, einen terminalbasierten Coding-Agenten für große Codebasen",
+        "date": "05.08.2026",
+        "relevance": "high",
+        "description": "Meta veröffentlichte Muse Code, einen Beta-Terminal-Coding-Agenten auf Basis des Muse-Spark-Modells, konzipiert für „vollständige Softwareentwicklungsaufgaben über große Repos hinweg“ – Planen von Änderungen, Codeschreiben, Testausführung und Validierung, so CEO Mark Zuckerberg. Der Agent kann mehrere Sub-Agenten erzeugen, die parallel auf isolierten Worktrees arbeiten (demonstriert am gleichzeitigen Bau von sechs Spielfeatures), ohne die Arbeitskopie des Nutzers zu berühren; Installation über einen einzigen Befehl. Metas KI-Chef Alexandr Wang positionierte den Agenten als kostengünstigere Alternative zu OpenAIs Codex und Anthropics Claude Code für viele Workflows – ein direkter neuer Wettbewerber im Markt der Coding-Agenten, den IT-Beratungen aktuell evaluieren.",
+        "sources": [
+          {"label": "TechCrunch – Meta launches Muse Code, an AI agent for large code bases", "url": "https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/"}
+        ]
+      },
+      {
+        "name": "Google Maps' Ask Maps ergänzt agentische Essensbestellung, Hotelbuchung und Event-Suche",
+        "date": "06.08.2026",
+        "relevance": "high",
+        "description": "Googles offizieller Blog kündigt an, dass Ask Maps nun Transaktionen ausführen kann statt nur Fragen zu beantworten: Nutzer können Essen bestellen (Rollout via Square und Toast, Uber Eats folgt), Hotels finden und anhand von Echtzeit-Preisen/Verfügbarkeit vergleichen sowie lokale Events mit direkten Ticket-Links anzeigen lassen. Eine neue, optionale „Personal Intelligence“-Ebene greift auf Gmail (bald auch Kalender) zurück, um Vorschläge zu personalisieren. Die transaktionalen Features (Essen, Hotels, Events) starten nur in den USA; das Live-Transit-Widget und Personal Intelligence rollen breiter nach Australien, Brasilien, Kanada, Indonesien, Japan und Mexiko aus, zusätzlich zu den 150+ Ländern, in denen Ask Maps bereits auf Englisch läuft.",
+        "sources": [
+          {"label": "Google Blog – Order food in Ask Maps", "url": "https://blog.google/products-and-platforms/products/maps/order-food-in-ask-maps/"},
+          {"label": "TechCrunch-Berichterstattung", "url": "https://techcrunch.com/2026/08/06/google-maps-adds-agentic-features-including-food-ordering-and-hotel-bookings/"}
+        ]
+      },
+      {
+        "name": "OpenAI schaltet für kostenlose ChatGPT-Nutzer unbegrenzte Text-Chats auf GPT-5.6 Luna frei",
+        "date": "06.08.2026",
+        "relevance": "high",
+        "description": "GPT-5.6 Luna wird Standardmodell für Free- und Go-Tarife (löst GPT-5.5 ab); OpenAIs interne Auswertung meldet 62% weniger Faktenfehler gegenüber dem vorherigen Standardmodell. Free-/Go-Nutzer erhalten zudem einen neuen „Think“-Button für aufwendigere Antworten bei komplexen Anfragen. Luna wurde diese Woche Standard, unbegrenzte Text-Chats und der Think-Button folgen ab der Woche des 10.08.2026; Limits bei Datei-Uploads, Bildern und anderen Tools bleiben bestehen. Plus-/Pro-Abonnenten erhielten zeitgleich ein aktualisiertes GPT-5.6 Sol mit „Thinking Slider“; ChatGPT bedient laut OpenAI inzwischen rund 1 Mrd. wöchentliche Nutzer.",
+        "sources": [
+          {"label": "TechCrunch – ChatGPT brings unlimited text chats to free users", "url": "https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/"}
+        ]
+      },
+      {
+        "name": "Omilia sammelt 67 Mio. USD Series B zur Skalierung seiner agentischen Customer-Experience-Plattform",
+        "date": "06.08.2026",
+        "relevance": "high",
+        "description": "Das im zypriotischen Larnaca ansässige Omilia sammelte eine 67-Mio.-USD-Series-B unter Führung von Expedition Growth Capital ein – die erste Finanzierungsrunde seit einer 20-Mio.-USD-Runde 2020 – nachdem der jährliche wiederkehrende Umsatz auf das 10-Fache (60 Mio. USD) gewachsen war. Die selbstlernende agentische CX-Plattform ist bereits im Enterprise-Maßstab im Einsatz, u.a. bei einer US-Großbank mit über 1 Mio. Kundenanrufen täglich und einem multinationalen Versicherer mit einem Agent-Assist-Programm für 600.000+ Anrufe pro Tag; weitere Kunden sind Capital One, Discover, RBC, Taco Bell, DWP und PSEG. Das Funding finanziert Omilias erstes US-Büro sowie den Ausbau von Sales-/Produktteams – direkt relevant für Modernisierungs-Engagements im Enterprise-Contact-Center-Bereich.",
+        "sources": [
+          {"label": "TechCrunch – Omilia raises $67M to scale its customer support platform", "url": "https://techcrunch.com/2026/08/06/omilia-raises-67m-to-scale-its-customer-support-platform/"}
+        ]
+      },
+      {
+        "name": "Anthropic schließt 10-Mrd.-USD-Compute-Deal mit KI-Cloud-Startup Volta über sechs Jahre",
+        "date": "04.08.2026",
+        "relevance": "medium",
+        "description": "Anthropic unterzeichnete eine 10-Mrd.-USD-Vereinbarung über sechs Jahre mit Volta, einem im Januar 2026 von ehemaligen Brookfield-Asset-Management-Führungskräften gegründeten Compute-Leasing-Startup, das zuletzt 300 Mio. USD bei einer Bewertung von 2,4 Mrd. USD einsammelte. Volta baut zusammen mit dem Krypto-Miner Bitdeer ein 133-Megawatt-Rechenzentrum in Norwegen mit Nvidias Vera-Rubin-Systemen der nächsten Generation, um Anthropic Kapazität bereitzustellen. Der Deal folgt auf Anthropics kürzliche Compute-Vereinbarungen mit SpaceX und Amazon im Wettlauf um Trainings-/Inferenzkapazität gegen OpenAI.",
+        "sources": [
+          {"label": "TechCrunch – Anthropic signs $10B deal with AI cloud startup Volta", "url": "https://techcrunch.com/2026/08/04/anthropic-signs-10-billion-deal-with-ai-cloud-startup-volta/"}
+        ]
+      },
+      {
+        "name": "Naive sammelt 28,5 Mio. USD Series A zur Automatisierung des Back-Office für KI-Agenten-geführte Unternehmen",
+        "date": "06.08.2026",
+        "relevance": "medium",
+        "description": "Das Palo-Alto-Startup Naive sammelte eine 28,5-Mio.-USD-Series-A unter Führung von Nexus Venture Partners ein (mit Y Combinator, Zetta, Liquid 2 und Angel-Investoren wie Gokul Rajaram und Ex-HubSpot-COO JD Sherman), womit sich die Gesamtfinanzierung auf ca. 32 Mio. USD beläuft. Naive lässt einen Coding-Agenten eine einzige Config-Datei schreiben und stellt darüber den kompletten „Betriebsstack“ eines Unternehmens per einer API bereit – LLC-Gründung, Zahlungskarten, E-Mail-Postfach, Telefonnummer sowie Integrationen wie Stripe/QuickBooks. Gegründet von den 20-jährigen Berkeley-Aussteigern Sean Dorje und Dennis Zax, hat das Unternehmen den annualisierten Umsatz binnen weniger Monate auf niedrige zweistellige Millionenbeträge verzehnfacht und über 30.000 Entwickler-Kunden gewonnen.",
+        "sources": [
+          {"label": "TechCrunch – Naive raises $28.5M to automate the grunt work of setting up and running a company", "url": "https://techcrunch.com/2026/08/06/naive-raises-28-5m-to-automate-the-grunt-work-of-setting-up-and-running-a-company/"}
+        ]
+      },
+      {
+        "name": "Mirendil schließt über 100 Mio. USD schweren Google-Cloud-Deal zur Skalierung selbstverbessernder KI-Forschung",
+        "date": "06.08.2026",
+        "relevance": "medium",
+        "description": "Mirendil, ein von Ex-Anthropic-Forschenden gegründetes KI-Lab in San Francisco (Ende Juni 2026 mit 200 Mio. USD Seed-Funding bei 1 Mrd. USD Bewertung), unterzeichnete eine mehrjährige Google-Cloud-Partnerschaft im Wert von über 100 Mio. USD (etwa die Hälfte des Seed-Kapitals) für Zugriff auf Google TPUs, Nvidia-GPUs und Managed-Training-Cluster. CEO Behnam Neyshabur sagt, der Deal unterstütze Mirendils Arbeit an rekursiver Selbstverbesserung – KI-Systeme, die ihre eigenen Fähigkeiten iterativ verbessern – mit dem Ziel, langfristig Forschungsarbeit im Umfang eines gesamten Frontier-KI-Labs zu automatisieren.",
+        "sources": [
+          {"label": "TechCrunch – Exclusive: Mirendil inks $100M+ Google Cloud deal to scale self-improving AI", "url": "https://techcrunch.com/2026/08/06/exclusive-mirendil-inks-100m-google-cloud-deal-to-scale-self-improving-ai/"}
+        ]
+      },
+      {
+        "name": "Notion ergänzt Custom-Agent-Trigger, die nach Abschluss von AI Meeting Notes feuern",
+        "date": "31.07.2026",
+        "relevance": "medium",
+        "description": "Laut Notions offiziellem Release-Log können Custom Agents nun automatisch direkt im Anschluss an eine AI-Meeting-Note-Zusammenfassung ausgeführt werden – etwa um Projekt-Tracker zu aktualisieren, Recaps an Slack/E-Mail zu senden oder Meeting-Feedback ohne manuelle Übergabe in Engineering-Tickets umzuwandeln. Aktivierung über die Custom-Agent-Einstellungen durch Hinzufügen eines „Meeting note summarized“-Triggers – ein kleiner, aber konkreter Schritt Richtung verketteter, autonomer Post-Meeting-Workflows in einem weitverbreiteten Produktivitätstool.",
+        "sources": [
+          {"label": "Notion Releases", "url": "https://www.notion.com/releases"}
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "Die EU-AI-Act-Transparenzpflichten und die GPAI-Durchsetzung traten am 02.08. in Kraft, während Hochrisiko-Fristen per Digital Omnibus verschoben wurden; das Weiße Haus finalisierte ein freiwilliges CAISI/NIST-Cybersicherheits-Testframework, das offene Gewichte ausklammert; Microsofts 10-K offenbarte 24,1 Mrd. USD OpenAI-verknüpften Umsatz; Sequoia verpflichtete 10 Mrd. USD für KI-plus-Reindustrialisierung; und ein neues arXiv-Papier benennt, warum LLMs bei tabellarischer Vorhersage scheitern.",
+    "items": [
+      {
+        "title": "EU AI Act: Kommission beginnt Durchsetzung, neue Transparenzpflichten treten am 2. August in Kraft",
+        "description": "Laut Pressemitteilung der Europäischen Kommission vom 31.07.2026 begannen AI Office und nationale Behörden ab dem 02.08.2026 aktiv mit der Durchsetzung des AI Act. Neue Transparenzpflichten gelten seither: Interaktive KI-Systeme (Chatbots) müssen offenlegen, dass Nutzer mit KI interagieren, Deepfakes müssen gekennzeichnet werden, und KI-generierte/-veränderte Inhalte müssen maschinenlesbare Markierungen zur Erkennbarkeit tragen. Anbieter von General-Purpose-KI (GPAI) müssen Trainings-/Modellinformationen für Behörden und nachgelagerte Anbieter dokumentieren sowie eine Urheberrechts-Policy plus eine hinreichend detaillierte Zusammenfassung der Trainingsinhalte veröffentlichen. Über 180 Organisationen haben den zugehörigen Code of Practice zur Transparenz KI-generierter Inhalte unterzeichnet. Separat verschoben die (seit 27.07.2026 wirksamen) AI-Omnibus-Änderungen strengere Hochrisiko-Pflichten: Eigenständige Hochrisiko-Systeme (Recruiting, Kreditscoring, Bildung, Strafverfolgung, Grenzkontrolle, kritische Infrastruktur) müssen nun erst bis 02.12.2027 (statt 02.08.2026) compliant sein, in regulierte Produkte eingebettete KI erst bis 02.08.2028.",
+        "sources": [
+          {"label": "European Commission – Commission starts enforcing AI Act rules and new transparency requirements", "url": "https://digital-strategy.ec.europa.eu/en/news/commission-starts-enforcing-ai-act-rules-and-new-transparency-requirements-2-august"}
+        ]
+      },
+      {
+        "title": "Weißes Haus finalisiert freiwilliges KI-Cybersicherheits-Testframework, klammert offene Gewichte aus",
+        "description": "Am 04.08.2026 briefte das Weiße Haus Führungskräfte der KI-Branche über sein finalisiertes freiwilliges KI-Sicherheits-/Testframework, verwaltet vom NIST Center for AI Standards and Innovation (CAISI). Das Framework verlangt vorab-Cybersicherheitstests nur von Entwicklern geschlossener, proprietärer Frontier-Modelle, die bei Hacking-/Cyber-Evaluierungen an der Frontier punkten, mit einem 30-tägigen freiwilligen Early-Access-Review-Fenster; es schafft ausdrücklich keine Lizenzierungs- oder Vorabgenehmigungspflicht, Teilnahme ist freiwillig. Offene-Gewichte-Modelle sind vollständig von der Prüfung ausgenommen, auch wenn Beamte erklären, dass sie später bei wachsender Leistungsfähigkeit geprüft werden könnten. Die Regierung begründet die Ausnahme mit der Unterstützung wettbewerbsfähiger, US-geführter offener Alternativen zu chinesischen Modellen.",
+        "sources": [
+          {"label": "Tech Brew – The White House sets open weights free", "url": "https://www.techbrew.com/stories/white-house-ai-framework-open-weights-exclusion"}
+        ]
+      },
+      {
+        "title": "Microsofts FY26-10-K offenbart 24,1 Mrd. USD OpenAI-verknüpften Umsatz und 13 Mrd. USD Investitionszusage",
+        "description": "Aus Microsofts am 06.08.2026 berichtetem Form-10-K für das am 30.06.2026 endende Geschäftsjahr geht erstmals das finanzielle Ausmaß der OpenAI-Beziehung hervor: 24,1 Mrd. USD kommerzieller Umsatz (inkl. Revenue-Sharing), 6 Mrd. USD offene Forderungen gegenüber OpenAI zum 30.06.2026 sowie eine Gesamtinvestitionszusage von rund 13 Mrd. USD, wovon zu diesem Stichtag 11,9 Mrd. USD tatsächlich ausgezahlt waren. Der Bericht zeigt zudem, dass Microsofts Eigenkapitalanteil an OpenAI nach der April-2026-Umstrukturierung der Partnerschaft auf 27% gesunken ist (von 32,5%); Analysten schätzen, dass OpenAI-verknüpfte Umsätze rund 70% von Microsofts tatsächlichem KI-Umsatz und ca. 7% des gesamten FY26-Umsatzes ausmachen.",
+        "sources": [
+          {"label": "Techzine – Microsoft earned 24 billion from OpenAI, but it's unclear exactly how", "url": "https://www.techzine.eu/news/infrastructure/143461/microsoft-earned-24-billion-from-openai-but-its-unclear-exactly-how/"}
+        ]
+      },
+      {
+        "title": "Sequoia Capital verpflichtet 10 Mrd. USD für KI und physische „Reindustrialisierung“",
+        "description": "Am 05./06.08.2026 kündigte Sequoia Capital eine 10-Mrd.-USD-Zusage an – die größte Investition in der 54-jährigen Firmengeschichte – gezielt auf KI in Verbindung mit Fertigung, Verteidigung, Robotik, Energie und Lieferketten-Reshoring („Reindustrialisierung“), unter der neuen Firmenführung von Alfred Lin und Pat Grady. Die These: KI-Modelle sind nur so wertvoll wie die physische Infrastruktur (Fabriken, Kraftwerke, Maschinen), auf die sie einwirken können – u.a. autonomer Kritische-Mineralien-Abbau und Pentagon-Robotik-Verträge. Der Schritt folgt auf Sequoias früheren 7-Mrd.-USD-KI-Fonds und eine deutlich erhöhte Anthropic-Beteiligung – eine Kurswende für eine Firma, die zuvor eher OpenAI und xAI favorisierte.",
+        "sources": [
+          {"label": "The Next Web – Sequoia Capital is putting $10bn behind AI and 'reindustrialization'", "url": "https://thenextweb.com/news/sequoia-capital-is-putting-10bn-behind-ai-and-reindustrialization"}
+        ]
+      },
+      {
+        "title": "Neues arXiv-Papier benennt, warum LLMs bei tabellarischer Vorhersage scheitern",
+        "description": "Ein am 03.08.2026 auf arXiv eingereichtes Papier von Marta Garnelo und Wojciech M. Czarnecki („Why Large Language Models Fail at Tabular Prediction“) testet fünf Hypothesen dafür, warum LLMs bei tabellarischen Daten trotz Stärken in anderen Bereichen hinter klassischen Methoden zurückbleiben. Anhand eines einzelnen Generierungsdurchlaufs über Prompts mit vollständigen Trainings-/Testdaten identifizieren die Autoren Dimensionalität als entscheidenden Faktor: Das LLM war die einzige von neun getesteten Methoden, deren Genauigkeit mit steigender Dimensionalität abnahm, während klassische Baselines konstant blieben oder sich verbesserten. In zwei Dimensionen stimmten die LLM-Vorhersagen zu bis zu 91,6% Grid-Übereinstimmung mit distanzbasierten klassischen Methoden überein, ließen sich in höheren Dimensionen aber von keinem der 252 konfigurierten klassischen Modelle reproduzieren. Die Autoren betonen, dass LLMs bei tabellarischen Aufgaben durchgängig gegen „fünfzig Jahre alte Baselines“ verlieren.",
+        "sources": [
+          {"label": "arXiv:2608.02412", "url": "https://arxiv.org/abs/2608.02412"}
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Google ordnete seine KI-Führung neu (Demis Hassabis wird Chairman/Chief Scientist), Anthropic stellte mit Tino Cuéllar seinen ersten Chief Global Affairs Officer ein, OpenAI bestätigte die bevorstehende Abschaltung seines ChatGPT-Atlas-Browsers, und Yellow.ai vereinbarte einen Börsengang über eine 550-Mio.-USD-SPAC-Fusion.",
+    "items": [
+      {
+        "company": "Google DeepMind / Alphabet",
+        "description": "Am 05.08. gaben Sundar Pichai und Demis Hassabis bekannt, dass Hassabis sich vom operativen Tagesgeschäft bei DeepMind zurückzieht und Chairman von Google DeepMind sowie Chief Scientist von Alphabet wird (bei fortgesetzter Leitung von Isomorphic Labs); DeepMind-CTO Koray Kavukcuoglu wird SVP von Google DeepMind und übernimmt die Gemini-Modellentwicklung, direkt berichtend an Pichai – zeitgleich mit dem Abgang von 27-Jahre-Google-Veteran Jeff Dean, der die unabhängige Forschungsinitiative Discovery Loop startet.",
+        "sources": [{"label": "Google Blog – The next chapter of our AI momentum", "url": "https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/"}]
+      },
+      {
+        "company": "Anthropic",
+        "description": "Am 04.08. benannte Anthropic Mariano-Florentino (Tino) Cuéllar, ehemaliger Richter am California Supreme Court und Ex-Präsident der Carnegie Endowment for International Peace, als ersten Chief Global Affairs Officer für globale Policy- und Regierungsbeziehungen – inmitten anhaltender Reibungen mit der Trump-Regierung wegen Exportkontrollen und Pentagon-Beschränkungen.",
+        "sources": [{"label": "Anthropic – Tino Cuellar joins Anthropic", "url": "https://www.anthropic.com/news/tino-cuellar"}]
+      },
+      {
+        "company": "OpenAI",
+        "description": "OpenAI bestätigte diese Woche, dass der ChatGPT-Atlas-Browser (gestartet Oktober 2025) am 09.08.2026 abgeschaltet wird – keine ein Jahr nach Launch; die agentischen Browsing-Features wandern in eine neue ChatGPT-Chrome-Extension, die ChatGPT-Desktop-App und einen Cloud-basierten Remote-Browser, Nutzer müssen Lesezeichen vor der Abschaltung manuell exportieren, da diese nicht automatisch übertragen werden.",
+        "sources": [{"label": "9to5Mac – OpenAI explains what happens when ChatGPT Atlas shuts down", "url": "https://9to5mac.com/2026/08/04/openai-explains-what-will-happen-when-chatgpt-atlas-shuts-down-this-weekend/"}]
+      },
+      {
+        "company": "Yellow.ai",
+        "description": "Am 03.08. kündigte der Enterprise-Agentic-KI-Anbieter Yellow.ai eine verbindliche Vereinbarung an, per ca. 550-Mio.-USD-Fusion mit der Bluerock Acquisition Corp. (Nasdaq: BLRK) an die Börse zu gehen (künftiges Kürzel „YAI“); der Deal umfasst eine 30-Mio.-USD-PIPE-Finanzierung und soll über 200 Mio. USD Bruttoerlös einbringen, gegenüber Yellow.ais ungeprüftem Vorjahresumsatz von ca. 34 Mio. USD und über 650 Enterprise-Kunden.",
+        "sources": [{"label": "PR Newswire – Yellow.ai to Go Public via $550 Million Merger", "url": "https://www.prnewswire.com/news-releases/yellowai-a-global-leader-in-enterprise-agentic-ai-to-go-public-via-550-million-merger-with-bluerock-acquisition-corp-nasdaq-blrk-302840634.html"}]
+      }
+    ]
+  }
+}
