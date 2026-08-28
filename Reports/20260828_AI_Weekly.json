@@ -1,0 +1,462 @@
+{
+  "date": "2026-08-28",
+  "period": "2026-08-21/2026-08-28",
+  "executive_summary": {
+    "intro": "Die Woche vom 21. bis 28. August 2026 stand im Zeichen aggressiver chinesischer Modell-Konkurrenz gegen Anthropics Flaggschiff-Modelle, einer beispiellosen Compute-Investitionswelle rund um Anthropics bevorstehenden Börsengang sowie umfangreicher Microsoft-Copilot-Governance-Updates für Partner.",
+    "highlights": [
+      "Modelle: Z.ai, Alibaba und DeepSeek veröffentlichen binnen weniger Tage drei neue multimodale bzw. agentische Modelle (GLM-5.3-Flash, Qwen3.8-Flash-Next, DeepSeek-V4-Flash-Vision-Exp), die explizit gegen Anthropics Opus 4.6/4.8 positioniert werden.",
+      "Azure/Microsoft: GitHub Copilot erhält eine globale Modell-Policy (GA), Integrationen in Teams und Slack sowie einen Dataverse-MCP-Server, während der Azure-Blog vier konkrete Hebel zur Kostenoptimierung von Foundry-Agents vorstellt.",
+      "Compute & M&A: Anthropic schließt einen 45-Mrd.-USD-Compute-Deal mit Nscale und lässt Broadcom über 60 Mrd. USD Fremdkapital für kundenspezifische Chips organisieren, während Nvidia ein Rekordquartal meldet und Berichten zufolge kurz vor der Übernahme von Hugging Face für rund 12,9 Mrd. USD steht.",
+      "Business: OpenAI verliert mit dem Data-Center-Chef eine weitere Führungskraft vor dem geplanten Börsengang, stellt die Assistants API endgültig ab, und Amazon beendet nach 21 Jahren den Crowdworking-Dienst Mechanical Turk.",
+      "Frameworks/MCP: Das Model-Context-Protocol-Projekt veröffentlicht eine neue Roadmap mit Fokus auf agentische Messaging-Primitiven, LangChain integriert MCP-Tooling nativ ins Kernpaket, und Anthropic stellt mit dem Model Hardware Standard eine offene Spezifikation für physische Labor-Agenten vor."
+    ]
+  },
+  "models": {
+    "summary": "Chinesische Anbieter dominierten die Modell-News der Woche mit drei neuen multimodalen bzw. agentischen Releases, die sich explizit an Anthropics Opus-Modellen messen, während OpenAI vor allem bei Preisen und Tooling nachzog.",
+    "items": [
+      {
+        "name": "GLM-5.3-Flash",
+        "provider": "Z.ai (Zhipu)",
+        "type": "Open-Weight-LLM (multimodal, MoE)",
+        "context": "1.000.000 Token Kontextfenster",
+        "highlight": "Am 26./27.08.2026 veröffentlicht: 320 Mrd. Parameter gesamt, 18 Mrd. aktiviert (320B-A18B) und erstes nativ multimodales Modell der GLM-5-Serie (Text, Bild, Video, Dateien). Hybridarchitektur aus Sparse- und Linear-Attention mit nur 45 statt 92 Layern wie in GLM-4.5; Attention-Berechnung um Faktor 3,0 und KV-Cache um Faktor 4,44 reduziert gegenüber GLM-5.3. Erzielt 57 Punkte im Artificial Analysis Intelligence Index v4.1.1 (GLM-5.3: 60) bei nur einem Bruchteil der Kosten (ca. 0,045-0,09 USD pro Task vs. 0,68 USD bei GLM-5.3). Auf Z.ai Code Bench v1.0 (max effort) erreicht es 29,0 Punkte, praktisch gleichauf mit Claude Opus 4.8 (29,5). API-Preise: 0,15 USD/Mio. Input-, 0,50 USD/Mio. Output-Token; Weights unter MIT-Lizenz auf Hugging Face. War zuvor unter dem Codenamen 'Ox Alpha' anonym auf OpenRouter/OpenCode getestet worden und lief dort zum meistgenutzten Modell der Woche auf, bevor Z.ai die Identität enthüllte. Läuft zudem auf chinesischen KI-Chips statt Nvidia-GPUs über einen eigenen SGLang-basierten Serving-Stack.",
+        "relevance": "high",
+        "sources": [
+          {"label": "Z.ai Docs - GLM-5.3-Flash Overview", "url": "https://docs.z.ai/guides/vlm/glm-5.3-flash"},
+          {"label": "Z.ai (X/Twitter) Ankündigung", "url": "https://x.com/Zai_org/status/2092616204787626030"},
+          {"label": "The Decoder", "url": "https://the-decoder.com/the-chinese-ai-model-glm-5-3-flash-runs-without-nvidia-and-costs-a-fraction-of-what-the-competition-does/"}
+        ]
+      },
+      {
+        "name": "Qwen3.8-Flash-Next",
+        "provider": "Alibaba (Qwen Team)",
+        "type": "Open-Weight-LLM (multimodal MoE, Architektur-Preview)",
+        "context": "nativ 262.144 Token, per YaRN erweiterbar auf 1 Mio. Token",
+        "highlight": "Am 26.08.2026 veröffentlicht als früher, offener Ausblick auf die kommende Qwen4-Architektur. Mixture-of-Experts-Modell mit 125 Mrd. Parametern (davon nur 6 Mrd. pro Token aktiv) plus 51 Mrd. für N-Gram-Embeddings; überarbeitete Attention-, Residual-, Embedding- und Optimierungs-Bausteine für bessere Skalierbarkeit. Laut Alibaba nur rund ein Neuntel der Trainingskosten von Qwen3.7-Plus. Auf mehreren Benchmarks vor Claude Opus 4.6 Max: SWE-bench Pro 62,5 vs. 53,4, JobBench 55,7 vs. 36,6, IFBench 81,3 vs. 62,5, GPQA Diamond 91,7 vs. 91,3. Bei 1-Mio.-Token-Kontext soll das Modell 7,6x schnelleren Prefill und 4,9x schnelleres Decoding liefern. Gewichte offen über Hugging Face/ModelScope/GitHub verfügbar; die geplante API-Version soll ca. 0,16 USD/Mio. Input- und 0,47 USD/Mio. Output-Token kosten.",
+        "relevance": "high",
+        "sources": [
+          {"label": "MarkTechPost", "url": "https://www.marktechpost.com/2026/08/26/alibabas-qwen-team-releases-qwen3-8-flash-next-a-125b-multimodal-moe-with-6b-active-parameters-previewing-the-qwen4-architecture/"},
+          {"label": "Qwen (X/Twitter) Ankündigung", "url": "https://x.com/Alibaba_Qwen/status/2092591393424515114"},
+          {"label": "GitHub - QwenLM/Qwen3.8-Flash-Next", "url": "https://github.com/QwenLM/Qwen3.8-Flash-Next"}
+        ]
+      },
+      {
+        "name": "DeepSeek-V4-Flash-Vision-Exp",
+        "provider": "DeepSeek",
+        "type": "Multimodales Modell (experimentell, Vision)",
+        "highlight": "Am 21.08.2026 über die DeepSeek API veröffentlicht (Modell-ID deepseek-v4-flash-vision-exp) - erste multimodale Erweiterung der aktuellen V4-Flash-Reihe: verarbeitet Bilder (JPEG, PNG, GIF, WebP) zusätzlich zu Text über Chat Completions, Messages und Responses, Bildzufuhr per Base64, URL oder Files API. Laut DeepSeek liegt die reine Text-Performance (Agenten, Reasoning, Weltwissen) gleichauf mit dem regulären V4-Flash, während bei multimodalen Agenten-Benchmarks ein deutlicher Sprung erzielt wird, der die Fähigkeiten nahe an Anthropics Opus 4.8 heranführt - laut Bloomberg-Berichten schlägt das Modell Opus 4.8 in 3 von 11 getesteten Benchmarks. Abrechnung: Bilder werden mit bis zu 384 Token pro Bild zu regulären V4-Flash-Preisen verrechnet, Dateizugriff über die Files API ist kostenlos.",
+        "relevance": "high",
+        "sources": [
+          {"label": "DeepSeek API Docs - offizielle Release-News", "url": "https://api-docs.deepseek.com/news/news260821/"},
+          {"label": "DeepSeek (X/Twitter) Ankündigung", "url": "https://x.com/deepseek_ai/status/2090730032574631962"},
+          {"label": "Bloomberg via The Star", "url": "https://www.thestar.com.my/tech/tech-news/2026/08/23/deepseek-unveils-test-model-to-rival-anthropics-opus-48"}
+        ]
+      },
+      {
+        "name": "GPT-5.6 (Sol/Terra/Luna) Preissenkung & Kiro-Integration",
+        "provider": "OpenAI",
+        "type": "Preis-/Produkt-Update (kein neues Modell)",
+        "highlight": "Am 21.08.2026 senkte OpenAI für drei Monate (bis mind. 21.11.2026) die API-/Credit-Preise der GPT-5.6-Familie: Sol Input 5,00 auf 4,00 USD/Mio. Token, Output 30,00 auf 20,00 USD/Mio. Token; Terra 2,50 auf 2,00 bzw. 15,00 auf 12,00 USD/Mio.; Luna 1,00 auf 0,20 bzw. 6,00 auf 1,20 USD/Mio. Token. Betrifft Fast Mode, Long-Context-Requests, Batch/Flex sowie ChatGPT Work und Codex-Credits, nicht jedoch Pro/Plus/Business-Abo-Nutzung. Parallel wurde die gesamte GPT-5.6-Modellfamilie in den AI-Coding-Agenten Kiro integriert für Planung, Entwicklung, Review und Tests.",
+        "relevance": "medium",
+        "sources": [
+          {"label": "OpenAI - GPT-5.6 in Kiro", "url": "https://openai.com/index/gpt-5-6-in-kiro/"},
+          {"label": "OpenAI Community", "url": "https://community.openai.com/t/20-price-reduction-for-gpt-5-6-sol-api-codex-credits-and-chatgpt-work/1391726"}
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Das Model Context Protocol stand mit einer neuen Roadmap und nativer LangChain-Integration im Zentrum der Woche, ergänzt um Punkt-Releases bei DSPy, CrewAI und Cursor sowie API-Erweiterungen bei Anthropic und OpenAI.",
+    "items": [
+      {
+        "name": "LangChain - natives MCP-Tooling in Kernpaket",
+        "release": "langchain==1.4.0a1 (Alpha), langchain-core==1.6.1",
+        "date": "2026-08-27",
+        "relevance": "high",
+        "description": "LangChain hat mit dem Alpha-Release 1.4.0a1 die MCP-Tool-Konvertierung direkt in das Kernpaket portiert und einen neuen Namespace langchain.mcp mit der Klasse MCPAdapter eingeführt, der den Aufbau von Multi-Server-MCP-Konfigurationen vereinfacht und Fehlerbehandlung für nicht unterstützte Content-Typen verbessert. Voraussetzung ist FastMCP 4.0.0b4 für das MCP-Extra. Parallel erschienen am selben Tag langchain-core 1.6.1 (Streaming-Fixes, JSON-Serialisierung für StructuredTool) und langchain==1.3.18 (Bugfixes bei PIIMiddleware und Streaming-Content-Indexing).",
+        "sources": [
+          {"label": "LangChain GitHub Releases", "url": "https://github.com/langchain-ai/langchain/releases"}
+        ]
+      },
+      {
+        "name": "Model Context Protocol - neue Roadmap",
+        "release": "Roadmap-Update",
+        "date": "2026-08-22",
+        "relevance": "high",
+        "description": "Das MCP-Projekt veröffentlichte eine aktualisierte Roadmap, die den Fortschritt seit März 2026 zusammenfasst und auf der Spezifikation vom 28.07.2026 aufbaut (Wegfall von Protokoll-Sessions/Handshakes zugunsten zustandsloser Server, cachebare List-Ergebnisse, Verlagerung von Tasks in eine offizielle Extension, Multi-Round-Trip-Requests statt serverseitig initiierter Requests, Issuer-Validierung und Client-ID-Metadata-Dokumente für Auth). Fünf Prioritäten für die Zukunft: agentische Messaging-Primitiven (serverseitige Events, Webhooks), einheitlicher HTTP-nativer Transport, Agent-Identität/Enterprise-Security (Workload Identity Federation, DPoP), standardisierte Tool-Calling-Primitiven sowie verbesserte SDK-Developer-Experience.",
+        "sources": [
+          {"label": "MCP Blog - The New MCP Roadmap", "url": "https://blog.modelcontextprotocol.io/posts/mcp-roadmap/"}
+        ]
+      },
+      {
+        "name": "OpenAI Codex - mcp-server-Befehl deprecated",
+        "release": "Deprecation",
+        "date": "2026-08-24",
+        "relevance": "medium",
+        "description": "OpenAI hat den Befehl 'codex mcp-server' als deprecated markiert; Nutzer sollen stattdessen den neuen Codex App Server verwenden. Beim Aufruf erscheint künftig eine Warnung auf stderr, der Server startet aber weiterhin. Für die Nutzung von Codex aus Claude Code heraus wird auf das neue Codex-Plugin für Claude Code verwiesen.",
+        "sources": [
+          {"label": "OpenAI Codex/ChatGPT Changelog", "url": "https://learn.chatgpt.com/docs/changelog"}
+        ]
+      },
+      {
+        "name": "DSPy 3.3.1",
+        "release": "v3.3.1",
+        "date": "2026-08-21",
+        "relevance": "medium",
+        "description": "Bringt umfangreiche Verbesserungen am PythonInterpreter: verwaltete Runtime-Installation mit optionalem Deno-Support, gehärtete Sandbox-Isolation (unvorhersagbare Request-IDs, Schutz gebündelter Dateien, Sperrung von Deno-Cache-Zugriff nach Start, Schutz vor Datei-Pfad-Kollisionen) sowie vollständige End-to-End-Sichtbarkeit über den Interpreter-Lifecycle via Callback-System. Optimizer GEPA auf 0.1.4 angehoben (Multi-Proposal-Sampling mit gleichzeitiger Kandidaten-Evaluierung ohne höheren Ressourcenbedarf). Die MCP-Bridge unterstützt jetzt sowohl MCP SDK v1 als auch v2, inklusive optionalem 'structured'-Result-Modus.",
+        "sources": [
+          {"label": "DSPy GitHub Releases (3.3.1)", "url": "https://github.com/stanfordnlp/dspy/releases/tag/3.3.1"}
+        ]
+      },
+      {
+        "name": "CrewAI 1.15.18 - Conversational Flows stabil",
+        "release": "v1.15.18",
+        "date": "2026-08-27",
+        "relevance": "medium",
+        "description": "CrewAI stuft 'Conversational Flows' von experimentell auf stabil hoch und erweitert die zugehörige Flow-Dokumentation/API (Response-Format für Router, eigene State-Shape für Chat-Flows, crew-artige LLM-Konfiguration in deklarativen Chats). Bugfixes betreffen u.a. den Erhalt von Tool-Ergebnissen bei leeren finalen Antworten, ein aktualisiertes Mapping für Claude Sonnet 4.6 auf dessen 1M-Token-Kontextfenster sowie höhere Standard-max_tokens für große Anthropic-Tool-Calls.",
+        "sources": [
+          {"label": "crewAI GitHub Releases (1.15.18)", "url": "https://github.com/crewAIInc/crewAI/releases/tag/1.15.18"}
+        ]
+      },
+      {
+        "name": "Cursor - Cloud Agents ohne verbundenes Repo starten",
+        "date": "2026-08-27",
+        "relevance": "medium",
+        "description": "Cursor entfernt die Voraussetzung, dass Cloud Agents vor Arbeitsbeginn ein verbundenes GitHub- oder Source-Control-Repo benötigen. Über 'Start from scratch' im Repo-Picker kann direkt losgepromptet werden, während Cursor im Hintergrund automatisch ein Origin-Repo anlegt; nach Abschluss lässt sich die Arbeit per 'Create repo' sichern. Neu ist zudem ein Live-Preview per Port-Forwarding der Cloud-Agent-Umgebung in den Browser sowie eine Publish-Funktion über einen verbundenen Vercel-Account.",
+        "sources": [
+          {"label": "Cursor Changelog", "url": "https://cursor.com/changelog"}
+        ]
+      },
+      {
+        "name": "Claude Developer Platform - Personal/Service Account Keys, Admin API in SDKs",
+        "date": "2026-08-27",
+        "relevance": "medium",
+        "description": "Am 27.08. führte die Claude Console 'Personal Keys' und 'Service Account Keys' ein, die mit denselben Rechten wie der zugrunde liegende Account agieren und automatisch deaktiviert werden, sobald dieser aus der Organisation entfernt wird; sie lassen sich auf einen Workspace scopen oder org-weit für Admin-Endpunkte nutzen. Am 26.08. wurde die Admin API in ant-CLI sowie den SDKs für Python, TypeScript, C#, Go, Java, PHP und Ruby unter client.beta.organization verfügbar gemacht (Org-Infos, Mitglieder, Einladungen, Workspaces, API-Keys, Rate Limits, Service Accounts, Workload Identity Federation, CMEK); außerdem verließen die Compliance-API-Session-Endpunkte für Cowork- und Claude-Code-Sessions die Beta-Phase.",
+        "sources": [
+          {"label": "Claude Platform Release Notes", "url": "https://platform.claude.com/docs/en/release-notes/overview"}
+        ]
+      },
+      {
+        "name": "OpenAI API - Regional Processing",
+        "date": "2026-08-21",
+        "relevance": "medium",
+        "description": "OpenAI führte 'Regional Processing' ein: Kunden mit Global-Geography-Projekten können pro Request über eine präfigierte Domain die Verarbeitungsregion wählen, bestehende Anforderungen an Eligibility, Data Retention, Endpunkt und Modell-Support bleiben unverändert. Am selben Tag kündigte OpenAI zudem die dreimonatige Preissenkung für die GPT-5.6-Modellfamilie an (siehe Sektion Modelle).",
+        "sources": [
+          {"label": "OpenAI API Changelog", "url": "https://developers.openai.com/api/docs/changelog"}
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Auffällig waren diese Woche vor allem zwei chinesische Infrastruktur-Projekte großer Tech-Konzerne (OpenViking von Volcengine, AI-Infra-Guard von Tencent) sowie ein spezialisierter Inference-Server für Apple Silicon.",
+    "items": [
+      {
+        "name": "OpenViking",
+        "languageType": "Rust (mit Python-Bindings)",
+        "stars": "33.900 (+3.078 in einer Woche)",
+        "date": "2026-08-21",
+        "relevance": "high",
+        "description": "Von Volcengine (ByteDance) entwickelte Open-Source-Kontext-Datenbank für KI-Agenten. Organisiert Memories, Ressourcen und Skills als virtuelles Dateisystem über das eigene 'viking://'-Protokoll, sodass Agenten Kontext deterministisch per URI durchsuchen können statt über Black-Box-Vektorstores. Inhalte werden in drei Lade-Stufen (L0 abstract, L1 overview, L2 details) verarbeitet, um Token-Verbrauch zu senken. Laut projekteigenem Benchmark erreicht OpenViking 80-83% Memory-Genauigkeit gegenüber 24-57% Baseline und reduziert Input-Tokens um 34-91% sowie Query-Latenz um 58-66%. Lizenz: AGPLv3 für den Kern, Apache 2.0 für CLI/Beispiele. Release v0.4.16 vom 21.08.2026 brachte VikingBot-Support für längere Agent-Workflows, Remote-Skill-Discovery mit Caching, nutzerbezogene Memory-Extraction-Policies und schnellere asynchrone Resource-Imports. Integrationen bestehen u.a. für Claude Code, Codex und LangChain.",
+        "sources": [
+          {"label": "GitHub - volcengine/OpenViking", "url": "https://github.com/volcengine/OpenViking"},
+          {"label": "GitHub Releases (v0.4.16)", "url": "https://github.com/volcengine/OpenViking/releases"}
+        ]
+      },
+      {
+        "name": "AI-Infra-Guard",
+        "languageType": "Go",
+        "stars": "ca. 6.000 (+1.182 in einer Woche)",
+        "date": "2026-08-26",
+        "relevance": "high",
+        "description": "Full-Stack-Red-Teaming-Plattform von Tencents Zhuque Lab zur Absicherung von KI-Infrastruktur: 'ClawScan' zur Risikobewertung von OpenClaw-Setups, Agent-Scan für Multi-Agent-Workflows, ein Infrastruktur-Scanner mit über 2000 CVE-Regeln (u.a. für Ollama, vLLM), MCP-Server-Sicherheitsscans sowie Jailbreak-Evaluierung mit Mehrsprachen-Support und Docker-Deployment. Lizenz: Apache 2.0. Release v4.6.0 vom 26.08.2026 fügte Erkennung von API-Relay-Missbrauch per Traffic-Analyse, vollständige Internationalisierung der Reports, Migration auf MCP SDK 2.0, sieben neue Komponenten-Fingerprints und über 100 neue CVE-Regeln hinzu.",
+        "sources": [
+          {"label": "GitHub - Tencent/AI-Infra-Guard", "url": "https://github.com/Tencent/AI-Infra-Guard"}
+        ]
+      },
+      {
+        "name": "omlx",
+        "languageType": "Python",
+        "stars": "ca. 20.800 (+777 in einer Woche)",
+        "date": "2026-08-24",
+        "relevance": "medium",
+        "description": "LLM-Inference-Server speziell für Apple-Silicon-Macs mit Continuous Batching, gestuftem KV-Cache (heißes RAM plus kaltes SSD) und einer nativen macOS-Menüleisten-App zur Verwaltung. Unterstützt Text-LLMs, Vision-Language-Modelle, Embeddings und Reranker über eine OpenAI-kompatible API sowie ein eingebautes Admin-Dashboard; erlaubt Multi-Model-Serving mit LRU-Eviction, Pro-Modell-Profilen und verteilte Inferenz über mehrere Macs. Lizenz: Apache 2.0. Release-Kandidat 0.6.3rc3 vom 24.08.2026 ergänzte fusioniertes Qwen-ANE-MLP/Down-Projection-Offloading und Tuner-kalibriertes Tail-Padding; die stabile Version 0.6.3 folgte am 27.08.2026.",
+        "sources": [
+          {"label": "GitHub - jundot/omlx", "url": "https://github.com/jundot/omlx"},
+          {"label": "GitHub Releases", "url": "https://github.com/jundot/omlx/releases"}
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Microsoft konzentrierte sich diese Woche auf GitHub-Copilot-Governance (globale Modell-Policy, Teams-/Slack-Integration) und neue Foundry-Fähigkeiten (Dataverse-MCP-Server, Grok 4.6, Kostenoptimierung), während Partner Center neue Vertriebstools und eine strengere CSP-Eligibility-Prüfung brachte.",
+    "items": [
+      {
+        "title": "Global Model Policy für GitHub Copilot jetzt allgemein verfügbar",
+        "product": "GitHub Copilot",
+        "date": "2026-08-26",
+        "relevance": "high",
+        "description": "GitHub hat eine globale Standard-Modell-Policy für alle GA-Modelle in Copilot Business und Copilot Enterprise eingeführt. Admins können pro Organisation einen Default-Status (aktiviert, deaktiviert, an Enterprise-Teams/Apps delegiert oder an Default-Policy delegiert) setzen, der für alle noch nicht explizit konfigurierten Modelle gilt; bereits individuell gesetzte Modell-Entscheidungen bleiben unangetastet. Open-Weight-Modelle (z.B. DeepSeek, Kimi K2) sowie Modelle ohne GitHub-Datenschutzvereinbarung sind standardmäßig deaktiviert. Rollout gestaffelt bis 1. September 2026. Praktische Auswirkung: Enterprise-Kunden mit Copilot Business/Enterprise sollten jetzt ihre Modell-Policies aktiv prüfen und konfigurieren - ein konkretes Governance-/Managed-Service-Thema für Partner.",
+        "sources": [
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-08-26-global-model-policy-generally-available/"}
+        ]
+      },
+      {
+        "title": "GitHub Copilot in Microsoft Teams: gemeinsames agentisches Arbeiten (Public Preview)",
+        "product": "GitHub Copilot / Microsoft Teams",
+        "date": "2026-08-21",
+        "relevance": "high",
+        "description": "Teams-Mitglieder können per @GitHub-Erwähnung in Kanälen, Threads oder Direktnachrichten einen Copilot-Cloud-Agenten starten, der Probleme untersucht, Arbeit plant und in einer sicheren Cloud-Sandbox ausführt. Nutzer mit Repository-Schreibrechten können den Agenten autorisieren, Änderungen vorzunehmen; Fortschritt erscheint im Kanal-Thread. Voraussetzung sind kostenpflichtige Copilot-Pläne sowie von Admins aktivierte Cloud-Agent-/Sandbox-Features; Abrechnung über AI-Credits bzw. separate Sandbox-Nutzung. Praktische Auswirkung: neuer Cross-Sell zwischen GitHub-Copilot- und Teams-Kunden, erfordert aber aktive Konfiguration von Governance (PR-Freigaben, Kosten-Caps) durch den Partner.",
+        "sources": [
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams"}
+        ]
+      },
+      {
+        "title": "GitHub Copilot Experience in Slack (Public Preview)",
+        "product": "GitHub Copilot",
+        "date": "2026-08-21",
+        "relevance": "high",
+        "description": "Über die Mention '@GitHub' bringt Copilot agentische Fähigkeiten direkt in Slack: Fragen zu Code/GitHub-Aktivität, Issue-Triage, Bugfixes und Validierung in einer sicheren Cloud-Sandbox sowie das Öffnen von Pull Requests mit verlinkten Konversationen. Dedizierte Code-Channels bündeln Aufgaben, Agent-Sessions sind team-weit sichtbar. Verfügbar für Copilot Business/Enterprise, erfordert Aktivierung der Cloud-Agent-Policy durch Admins und die GitHub-App für Slack. Praktische Auswirkung: für Partner mit Slack-nutzenden Entwicklungsteams ein weiterer Kanal, um Copilot-Adoption und -Governance in bestehende Kollaborationstools einzubetten.",
+        "sources": [
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack/"}
+        ]
+      },
+      {
+        "title": "Dataverse-MCP-Server in Microsoft Foundry nutzbar",
+        "product": "Azure AI Foundry / Dataverse",
+        "date": "2026-08-25",
+        "relevance": "high",
+        "description": "Ein Dataverse-MCP-Server macht Geschäftsdaten aus Dynamics 365/Power Platform für KI-Agenten in Microsoft Foundry nutzbar: Tabellenabfragen, Datensatzerstellung und Beziehungsnavigation über ein standardisiertes Protokoll, Authentifizierung über eine Microsoft-Entra-ID-App-Registrierung. Jeder MCP-kompatible Client - Foundry-Agent, Copilot-Studio-Agent oder eigene Anwendung - kann nach OAuth-Autorisierung automatisch die verfügbaren Skills entdecken; der gleiche Server funktioniert sowohl mit Copilot Studio als auch mit GitHub Copilot und Azure AI Foundry. Praktische Auswirkung: für Kunden mit Dynamics 365/Power-Platform-Bestand ein laut Hersteller unter 30 Minuten einrichtbarer Weg, Foundry-Agenten mit echten Geschäftsdaten zu verbinden - konkretes Cross-Sell-Argument zwischen Azure-AI- und Dynamics/Power-Platform-Praxis.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog (Tech Community)", "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/consume-dataverse-mcp-server-in-microsoft-foundry-bringing-business-data-to-ai-a/4548218"}
+        ]
+      },
+      {
+        "title": "Copilot Success Planner für 'Copilot in 30'-Trials verfügbar",
+        "product": "Microsoft 365 Copilot / Partner Center",
+        "date": "2026-08-24",
+        "relevance": "high",
+        "description": "Der kostenlose, anmeldefreie 'Copilot Success Planner' unterstützt das CSP-Partnerprogramm 'Copilot in 30' (25-Nutzer/30-Tage-Trial von M365 Copilot Business, seit 3.08.2026 in CSP New Commerce GA). Nach kurzer Erfassung von Branche, Prioritäten und Arbeitsweise generiert das Tool für jeden der 25 Trial-Nutzer einen personalisierten 4-Wochen-Lernplan (Outlook, Teams/Meetings, Word/Excel/PowerPoint, Agents) sowie eine separate Sponsor-Roadmap mit Setup-Aktivitäten, wöchentlichen Checkpoints und einer Wertzusammenfassung fürs Konversionsgespräch. Praktische Auswirkung: direkt einsetzbares, kostenloses Vertriebs-Enablement-Tool für CSP-Partner zur strukturierten Begleitung von Copilot-Trials.",
+        "sources": [
+          {"label": "Partner Center Announcements - August 2026", "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-august"}
+        ]
+      },
+      {
+        "title": "GitHub Copilot Code Review: Schließgründe und Support für Bot-PRs",
+        "product": "GitHub Copilot",
+        "date": "2026-08-27",
+        "relevance": "medium",
+        "description": "Nutzer können beim Schließen von Review-Kommentaren jetzt eine Begründung wählen ('Addressed', 'Won't fix', 'Incorrect'). Code Review deckt nun auch von Bots erstellte Pull Requests ab (inkl. Copilot Cloud Agent), die bisherige Begrenzung auf 300 Dateien/20.000 Zeilen pro PR wurde entfernt. Organisationen können per Policy die Abrechnung für Reviews an Bot-PRs zentral aktivieren, ohne dass jeder beteiligte Nutzer eine eigene Lizenz braucht. Praktische Auswirkung: relevant für DevOps-/Plattform-Teams bei Kunden mit hohem PR-Volumen - reduziert Lizenz- und Prozessreibung bei CI/CD-lastigen Kunden.",
+        "sources": [
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-08-27-copilot-code-review-resolution-reasons-and-expanded-capabilities"}
+        ]
+      },
+      {
+        "title": "Grok 4.6 in Microsoft Foundry Models verfügbar",
+        "product": "Azure AI Foundry",
+        "date": "2026-08-26",
+        "relevance": "medium",
+        "description": "xAIs Grok 4.6 ist ab sofort in Microsoft Foundry Models verfügbar, positioniert für langfristiges Reasoning und komplexe agentische Workflows (500K-Token-Kontextfenster laut xAI-Dokumentation). Konkrete Azure-spezifische Regionsverfügbarkeit und Preise sollten vor Kundenkommunikation im Foundry-Portal verifiziert werden. Praktische Auswirkung: zusätzliche Modellauswahl in Foundry für Kunden mit sehr langen Kontext- oder Multi-Step-Agent-Anforderungen.",
+        "sources": [
+          {"label": "Microsoft Foundry Blog (Tech Community)", "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/grok-4-6-comes-to-microsoft-foundry-models-built-for-long-horizon-reasoning-and-/4547578"}
+        ]
+      },
+      {
+        "title": "Vier Hebel zur Kostenoptimierung von Agents in Microsoft Foundry",
+        "product": "Azure AI Foundry",
+        "date": "2026-08-26",
+        "relevance": "medium",
+        "description": "Der Azure-Blog beschreibt vier Optimierungshebel für Foundry-Agent-Kosten: (1) Model Router leitet Anfragen in Echtzeit an das passende Modell hinter einem Endpoint, ergänzt um Priority Processing, Provisioned Throughput Units und Batch-Deployments (bis zu 50% geringere Kosten bei asynchronen Workloads); (2) Prompt Caching mit rabattierten Cache-Reads (bei Provisioned-Deployments bis zu 100% Rabatt), ergänzt um semantisches Caching über das AI Gateway in Azure API Management; (3) Prompt Optimizer und Agent Optimizer zur automatisierten Verbesserung von System-Prompts und Agent-Konfigurationen; (4) Observability mit Kosten-pro-Anfrage-Tracking und Anbindung an Azure-Budgets/Alerts. Praktische Auswirkung: konkrete, herstellerseitig dokumentierte Ansatzpunkte für FinOps-Beratung bei Foundry-Agent-Projekten nach dem PoC-Stadium.",
+        "sources": [
+          {"label": "Azure Blog", "url": "https://azure.microsoft.com/en-us/blog/the-economics-of-agent-optimization-four-ways-to-lower-the-cost/"}
+        ]
+      },
+      {
+        "title": "Neues Eligibility Dashboard für CSP-Direct-Bill-Partner - MAICPP-Prüfung ab jetzt auf Tenant-Ebene",
+        "product": "Partner Center / Microsoft AI Cloud Partner Program",
+        "date": "2026-08-27",
+        "relevance": "medium",
+        "description": "Ab 27.08.2026 rollt Microsoft ein Eligibility Dashboard aus (schrittweise bis Mitte September, zunächst für Direct-Bill-Partner), das Status, Aktionen und Fristen für CSP-Direct-Bill-Autorisierungsanforderungen zentral zeigt. Zentrale Änderung: Die Einschreibung im Microsoft AI Cloud Partner Program (MAICPP) sowie die Sicherheitsanforderung werden künftig auf Tenant-Ebene statt auf Partner-Global-Account-Ebene validiert - die Durchsetzung beginnt 90 Tage nach Verfügbarkeit des Dashboards. Praktische Auswirkung: Organisationen mit mehreren CSP-Tenants sollten prüfen, ob jeder einzelne Tenant separat MAICPP-konform ist, da sonst einzelne Tenants ihre Direct-Bill-Berechtigung verlieren können.",
+        "sources": [
+          {"label": "Partner Center Announcements - August 2026", "url": "https://learn.microsoft.com/en-us/partner-center/announcements/2026-august"}
+        ]
+      },
+      {
+        "title": "Microsoft 365 Roadmap wird zur 'AI at Work Roadmap'",
+        "product": "Microsoft 365 / Copilot Roadmap",
+        "date": "2026-08-25",
+        "relevance": "medium",
+        "description": "Microsoft hat die Microsoft 365 Roadmap in 'AI at Work Roadmap' umbenannt und wird ab September 2026 auch Dynamics 365-, Power-Platform- und Dataverse-Inhalte dort veröffentlichen. Statt der bisherigen halbjährlichen Release-Wave-Logik sollen neue Fähigkeiten laufend veröffentlicht werden, sobald final committed; bestehende Einträge mit Datum ab 1.06.2026 werden bis 15.11.2026 überführt. Praktische Auswirkung: Partner, die Kunden-Roadmaps als Beratungsleistung pflegen, sollten Reporting-Prozesse auf die neue Bezeichnung und das laufende Publikationsmuster umstellen.",
+        "sources": [
+          {"label": "Microsoft Dynamics 365 Blog", "url": "https://www.microsoft.com/en-us/dynamics-365/blog/business-leader/2026/08/25/one-always-on-roadmap-dynamics-365-power-platform-and-dataverse-join-the-ai-at-work-roadmap/"}
+        ]
+      },
+      {
+        "title": "Customize-Tab in der GitHub Copilot App jetzt GA",
+        "product": "GitHub Copilot",
+        "date": "2026-08-25",
+        "relevance": "low",
+        "description": "Der neue 'Customize'-Tab in der GitHub-Copilot-App ist allgemein verfügbar und bündelt Anpassungsmöglichkeiten für MCP-Server, Plugins, Skills und Canvases an einer Stelle, inklusive Kategorie-Filterung, Trending-MCP-Servern und vorgestellten Canvases zur Delegation von Azure-DevOps-Backlog-Arbeiten. Praktische Auswirkung: erleichtert Partnern das Onboarding neuer Kunden auf individualisierte Copilot-Erweiterungen.",
+        "sources": [
+          {"label": "GitHub Changelog", "url": "https://github.blog/changelog/2026-08-25-github-copilot-app-customize-tab-is-generally-available"}
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Enterprise-Integrationen (Salesforce x Claude, Perplexity Portable Computer), Speicher-Updates bei Claude Cowork sowie mehrere signifikante Finanzierungsrunden prägten die Produktlandschaft dieser Woche.",
+    "items": [
+      {
+        "name": "Salesforce in Claude ('Claudeforce')",
+        "date": "2026-08-26",
+        "relevance": "high",
+        "description": "Salesforce und Anthropic stellten 'Salesforce in Claude' vor: ein Plugin für die Claude-Cowork-Plattform mit 37 vorgefertigten Sales-Skills (u.a. Meeting-Vorbereitung, Deal-Health-Reviews, Pipeline-Analysen). Vertriebsmitarbeiter greifen live auf CRM-Daten zu und aktualisieren sie, ohne Salesforce selbst zu öffnen. Die Lösung übernimmt bestehende Salesforce-Berechtigungen, benötigt nur ein einmaliges Admin-Setup und erzeugt KI-generierte Dashboards sowie tägliche Briefings. Zunächst für ausgewählte Pilotkunden verfügbar, offene Beta für September 2026 geplant; Abrechnung über zwei getrennte Verträge (Anthropic für Inferenz, Salesforce für API-Nutzung). Für Consulting-Unternehmen relevant als Blaupause für agentische CRM-Integrationen bei Kunden.",
+        "sources": [
+          {"label": "VentureBeat", "url": "https://venturebeat.com/orchestration/salesforce-just-put-its-entire-crm-inside-claude-and-says-youll-never-need-its-app-again"}
+        ]
+      },
+      {
+        "name": "Perplexity Portable Computer (mit Nvidia)",
+        "date": "2026-08-25",
+        "relevance": "high",
+        "description": "Perplexity hat mit Nvidia 'Portable Computer' vorgestellt, einen vollständig lokal laufenden KI-Agenten ohne Token-Kosten. Agent, Modelle und Tools laufen komplett auf eigener Hardware, optional Cloud-Rückgriff für komplexere Aufgaben. Unterstützt werden Nvidias DGX-Spark-Plattform sowie Linux-Rechner mit RTX-GPUs ab 24 GB VRAM; als Modelle stehen Qwen 3.8 27B und PPLX 27B zur Verfügung. Features: Konnektoren zu Google Drive, Gmail, GitHub, OS-Level-Sandboxing, Selbstverifikations-Hooks sowie ein PII-Klassifizierer vor jedem Cloud-Versand. Linux-Version ab sofort für Pro-, Max-, Enterprise-Pro- und Enterprise-Max-Abonnenten, Windows-Support folgt im September 2026.",
+        "sources": [
+          {"label": "VentureBeat", "url": "https://venturebeat.com/infrastructure/perplexity-partners-with-nvidia-to-launch-portable-computer-a-fully-local-ai-agent-with-zero-token-costs"}
+        ]
+      },
+      {
+        "name": "Claude Cowork erhält geräteübergreifendes Gedächtnis",
+        "date": "2026-08-25",
+        "relevance": "medium",
+        "description": "Anthropic hat die Memory-Systeme von Claude Chat und Claude Cowork zusammengeführt. Claude speichert nun Themen laufend während eines Gesprächs und synchronisiert diese schnell zwischen Chat und Cowork, sodass Nutzer Kontext nicht wiederholen müssen. Nutzer können gespeicherte Informationen einsehen, bearbeiten oder löschen; sensible Daten (Gesundheit, Ethnie, Religion, Politik, Geschlechtsidentität) werden standardmäßig nicht gespeichert. Standardmäßig aktiviert für Free-, Pro- und Max-Pläne auf Web, Desktop und Mobile.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/08/25/claude-cowork-finally-remembers-what-you-told-the-app-in-chat/"}
+        ]
+      },
+      {
+        "name": "Google AI Mode: Flugpreis-Tracking und Hotelbuchung",
+        "date": "2026-08-27",
+        "relevance": "medium",
+        "description": "Google hat den AI Mode um Reisefunktionen erweitert: Flugpreis-Tracking über mehr als 300 Airlines/Reiseportale in über 180 Ländern mit E-Mail-Benachrichtigung bei Preisänderungen, sowie eine konversationelle Hotelsuche und -buchung über 'Continue on Google' bei Partnern wie Booking.com, Expedia, Hilton oder Marriott, bezahlt via Google Pay. Der Rollout der Hotelbuchung startet zunächst in den USA auf Englisch.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/08/27/googles-ai-mode-can-now-track-flight-prices-help-book-hotels-and-more/"}
+        ]
+      },
+      {
+        "name": "Instinct: 350 Mio. USD Finanzierung für persönlichen KI-Assistenten",
+        "date": "2026-08-26",
+        "relevance": "medium",
+        "description": "Das Startup Instinct hat laut Wall-Street-Journal-Berichten eine Series-B-Runde über 250 Mio. USD abgeschlossen, womit sich die Gesamtfinanzierung auf 350 Mio. USD und die Bewertung auf 2,5 Mrd. USD beläuft (angeführt von Index Ventures und Benchmark). Instinct ist ein KI-Assistent, der sich mit Apps und Geräten verbindet und per Text oder Anruf erreichbar ist; Gründer/CEO ist der 23-jährige Noah Shinn, das Unternehmen befindet sich noch in privater Beta. Kritisiert werden bereits weitreichende App-Berechtigungen und potenziell invasive Nutzungsbedingungen.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/"}
+        ]
+      },
+      {
+        "name": "Stability AI sichert sich 76 Mio. USD von Musik- und Medienkonzernen",
+        "date": "2026-08-25",
+        "relevance": "medium",
+        "description": "Stability AI hat eine Series-B-Finanzierung über 76 Mio. USD abgeschlossen (Gesamtfinanzierung damit 232 Mio. USD), mit Universal Music Group, Sony Music Group, Warner Music Group, Electronic Arts, AMD Ventures und Pacific Alliance Ventures als Investoren. Das Kapital soll in den Ausbau der Creative-Production-Suite (Musik-, Video-, Bildgenerierung) und das Professional-Services-Geschäft fließen. Das Unternehmen konnte kürzlich einen Urheberrechtsstreit mit Getty Images in Großbritannien größtenteils für sich entscheiden.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/08/25/stability-ai-maker-of-image-generator-stable-diffusion-raises-76-million-in-fresh-funding/"}
+        ]
+      },
+      {
+        "name": "Nvidia angeblich vor Übernahme von Hugging Face (~12,9 Mrd. USD)",
+        "date": "2026-08-26",
+        "relevance": "medium",
+        "description": "Laut Berichten von The Information und Business Insider steht Nvidia kurz vor der Übernahme der Open-Source-KI-Plattform Hugging Face für rund 12,9 Mrd. USD - ein deutlicher Sprung gegenüber der letzten Bewertung von 4,5 Mrd. USD (2023) und einem zuvor abgelehnten Angebot über 500 Mio. USD. Ein unterzeichneter Vertrag lag zum Berichtszeitpunkt noch nicht vor. Hugging-Face-CEO Clem Delangue erklärte, das Unternehmen sei 'nah an der Profitabilität' bei einem Jahresumsatz von rund 150 Mio. USD. Da es sich um unbestätigte Berichte handelt, ist Vorsicht bei der Einordnung geboten.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/"}
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "Anthropic prägte die Woche mit einer Forschungsvorschau für physische Lab-Agenten und einem 45-Mrd.-USD-Compute-Deal, während Nvidia ein Rekordquartal meldete und neue Forschung zu visueller AGI sowie KI-beschleunigtem wissenschaftlichem Fortschritt erschien.",
+    "items": [
+      {
+        "title": "Anthropic startet Model Hardware Standard für physische KI-Agenten",
+        "description": "Anthropic veröffentlichte eine Forschungsvorschau des 'Model Hardware Standard' (MHS), einer offenen Spezifikation, die es Claude ermöglicht, physische Laborgeräte wie Mikroskope, Liquid Handler und Roboterarme sicher und parallel zu steuern. Die Integration eines Geräts, die bisher Wochen bis Monate spezialisierter Entwicklung benötigte, soll dank standardisierter Read/Write-Primitiven auf Stunden bis Minuten verkürzt werden. Testpartner sind u.a. Genentech (automatisierte BCA-Proteinassays), die University of Washington, Carnegie Mellon University (Integration in 8 Stunden statt Wochen, R² > 0,98), HHMI Janelia Research Campus und QuEra Computing (Laserstabilisierung für Quantencomputer: Erfolgsquote von 58% auf 99,3% verbessert, Wiederherstellungszeit von 150 auf 6 Sekunden reduziert). Anthropic plant, MHS nach Aufbau von Sicherheitsevaluierungen mit den Launch-Partnern zu Open Source zu machen.",
+        "sources": [
+          {"label": "Anthropic - Model Hardware Standard Research Preview", "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview"},
+          {"label": "CNBC", "url": "https://www.cnbc.com/2026/08/27/anthropic-pushes-into-physical-world-with-new-standard-to-help-ai-agents-operate-machines.html"}
+        ]
+      },
+      {
+        "title": "Anthropic schließt 45-Mrd.-USD-Compute-Deal mit Nscale",
+        "description": "Laut übereinstimmenden Berichten hat Anthropic einen Sechs-Jahres-Vertrag über rund 45 Mrd. USD für Rechenkapazität am Flaggschiff-Rechenzentrum von Nscale in West Virginia abgeschlossen. Der Deal umfasst rund 460 Megawatt Leistung und basiert auf Nvidias kommender Vera-Rubin-Chip-Generation; die Anlage soll Ende 2027 in Betrieb gehen. Der Deal reiht sich in eine Serie von Infrastrukturvereinbarungen ein, die Anthropic 2026 abgeschlossen hat (u.a. mit AMD, SpaceX, Google, Broadcom, Microsoft und Volta), im Vorfeld eines für Oktober erwarteten Börsengangs mit einer Bewertung von über 2 Billionen USD. Weder Anthropic noch Nscale haben den Deal offiziell bestätigt.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/08/26/anthropic-continues-compute-gobbling-streak-in-45-billion-deal-with-nscale/"},
+          {"label": "CNBC", "url": "https://www.cnbc.com/2026/08/26/anthropic-and-nscale-strike-45-billion-cloud-deal-sources-say.html"}
+        ]
+      },
+      {
+        "title": "Nvidia meldet Rekordquartal - KI-Nachfrage laut Huang am 'Wendepunkt'",
+        "description": "Nvidia veröffentlichte die Finanzergebnisse für Q2 des Geschäftsjahres 2027: Umsatz stieg auf einen Rekordwert von 96,2 Mrd. USD (+106% ggü. Vorjahr, +18% ggü. Vorquartal). Data-Center-Umsatz erreichte 89,0 Mrd. USD (+117% ggü. Vorjahr), getrieben vom Hochlauf der Blackwell-Ultra-Infrastruktur. Für Q3 erwartet Nvidia einen Umsatz von 108 Mrd. USD (±2%) - ohne China-Data-Center-Umsätze eingerechnet. CEO Jensen Huang erklärte, KI habe ihren 'Wendepunkt' erreicht und verwies auf ein breiteres Ökosystem von Frontier-Laboren im Vergleich zum Vorjahr.",
+        "sources": [
+          {"label": "NVIDIA Newsroom - Q2 FY2027 Financial Results", "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027"}
+        ]
+      },
+      {
+        "title": "Forschungspapier 'Visual General Intelligence' skizziert vision-basierten Weg zu AGI",
+        "description": "Auf arXiv (2608.25924) erschien das Whitepaper 'Visual General Intelligence: A White Paper' von 21 Forschenden u.a. von Google DeepMind, Stanford und Oxford. Das Papier definiert 'Visual General Intelligence' (VGI) als die Fähigkeit, nutzbares Weltwissen direkt aus visueller Erfahrung (Bilder, Videos, Geometrie) zu erwerben und für Vorhersage, Vorstellung und Handeln einzusetzen - als möglichen alternativen Pfad zu AGI neben sprachbasierten Ansätzen. Die Autoren schlagen Prinzipien für Computer Vision im 'AGI-Zeitalter' vor, u.a. zu optimalen Eingabemodalitäten, Evaluationsbenchmarks und der Integration von visueller mit sprachlicher Intelligenz.",
+        "sources": [
+          {"label": "arXiv 2608.25924", "url": "https://arxiv.org/abs/2608.25924"}
+        ]
+      },
+      {
+        "title": "Import AI #470: KI-getriebener Fortschritt in Wissenschaft und neue Trainingsmethoden",
+        "description": "Die Newsletter-Ausgabe 'Import AI 470' von Jack Clark fasst aktuelle Forschung zusammen: Eine METR-Analyse findet eine deutliche, aber ungleichmäßige Beschleunigung durch LLMs in Cybersicherheit, Mathematik und Algorithmik - am stärksten bei Cyber-Schwachstellen, moderat in der Mathematik (u.a. Lösung der Jacobi-Vermutung mit KI-Unterstützung). 'SPADE' (neun Institutionen) lässt Sprachmodelle abwechselnd Trainingsumgebungen entwerfen und lösen, mit +8,1 Punkten bei Qwen3-30B in Spiel-Umgebungen. 'Hawkeye' (Harvard, Stanford, Together AI, Caltech) ermöglicht KI-Agenten das Schreiben optimierter GPU-Kernel mit bis zu 1,89-facher Beschleunigung gegenüber Standardimplementierungen.",
+        "sources": [
+          {"label": "Import AI 470 (jack-clark.net)", "url": "https://jack-clark.net/2026/08/24/"}
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Bei den KI-Anbietern dominierten die Vorbereitung auf den Anthropic-Börsengang, ein weiterer Führungswechsel bei OpenAI sowie mehrere Produktabschaltungen und milliardenschwere Infrastruktur-Finanzierungen.",
+    "items": [
+      {
+        "company": "OpenAI",
+        "description": "Chris Malone, Leiter der Rechenzentrums-Sparte, verließ OpenAI um den 25.08.2026 im Zuge einer Reorganisation der Infrastruktur-Organisation - bereits die vierte hochrangige Führungskraft (nach COO, CRO, Produktchefin), die das Unternehmen vor dem für 2027 geplanten Börsengang verlässt.",
+        "sources": [
+          {"label": "TechCrunch", "url": "https://techcrunch.com/2026/08/25/openai-loses-a-top-data-center-exec-as-stream-of-high-profile-departures-continues/"}
+        ]
+      },
+      {
+        "company": "OpenAI",
+        "description": "Am 26.08.2026 hat OpenAI die Assistants API endgültig abgeschaltet; Aufrufe an /v1/assistants und /v1/threads liefern seither ohne Übergangsfrist einen Fehler, ein automatisches Migrationswerkzeug zur neuen Responses/Conversations API existiert nicht.",
+        "sources": [
+          {"label": "OpenAI Developer Docs - Deprecations", "url": "https://developers.openai.com/api/docs/deprecations"}
+        ]
+      },
+      {
+        "company": "Amazon",
+        "description": "Amazon kündigte am 26.08.2026 an, die Crowdworking-Plattform Mechanical Turk nach 21 Jahren zum 30.09.2026 einzustellen, da KI-Modelle inzwischen viele früher von Menschen erledigte Kennzeichnungs- und Klassifizierungsaufgaben übernehmen.",
+        "sources": [
+          {"label": "Tech Startups", "url": "https://techstartups.com/2026/08/26/amazon-is-shutting-down-mechanical-turk-after-21-years-as-ai-reshapes-crowdsourced-work/"}
+        ]
+      },
+      {
+        "company": "Broadcom / Anthropic",
+        "description": "Broadcom verhandelt seit dem 21.08.2026 mit Geldgebern wie Apollo und Blackstone über eine Fremdfinanzierung von über 60 Mrd. USD, um darüber kundenspezifische KI-Chips für Anthropic zu finanzieren, die im Leasing-Modell statt per Direktkauf bereitgestellt werden sollen.",
+        "sources": [
+          {"label": "Dealroom", "url": "https://dealroom.co/news/146284-broadcom-seeks-over-60b-in-debt-to-bankroll-ai-chips-for-anthropic/"}
+        ]
+      },
+      {
+        "company": "Anthropic",
+        "description": "Laut einem Bericht vom 26.08.2026 wirbt Anthropic bei IPO-Investoren mit einem adressierbaren Gesamtmarkt von über 30 Billionen USD und einer annualisierten Umsatzrate von 65 Mrd. USD (Stand Ende Juli), um eine Bewertung von rund 2 Billionen USD zu rechtfertigen.",
+        "sources": [
+          {"label": "Fortune", "url": "https://fortune.com/2026/08/26/anthropic-wants-investors-to-believe-its-market-is-worth-30-trillion-nearly-40-of-the-entire-us-stock-market/"}
+        ]
+      },
+      {
+        "company": "Moonshot AI",
+        "description": "Wie am 26.08.2026 bekannt wurde, verhandelt das chinesische Unternehmen Moonshot AI mit Microsoft, Amazon und Google über Umsatzbeteiligungen von bis zu 30%, damit sein Modell Kimi K3 auf Azure, AWS und Google Cloud gehostet werden kann - der erste große Revenue-Share-Deal zwischen einem chinesischen KI-Anbieter und einem US-Cloud-Riesen.",
+        "sources": [
+          {"label": "Yahoo Finance (Reuters)", "url": "https://finance.yahoo.com/technology/ai/articles/exclusive-chinas-moonshot-talks-microsoft-075340033.html"}
+        ]
+      }
+    ]
+  }
+}
