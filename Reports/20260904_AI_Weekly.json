@@ -1,0 +1,590 @@
+{
+  "date": "2026-09-04",
+  "period": "2026-08-28/2026-09-04",
+  "executive_summary": {
+    "intro": "Die Woche vom 28. August bis 4. September 2026 war geprägt von einer neuen Generation kosteneffizienterer Frontier-Modelle mit verschärften Cybersicherheits-Schutzmechanismen, Nvidias milliardenschwerer Übernahme von Hugging Face sowie den ersten konkreten Durchsetzungsschritten der EU-KI-Verordnung.",
+    "highlights": [
+      "Modelle: Anthropic veröffentlicht Claude Fable 5.1/Mythos 5.1 mit 75% günstigeren Cache-Reads, Google bringt Gemini 3.8 Flash inklusive Cyber-Variante, und OpenAI legt offen, dass sein unveröffentlichtes Modell Astra (GPT-6 Astra) als erstes die \"Critical\"-Schwelle für Cybersicherheits-Fähigkeiten überschreitet.",
+      "M&A: Nvidia übernimmt die Open-Source-Plattform Hugging Face für rund 12,9 Mrd. USD - der zweitgrößte Deal in der Firmengeschichte.",
+      "Frameworks/MCP: LangChain 1.4.0 bringt nativen MCP-Support, FastMCP erreicht mit Version 4.0 General Availability, und Cursor sowie GitHub Copilot bauen selbstgehostete Agent-Ausführung aus.",
+      "Azure/Microsoft: Neue regionale Foundry-Preisaufschläge (EU +9%, APAC +20%) und GitHub Copilots Umstellung auf vorausbezahlte Sitzplatz-Abrechnung treten zum 1. September in Kraft, parallel starten GPT-6 Astra und Claude Fable 5.1 in Microsoft Foundry.",
+      "Industry/Policy: Das EU-KI-Büro sendet seine ersten offiziellen Auskunftsersuchen unter dem AI Act an OpenAI, Anthropic und Google, während Anthropic mit Enterprise Frontier Safeguards kundenseitig gehaltene Missbrauchsüberwachung einführt."
+    ]
+  },
+  "models": {
+    "summary": "Die erste Septemberwoche 2026 brachte dichte Frontier-Modell-Aktivität: Anthropic veröffentlichte Claude Fable 5.1 und Mythos 5.1 mit 75% günstigeren Cache-Reads, Google brachte Gemini 3.8 Flash inklusive einer auf Cybersicherheit spezialisierten Variante sowie neues agentisches Videoverständnis, und OpenAI legte offen, dass sein noch unveröffentlichtes Modell Astra (GPT-6 Astra) als erstes Modell die eigene \"Critical\"-Schwelle für Cybersicherheits-Fähigkeiten überschreitet; im Open-Source-Bereich veröffentlichte Hugging Face einen neuen effizienten multimodalen Encoder (NeoMME) sowie eine neue Benchmark-Diagnostik-Studie (BenchMIRT) von Allen AI.",
+    "items": [
+      {
+        "name": "Claude Fable 5.1 und Claude Mythos 5.1",
+        "provider": "Anthropic",
+        "type": "LLM (Flaggschiff + zugangsbeschränkte Variante)",
+        "context": "1 Mio. Token Kontextfenster (je nach Preisstufe); Coding, Wissensarbeit, Wissenschaft",
+        "highlight": "Am 1. September 2026 veröffentlicht, zum unveränderten Listenpreis (10 USD/50 USD pro Million Input-/Output-Token), aber mit auf 0,25 USD/Mio. gesenkten Cache-Read-Preisen (-75%), was die Kosten für typische Workloads um ca. 25% und für stark agentische Aufgaben um bis zu 45% senkt. Fable-5.1-Benchmarks: Terminal-Bench 4.0 55,8%, Terminal-Bench-Science 52,6%, Humanity's Last Exam 60,9% (ohne Tools) / 65,0% (mit Tools), OSWorld 2.0 (partial) 77,9%, CursorBench 3.2.0 73,4%. Mythos 5.1 ist eine Variante mit höheren Sicherheitsvorkehrungen, die nur im Rahmen von Project Glasswing bzw. vertrauenswürdigen Zugangsprogrammen (aktuell nur US-Organisationen) verfügbar ist, u.a. für Protein-Binder-Design (behauptete 10-fach höhere Bindungsaffinität als Wettbewerbsbeiträge) und Venus-Höhenkartierung (2-3 km Auflösung vs. 10-20 km zuvor). Cybersicherheits-Schutzmechanismen reduzieren False Positives um 60% gegenüber dem Vorgänger; Anfragen zu Exploit-Erstellung/Pen-Testing werden an Opus-Modelle umgeleitet.",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "Anthropic - Introducing Claude Fable 5.1 and Mythos 5.1",
+            "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+          },
+          {
+            "label": "Anthropic News Index",
+            "url": "https://www.anthropic.com/news"
+          }
+        ]
+      },
+      {
+        "name": "Gemini 3.8 Flash und Gemini 3.8 Flash Cyber",
+        "provider": "Google DeepMind",
+        "type": "LLM (schnelle/effiziente Stufe + Cybersicherheits-Variante)",
+        "highlight": "Am 2. September 2026 zum gleichen Einführungspreis wie 3.7 Flash gestartet (0,75 USD/Mio. Input, 3,75 USD/Mio. Output bis 31.12.2026, danach 1,50/7,50 USD ab Januar 2027). Erreicht laut Google Frontier-Niveau bei CyberGym-Schwachstellenerkennung, 47,2% Pass@1 auf CWE-Bench-Patching, über 70% Erfolgsquote beim Auffinden realer Schwachstellen in 20 Sprachen sowie 54,9% auf HLE-Verified. Die Cyber-Variante ist hinter Googles neuem \"Fairwind\"-Programm für geprüfte Regierungs-/Unternehmensverteidiger abgeriegelt - ähnlich den Beschränkungen, die OpenAI in derselben Woche für Astra einführte.",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "Google - Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+          }
+        ]
+      },
+      {
+        "name": "Agentisches Videoverständnis in Gemini",
+        "provider": "Google DeepMind",
+        "type": "Multimodale Fähigkeit (Video)",
+        "context": "Gemini 3.7 Flash, 3.6 Flash, 3.5 Flash-Lite",
+        "highlight": "Am 1. September 2026 gestartet: Gemini kann jetzt dynamisch bestimmte Videoabschnitte über Frames, Audio und Transkripte hinweg durchsuchen/scannen/untersuchen, statt mit fester Framerate zu sampeln, was Momentsuche im Sub-Sekundenbereich und Suche in langen Videos ermöglicht. Google berichtet von bis zu 88% weniger Token-Verbrauch, bis zu 66% Kostenreduktion und bis zu 7% höherer Genauigkeit gegenüber Verarbeitung mit fester Framerate. Verfügbar über Gemini API/AI Studio und Gemini Enterprise; Rollout in die Gemini-App und YouTubes \"Ask YouTube\" folgt später.",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "Google - Introducing agentic video understanding with Gemini",
+            "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/"
+          }
+        ]
+      },
+      {
+        "name": "Astra (GPT-6 Astra, Vorab-Offenlegung)",
+        "provider": "OpenAI",
+        "type": "LLM (unveröffentlichtes Frontier-Reasoning-/Coding-Modell)",
+        "highlight": "Am 1. September 2026 legte OpenAI offen, dass Astra das erste Modell ist, das die \"Critical\"-Schwelle des eigenen Preparedness Framework für Cybersicherheit überschreitet - es kann neuartige Schwachstellen identifizieren und hat in Tests mit reduzierter menschlicher Anleitung Zero-Day-Exploits verkettet. Es erzielte 100% auf OpenAIs ExploitBench und entdeckte bzw. nutzte in einem internen Set von 20 zwischen Juni und August 2026 offengelegten schweren Schwachstellen zwei Zero-Days als Teil einer Exploit-Kette. Laut Microsofts Azure-Blog läuft das Modell unter dem Namen GPT-6 Astra bereits limitiert über das Microsoft Foundry Limited Access Program. Der allgemeine Zugang für Reasoning/Coding soll breit ausgerollt werden, fortgeschrittene offensive Cyber-Fähigkeiten bleiben jedoch geprüften Partnern über das neue Programm \"Daybreak Blue\" vorbehalten.",
+        "relevance": "high",
+        "sources": [
+          {
+            "label": "OpenAI - Path to Astra: critical capabilities and frontier safeguards",
+            "url": "https://openai.com/index/path-to-astra/"
+          },
+          {
+            "label": "OpenAI - Responding to the next frontier of critical cyber capabilities",
+            "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/"
+          },
+          {
+            "label": "CNBC",
+            "url": "https://www.cnbc.com/2026/09/01/open-ai-astra-cyber-model.html"
+          }
+        ]
+      },
+      {
+        "name": "NeoMME",
+        "provider": "H Company",
+        "type": "Open-Source multimodaler Encoder (Text + Bild)",
+        "context": "260M- und 800M-Parameter-Varianten, Apache 2.0",
+        "highlight": "Am 3. September 2026 auf Hugging Face veröffentlicht: ein einzelner bidirektionaler Transformer-Encoder, der multimodal-nativ (rohe Bild-Patches + Text-Token gemeinsam, kein separater Vision-Tower) und mehrsprachig ist (131k-Token-BPE-Vokabular, von Grund auf trainiert auf mehrsprachigem Text, Code, Mathematik und Bildtranskripten). Auf dem ViDoRe-v3-Retrieval-Benchmark erreicht NeoMME-260M 0,523 nDCG@10 und die 800M-Variante 0,556 nDCG@10; das 260M-Modell soll dabei alle evaluierten Modelle unter 800M Parametern schlagen und dabei ca. 51 Seiten/Sekunde auf einer L40S-GPU encodieren (etwa 2x Durchsatz von ColModernVBERT). Ein Dual-Head-Design komprimiert zudem Late-Interaction-Embeddings um Faktor 255 (1,5 MB auf 6 KB pro Seite) bei 95% erhaltener Retrieval-Qualität.",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "Hugging Face Blog - NeoMME",
+            "url": "https://huggingface.co/blog/Hcompany/neomme"
+          }
+        ]
+      },
+      {
+        "name": "BenchMIRT",
+        "provider": "Allen Institute for AI (AI2)",
+        "type": "Benchmark-Methodik / Forschung",
+        "highlight": "Am 1. September 2026 auf Hugging Face veröffentlicht: wendet multidimensionale Item-Response-Theory (aus der Psychometrie) auf 100 offene LLMs über 16 Benchmarks und mehr als 34.000 Fragen an und schätzt Schwierigkeit/Diskriminierung pro Prompt. Die Methode identifiziert unabhängig zwei dominante latente Dimensionen - allgemeines Reasoning und Sicherheit - und zeigt, dass mehrere \"Safety\"-Benchmarks (z.B. BBQ, WMDP) tatsächlich eher allgemeines Reasoning als Sicherheit messen; außerdem zeigt sich, dass bereits 10% der Fragen eines Benchmarks meist dasselbe Fähigkeits-Ranking ergeben - ein nützlicher Befund für Teams, die eigene Evals aufbauen.",
+        "relevance": "medium",
+        "sources": [
+          {
+            "label": "Hugging Face Blog - BenchMIRT (AllenAI)",
+            "url": "https://huggingface.co/blog/allenai/benchmirt"
+          }
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "summary": "Die Framework-News der Woche drehten sich stark um MCP: LangChain 1.4.0 brachte einen nativen langchain.mcp-Namespace, FastMCP 4.0 erreichte GA auf Basis des neuen zustandslosen MCP-Protokoll-Kerns, und sowohl der GitHub MCP Server als auch GitHub Copilot/Cursor erhielten Upgrades bei Agent-Tooling und selbstgehosteter Ausführung.",
+    "items": [
+      {
+        "name": "LangChain 1.4.0 mit nativem MCP-Namespace",
+        "release": "langchain==1.4.0",
+        "date": "2026-09-03",
+        "relevance": "high",
+        "description": "LangChain veröffentlichte 1.4.0 mit einem neuen Namespace langchain.mcp und einer MCPAdapter-Klasse für native Model-Context-Protocol-Integration, ausführbaren MCP-Beispielen sowie Performance-Optimierungen bei Middleware-Trace-Inputs. Am selben Tag brachte langchain-anthropic 1.7.1 Performance-Verbesserungen für Middleware und Unterstützung für das Modell Claude Fable 5.1. Der vorherige Alpha-Release (1.4.0a4, 2. September) hatte bereits MCP-Protokoll-Era-Verhandlung sowie Verbesserungen bei Tool-Metadaten/Elicitation gebracht, und langchain-anthropic 1.7.0 (27. August) hatte Unterstützung für Anthropic SDK 1.0 und einen Skills-Container-Parameter ergänzt.",
+        "sources": [
+          {
+            "label": "GitHub Release: langchain==1.4.0",
+            "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.4.0"
+          },
+          {
+            "label": "langchain-ai/langchain Releases",
+            "url": "https://github.com/langchain-ai/langchain/releases"
+          }
+        ]
+      },
+      {
+        "name": "FastMCP 4.0 - General Availability",
+        "release": "v4.0.0 (plus v4.0.1, v4.0.2 Patches)",
+        "date": "2026-08-31",
+        "relevance": "high",
+        "description": "FastMCP 4 erreichte stabile GA, neu aufgebaut auf dem MCP Python SDK v2 und der Protokoll-Revision vom 28.07.2026 (fünf Betas, 23 Contributor, über 80 PRs). Moderne Requests werden zustandslos und in sich abgeschlossen, sodass jede Replica hinter einem einfachen Load Balancer Requests bedienen kann, während Legacy-Clients mit Handshake weiterhin unterstützt werden. Neue Fähigkeiten: interaktive Tools, die während der Ausführung Eingaben anfordern können, Background-Tasks über ein neues Paket fastmcp-tasks, eine Server-Extension-API für Capability-Verhandlung, Argument-Vervollständigung für Prompts/Resources sowie stärkere Identitäts-Assertion/rollenbasierte Auth. Breaking Changes: serverseitig initiiertes Sampling, Roots und ctx.elicit() wurden für den modernen Protokollpfad entfernt. Die Folge-Patches v4.0.1 (\"Come Back Any Time\") und v4.0.2 (\"Root Access\"), beide vom 2. September, machten ClientGroup reentrant und aus dem Paket-Root importierbar.",
+        "sources": [
+          {
+            "label": "GitHub Release: fastmcp v4.0.0",
+            "url": "https://github.com/PrefectHQ/fastmcp/releases/tag/v4.0.0"
+          },
+          {
+            "label": "PrefectHQ/fastmcp Releases",
+            "url": "https://github.com/PrefectHQ/fastmcp/releases"
+          }
+        ]
+      },
+      {
+        "name": "GitHub MCP Server v1.12.0",
+        "release": "v1.12.0",
+        "date": "2026-09-03",
+        "relevance": "medium",
+        "description": "GitHubs offizieller MCP-Server erhielt v1.12.0 (29 Commits, 12 Contributor, 8 Erstbeitragende) mit neuem Governance-Tooling - Verwaltung von Repository-Rulesets und Custom Properties auf Repo-/Org-/Enterprise-Ebene, Feature Flags mit Lazy Evaluation und Deduplizierung, Merge-HEAD-Pinning und Wiederherstellung von Datei-SHAs für Schreiboperationen, Review-Range-Koordinaten und Gründe für Thread-Auflösungen sowie Markdown-Fidelity-Fixes, die unsichere unsichtbare Zeichen herausfiltern und gleichzeitig die Formatierung in Bodies, Titeln und Commit-Nachrichten erhalten. Folgt auf v1.11.0 (25. August), das eine bestätigte Repository-Löschung per Elicitation eingeführt hatte.",
+        "sources": [
+          {
+            "label": "github/github-mcp-server Releases (v1.12.0)",
+            "url": "https://github.com/github/github-mcp-server/releases"
+          }
+        ]
+      },
+      {
+        "name": "Cursor: selbstgehostete Maschinen für Cloud Agents",
+        "date": "2026-09-02",
+        "relevance": "high",
+        "description": "Cursors Changelog kündigte selbstgehostete Ausführung für Cloud Agents an: \"My Machines\" erlaubt Einzelnutzern, eigene Geräte anzubinden, und \"Team Pools\" bieten benannte Worker-Queues, die mit der Nachfrage autoskalieren und im Leerlauf in den Ruhezustand gehen. Cloud Agents können Tool-Ausführung jetzt auf AWS Lambda, Coder, Cloudflare, Daytona, Modal, Namespace, Vercel und E2B-Infrastruktur laufen lassen, wobei Codebase, Build-Ausgaben und Secrets im eigenen Netzwerk des Kunden bleiben. Selbstgehostete Worker unter Linux/Mac erhielten zudem Computer-Use-Unterstützung, sodass Agents direkt klicken, tippen, Screenshots aufnehmen und einen Browser steuern können. Das folgt auf ein Update vom 27. August, das Cloud Agents erlaubte, ohne verbundenes GitHub/SCM-Repo von Grund auf zu starten und Arbeit stattdessen in ein Cursor-\"Origin\"-Repo zu speichern.",
+        "sources": [
+          {
+            "label": "Cursor Changelog",
+            "url": "https://cursor.com/changelog"
+          }
+        ]
+      },
+      {
+        "name": "GitHub Copilot in VS Code: August-2026-Release-Welle",
+        "date": "2026-08-31",
+        "relevance": "medium",
+        "description": "GitHubs offizieller Changelog fasste die Copilot-Änderungen in VS Code 1.132-1.135 zusammen: portable \"Agent Plugins 1.0\" für installierbare Agent-Erweiterungen, anwendungs- und fensterübergreifende Fortsetzung von Agent-Sessions per Agent Host, ein experimenteller Befehl \"/rubber-duck\" für Feedback eines zweiten Modells, Modellanbieter-Wechsel zwischen Anthropic- und Copilot-Abos, Volltext-Regex-Suche im Chatverlauf, ein hybrider Markdown-Diff/Edit-Editor sowie ein integrierter Browser mit HTML-Element-Auswahl für gezieltes Feedback plus mehrsprachige Diktierfunktion mit automatischer Spracherkennung.",
+        "sources": [
+          {
+            "label": "GitHub Changelog: Copilot in VS Code, August 2026 releases",
+            "url": "https://github.blog/changelog/2026-08-31-github-copilot-in-vs-code-august-2026-releases/"
+          }
+        ]
+      }
+    ]
+  },
+  "opensource": {
+    "summary": "Die auffälligsten neuen/kleinen Open-Source-Releases dieser Woche umfassen eine von Grund auf neu entwickelte Rust-Speicherschicht für Coding-Agents von Hugging Face, einen winzigen Zig-basierten LLM-Inferenzserver für Apple Silicon, eine aktive Vorabversion eines Peer-to-Peer-GPU-Mesh-Inferenzsystems sowie eine neue WebGPU-Kernel-Bibliothek für ML im Browser - jeweils mit verifizierten, im Zeitfenster liegenden Release-Daten und Fakten aus Primärquellen.",
+    "items": [
+      {
+        "name": "funes (huggingface/funes)",
+        "languageType": "Rust",
+        "stars": "28",
+        "date": "2026-09-03",
+        "relevance": "high",
+        "description": "Brandneue, noch winzige (28 Stars) dauerhafte Speicherschicht für Coding-Agents, veröffentlicht von Hugging Face am 03.09.2026. Indiziert und ruft frühere Agent-Sitzungsverläufe ab (Claude Code, Codex, pi, Hermes), sodass Agents sich über Sitzungen/Rechner hinweg an frühere Entscheidungen erinnern. Basiert auf Lance-Append-only-Datasets mit lokalem Embedding + BM25 + Cross-Encoder-Reranking; läuft als einzelnes Binary ohne ML-Runtime für das Standard-Backend, plus einer MCP-artigen recall/get-Tool-Schnittstelle und einem funes-ask-CLI. Laut Angaben ist Recall für lange Agent-Sitzungen 4-8x günstiger als eine vollständige Session-Übergabe, mit automatischer Credential-Redaction vor jeder Hub-Veröffentlichung. Lizenz: Apache 2.0.",
+        "sources": [
+          {
+            "label": "HF Blog: Give Your Coding Agents a Memory You Own",
+            "url": "https://huggingface.co/blog/funes"
+          },
+          {
+            "label": "GitHub: huggingface/funes",
+            "url": "https://github.com/huggingface/funes"
+          }
+        ]
+      },
+      {
+        "name": "mlx-serve (ddalcu/mlx-serve)",
+        "languageType": "Zig",
+        "stars": "1.100",
+        "date": "2026-09-03",
+        "relevance": "high",
+        "description": "Nativer LLM-Inferenzserver für Apple Silicon in Zig geschrieben, ausgeliefert als einzelnes ca. 7-MB-Binary ohne Python-Runtime-Abhängigkeit. Führt MLX-Format- und GGUF-Modelle hinter OpenAI- und Anthropic-kompatiblen APIs auf einem Port aus, dazu eine gebündelte native macOS-Menüleisten-App (\"MLX Core\", kein Electron) mit Chat, Agent-Modus und Medien-Generierung (Bild/Video/Musik/Sprache mit Voice Cloning, 3D-Modelle). Das aktuelle Release v26.9.1 vom 03.09.2026 brachte Sidebar-Terminals, 1-Mio.-Token-Kontext und einen schnelleren \"Flash Next\"-Decode-Pfad; das vorherige v26.8.11 (29.08.2026) fügte Unterstützung für Qwen 3.8 Flash Next und MLX 0.32.2 hinzu. Laut Angaben ist der Decode bei identischen Gewichten dank vierfacher Spekulativ-Decodierung 26% schneller als LM Studio.",
+        "sources": [
+          {
+            "label": "GitHub: ddalcu/mlx-serve",
+            "url": "https://github.com/ddalcu/mlx-serve"
+          },
+          {
+            "label": "GitHub Releases: mlx-serve",
+            "url": "https://github.com/ddalcu/mlx-serve/releases"
+          }
+        ]
+      },
+      {
+        "name": "Mesh LLM (Mesh-LLM/mesh-llm)",
+        "languageType": "Rust",
+        "stars": "3.400",
+        "date": "2026-09-02",
+        "relevance": "medium",
+        "description": "Verteiltes Inferenzsystem, das GPUs/Speicher über mehrere Rechner hinweg hinter einer einzigen OpenAI-kompatiblen API bündelt. Nutzt iroh (Peer-to-Peer-QUIC mit NAT-Traversal, kein zentraler Server) für authentifizierten Node-zu-Node-Transport, mit drei dedizierten ALPN-Protokollen für Mesh-Gossip, Owner-Control und latenzarmen \"Skippy\"-Stage-Split-Aktivierungstransport, der übergroße Modelle (z.B. 235B MoE) in Layer-Range-Pipelines über sonst unzureichende Maschinen aufteilt. Neueste Aktivität im Zeitfenster ist die Vorabversion v0.76.0-rc9 (02.09.2026, nach rc8 am 29.08.2026), die native CUDA-Kompatibilität unter Windows (Treiber 610.74/CUDA 13.3) und WSL2-Probleme behebt und einen experimentellen Mixture-of-Agents-Modus (model: \"mesh\") für parallele Multi-Modell-Requests einführt.",
+        "sources": [
+          {
+            "label": "GitHub: Mesh-LLM/mesh-llm",
+            "url": "https://github.com/Mesh-LLM/mesh-llm"
+          },
+          {
+            "label": "GitHub Releases: mesh-llm",
+            "url": "https://github.com/Mesh-LLM/mesh-llm/releases"
+          },
+          {
+            "label": "iroh Blog: Mesh LLM background",
+            "url": "https://www.iroh.computer/blog/mesh-llm"
+          }
+        ]
+      },
+      {
+        "name": "@huggingface/kernels (WebGPU Kernels)",
+        "languageType": "JavaScript/TypeScript (WGSL-Shader)",
+        "date": "2026-09-01",
+        "relevance": "medium",
+        "description": "Neues npm-Paket von Hugging Face (aktuell als @preview getaggt) zum Laden und Ausführen optimierter WebGPU-Compute-Kernel für ML direkt im Browser, veröffentlicht am 01.09.2026. Die erste Version deckt 207 einzelne Kernel-Operationen ab (Matmul, Normalisierung, Convolution, Attention, Quantisierung), jede als eigenes Repo mit manifest.json, Korrektheitstests, Benchmark-Fällen und parametrisierten WGSL-Templates veröffentlicht. Enthält \"Fleet\", ein browserbasiertes, crowdgesourctes Benchmarking-Tool für Korrektheits-/Performance-Nachweise über echte Geräte hinweg; Hugging Face berichtet von 2,57x geometrischem Mittel an Speedup gegenüber ORT WebGPU auf einer Apple-M4-GPU. Lizenz: Apache 2.0.",
+        "sources": [
+          {
+            "label": "HF Blog: Introducing @huggingface/kernels",
+            "url": "https://huggingface.co/blog/webgpu-kernels"
+          }
+        ]
+      }
+    ]
+  },
+  "azure": {
+    "summary": "Die für Partner wichtigste Azure-AI-Neuigkeit der Woche ist finanzieller Natur: die neuen Regional-/EU-/APAC-Preisaufschläge von Microsoft Foundry und GitHub Copilots Umstellung auf vorausbezahlte Sitzplatz-Abrechnung traten beide am 1. September 2026 in Kraft, begleitet von der Erweiterung um Frontier-Modelle (OpenAIs GPT-6 Astra und Anthropics Claude Fable 5.1).",
+    "items": [
+      {
+        "title": "GPT-6 Astra startet in Microsoft Foundry über das Limited Access Program",
+        "product": "Azure OpenAI Service / Microsoft Foundry",
+        "date": "2026-09-03",
+        "relevance": "high",
+        "description": "OpenAIs neuestes Frontier-Modell, das mehrstufige Arbeitsabläufe planen und per Tool-/Computer-Use anwendungsübergreifend agieren kann (auch bei Anwendungen ohne APIs) und dabei fertige Endergebnisse statt bloßer Chat-Antworten liefern soll, wurde ab dem 3. September über das Microsoft Foundry Limited Access Program ausgerollt und soll in den Folgetagen für mehr Kunden verfügbar werden. Verfügbar über Standard-Deployments (Global und US Data Zone) mit Consumption-Pricing ohne reservierte Kapazität: Global Short-Context 10/1/12,50/50 USD pro 1 Mio. Token (Input/Cached Input/Cached Write/Output), Long-Context 20/2/25/75 USD; US Data Zone liegt 10% höher. OpenAI spricht von \"State-of-the-Art\"-Ergebnissen auf ausgewählten Computer-Use-Evals, veröffentlichte aber keine konkreten Scores. Praktische Relevanz für einen Microsoft-Partner: eine neue Stufe agentischer/Computer-Use-Fähigkeiten, die sich für RPA-Ablöse- und anwendungsübergreifende Automatisierungsprojekte anbietet - der Zugang erfordert jedoch eine Bewerbung im Limited Access Program im Namen der Kunden, und der Aufpreis (2x GPT-5.6 Sol) muss in Angebote eingepreist werden; Long-Context-Aufrufe sind deutlich teurer, weshalb Architektur- und Prompt-Design für die Marge entscheidend sind.",
+        "sources": [
+          {
+            "label": "Azure Blog: GPT-6 Astra now available in Microsoft Foundry",
+            "url": "https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-available-in-microsoft-foundry/"
+          }
+        ]
+      },
+      {
+        "title": "Claude Fable 5.1 und Mythos 5.1 in Microsoft Foundry verfügbar",
+        "product": "Microsoft Foundry (Anthropic-Modelle)",
+        "date": "2026-09-01",
+        "relevance": "high",
+        "description": "Anthropics Claude Fable 5.1 wurde auf AWS, Google Cloud und Microsoft Azure allgemein verfügbar (auch der Microsoft-Foundry-Blog veröffentlichte die Verfügbarkeitsmeldung am 1. September). Die Preise für Cache-Reads sanken um 75% auf 0,25 USD/Mio. Token (Input/Output unverändert bei 10/50 USD pro Mio.), was typische Workload-Kosten um ca. 25% und stark agentische Workflows um bis zu 45% senkt. Anthropics eigene Benchmarks gegenüber Fable 5: Terminal-Bench-Science 0.1 stieg von 24,7% auf 52,6%, Terminal-Bench 4.0 (Coding) von 42,0% auf 55,8%, OSWorld 2.0 von 72,9% auf 77,9%, Humanity's Last Exam (ohne Tools) von 57,8% auf 60,9%. Eine zugangsbeschränkte Schwester-Variante, Claude Mythos 5.1, behält volle Cyber-/Bio-Fähigkeiten nur für geprüfte US-Organisationen. Praktische Relevanz für einen Microsoft-Partner: verbreitert die Multi-Modell-Story auf Azure AI Foundry (Claude als Alternative/Ergänzung zu OpenAI-Modellen für coding- und recherchelastige Kunden-Workloads verkaufen), und die um 75% günstigeren Cache-Reads senken spürbar die Kostenschätzungen für agentische Lösungen mit starker Context-Wiederverwendung - es lohnt sich, kürzlich erstellte Fable-5-basierte Kostenmodelle für Kunden zu überarbeiten.",
+        "sources": [
+          {
+            "label": "Anthropic: Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+            "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+          },
+          {
+            "label": "Microsoft Foundry Blog: Claude Fable 5.1 is now available in Microsoft Foundry",
+            "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/claude-fable-5-1-is-now-available-in-microsoft-foundry/4550175"
+          }
+        ]
+      },
+      {
+        "title": "MAI-Transcribe-2: Preissenkung und erweiterte Verfügbarkeit in Microsoft Foundry",
+        "product": "Azure AI Services (Speech / Microsoft Foundry)",
+        "date": "2026-09-03",
+        "relevance": "medium",
+        "description": "Microsofts hauseigenes Transkriptionsmodell MAI-Transcribe-2 erhielt eine befristete Preissenkung auf 0,10 USD pro Stunde Audio (bis Ende 2026), gegenüber 0,36 USD/Stunde beim Build-2026-Debüt (ca. -72%). Microsoft beansprucht die 10-fache Geschwindigkeit von OpenAIs GPT-Transcribe, die 7-fache von ElevenLabs Scribe v2 und die 5-fache von Googles Gemini 3.5 Transcribe, bei einer durchschnittlichen Wortfehlerrate von 5,2% auf dem FLEURS-Benchmark über 60 Sprachen (Platz 1 auf diesem Leaderboard; Platz 2 auf dem WER-Leaderboard von Artificial Analysis, aber führend auf dessen Genauigkeits-Latenz-Pareto-Front). Zu den Funktionen zählen Speaker-Diarisierung, wortgenaue Zeitstempel, Keyword-Biasing, Code-Switching (z.B. Hinglish/Spanglish) sowie Verbatim- vs. bereinigte Transkriptionsmodi. Verfügbar in Microsoft Foundry, MAI Playground und OpenRouter. Praktische Relevanz für einen Microsoft-Partner: eine deutlich günstigere und schnellere Speech-to-Text-Option für Call-Center-Analytics-, Meeting-Transkriptions- oder Compliance-Aufzeichnungs-Angebote auf Azure - lohnt sich zum Benchmarking gegen bereits bei Kunden vorgeschlagene Azure-AI-Speech-/OpenAI-Whisper-Lösungen, besonders bei mehrsprachigem/code-switchendem Audio.",
+        "sources": [
+          {
+            "label": "Microsoft AI: MAI-Transcribe-2 is the fastest, most accurate and cheapest speech recognition model in the world",
+            "url": "https://microsoft.ai/news/mai-transcribe-2-is-the-fastest-most-accurate-and-cheapest-speech-recognition-model-in-the-world/"
+          }
+        ]
+      },
+      {
+        "title": "Regionale und EU-Data-Zone-Preiserhöhungen bei Microsoft Foundry treten in Kraft",
+        "product": "Azure OpenAI Service / Microsoft Foundry Pricing",
+        "date": "2026-09-01",
+        "relevance": "high",
+        "description": "Seit dem 1. September 2026 berechnet Microsoft Foundry (Azure OpenAI) geografiebasierte Preisaufschläge: EU-Data-Zone-Deployments kosten nun 9% mehr als Global Pricing, andere Nicht-US-Regionen 7-16% mehr, und eine neu gestartete APAC Data Zone trägt einen Aufschlag von 20% gegenüber Global. Bei Standard-(Pay-as-you-go)-Deployments gilt der Aufschlag nur für Modelle, die ab dem 1. September 2026 erstmals gestartet wurden - Kunden, die bei bereits deployten Modellen bleiben, sehen keine Erhöhung -, bei Provisioned Throughput Units (PTU) gilt die Erhöhung jedoch für alle EU-Data-Zone- oder Nicht-US-Regional-PTU-Kunden unabhängig vom Modellalter. Praktische Relevanz für einen Microsoft-Partner: betrifft direkt Kostenangebote für jeden Kunden mit EU-/regionalen Datenresidenz-Anforderungen (häufig in regulierten Branchen) - besonders bestehende PTU-Verpflichtungen, die nicht bestandsgeschützt sind: bestehende Kunden-PTU-Verträge in EU-/regionalen Zonen jetzt prüfen und die neuen Aufschläge in neue Foundry-Deployment-Angebote für EU-Kunden einpreisen.",
+        "sources": [
+          {
+            "label": "Microsoft Foundry Blog: Microsoft Foundry Model Deployment Pricing Update",
+            "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/microsoft-foundry-model-deployment-pricing-update/4535385"
+          }
+        ]
+      },
+      {
+        "title": "GitHub Copilot wechselt zu vorausbezahlter Sitzplatz-Abrechnung",
+        "product": "GitHub Copilot",
+        "date": "2026-08-28",
+        "relevance": "high",
+        "description": "GitHub kündigte am 28. August an, dass alle neuen Copilot-Business-/Enterprise-Sitzplatzzuweisungen künftig vor Nutzungsfreigabe im Voraus bezahlt werden müssen: wirksam ab 1. September 2026 für Neuanmeldungen und ab 1. Oktober 2026 für Bestandskunden. Enthaltene Nutzung wird pro Abrechnungszyklus im Voraus berechnet, ohne anteilige Rückerstattung bei Sitzplatz-Entzug, während Sitzplatz-Ergänzungen mitten im Zyklus weiterhin anteilig berechnet werden und die Stückpreise unverändert bleiben. Zusätzlich konsolidiert GitHub Copilot Chat auf github.com, Copilot Chat in GitHub Mobile und den Cloud-Coding-Agent zu einer einheitlichen Erfahrung (frühestens ab 28. September 2026, standardmäßig aktiviert), verlängert die Chat-Datenspeicherung von 28 Tagen auf die Lebensdauer des Kontos und stellt die Standard-Review-Tiefe von Lite auf Balanced um. Praktische Relevanz für einen Microsoft-Partner: Beschaffungs-/Lizenzgespräche mit Kunden müssen vor dem Umstellungstermin am 1. Oktober für Bestandsmandanten auf den Wechsel von Pay-as-you-go zu vorausbezahlten Sitzplätzen hinweisen, und Admins sollten die neuen Standardeinstellungen für Chat-Speicherung und Review-Tiefe vor dem 28. September prüfen, falls aktuelle Richtlinien (z.B. Datenspeicherungs-Vorgaben) von den alten Standardwerten abhängen.",
+        "sources": [
+          {
+            "label": "GitHub Changelog: Upcoming changes to GitHub Copilot policies and billing",
+            "url": "https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing/"
+          }
+        ]
+      },
+      {
+        "title": "Copilot Studio GitHub-Copilot-Harness: nutzungsbasierte Abrechnung für Pre-GA-Agents beginnt",
+        "product": "Microsoft Copilot Studio",
+        "date": "2026-09-01",
+        "relevance": "medium",
+        "description": "Nach der allgemeinen Verfügbarkeit (GA) des GitHub-Copilot-Harness in Copilot Studio (3. August 2026) für den Bau langfristiger, mehrstufiger autonomer Agents mit Frontier-Reasoning-Modellen (genannt: Opus 5, GPT-5.6 Sol, Fable 5) wechseln alle vor diesem GA-Datum erstellten Agents/Workflows ab dem 1. September 2026 auf das nutzungsbasierte Copilot-Credits-Abrechnungsmodell des Harness - Credits werden bereits ab dem Erstellungsprozess verbraucht (natürlichsprachliche Autorenschaft, Vorschau/Test, Generierung von Evaluierungen), und der Verbrauch ist über das bestehende Power-Platform-Admin-Center-Reporting einsehbar. Praktische Relevanz für einen Microsoft-Partner: alle vor dem 3. August erstellten Copilot-Studio-Agents bei Kunden brauchen jetzt eine Kostenüberprüfung, da sie auf gemessenen Credit-Verbrauch umgestellt wurden - proaktiv Pre-GA-Agents und -Workflows in Kundenmandanten prüfen, um Abrechnungsüberraschungen zu vermeiden, und dies als Gelegenheit nutzen, um Beratung zur Harness-Auswahl (GitHub-Copilot-Harness vs. Standard-Harness) für neue Agent-Builds anzubieten.",
+        "sources": [
+          {
+            "label": "M365 Admin: Copilot Studio - Billing for GitHub Copilot harness built agents begins September 1, 2026",
+            "url": "https://m365admin.handsontek.net/copilot-studio-billing-github-copilot-harness-built-agents-begins-september-1-2026/"
+          },
+          {
+            "label": "GitHub Changelog: Upcoming changes to GitHub Copilot policies and billing",
+            "url": "https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing/"
+          }
+        ]
+      }
+    ]
+  },
+  "products": {
+    "summary": "Neben der milliardenschweren Nvidia-Übernahme von Hugging Face (siehe Business News) prägte diese Woche eine Welle an Enterprise-AI-Funding-Runden (Wonderful, HiddenLayer, AfterQuery, AIR, Empirik) sowie Produktupdates von Perplexity (On-Device-Hybrid-Compute) und Notion (Agent-Edit-Vorschläge).",
+    "items": [
+      {
+        "name": "Thinking Machines Lab in Gesprächen über 1-Mrd.-USD-Runde bei 40-Mrd.-USD-Bewertung",
+        "date": "2026-09-03",
+        "relevance": "high",
+        "description": "Mira Muratis Thinking Machines Lab verhandelt Berichten zufolge über eine Finanzierungsrunde von mindestens 1 Milliarde USD bei einer Pre-Money-Bewertung von über 40 Mrd. USD; Bestandsinvestor Accel führt Gespräche über die Leitung der Runde, Nvidia (bereits Investor/Infrastrukturpartner) könnte sich ebenfalls beteiligen. Das wäre etwa das 4-fache der 10-Mrd.-USD-Bewertung vom Juli 2025 nach einer 2-Mrd.-USD-Runde, aber unter den über 50 Mrd. USD, die Ende letzten Jahres angestrebt wurden. Das Unternehmen erzielt Berichten zufolge einen annualisierten Umsatz im niedrigen dreistelligen Millionenbereich mit Tools, die es Unternehmen erlauben, KI-Modelle mit eigenen Daten anzupassen, und veröffentlicht daneben kostenlose Open-Weight-Modelle.",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/09/03/accel-reportedly-in-talks-to-lead-1b-round-for-thinking-machines-at-40b-valuation/"
+          },
+          {
+            "label": "The Information",
+            "url": "https://www.theinformation.com/articles/thinking-machines-lab-talks-raise-billions-roughly-40-billion-valuation"
+          }
+        ]
+      },
+      {
+        "name": "Wonderful sammelt 550 Mio. USD Series C bei 5-Mrd.-USD-Bewertung",
+        "date": "2026-09-02",
+        "relevance": "high",
+        "description": "Das israelisch-niederländische Enterprise-\"AI-Betriebssystem\"-Startup Wonderful sammelte rund 550 Mio. USD in einer von Insight Partners angeführten Series C (mit Beteiligung von Salesforce, Index Ventures, IVP, Vine Ventures, 9Yards und Bessemer) ein und mehr als verdoppelte damit seine Bewertung auf 5 Mrd. USD - nur sechs Monate nach einer 2-Mrd.-USD-Runde im März 2026. Das Anfang 2025 gegründete Unternehmen hat nun über 800 Mio. USD insgesamt eingesammelt, verzeichnet eine geschätzte jährliche Umsatzrate von 70 Mio. USD (bis Jahresende über 100 Mio. USD erwartet) und ist in über 35 Märkten aktiv.",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/09/02/wonderful-more-than-doubles-its-valuation-to-5b-in-under-6-months/"
+          },
+          {
+            "label": "Bloomberg",
+            "url": "https://www.bloomberg.com/news/articles/2026-09-02/ai-startup-wonderful-raises-funds-at-5-billion-valuation"
+          }
+        ]
+      },
+      {
+        "name": "HiddenLayer sammelt 100 Mio. USD Series B für Agent-/Runtime-Sicherheit",
+        "date": "2026-09-02",
+        "relevance": "high",
+        "description": "Der AI-Sicherheitsanbieter HiddenLayer sammelte eine von Delta-v Capital angeführte Series B über 100 Mio. USD (mit Booz Allen Ventures, Microsofts M12, Morgan Stanley und Ten Eleven Ventures) ein und kommt damit auf über 155 Mio. USD Gesamtfinanzierung - eine der größten Runden überhaupt für ein reines AI-Sicherheitsunternehmen. Das Unternehmen aus Austin wird seine Agentic-Runtime-Security-Plattform sowie das neu gestartete Produkt Agent Harness Security ausbauen, das Überwachung/Blockierung von Manipulation, Tool-Missbrauch und unautorisierten Aktionen auf AI-Coding-Agents in Produktion ausweitet.",
+        "sources": [
+          {
+            "label": "SecurityWeek",
+            "url": "https://www.securityweek.com/hiddenlayer-raises-100-million-for-ai-runtime-security/"
+          },
+          {
+            "label": "PR Newswire (HiddenLayer)",
+            "url": "http://www.prnewswire.com/news-releases/hiddenlayer-raises-100m-series-b-to-advance-trustworthy-ai-302867783.html"
+          }
+        ]
+      },
+      {
+        "name": "AfterQuery wird schnellstes Unicorn in der Geschichte von Y Combinator bei 3,2 Mrd. USD",
+        "date": "2026-09-01",
+        "relevance": "medium",
+        "description": "Das AI-Trainingsdaten-Startup AfterQuery (aus dem YC-Winter-2025-Batch, Gründer 22-23 Jahre alt) erreichte eine Bewertungsrunde von 3,2 Mrd. USD - nur fünf Monate nach einer 30-Mio.-USD-Series-A bei 300-Mio.-USD-Bewertung im April 2026 - laut YC-Partner Gustaf Alströmer die schnellste Launch-zu-Unicorn-Entwicklung in der YC-Geschichte. AfterQuery beschäftigt Ärzte, Anwälte und andere Fachleute zur Erstellung von Modell-Trainingsdaten für große AI-Labs, nach dem Vorbild von Mercor und Scale AI; im April meldete das Unternehmen eine annualisierte Umsatzrate von 100 Mio. USD.",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/09/01/afterquery-reportedly-becomes-y-combinators-fastest-ever-unicorn-now-valued-at-3-2b/"
+          }
+        ]
+      },
+      {
+        "name": "Perplexity startet Hybrid Compute für Mac",
+        "date": "2026-09-01",
+        "relevance": "high",
+        "description": "Perplexitys Computer-Agent für Mac verteilt agentische Workflows jetzt zwischen Cloud und On-Device-Modellen: Cloud-Modelle übernehmen weiterhin Recherche, Planung und langfristiges Reasoning, aber wenn ein lokaler Klassifikator sensible Daten erkennt (Namen, E-Mails, Kontonummern, vertrauliche Dateien), wird der Nutzer gefragt, ob dieser Schritt on-device bleiben, maskiert oder trotzdem in die Cloud gesendet werden soll. Voraussetzungen: Apple Silicon, macOS 15+, mindestens 24 GB Unified Memory (32 GB empfohlen); enthält lokale Modelle wie PPLX Qwen 3.8 27B, Gemma 4 E4B und Qwen3.6 35B-A3B. Ab sofort für Perplexity-Pro-, Max- und Enterprise-Abonnenten verfügbar. Perplexity hat zudem den PII-Klassifikator, der die Lokal-/Cloud-Routing-Entscheidung trifft, zusammen mit der zugehörigen \"PII-TRACE\"-Forschung als Open Source veröffentlicht.",
+        "sources": [
+          {
+            "label": "Perplexity Blog",
+            "url": "https://www.perplexity.ai/hub/blog/introducing-hybrid-compute-on-mac"
+          },
+          {
+            "label": "9to5Mac",
+            "url": "https://9to5mac.com/2026/09/01/perplexity-launches-privacy-minded-hybrid-compute-ai-feature-for-mac/"
+          }
+        ]
+      },
+      {
+        "name": "AIR tritt mit 50 Mio. USD aus dem Stealth-Modus, um die Lieferkette von AI-Agents abzusichern",
+        "date": "2026-09-01",
+        "relevance": "medium",
+        "description": "Das in Tel Aviv ansässige Unternehmen AIR (gegründet von den Unit-8200-Veteranen Yair Saban und Niv Hoffman) sammelte 50 Mio. USD in zwei Seed-Tranchen (10 Mio. USD angeführt von Sequoia, danach 40 Mio. USD angeführt von Greenoaks) ein, um Unternehmen dabei zu helfen, die von ihren AI-Agents genutzten Skills, Plugins, MCP-Server und andere Erweiterungen kontinuierlich zu entdecken, zu prüfen und zu überwachen - vor und nach dem Rollout - und Zugriffe unternehmensweit zu widerrufen, wenn etwas als bösartig, verwundbar oder nicht genehmigt eingestuft wird.",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/09/01/air-raises-50m-to-help-companies-vet-the-skills-and-add-ons-ai-agents-use/"
+          }
+        ]
+      },
+      {
+        "name": "Sequoia-Inkubation Empirik startet mit 21 Mio. USD zur Ausfallvorhersage",
+        "date": "2026-09-01",
+        "relevance": "medium",
+        "description": "Empirik, ein AI-Observability-Startup, das Infrastruktur-Ausfälle durch Ableitung der Ripple-Effekte von Systemänderungen vorhersagt, wurde als eigenständiges Unternehmen mit einer von Sequoia angeführten 21-Mio.-USD-Seed-Runde (mit Canapi und Alumni Ventures) aus Sequoia Capital ausgegründet. Unter CEO Kartik Chandrayana (ehemals CPO bei Quantum Metric / VP Observability bei Salesforce) zählt Empirik bereits S&P Global und Guardant Health zu seinen Kunden und positioniert sich als ergänzende Schicht zu AI-SRE-Plattformen wie Resolve und Traversal.",
+        "sources": [
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/09/01/sequoia-incubated-empirik-launches-with-21m-to-predict-outages-before-they-happen/"
+          }
+        ]
+      },
+      {
+        "name": "Notion führt Agent-Edit-Vorschläge ein",
+        "date": "2026-08-28",
+        "relevance": "medium",
+        "description": "Notions AI-Agents können jetzt Änderungen vorschlagen, statt sie direkt anzuwenden: Nutzer bitten einen Agent, \"Änderungen vorzuschlagen\", und der Agent liefert vorgeschlagene Modifikationen, die einzeln genehmigt werden können - nützlich für zeilenweise Verfeinerungen wie Grammatik- oder Formulierungskorrekturen, ohne dem Agent die volle Schreibkontrolle zu überlassen.",
+        "sources": [
+          {
+            "label": "Notion Release Notes",
+            "url": "https://www.notion.com/releases"
+          }
+        ]
+      }
+    ]
+  },
+  "industry": {
+    "summary": "Das EU-KI-Büro eröffnete seine erste Durchsetzungsmaßnahme unter dem AI Act und sandte formelle Informationsanfragen an OpenAI, Anthropic und Google zu Modellsicherheit und Trainingsdaten, während Anthropic sein Enterprise-Datenmodell mit kundenseitig gehaltener Missbrauchsüberwachung nach einem Sommer voller AI-Agent-Sicherheitsvorfälle grundlegend überarbeitete.",
+    "items": [
+      {
+        "title": "EU-KI-Büro sendet erste Durchsetzungs-Auskunftsersuchen an OpenAI, Anthropic, Google",
+        "description": "Am 29. August 2026 bestätigte die Exekutiv-Vizepräsidentin der Kommission, Henna Virkkunen, dass das Europäische KI-Büro formelle Auskunftsersuchen (RFIs) an Anbieter von General-Purpose-AI-Modellen in verschiedenen Regionen gesandt hat - laut Euractiv-Berichten an OpenAI, Anthropic und Google -, was die erste Aufsichtsmaßnahme des KI-Büros seit Inkrafttreten der GPAI-Durchsetzungsbefugnisse am 2. August 2026 markiert. Es handelt sich um zwei separate RFIs: eines zu Modellsicherheit, unabhängigen externen Evaluierungen und Post-Market-Monitoring; ein weiteres fordert Zusammenfassungen der Trainingsdaten-Inhalte von Anbietern, die diese noch nicht veröffentlicht oder in informelle Compliance-Gespräche eingetreten waren. Virkkunen verband die Maßnahme mit \"einer Reihe von Vorfällen im Sommer\" rund um Frontier-Modelle. Nicht konforme, unvollständige oder irreführende Antworten können Bußgelder von bis zu 15 Mio. EUR oder 3% des weltweiten Jahresumsatzes auslösen, je nachdem, was höher ist; die Kommission hat keine offizielle Liste der Empfänger veröffentlicht.",
+        "sources": [
+          {
+            "label": "Superpower Daily - EU Seeks AI Act Answers From 30-Plus Companies",
+            "url": "https://superpowerdaily.com/posts/eu-seeks-ai-act-answers-from-30-plus-companies-with-fines-for-misleading-replies"
+          },
+          {
+            "label": "Tokenstead - EU AI Act Enforcement Begins",
+            "url": "https://tokenstead.ai/guides/eu-ai-act-first-enforcement-security-rfis"
+          },
+          {
+            "label": "European Commission - AI Act enforcement policy page",
+            "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+          }
+        ]
+      },
+      {
+        "title": "Anthropic überarbeitet Enterprise-Datenmodell mit kundenseitig gehaltenen Frontier Safeguards",
+        "description": "Anthropic kündigte am 1. September 2026 Enterprise Frontier Safeguards (EFS) an und ersetzt damit den bisherigen Enterprise-Datenspeicherungsansatz nach Kundenkritik. EFS speichert Missbrauchsüberwachungs-Aktivitätsprotokolle im eigenen Cloud-Konto des Kunden (AWS S3, Azure Blob Storage oder Google Cloud Storage) unter vom Kunden kontrollierten Verschlüsselungsschlüsseln, statt in Anthropics Systemen, während Anthropics automatisierte Systeme die Daten weiterhin auf Missbrauchsmuster analysieren (z.B. Betrug, Credential-Diebstahl, Cyberangriffe) - ohne menschliche Prüfung durch Anthropic-Mitarbeiter. Die Ankündigung nennt explizit \"substanzielle Hinweise auf versuchten Missbrauch\" als das zugrunde liegende Problem: Frontier-Modelle wie Claude benötigen sitzungsübergreifende Datenspeicherung, um ausgeklügelten Missbrauch zu erkennen, aber regulierte Unternehmen hatten Einwände dagegen, dass Anthropic diese Daten hält. EFS wurde gemeinsam mit über 100 Kunden entwickelt, darunter ein Viertel der Fortune 100 und jede US-amerikanische global systemrelevante Bank, u.a. CISOs von Goldman Sachs, Morgan Stanley, Citi, Bank of America und Wells Fargo über das Analysis and Resilience Center for Systemic Risk. Der Dienst ist kostenlos und wird ab Herbst 2026 schrittweise ausgerollt.",
+        "sources": [
+          {
+            "label": "Anthropic - Developing Enterprise Frontier Safeguards with our customers",
+            "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards"
+          },
+          {
+            "label": "MarkTechPost - Anthropic Introduces Enterprise Frontier Safeguards (EFS)",
+            "url": "https://www.marktechpost.com/2026/09/02/anthropic-enterprise-frontier-safeguards-efs/"
+          }
+        ]
+      }
+    ]
+  },
+  "business": {
+    "summary": "Der größte Business-Move der Woche war Nvidias 12,9-Mrd.-USD-Übernahme von Hugging Face, dazu eine 3,5-Mrd.-USD-Chip-Investition von Nvidia in MediaTek, ein 35-Mrd.-USD-Cloud-Compute-Deal von Anthropic mit Lambda, Moonshot AIs vertrauliche Hongkong-IPO-Anmeldung sowie die geplanten Abschaltungen von Google Assistant und den Grok-Companion-Avataren.",
+    "items": [
+      {
+        "company": "Nvidia / Hugging Face",
+        "description": "Nvidia kündigte am 3. September an, die Open-Source-AI-Plattform Hugging Face (über 18 Mio. Entwickler, über 3 Mio. Modelle) für rund 12,9 Mrd. USD zzgl. bis zu 1 Mrd. USD Retention-Boni zu übernehmen - Nvidias zweitgrößter Deal überhaupt nach dem ca. 20-Mrd.-USD-Asset-Kauf von Groq. CEO Jensen Huang sagte, die Plattform bleibe offen und benötige kein Nvidia-Compute.",
+        "sources": [
+          {
+            "label": "NVIDIA Blog",
+            "url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/"
+          },
+          {
+            "label": "TechCrunch",
+            "url": "https://techcrunch.com/2026/09/03/nvidia-confirms-it-will-buy-hugging-face-for-12-9-billion/"
+          },
+          {
+            "label": "Bloomberg",
+            "url": "https://www.bloomberg.com/news/articles/2026-09-03/nvidia-agrees-to-13-billion-deal-for-ai-platform-hugging-face"
+          }
+        ]
+      },
+      {
+        "company": "Nvidia / MediaTek",
+        "description": "Nvidia vereinbarte um den 1. September eine Investition von 3,5 Mrd. USD in MediaTek (Kauf von ca. 90% einer 3,9-Mrd.-USD-Wandelanleihe), wobei MediaTek Nvidias NVLink Fusion für kundenspezifische AI-Beschleuniger übernimmt und die Zusammenarbeit bei PC- und Automotive-Chips ausgeweitet wird.",
+        "sources": [
+          {
+            "label": "NVIDIA Newsroom",
+            "url": "https://nvidianews.nvidia.com/news/nvidia-and-mediatek-deepen-long-standing-partnership-to-build-ai-edge-to-cloud-computing-platforms"
+          },
+          {
+            "label": "CNBC",
+            "url": "https://www.cnbc.com/2026/09/01/nvidia-deal-mediatek-shares.html"
+          }
+        ]
+      },
+      {
+        "company": "Anthropic / Lambda",
+        "description": "Anthropic unterzeichnete am 31. August einen 35-Mrd.-USD-Compute-Deal mit dem Nvidia-unterstützten Cloud-Anbieter Lambda für rund 350 Megawatt GPU-Kapazität in einem neuen, von Hut 8 entwickelten Rechenzentrum in Nueces County, Texas - zusätzlich zum wenige Tage zuvor geschlossenen 45-Mrd.-USD-Nscale-Deal.",
+        "sources": [
+          {
+            "label": "Bloomberg (via BIC Magazine)",
+            "url": "https://www.bicmagazine.com/departments/AI-Infrastructure/anthropic-signs-35b-ai-cloud-deal-tied-to-texas-data-center/"
+          }
+        ]
+      },
+      {
+        "company": "Moonshot AI",
+        "description": "Der chinesische AI-Anbieter Moonshot AI reichte am 3. September vertraulich eine Hongkong-IPO-Anmeldung über rund 3 Mrd. USD bei einer Bewertung von 50 Mrd. USD ein, nachdem das Unternehmen zuvor als Börsenvoraussetzung seine Offshore-Struktur nach Festlandchina umgezogen hatte; Goldman Sachs, CICC und Deutsche Bank sind beteiligt.",
+        "sources": [
+          {
+            "label": "Reuters (via Tech Startups)",
+            "url": "https://techstartups.com/2026/09/03/chinese-ai-startup-moonshot-files-for-3-billion-hong-kong-ipo-at-50-billion-valuation/"
+          }
+        ]
+      },
+      {
+        "company": "Google",
+        "description": "Google begann am 4. September, Google Assistant dauerhaft von Android-Smartphones, -Tablets, Wear OS und Android Auto zu entfernen und durch Gemini als Standard-Mobil-Assistent zu ersetzen - eine Rückkehr zu Assistant ist nach der Migration nicht mehr möglich.",
+        "sources": [
+          {
+            "label": "9to5Google",
+            "url": "https://9to5google.com/2026/08/04/google-assistant-september-2026-shutdown/"
+          },
+          {
+            "label": "MLQ News",
+            "url": "https://mlq.ai/news/google-assistant-starts-disappearing-september-4-heres-what-android-users-need-to-know/"
+          }
+        ]
+      },
+      {
+        "company": "xAI",
+        "description": "xAI zog am 1. September die animierten 3D-Grok-\"Companions\" (Ani, Valentine, Mika, Rudi) aus der Grok-App zurück und verlagerte die Avatare in eine separate App namens Animates, während die Charakter-Persönlichkeiten im regulären Grok-Chat weiterhin verfügbar bleiben.",
+        "sources": [
+          {
+            "label": "Robo Rhythms",
+            "url": "https://www.roborhythms.com/grok-companions-discontinued/"
+          }
+        ]
+      }
+    ]
+  }
+}
